@@ -66,7 +66,7 @@ docs: ## Build the project documentation
 
 install: ## Install the project
 	@echo $(STATUS) Installing...
-	@npm install
+	@pnpm install
 
 kill: ## Kill the project
 	@echo $(STATUS) Killing...

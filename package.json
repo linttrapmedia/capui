@@ -2,7 +2,7 @@
   "name": "@linttrap/cui",
   "author": "@linttrapmedia",
   "title": "cui",
-  "version": "0.0.10",
+  "version": "0.0.1",
   "description": "Cut and paste ui web components.",
   "type": "module",
   "exports": {
@@ -29,6 +29,7 @@
     "dompurify": "^3.0.9",
     "esbuild": "^0.14.27",
     "http-server": "^14.1.1",
+    "pnpm": "^9.0.2",
     "prettier": "2.7.1",
     "prismjs": "^1.29.0",
     "serve": "^14.2.1"
