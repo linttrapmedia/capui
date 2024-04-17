@@ -1,0 +1,37 @@
+{
+  "name": "@linttrap/cui",
+  "author": "@linttrapmedia",
+  "title": "cui",
+  "version": "0.0.10",
+  "description": "Cut and paste ui web components.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linttrapmedia/cui.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linttrapmedia/cui/issues"
+  },
+  "homepage": "https://github.com/linttrapmedia/cui#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.41.2",
+    "@types/dompurify": "^3.0.5",
+    "@types/node": "^20.11.19",
+    "@types/prismjs": "^1.26.3",
+    "dompurify": "^3.0.9",
+    "esbuild": "^0.14.27",
+    "http-server": "^14.1.1",
+    "prettier": "2.7.1",
+    "prismjs": "^1.29.0",
+    "serve": "^14.2.1"
+  },
+  "scripts": {}
+}
