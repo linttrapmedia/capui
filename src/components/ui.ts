@@ -18,6 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
 const html = HTML({
   attr: useAttribute(),
   style: useStyle(),
+  "style:mouseover": useStyle({
+    event: "mouseover",
+  }),
+  "style:mouseout": useStyle({
+    event: "mouseout",
+  }),
   innerHTML: useInnerHTML(),
 });
 
@@ -26,9 +32,9 @@ const colors = State<{
   secondary: string;
   accent: string;
 }>({
-  primary: "#dcdcdc",
-  secondary: "rgb(83 83 83)",
-  accent: "#818181",
+  primary: "#848383",
+  secondary: "#444444",
+  accent: "#e2e2e2",
 });
 
 const Header = () => {
@@ -36,7 +42,8 @@ const Header = () => {
     ["style", "alignItems", "center"],
     ["style", "display", "flex"],
     ["style", "flexDirection", "column"],
-    ["style", "gap", "20px"]
+    ["style", "gap", "20px"],
+    ["style", "padding", "20px"]
   )(
     // github link
     html.a(
@@ -58,7 +65,7 @@ const Header = () => {
       html.span(
         ["style", "fontFamily", "Splash"],
         ["style", "fontSize", "75px"],
-        ["style", "color", colors.get().secondary]
+        ["style", "color", colors.get().accent]
       )("cap"),
       html.span(
         ["style", "color", colors.get().primary],
@@ -68,7 +75,7 @@ const Header = () => {
         ["style", "top", "27px"],
         ["style", "padding", "7px"],
         ["style", "right", "0px"],
-        ["style", "backgroundColor", colors.get().secondary],
+        ["style", "backgroundColor", colors.get().accent],
         ["style", "borderRadius", "6px"]
       )("ui"),
       html.span(
@@ -82,10 +89,64 @@ const Header = () => {
     // tagline
     html.div(
       ["style", "color", colors.get().secondary],
-      ["style", "padding", "30px"],
       ["style", "fontSize", "32px"],
       ["style", "textAlign", "center"]
-    )("Copy & Paste UI Web Components. Ctrl+Done.")
+    )("Copy & Paste UI Web Components. Ctrl+Done."),
+    // Description
+    html.div(
+      ["style", "color", colors.get().secondary],
+      ["style", "fontSize", "21px"],
+      ["style", "textAlign", "center"]
+    )("Copy & Paste UI Web Components. Ctrl+Done."),
+    // search
+    html.div(
+      ["style", "backgroundColor", colors.get().secondary],
+      ["style", "display", "flex"],
+      ["style", "width", "100%"],
+      ["style", "maxWidth", "960px"],
+      ["style", "padding", "20px"],
+      ["style", "borderRadius", "5px"],
+      ["style", "alignItems", "center"],
+      ["style", "justifyContent", "space-between"],
+      ["style", "gap", "10px"]
+    )(
+      html.div(
+        ["style", "display", "flex"],
+        ["style", "alignItems", "center"],
+        ["style", "gap", "10px"],
+        ["style", "width", "100%"],
+        ["style", "maxWidth", "500px"],
+        ["style", "color", colors.get().accent]
+      )(
+        html.div()("$"),
+        html.input(
+          ["attr", "placeholder", "Search"],
+          ["style", "border", "none"],
+          ["style", "backgroundColor", "transparent"],
+          ["style", "fontSize", "20px"],
+          ["style", "color", colors.get().accent],
+          ["style", "width", "100%"]
+        )()
+      ),
+      html.button(
+        ["style", "backgroundColor", "transparent"],
+        ["style", "border", `1px solid ${colors.get().primary}`],
+        ["style", "padding", "15px"],
+        ["style", "whiteSpace", "nowrap"],
+        ["style", "borderRadius", "5px"],
+        ["style", "color", colors.get().primary],
+        ["style", "fontSize", "15px"],
+        ["style", "cursor", "pointer"],
+        ["style:mouseover", "color", colors.get().secondary],
+        ["style:mouseout", "color", colors.get().primary],
+        ["style:mouseover", "backgroundColor", colors.get().accent],
+        ["style:mouseout", "backgroundColor", colors.get().secondary],
+        ["style", "transition", "all 0.3s"],
+        ["style", "fontFamily", "Space Grotesk"],
+        ["style", "display", "flex"],
+        ["style", "gap", "15px"]
+      )(html.span()("Download All"), html.span()("(↓)"))
+    )
   );
 };
 
@@ -94,10 +155,36 @@ const Body = () => {
 };
 
 const Footer = () => {
-  return html.div()("Footer");
+  // <div class="footer__logo">cap ui</div>
+  // <div class="footer__text">
+  //   ©Copyright 2024 All rights reserved. Made in the USA 🇺🇸 by Kevin Lint as a product of
+  //   <a href="https://linttrap.media">Lint Trap Media</a>.
+  // </div>
+  return html.div(
+    ["style", "maxWidth", "960px"],
+    ["style", "padding", "20px"],
+    ["style", "display", "flex"],
+    ["style", "flexDirection", "column"],
+    ["style", "gap", "20px"],
+    ["style", "margin", "auto"]
+  )(
+    html.div(
+      ["style", "color", colors.get().secondary],
+      ["style", "fontSize", "20px"],
+      ["style", "textAlign", "center"]
+    )(html.div(["style", "fontSize", "20px"], ["style", "color", colors.get().accent])("cap ui")),
+    html.div(
+      ["style", "color", colors.get().secondary],
+      ["style", "fontSize", "14px"],
+      ["style", "textAlign", "center"]
+    )(
+      "©2024 All rights reserved. Made in the USA 🇺🇸 by Kevin Lint as a product of ",
+      html.a(["attr", "href", "https://linttrap.media"], ["style", "color", colors.get().secondary])("Lint Trap Media")
+    )
+  );
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
-  root(["innerHTML", () => [Header(), Body(), Footer()]]);
+  root(["innerHTML", () => [Header(), Body(), Footer()]], ["style", "backgroundColor", colors.get().primary]);
 });

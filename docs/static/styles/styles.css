@@ -48,6 +48,10 @@ body {
   width: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 code {
   font-family: monospace;
   background-color: rgba(255, 255, 255, 0.2);
@@ -68,6 +72,10 @@ code {
   background-color: var(--primary);
   border-radius: 20px;
   border: 1px solid var(--secondary);
+}
+
+input:focus {
+  outline: none;
 }
 
 .github {
