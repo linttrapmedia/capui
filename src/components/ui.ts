@@ -42,7 +42,7 @@ const Header = () => {
     ["style", "alignItems", "center"],
     ["style", "display", "flex"],
     ["style", "flexDirection", "column"],
-    ["style", "gap", "20px"],
+    ["style", "gap", "30px"],
     ["style", "padding", "20px"]
   )(
     // github link
@@ -60,7 +60,8 @@ const Header = () => {
       ["style", "position", "relative"],
       ["style", "height", "75px"],
       ["style", "width", "148px"],
-      ["style", "alignSelf", "center"]
+      ["style", "alignSelf", "center"],
+      ["style", "margin", "0 0 30px"]
     )(
       html.span(
         ["style", "fontFamily", "Splash"],
@@ -95,9 +96,16 @@ const Header = () => {
     // Description
     html.div(
       ["style", "color", colors.get().secondary],
-      ["style", "fontSize", "21px"],
+      ["style", "fontSize", "14px"],
       ["style", "textAlign", "center"]
-    )("Copy & Paste UI Web Components. Ctrl+Done."),
+    )(
+      "CAP UI is a part of the Lint Trap Media ecosystem. A powerful system for managing user interfaces with far less code and complexity than React, Angular, Vue, Htmx, or any other framework. ",
+      html.a(
+        ["attr", "href", "https://github.com/linttrapmedia"],
+        ["style", "color", colors.get().secondary],
+        ["attr", "target", "_blank"]
+      )("Learn More")
+    ),
     // search
     html.div(
       ["style", "backgroundColor", colors.get().secondary],
@@ -179,7 +187,10 @@ const Footer = () => {
       ["style", "textAlign", "center"]
     )(
       "©2024 All rights reserved. Made in the USA 🇺🇸 by Kevin Lint as a product of ",
-      html.a(["attr", "href", "https://linttrap.media"], ["style", "color", colors.get().secondary])("Lint Trap Media")
+      html.a(
+        ["attr", "href", "https://github.com/linttrapmedia"],
+        ["style", "color", colors.get().secondary]
+      )("Lint Trap Media")
     )
   );
 };
