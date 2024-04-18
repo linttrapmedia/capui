@@ -1,12 +1,13 @@
 <html lang="en">
   <head>
-    <title>capui</title>
+    <title>cap ui</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="cut and paste web components" />
     <meta name="favicon" content="/static/images/favicon.svg" />
     <link rel="stylesheet" href="/static/styles/styles.css" />
     <script defer src="/static/scripts/buttons.js"></script>
+    <script defer src="/static/scripts/ui.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0MV1R2QMP"></script>
     <script>
@@ -19,26 +20,56 @@
     </script>
   </head>
   <body>
-    <div class="github">
-      <a href="https://github.com/linttrapmedia/capui" target="_blank"
-        ><img src="static/images/github.svg" width="50%"
-      /></a>
-    </div>
+    <div id="root"></div>
+
     <div class="sections">
       <section class="section">
-        <div class="logo"><span class="logo__text">capui</span><span class="logo__version">0.0.1 </span></div>
-        <div class="tagline">Copy & Paste UI Web Components. Ctrl+Done.</div>
-      </section>
-      <section class="section">
-        <h1>Get Started</h1>
         <div class="get">
           <div class="get__text"><span style="color: skyblue">> &nbsp;</span> Copy a component from below or</div>
-          <a href="" class="get__button">Download All (↓)</a>
+          <a href="" class="get__button">Download All &nbsp;&nbsp; (↓)</a>
         </div>
       </section>
-      <section class="section">started</section>
-      <section class="section">list</section>
-      <section class="section">footer</section>
+      <section class="section">
+        <div class="components">
+          <div class="card">
+            <div class="card__header">
+              <div class="card__header__title">Accordion</div>
+              <div class="card__header__btn"></div>
+            </div>
+            <div class="card__body">Buttons are used to interact with the user.</div>
+            <div class="card__preview"></div>
+          </div>
+          <div class="card">
+            <div class="card__header">
+              <div class="card__header__title">Alerts</div>
+              <div class="card__header__btn"></div>
+            </div>
+            <div class="card__body">Buttons are used to interact with the user.</div>
+            <div class="card__preview"></div>
+          </div>
+          <div class="card">
+            <dialog>
+              <div class="dialog__header">
+                <div class="dialog__header__title">Buttons</div>
+                <button class="dialog__header__close">Close</button>
+              </div>
+            </dialog>
+            <div class="card__header">
+              <div class="card__header__title">Buttons</div>
+              <div class="card__header__btn"></div>
+            </div>
+            <div class="card__body">Buttons are used to interact with the user.</div>
+            <div class="card__preview"></div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="footer__logo">cap ui</div>
+        <div class="footer__text">
+          ©Copyright 2024 All rights reserved. Made in the USA 🇺🇸 by Kevin Lint as a product of
+          <a href="https://linttrap.media">Lint Trap Media</a>.
+        </div>
+      </section>
     </div>
   </body>
 </html>

@@ -5,9 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  pnpm:
-    specifier: ^9.0.2
-    version: 9.0.2
+  '@linttrap/oem':
+    specifier: ^0.0.13
+    version: 0.0.13
 
 devDependencies:
   '@playwright/test':
@@ -31,6 +31,9 @@ devDependencies:
   http-server:
     specifier: ^14.1.1
     version: 14.1.1
+  pnpm:
+    specifier: ^9.0.2
+    version: 9.0.2
   prettier:
     specifier: 2.7.1
     version: 2.7.1
@@ -42,6 +45,10 @@ devDependencies:
     version: 14.2.1
 
 packages:
+
+  /@linttrap/oem@0.0.13:
+    resolution: {integrity: sha512-OJxtwoOBxQ+WyRmjLsNnKVqSTT0SGi0ziIN3JqHyfKTqRbhwsNExNswkuqrMcy825EGS94FC2+MlgIIZR8G+Wg==}
+    dev: false
 
   /@playwright/test@1.41.2:
     resolution: {integrity: sha512-qQB9h7KbibJzrDpkXkYvsmiDJK14FULCCZgEcoe2AvFAS64oCirWTwzTlAYEbKaRxWs5TFesE1Na6izMv3HfGg==}
@@ -882,7 +889,7 @@ packages:
     resolution: {integrity: sha512-i+3zHeQnBbl/+JMwu+F3lUrVcDqS+olL4PtNRbXfq1miH2WoQZrRyugt0W+sLUGow0N3XoDv59q22AsECNsv1g==}
     engines: {node: '>=18.12'}
     hasBin: true
-    dev: false
+    dev: true
 
   /portfinder@1.0.32:
     resolution: {integrity: sha512-on2ZJVVDXRADWE6jnQaX0ioEylzgBpQk8r55NE4wjXW1ZxO+BgDlY6DXwj20i0V8eB4SenDQ00WEaxfiIQPcxg==}

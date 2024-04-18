@@ -34,5 +34,8 @@
     "prismjs": "^1.29.0",
     "serve": "^14.2.1"
   },
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {
+    "@linttrap/oem": "^0.0.13"
+  }
 }
