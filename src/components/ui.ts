@@ -1,4 +1,4 @@
-import { HTML, State, useAttribute, useInnerHTML, useStyle } from "@linttrap/oem";
+import { HTML, State, useAttribute, useEvent, useInnerHTML, useStyle } from "@linttrap/oem";
 
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card");
@@ -15,8 +15,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+const dialog = State<{
+  showing: boolean;
+  title?: string;
+  description?: string;
+  content?: HTMLElement | Node | string;
+}>({
+  showing: false,
+  title: "test",
+  description: "string",
+  content: "asdf",
+});
+
 const html = HTML({
   attr: useAttribute(),
+  click: useEvent("click"),
+  dialogShowing: useAttribute({ state: dialog }),
   style: useStyle(),
   "style:mouseover": useStyle({
     event: "mouseover",
@@ -97,7 +111,11 @@ const Header = () => {
     html.div(
       ["style", "color", colors.get().secondary],
       ["style", "fontSize", "14px"],
-      ["style", "textAlign", "center"]
+      ["style", "textAlign", "center"],
+      ["style", "maxWidth", "960px"],
+      ["style", "margin", "auto"],
+      ["style", "padding", "0 40px"],
+      ["style", "opacity", "0.6"]
     )(
       "CAP UI is a part of the Lint Trap Media ecosystem. A powerful system for managing user interfaces with far less code and complexity than React, Angular, Vue, Htmx, or any other framework. ",
       html.a(
@@ -158,8 +176,85 @@ const Header = () => {
   );
 };
 
+type CardProps = {
+  title: string;
+  description: string;
+  image: string;
+};
+
+const Dialog = () => {
+  return html.dialog(
+    // ["dialogShowing", "open", true],
+    ["dialogShowing", "open", () => dialog.get().showing],
+    ["style", "width", "90vw"],
+    ["style", "height", "90vh"],
+    ["style", "top", "5vh"],
+    ["style", "zIndex", "1000"],
+    ["style", "borderRadius", "5px"],
+    ["style", "border", "none"]
+  )(
+    html.div(["style", "fontSize", "21px"])(dialog.get().title),
+    html.div(["style", "fontSize", "14px"], ["style", "color", colors.get().primary])(dialog.get().description),
+    html.button(
+      ["style", "position", "absolute"],
+      ["style", "top", "10px"],
+      ["style", "right", "10px"],
+      ["click", () => dialog.set({ showing: false })],
+      ["style", "border", `1px solid ${colors.get().primary}`],
+      ["style", "backgroundColor", "transparent"],
+      ["style", "color", colors.get().primary],
+      ["style", "fontSize", "14px"],
+      ["style", "cursor", "pointer"],
+      ["style", "borderRadius", "5px"],
+      ["style", "padding", "5px 15px"]
+    )("close")
+  );
+};
+
+const Card = ({ title, description, image }: CardProps) => {
+  return html.div(
+    ["click", () => dialog.set({ showing: true })],
+    ["style", "backgroundColor", "rgba(0,0,0,0.1)"],
+    ["style", "borderRadius", "5px"],
+    ["style", "padding", "20px"],
+    ["style", "display", "flex"],
+    ["style", "flexDirection", "column"],
+    ["style", "gap", "10px"],
+    ["style", "position", "relative"],
+    ["style", "cursor", "pointer"],
+    ["style:mouseover", "boxShadow", "rgba(0, 0, 0, 0.4) 10px 10px 2px"],
+    ["style:mouseout", "boxShadow", "none"],
+    ["style", "transition", "all 0.3s"],
+    ["style", "borderRadius", "5px"]
+  )(
+    // html.img(["attr", "src", image], ["style", "width", "100%"], ["style", "borderRadius", "5px"])(),
+    html.div(
+      ["style", "color", colors.get().accent],
+      ["style", "fontSize", "20px"],
+      ["style", "textAlign", "center"]
+    )(title),
+    html.div(
+      ["style", "color", colors.get().secondary],
+      ["style", "fontSize", "14px"],
+      ["style", "textAlign", "center"]
+    )(description)
+  );
+};
+
+const lib = [{ title: "Buttons", description: "A simple button component", image: "static/images/button.svg" }];
+
 const Body = () => {
-  return html.div()("Body");
+  return html.div(["style", "padding", "20px"])(
+    html.div(
+      ["style", "display", "grid"],
+      ["style", "justifyContent", "center"],
+      ["style", "gridTemplateColumns", "repeat(auto-fill, minmax(300px, 1fr))"],
+      ["style", "gap", "20px"],
+      ["style", "maxWidth", "960px"],
+      ["style", "margin", "auto"],
+      ["style", "width", "100%"]
+    )(...lib.map(Card))
+  );
 };
 
 const Footer = () => {
@@ -197,5 +292,5 @@ const Footer = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
-  root(["innerHTML", () => [Header(), Body(), Footer()]], ["style", "backgroundColor", colors.get().primary]);
+  root(["innerHTML", () => [Dialog(), Header(), Body(), Footer()]], ["style", "backgroundColor", colors.get().primary]);
 });
