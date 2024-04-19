@@ -24,7 +24,8 @@ help:
 clean: ## Clean the project
 	@echo $(STATUS) Cleaning...
 	@rm -rf ./node_modules
-	@rm -rf ./docs/static/scripts/*
+	@rm -rf ./docs/static/scripts/*.js
+	@rm -rf ./docs/static/scripts/*.js.map
 	@rm -rf ./dist
 
 deploy: ## Deploy the project
@@ -46,7 +47,7 @@ dev: ## Run the project in development mode
 
 dev-ts: ## Run the js in development mode
 	@echo $(STATUS) Running js in development mode...
-	@npx esbuild ./src/components/*.ts --outdir=docs/static/scripts --watch --bundle --sourcemap
+	@npx esbuild ./docs/static/scripts/index.ts --outfile=./docs/static/scripts/index.js --bundle --sourcemap --minify
 
 dev-docs: ## Run the docs in development mode
 	@echo $(STATUS) Running docs in development mode...
@@ -56,13 +57,11 @@ dist: ## Build the project for distribution
 	@echo $(STATUS) Building...
 	@rm -rf dist
 	@mkdir dist
-	@cp -v ./src/components/*.html dist/
-	@npx esbuild ./src/components/*.ts --outdir=dist --bundle --sourcemap --minify --out-extension:.js=.min.js
+	@cp -v ./docs/lib/* dist/
 	@zip -r dist/capui.zip dist
 
 docs: ## Build the project documentation
-	@npx esbuild ./src/components/*.ts --outdir=docs/static/scripts --bundle --sourcemap --minify
-	@sed -i '' -E "s/[0-9]+\.[0-9]+\.[0-9]+/$$(jq -r '.version' package.json)/g" ./docs/static/html/header.html
+	@npx esbuild ./docs/static/scripts/index.ts --outfile=./docs/static/scripts/index.js --bundle --sourcemap --minify
 
 install: ## Install the project
 	@echo $(STATUS) Installing...

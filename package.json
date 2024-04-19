@@ -26,6 +26,7 @@
     "@types/dompurify": "^3.0.5",
     "@types/node": "^20.11.19",
     "@types/prismjs": "^1.26.3",
+    "chokidar-cli": "^3.0.0",
     "dompurify": "^3.0.9",
     "esbuild": "^0.14.27",
     "http-server": "^14.1.1",

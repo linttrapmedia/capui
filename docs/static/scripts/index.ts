@@ -1,4 +1,4 @@
-import { HTML, State, useAttribute, useEvent, useInnerHTML, useStyle } from "@linttrap/oem";
+import { HTML, State, useAttribute, useClassName, useEvent, useInnerHTML, useStyle } from "@linttrap/oem";
 
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card");
@@ -22,14 +22,15 @@ const dialog = State<{
   content?: HTMLElement | Node | string;
 }>({
   showing: false,
-  title: "test",
-  description: "string",
-  content: "asdf",
+  title: "",
+  description: "",
+  content: "",
 });
 
 const html = HTML({
   attr: useAttribute(),
   click: useEvent("click"),
+  class: useClassName(),
   dialogShowing: useAttribute({ state: dialog }),
   style: useStyle(),
   "style:mouseover": useStyle({
@@ -39,6 +40,7 @@ const html = HTML({
     event: "mouseout",
   }),
   innerHTML: useInnerHTML(),
+  "innerHTML:dialog": useInnerHTML({ state: dialog }),
 });
 
 const colors = State<{
@@ -50,6 +52,30 @@ const colors = State<{
   secondary: "#444444",
   accent: "#e2e2e2",
 });
+
+const Buttons = () => {
+  return html.div(
+    ["style", "display", "flex"],
+    ["style", "flexDirection", "column"],
+    ["style", "gap", "20px"],
+    ["style", "padding", "20px"]
+  )(
+    html.button(["class", "button button--primary"])("Primary Button"),
+    html.button(["class", "button button--secondary"])("Secondary Button"),
+    html.button(["class", "button button--accent"])("Accent Button"),
+    html.button(["class", "button button--danger"])("Danger Button"),
+    html.button(["class", "button button--warning"])("Warning Button"),
+    html.button(["class", "button button--success"])("Success Button"),
+    html.button(["class", "button button--info"])("Info Button")
+  );
+};
+
+const lib = [
+  { title: "Alerts", description: "Alerts and notifications", image: "static/images/button.svg", content: Buttons() },
+  { title: "Buttons", description: "A simple button component", image: "static/images/button.svg", content: Buttons() },
+];
+
+dialog.set({ showing: true, ...lib[1] });
 
 const Header = () => {
   return html.div(
@@ -180,6 +206,7 @@ type CardProps = {
   title: string;
   description: string;
   image: string;
+  content: HTMLElement | Node | string;
 };
 
 const Dialog = () => {
@@ -191,29 +218,36 @@ const Dialog = () => {
     ["style", "top", "5vh"],
     ["style", "zIndex", "1000"],
     ["style", "borderRadius", "5px"],
-    ["style", "border", "none"]
-  )(
-    html.div(["style", "fontSize", "21px"])(dialog.get().title),
-    html.div(["style", "fontSize", "14px"], ["style", "color", colors.get().primary])(dialog.get().description),
-    html.button(
-      ["style", "position", "absolute"],
-      ["style", "top", "10px"],
-      ["style", "right", "10px"],
-      ["click", () => dialog.set({ showing: false })],
-      ["style", "border", `1px solid ${colors.get().primary}`],
-      ["style", "backgroundColor", "transparent"],
-      ["style", "color", colors.get().primary],
-      ["style", "fontSize", "14px"],
-      ["style", "cursor", "pointer"],
-      ["style", "borderRadius", "5px"],
-      ["style", "padding", "5px 15px"]
-    )("close")
-  );
+    ["style", "border", "none"],
+    [
+      "innerHTML:dialog",
+      () => {
+        return [
+          html.div(["style", "fontSize", "21px"])(dialog.get().title),
+          html.div(["style", "fontSize", "14px"], ["style", "color", colors.get().primary])(dialog.get().description),
+          html.button(
+            ["style", "position", "absolute"],
+            ["style", "top", "10px"],
+            ["style", "right", "10px"],
+            ["click", () => dialog.set({ showing: false })],
+            ["style", "border", `1px solid ${colors.get().primary}`],
+            ["style", "backgroundColor", "transparent"],
+            ["style", "color", colors.get().primary],
+            ["style", "fontSize", "14px"],
+            ["style", "cursor", "pointer"],
+            ["style", "borderRadius", "5px"],
+            ["style", "padding", "5px 15px"]
+          )("close"),
+          html.div(["style", "padding", "20px"])(dialog.get().content),
+        ];
+      },
+    ]
+  )();
 };
 
-const Card = ({ title, description, image }: CardProps) => {
+const Card = ({ title, description, content, image }: CardProps) => {
   return html.div(
-    ["click", () => dialog.set({ showing: true })],
+    ["click", () => dialog.set({ title, description, content, showing: true })],
     ["style", "backgroundColor", "rgba(0,0,0,0.1)"],
     ["style", "borderRadius", "5px"],
     ["style", "padding", "20px"],
@@ -241,8 +275,6 @@ const Card = ({ title, description, image }: CardProps) => {
   );
 };
 
-const lib = [{ title: "Buttons", description: "A simple button component", image: "static/images/button.svg" }];
-
 const Body = () => {
   return html.div(["style", "padding", "20px"])(
     html.div(
@@ -258,11 +290,6 @@ const Body = () => {
 };
 
 const Footer = () => {
-  // <div class="footer__logo">cap ui</div>
-  // <div class="footer__text">
-  //   ©Copyright 2024 All rights reserved. Made in the USA 🇺🇸 by Kevin Lint as a product of
-  //   <a href="https://linttrap.media">Lint Trap Media</a>.
-  // </div>
   return html.div(
     ["style", "maxWidth", "960px"],
     ["style", "padding", "20px"],
