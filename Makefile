@@ -23,10 +23,14 @@ help:
 
 clean: ## Clean the project
 	@echo $(STATUS) Cleaning...
-	@rm -rf ./node_modules
-	@rm -rf ./docs/static/scripts/*.js
-	@rm -rf ./docs/static/scripts/*.js.map
 	@rm -rf ./dist
+	@rm -f ./public/scripts/docs.js
+
+nuke: ## Clean the project
+	@echo $(STATUS) Cleaning...
+	@rm -rf ./dist
+	@rm -rf ./node_modules
+	@rm -f ./public/scripts/docs.js
 
 deploy: ## Deploy the project
 	@echo $(STATUS) Deploying...
@@ -47,21 +51,22 @@ dev: ## Run the project in development mode
 
 dev-ts: ## Run the js in development mode
 	@echo $(STATUS) Running js in development mode...
-	@npx esbuild ./docs/static/scripts/index.ts --outfile=./docs/static/scripts/index.js --bundle --sourcemap --minify
+	@npx esbuild ./docs/index.ts --outfile=./public/scripts/docs.js --bundle --sourcemap --minify --watch
 
 dev-docs: ## Run the docs in development mode
 	@echo $(STATUS) Running docs in development mode...
-	@npx http-server docs --gzip
+	@npx http-server public --gzip
 
 dist: ## Build the project for distribution
 	@echo $(STATUS) Building...
 	@rm -rf dist
 	@mkdir dist
-	@cp -v ./docs/lib/* dist/
+	@rsync -avm --include='*/' --include='*.js' --include='*.css' --exclude='*' ./public/components/ ./dist/
+	@find ./dist -type f -name '*.vars.css' -exec cat {} + > ./dist/vars.css
 	@zip -r dist/capui.zip dist
 
-docs: ## Build the project documentation
-	@npx esbuild ./docs/static/scripts/index.ts --outfile=./docs/static/scripts/index.js --bundle --sourcemap --minify
+build: ## Build the project documentation
+	@npx esbuild ./docs/index.ts --outfile=./public/scripts/docs.js --bundle --sourcemap --minify
 
 install: ## Install the project
 	@echo $(STATUS) Installing...

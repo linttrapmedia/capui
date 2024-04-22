@@ -1,0 +1,122 @@
+/* Base Button Styles */
+.button {
+  padding: var(--button-medium-padding);
+  font-size: var(--button-medium-font-size);
+  color: var(--button-primary-text);
+  background-color: var(--button-primary-bg);
+  border: 1px solid transparent;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.5;
+  user-select: none;
+  outline: none;
+}
+
+/* Size Modifiers */
+.button--small {
+  font-size: var(--button-small-font-size);
+  padding: var(--button-small-padding);
+}
+.button--medium {
+  font-size: var(--button-medium-font-size);
+  padding: var(--button-medium-padding);
+}
+.button--large {
+  font-size: var(--button-large-font-size);
+  padding: var(--button-large-padding);
+}
+
+/* Color Modifiers */
+.button--primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+.button--secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+}
+.button--success {
+  background-color: var(--button-success-bg);
+  color: var(--button-success-text);
+}
+.button--danger {
+  background-color: var(--button-danger-bg);
+  color: var(--button-danger-text);
+}
+.button--warning {
+  background-color: var(--button-warning-bg);
+  color: var(--button-warning-text);
+}
+.button--info {
+  background-color: var(--button-info-bg);
+  color: var(--button-info-text);
+}
+
+/* Shape Modifiers */
+.button--block {
+  display: block;
+  width: 100%;
+}
+.button--rounded {
+  border-radius: 20px;
+}
+.button--circle {
+  border-radius: 50%;
+  width: var(--button-circle-size);
+  height: var(--button-circle-size);
+  padding: 0;
+}
+
+/* Other Modifiers */
+.button--outline {
+  background: none;
+  border-color: var(--button-outline-border);
+}
+.button--ghost {
+  background: none;
+  color: inherit;
+  border: none;
+}
+.button--disabled {
+  opacity: var(--button-disabled-opacity);
+  cursor: not-allowed;
+}
+.button--loading {
+  pointer-events: none;
+  position: relative;
+}
+.button--loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid var(--button-loading-spinner-color);
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframes for Loading Spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Icon Support */
+.button__icon {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
