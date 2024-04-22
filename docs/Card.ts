@@ -1,15 +1,9 @@
 import { colors, dialog, html } from "./config";
+import { Component } from "./typings";
 
-type CardProps = {
-  title: string;
-  description: string;
-  image: string;
-  content: HTMLElement | Node | string;
-};
-
-export const Card = ({ title, description, content, image }: CardProps) => {
+export const Card = (component: Component) => {
   return html.div(
-    ["click", () => dialog.set({ title, description, content, showing: true })],
+    ["click", () => dialog.set({ ...component, showing: true })],
     ["style", "backgroundColor", "rgba(0,0,0,0.1)"],
     ["style", "borderRadius", "5px"],
     ["style", "padding", "20px"],
@@ -28,11 +22,11 @@ export const Card = ({ title, description, content, image }: CardProps) => {
       ["style", "color", colors.get().accent],
       ["style", "fontSize", "20px"],
       ["style", "textAlign", "center"]
-    )(title),
+    )(component.title),
     html.div(
       ["style", "color", colors.get().secondary],
       ["style", "fontSize", "14px"],
       ["style", "textAlign", "center"]
-    )(description)
+    )(component.description)
   );
 };

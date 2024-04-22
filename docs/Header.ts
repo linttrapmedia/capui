@@ -55,7 +55,7 @@ export const Header = () => {
       ["style", "color", colors.get().secondary],
       ["style", "fontSize", "32px"],
       ["style", "textAlign", "center"]
-    )("Copy & Paste UI Web Components. Ctrl+Done."),
+    )("The Cut & Paste UI, Ctrl+Done."),
     // Description
     html.div(
       ["style", "color", colors.get().secondary],
