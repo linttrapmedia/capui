@@ -4,7 +4,7 @@ import { Component } from "./typings";
 export const Card = (component: Component) => {
   return html.div(
     ["click", () => dialog.set({ ...component, showing: true })],
-    ["style", "backgroundColor", "rgba(0,0,0,0.1)"],
+    ["style", "backgroundColor", colors.get().primaryDark],
     ["style", "borderRadius", "5px"],
     ["style", "padding", "20px"],
     ["style", "display", "flex"],

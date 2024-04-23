@@ -52,18 +52,24 @@ code {
   padding: 0 3px;
 }
 
-*::-webkit-scrollbar {
-  width: 12px;
+/* Basic scrollbar styles */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-*::-webkit-scrollbar-track {
-  background: var(#848383);
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
-*::-webkit-scrollbar-thumb {
-  background-color: var(#444444);
-  border-radius: 20px;
-  border: 1px solid var(#444444);
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Hover effect on the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 input:focus {

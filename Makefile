@@ -32,6 +32,10 @@ nuke: ## Clean the project
 	@rm -rf ./node_modules
 	@rm -f ./public/scripts/docs.js
 
+css: ## Build the project css
+	@echo $(STATUS) Building css...
+	@npx pollen
+
 deploy: ## Deploy the project
 	@echo $(STATUS) Deploying...
 	@git branch -D gh-pages
@@ -62,7 +66,6 @@ dist: ## Build the project for distribution
 	@rm -rf dist
 	@mkdir dist
 	@rsync -avm --include='*/' --include='*.js' --include='*.css' --exclude='*' ./public/components/ ./dist/
-	@find ./dist -type f -name '*.vars.css' -exec cat {} + > ./dist/vars.css
 	@zip -r dist/capui.zip dist
 
 build: ## Build the project documentation

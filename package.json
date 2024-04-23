@@ -37,6 +37,7 @@
   },
   "scripts": {},
   "dependencies": {
-    "@linttrap/oem": "^0.0.13"
+    "@linttrap/oem": "^0.0.13",
+    "pollen-css": "^4.6.2"
   }
 }

@@ -33,7 +33,7 @@ export const html = HTML({
   attr: useAttribute(),
   click: useEvent("click"),
   class: useClassName(),
-  dialogShowing: useAttribute({ state: dialog }),
+  "attr:dialog": useAttribute({ state: dialog }),
   style: useStyle(),
   "style:mouseover": useStyle({
     event: "mouseover",
@@ -58,8 +58,8 @@ export const colors = State<{
   accentDark: string;
 }>({
   primary: "#848383",
-  primaryLight: "#b1b1b1",
-  primaryDark: "#5b5b5b",
+  primaryLight: "#939292",
+  primaryDark: "#797878",
   secondary: "#444444",
   secondaryLight: "#666666",
   secondaryDark: "#222222",
@@ -73,14 +73,14 @@ export const lib: Component[] = [
     title: "Alerts",
     description: "Alerts and notifications",
     image: "static/images/button.svg",
-    exampleSrc: "/components/alerts/alerts.html",
+    exampleSrc: "/components/alerts/examples.html",
     example: undefined,
   },
   {
     title: "Buttons",
     description: "A simple button component",
     image: "static/images/button.svg",
-    exampleSrc: "/components/buttons/buttons.html",
+    exampleSrc: "/components/buttons/examples.html",
     example: undefined,
   },
 ];

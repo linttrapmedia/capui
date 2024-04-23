@@ -1,19 +1,65 @@
+/* CSS Variables for Button Styles */
+:root {
+  /* Color Palette */
+  --button-bg: var(--color-grey-800, black);
+  --button-danger-bg: var(--color-red, red);
+  --button-success-bg: var(--color-green, green);
+  --button-warning-bg: var(--color-yellow, yellow);
+  --button-info-bg: var(--color-blue, blue);
+
+  /* Text Colors */
+  --button-text: var(--color-grey-100, white);
+  --button-danger-text: var(--color-grey-100, black);
+  --button-success-text: var(--color-grey-100, black);
+  --button-warning-text: var(--color-black, black);
+  --button-info-text: var(--color-grey-100, black);
+
+  /* Border Colors */
+  --button-outline-border: #dee2e6;
+
+  /* Sizes */
+  --button-small-font-size: 12px;
+  --button-medium-font-size: 14px;
+  --button-large-font-size: 16px;
+  --button-small-padding: 5px 10px;
+  --button-medium-padding: 8px 15px;
+  --button-large-padding: 10px 20px;
+
+  /* Other Styles */
+  --button-border-radius: 4px;
+  --button-circle-size: 50px;
+  --button-loading-spinner-color: #fff;
+  --button-disabled-opacity: 0.65;
+
+  /* Easing Function */
+  --button-ease-in-cubic: var(--ease-in-cubic, "ease-in-cubic");
+}
+
 /* Base Button Styles */
 .button {
   padding: var(--button-medium-padding);
   font-size: var(--button-medium-font-size);
-  color: var(--button-primary-text);
-  background-color: var(--button-primary-bg);
+  color: var(--button-text);
+  background-color: var(--button-bg);
   border: 1px solid transparent;
   border-radius: var(--button-border-radius);
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-  display: inline-block;
+  display: flex;
   text-align: center;
   vertical-align: middle;
   line-height: 1.5;
   user-select: none;
   outline: none;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  gap: var(--scale-fluid-0);
+}
+
+.button:hover {
+  filter: brightness(90%);
+  transition: filter 100ms var(--button-ease-in-cubic);
 }
 
 /* Size Modifiers */
@@ -31,14 +77,6 @@
 }
 
 /* Color Modifiers */
-.button--primary {
-  background-color: var(--button-primary-bg);
-  color: var(--button-primary-text);
-}
-.button--secondary {
-  background-color: var(--button-secondary-bg);
-  color: var(--button-secondary-text);
-}
 .button--success {
   background-color: var(--button-success-bg);
   color: var(--button-success-text);
@@ -88,16 +126,13 @@
 .button--loading {
   pointer-events: none;
   position: relative;
+  width: min-content;
 }
-.button--loading::after {
+.button--loading::before {
   content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  margin-top: -10px;
-  margin-left: -10px;
+  display: flex;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   border: 2px solid var(--button-loading-spinner-color);
   border-top-color: transparent;
