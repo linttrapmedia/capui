@@ -1,66 +1,309 @@
 <div class="buttons-examples">
   <section>
-    <h1>Basic</h1>
-    <button class="button">Default</button>
-    <button class="button button--disabled">Disabled</button>
-    <button class="button button--success">Success</button>
-    <button class="button button--warning">Warning</button>
-    <button class="button button--danger">Error</button>
-    <button class="button button--info">Info</button>
-    <button class="button button--loading">Loading</button>
-    <button class="button button--small">Small</button>
-    <button class="button button--large">Large</button>
-    <button class="button button--block">Block</button>
+    <div class="spec">
+      <div class="spec__label">Solid</div>
+      <div class="spec__desc">The default button styles</div>
+      <div class="spec__example">
+        <button class="button">Basic</button>
+      </div>
+      <div class="spec__code"><code>.button</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Solid / Colors</div>
+      <div class="spec__desc">The color classes are used to change the color of the button.</div>
+      <div class="spec__example">
+        <button class="button button--success">Success</button>
+        <button class="button button--warning">Warning</button>
+        <button class="button button--danger">Danger</button>
+        <button class="button button--info">Info</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--success</code>
+        <code>.button--warning</code>
+        <code>.button--danger</code><code>.button--info</code>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Solid / Disabled</div>
+      <div class="spec__desc">The disabled state is faded and disables cursor events.</div>
+      <div class="spec__example">
+        <button class="button button--disabled">Basic</button>
+        <button class="button button--success button--disabled">Success</button>
+        <button class="button button--warning button--disabled">Warning</button>
+        <button class="button button--danger button--disabled">Danger</button>
+        <button class="button button--info button--disabled">Info</button>
+      </div>
+      <div class="spec__code"><code>.button--disabled</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Solid / Loading</div>
+      <div class="spec__desc">The loading state is faded, disables cursor events and animates the background.</div>
+      <div class="spec__example">
+        <button class="button button--loading">Basic</button>
+        <button class="button button--success button--loading">Success</button>
+        <button class="button button--warning button--loading">Warning</button>
+        <button class="button button--danger button--loading">Danger</button>
+        <button class="button button--info button--loading">Info</button>
+      </div>
+      <div class="spec__code"><code>.button--loading</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Solid / Sizing</div>
+      <div class="spec__desc">The sizing classes are used to change the size of the button.</div>
+      <div class="spec__example">
+        <button class="button button--small">Small</button>
+        <button class="button button--large">Large</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--small</code>
+        <code>.button--large</code>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Solid / Block</div>
+      <div class="spec__desc">The block class is used to make the button fill the width of the parent container.</div>
+      <div class="spec__example">
+        <button class="button button--block">Block</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--block</code>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h1>Outline</h1>
-    <button class="button">Default</button>
-    <button class="button button--outline button--hover">Hover</button>
-    <button class="button button--outline button--active">Active</button>
-    <button class="button button--outline button--disabled">Disabled</button>
-    <button class="button button--outline button--focus">Focus</button>
-    <button class="button button--outline button--success">Success</button>
-    <button class="button button--outline button--warning">Warning</button>
-    <button class="button button--outline button--error">Error</button>
-    <button class="button button--outline button--info">Info</button>
-    <button class="button button--outline button--loading">Loading</button>
-    <button class="button button--outline button--small">Small</button>
-    <button class="button button--outline button--large">Large</button>
-    <button class="button button--outline button--block">Block</button>
+    <div class="spec">
+      <div class="spec__label">Outline</div>
+      <div class="spec__desc">The default button styles</div>
+      <div class="spec__example">
+        <button class="button button--outline">Basic</button>
+      </div>
+      <div class="spec__code"><code>.button</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Outline / Colors</div>
+      <div class="spec__desc">The color classes are used to change the color of the button.</div>
+      <div class="spec__example">
+        <button class="button button--outline button--success">Success</button>
+        <button class="button button--outline button--warning">Warning</button>
+        <button class="button button--outline button--danger">Danger</button>
+        <button class="button button--outline button--info">Info</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--success</code>
+        <code>.button--warning</code>
+        <code>.button--danger</code><code>.button--info</code>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Outline / Disabled</div>
+      <div class="spec__desc">The disabled state is faded and disables cursor events.</div>
+      <div class="spec__example">
+        <button class="button button--outline button--disabled">Basic</button>
+        <button class="button button--outline button--success button--disabled">Success</button>
+        <button class="button button--outline button--warning button--disabled">Warning</button>
+        <button class="button button--outline button--danger button--disabled">Danger</button>
+        <button class="button button--outline button--info button--disabled">Info</button>
+      </div>
+      <div class="spec__code"><code>.button--disabled</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Outline / Loading</div>
+      <div class="spec__desc">The loading state is faded, disables cursor events and animates the background.</div>
+      <div class="spec__example">
+        <button class="button button--outline button--loading">Basic</button>
+        <button class="button button--outline button--success button--loading">Success</button>
+        <button class="button button--outline button--warning button--loading">Warning</button>
+        <button class="button button--outline button--danger button--loading">Danger</button>
+        <button class="button button--outline button--info button--loading">Info</button>
+      </div>
+      <div class="spec__code"><code>.button--loading</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Outline / Sizing</div>
+      <div class="spec__desc">The sizing classes are used to change the size of the button.</div>
+      <div class="spec__example">
+        <button class="button button--outline button--small">Small</button>
+        <button class="button button--outline button--large">Large</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--small</code>
+        <code>.button--large</code>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Outline / Block</div>
+      <div class="spec__desc">The block class is used to make the button fill the width of the parent container.</div>
+      <div class="spec__example">
+        <button class="button button--outline button--block">Block</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--block</code>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h1>Link</h1>
-    <button class="button">Default</button>
-    <button class="button button--link button--hover">Hover</button>
-    <button class="button button--link button--active">Active</button>
-    <button class="button button--link button--disabled">Disabled</button>
-    <button class="button button--link button--focus">Focus</button>
-    <button class="button button--link button--success">Success</button>
-    <button class="button button--link button--warning">Warning</button>
-    <button class="button button--link button--error">Error</button>
-    <button class="button button--link button--info">Info</button>
-    <button class="button button--link button--loading">Loading</button>
-    <button class="button button--link button--small">Small</button>
-    <button class="button button--link button--large">Large</button>
-    <button class="button button--link button--block">Block</button>
+    <div class="spec">
+      <div class="spec__label">Link</div>
+      <div class="spec__desc">The default button styles</div>
+      <div class="spec__example">
+        <button class="button button--link">Basic</button>
+      </div>
+      <div class="spec__code"><code>.button</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Link / Colors</div>
+      <div class="spec__desc">The color classes are used to change the color of the button.</div>
+      <div class="spec__example">
+        <button class="button button--link button--success">Success</button>
+        <button class="button button--link button--warning">Warning</button>
+        <button class="button button--link button--danger">Danger</button>
+        <button class="button button--link button--info">Info</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--success</code>
+        <code>.button--warning</code>
+        <code>.button--danger</code><code>.button--info</code>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Link / Disabled</div>
+      <div class="spec__desc">The disabled state is faded and disables cursor events.</div>
+      <div class="spec__example">
+        <button class="button button--link button--disabled">Basic</button>
+        <button class="button button--link button--success button--disabled">Success</button>
+        <button class="button button--link button--warning button--disabled">Warning</button>
+        <button class="button button--link button--danger button--disabled">Danger</button>
+        <button class="button button--link button--info button--disabled">Info</button>
+      </div>
+      <div class="spec__code"><code>.button--disabled</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Link / Loading</div>
+      <div class="spec__desc">The loading state is faded, disables cursor events and animates the background.</div>
+      <div class="spec__example">
+        <button class="button button--link button--loading">Basic</button>
+        <button class="button button--link button--success button--loading">Success</button>
+        <button class="button button--link button--warning button--loading">Warning</button>
+        <button class="button button--link button--danger button--loading">Danger</button>
+        <button class="button button--link button--info button--loading">Info</button>
+      </div>
+      <div class="spec__code"><code>.button--loading</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Link / Sizing</div>
+      <div class="spec__desc">The sizing classes are used to change the size of the button.</div>
+      <div class="spec__example">
+        <button class="button button--link button--small">Small</button>
+        <button class="button button--link button--large">Large</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--small</code>
+        <code>.button--large</code>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Link / Block</div>
+      <div class="spec__desc">The block class is used to make the button fill the width of the parent container.</div>
+      <div class="spec__example">
+        <button class="button button--link button--block">Block</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--block</code>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h1>Ghost</h1>
-    <button class="button">Default</button>
-    <button class="button button--ghost button--hover">Hover</button>
-    <button class="button button--ghost button--active">Active</button>
-    <button class="button button--ghost button--disabled">Disabled</button>
-    <button class="button button--ghost button--focus">Focus</button>
-    <button class="button button--ghost button--success">Success</button>
-    <button class="button button--ghost button--warning">Warning</button>
-    <button class="button button--ghost button--error">Error</button>
-    <button class="button button--ghost button--info">Info</button>
-    <button class="button button--ghost button--loading">Loading</button>
-    <button class="button button--ghost button--small">Small</button>
-    <button class="button button--ghost button--large">Large</button>
-    <button class="button button--ghost button--block">Block</button>
+    <div class="spec">
+      <div class="spec__label">Ghost</div>
+      <div class="spec__desc">The default button styles</div>
+      <div class="spec__example">
+        <button class="button button--ghost">Basic</button>
+      </div>
+      <div class="spec__code"><code>.button</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Ghost / Colors</div>
+      <div class="spec__desc">The color classes are used to change the color of the button.</div>
+      <div class="spec__example">
+        <button class="button button--ghost button--success">Success</button>
+        <button class="button button--ghost button--warning">Warning</button>
+        <button class="button button--ghost button--danger">Danger</button>
+        <button class="button button--ghost button--info">Info</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--success</code>
+        <code>.button--warning</code>
+        <code>.button--danger</code><code>.button--info</code>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Ghost / Disabled</div>
+      <div class="spec__desc">The disabled state is faded and disables cursor events.</div>
+      <div class="spec__example">
+        <button class="button button--ghost button--disabled">Basic</button>
+        <button class="button button--ghost button--success button--disabled">Success</button>
+        <button class="button button--ghost button--warning button--disabled">Warning</button>
+        <button class="button button--ghost button--danger button--disabled">Danger</button>
+        <button class="button button--ghost button--info button--disabled">Info</button>
+      </div>
+      <div class="spec__code"><code>.button--disabled</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Ghost / Loading</div>
+      <div class="spec__desc">The loading state is faded, disables cursor events and animates the background.</div>
+      <div class="spec__example">
+        <button class="button button--ghost button--loading">Basic</button>
+        <button class="button button--ghost button--success button--loading">Success</button>
+        <button class="button button--ghost button--warning button--loading">Warning</button>
+        <button class="button button--ghost button--danger button--loading">Danger</button>
+        <button class="button button--ghost button--info button--loading">Info</button>
+      </div>
+      <div class="spec__code"><code>.button--loading</code></div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Ghost / Sizing</div>
+      <div class="spec__desc">The sizing classes are used to change the size of the button.</div>
+      <div class="spec__example">
+        <button class="button button--ghost button--small">Small</button>
+        <button class="button button--ghost button--large">Large</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--small</code>
+        <code>.button--large</code>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec__label">Ghost / Block</div>
+      <div class="spec__desc">The block class is used to make the button fill the width of the parent container.</div>
+      <div class="spec__example">
+        <button class="button button--ghost button--block">Block</button>
+      </div>
+      <div class="spec__code">
+        <code>.button--block</code>
+      </div>
+    </div>
   </section>
 </div>

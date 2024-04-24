@@ -6,10 +6,10 @@
 }
 
 .buttons-examples section {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  flex-direction: column;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-rows: auto;
 }
 
 .buttons-examples section h1 {
@@ -22,4 +22,59 @@
   padding: 0;
   margin: 0;
   font-size: 14px;
+}
+
+.buttons-examples section .spec {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.buttons-examples section .spec__label {
+  font-size: 14px;
+  padding: 20px 20px 0;
+  margin: 0;
+}
+
+.buttons-examples section .spec__desc {
+  font-size: 13px;
+  line-height: 1;
+  padding: 0 20px;
+  font-weight: normal;
+  opacity: 0.4;
+}
+
+.buttons-examples section .spec__code {
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  width: 100%;
+}
+
+.buttons-examples section .spec__code code {
+  white-space: pre;
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 2px 5px;
+  margin: 0;
+  opacity: 0.5;
+}
+
+.buttons-examples section .spec__example {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 100%;
 }

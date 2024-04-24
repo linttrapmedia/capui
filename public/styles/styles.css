@@ -58,12 +58,11 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
 }
 
@@ -80,4 +79,23 @@ input:focus {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+}
+
+dialog[open] {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  text-align: center;
+  border: none;
+  box-shadow: 0 14px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Blurring the background behind the dialog */
+dialog[open]::backdrop {
+  background-color: rgba(255, 255, 255) !important;
+  backdrop-filter: blur(5px);
 }
