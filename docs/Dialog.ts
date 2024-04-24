@@ -1,4 +1,4 @@
-import { colors, dialog, html } from "./config";
+import { dialog, html } from "./config";
 
 export const Dialog = () => {
   // close dialog on escape key
@@ -9,8 +9,8 @@ export const Dialog = () => {
   });
 
   return html.dialog(
-    // ["dialogShowing", "open", true],
     ["attr:dialog", "open", () => dialog.get().showing],
+    ["style", "gap", "0"],
     ["style", "width", "90vw"],
     ["style", "height", "90vh"],
     ["style", "top", "5vh"],
@@ -18,7 +18,7 @@ export const Dialog = () => {
     ["style", "borderRadius", "5px"],
     ["style", "border", "none"],
     ["style", "overflow", "hidden"],
-    ["style", "backgroundColor", colors.get().primaryLight],
+    ["style", "backgroundColor", "var(--color)"],
     ["style", "padding", "0"]
   )(
     html.div(
@@ -26,22 +26,23 @@ export const Dialog = () => {
       ["style", "flexDirection", "column"]
     )(
       html.div(
-        ["style", "backgroundColor", colors.get().primaryDark],
+        ["style", "backgroundColor", "rgba(0,0,0,0.1)"],
         ["style", "display", "flex"],
         ["style", "flexDirection", "row"],
         ["style", "justifyContent", "space-between"],
-        ["style", "borderBottom", `1px solid ${colors.get().primary}`],
-        ["style", "padding", "20px"]
+        ["style", "borderBottom", `1px solid rgba(255,255,255,0.05)`],
+        ["style", "padding", "20px"],
+        ["style", "textAlign", "left"]
       )(
         html.div()(
           html.div(
             ["style", "fontSize", "21px"],
-            ["style", "color", colors.get().accent],
+            ["style", "color", "rgba(255,255,255,1)"],
             ["innerText:dialog", () => dialog.get().title ?? ""]
           )(),
           html.div(
             ["style", "fontSize", "14px"],
-            ["style", "color", colors.get().secondary],
+            ["style", "color", "rgba(255,255,255,0.5)"],
             ["innerText:dialog", () => dialog.get().description ?? ""]
           )()
         ),
@@ -49,9 +50,9 @@ export const Dialog = () => {
           ["click", () => dialog.set({ showing: false })],
           ["style", "border", `0`],
           ["style", "backgroundColor", "transparent"],
-          ["style", "color", colors.get().secondary],
-          ["style:mouseover", "color", colors.get().accent],
-          ["style:mouseout", "color", colors.get().secondary],
+          ["style", "color", "rgba(255,255,255,0.5)"],
+          ["style:mouseover", "color", "rgba(255,255,255,1"],
+          ["style:mouseout", "color", "rgba(255,255,255,0.5))"],
           ["style", "fontSize", "26px"],
           ["style", "cursor", "pointer"],
           ["style", "borderRadius", "5px"],
@@ -68,6 +69,7 @@ export const Dialog = () => {
       ["style", "flexDirection", "column"],
       ["style", "maxHeight", "100%"],
       ["style", "flexShrink", "0"],
+      ["style", "backgroundColor", "rgba(0,0,0,0.1)"],
       ["innerHTML:dialog", () => dialog.get().example ?? ""]
     )()
   );

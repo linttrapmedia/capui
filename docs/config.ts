@@ -46,28 +46,6 @@ export const html = HTML({
   "innerText:dialog": useText({ state: dialog }),
 });
 
-export const colors = State<{
-  primary: string;
-  primaryLight: string;
-  primaryDark: string;
-  secondary: string;
-  secondaryLight: string;
-  secondaryDark: string;
-  accent: string;
-  accentLight: string;
-  accentDark: string;
-}>({
-  primary: "#848383",
-  primaryLight: "#939292",
-  primaryDark: "#797878",
-  secondary: "#444444",
-  secondaryLight: "#666666",
-  secondaryDark: "#222222",
-  accent: "#e2e2e2",
-  accentLight: "#f5f5f5",
-  accentDark: "#c9c9c9",
-});
-
 export const lib: Component[] = [
   {
     title: "Alerts",

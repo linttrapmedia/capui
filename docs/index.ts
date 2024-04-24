@@ -2,7 +2,7 @@ import { Body } from "./Body";
 import { Dialog } from "./Dialog";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
-import { colors, dialog, html, lib } from "./config";
+import { html } from "./config";
 
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card");
@@ -19,9 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-dialog.set({ showing: true, ...lib[1] });
-
 document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
-  root(["innerHTML", () => [Dialog(), Header(), Body(), Footer()]], ["style", "backgroundColor", colors.get().primary]);
+  root(["innerHTML", () => [Dialog(), Header(), Body(), Footer()]]);
 });
