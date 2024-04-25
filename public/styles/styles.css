@@ -61,9 +61,9 @@ code {
 }
 
 /* Basic scrollbar styles */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 10px;
-}
+} */
 
 ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1);
@@ -84,16 +84,13 @@ input:focus {
 }
 
 dialog[open] {
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 30px;
-  text-align: center;
+  background-color: var(--color);
+  margin: 0;
+  padding: 0;
   border: none;
-  box-shadow: 0 14px 16px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  border-radius: 8px;
+  width: 100%;
+  position: absolute;
+  z-index: 1000;
 }
 
 /* Blurring the background behind the dialog */

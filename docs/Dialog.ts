@@ -8,22 +8,14 @@ export const Dialog = () => {
     }
   });
 
-  return html.dialog(
-    ["attr:dialog", "open", () => dialog.get().showing],
-    ["style", "gap", "0"],
-    ["style", "width", "90vw"],
-    ["style", "height", "90vh"],
-    ["style", "top", "5vh"],
-    ["style", "zIndex", "1000"],
-    ["style", "borderRadius", "5px"],
-    ["style", "border", "none"],
-    ["style", "overflow", "hidden"],
-    ["style", "backgroundColor", "var(--color)"],
-    ["style", "padding", "0"]
-  )(
+  return html.dialog(["attr:dialog", "open", () => dialog.get().showing])(
     html.div(
       ["style", "display", "flex"],
-      ["style", "flexDirection", "column"]
+      ["style", "flexDirection", "column"],
+      ["style", "position", "sticky"],
+      ["style", "top", "0"],
+      ["style", "zIndex", "1000"],
+      ["style", "background", "var(--color)"]
     )(
       html.div(
         ["style", "backgroundColor", "rgba(0,0,0,0.1)"],
@@ -64,11 +56,8 @@ export const Dialog = () => {
     ),
     html.div(
       ["style", "padding", "20px"],
-      ["style", "overflowY", "scroll"],
       ["style", "display", "flex"],
       ["style", "flexDirection", "column"],
-      ["style", "maxHeight", "100%"],
-      ["style", "flexShrink", "0"],
       ["style", "backgroundColor", "rgba(0,0,0,0.1)"],
       ["innerHTML:dialog", () => dialog.get().example ?? ""]
     )()

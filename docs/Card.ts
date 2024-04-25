@@ -12,7 +12,7 @@ export const Card = (component: Component) => {
     ["style", "gap", "10px"],
     ["style", "position", "relative"],
     ["style", "cursor", "pointer"],
-    ["style:mouseover", "boxShadow", `rgba(255,255,255,0.1) 10px 10px 2px`],
+    ["style:mouseover", "boxShadow", `rgba(255,255,255,0.05) 10px 10px 2px`],
     ["style:mouseout", "boxShadow", "none"],
     ["style", "transition", "all 0.3s"],
     ["style", "borderRadius", "5px"]

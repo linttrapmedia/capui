@@ -69,6 +69,7 @@ dist: ## Build the project for distribution
 	@zip -r dist/capui.zip dist
 
 build: ## Build the project documentation
+	@bun run ./tasks/generate-button-examples.ts
 	@npx esbuild ./docs/index.ts --outfile=./public/scripts/docs.js --bundle --sourcemap --minify
 
 install: ## Install the project

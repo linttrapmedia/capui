@@ -62,3 +62,8 @@ export const lib: Component[] = [
     example: undefined,
   },
 ];
+
+dialog.set({
+  ...lib[1],
+  showing: true,
+});
