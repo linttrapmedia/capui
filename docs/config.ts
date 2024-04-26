@@ -53,6 +53,14 @@ export const lib: Component[] = [
     image: "static/images/button.svg",
     exampleSrc: "/components/alerts/examples.html",
     example: undefined,
+    preview: `<label class="alert">
+    <input type="checkbox" class="alert__toggle" />
+    <div class="alert__close">＋</div>
+    <div class="alert__title">Alert Title</div>
+    <div class="alert__message">
+      lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    </div>
+  </label>`,
   },
   {
     title: "Buttons",
@@ -60,10 +68,11 @@ export const lib: Component[] = [
     image: "static/images/button.svg",
     exampleSrc: "/components/buttons/examples.html",
     example: undefined,
+    preview: `<button class="button">Button</button>&nbsp;<button class="button button--loading">Button</button>`,
   },
 ];
 
-dialog.set({
-  ...lib[1],
-  showing: true,
-});
+// dialog.set({
+//   ...lib[0],
+//   showing: true,
+// });

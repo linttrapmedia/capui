@@ -91,6 +91,7 @@ dialog[open] {
   width: 100%;
   position: absolute;
   z-index: 1000;
+  min-height: 100%;
 }
 
 /* Blurring the background behind the dialog */

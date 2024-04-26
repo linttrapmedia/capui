@@ -27,6 +27,19 @@ export const Card = (component: Component) => {
       ["style", "color", "rgba(255,255,255,0.2)"],
       ["style", "fontSize", "14px"],
       ["style", "textAlign", "center"]
-    )(component.description)
+    )(component.description),
+    html.div(
+      ["style", "color", "rgba(255,255,255,0.2)"],
+      ["style", "fontSize", "14px"],
+      ["style", "textAlign", "center"],
+      ["style", "marginTop", "10px"],
+      ["style", "pointerEvents", "none"],
+      ["style", "display", "flex"],
+      ["style", "justifyContent", "center"],
+      ["style", "alignItems", "center"],
+      ["style", "height", "100%"],
+      ["style", "gap", "5px"],
+      ["innerHTML", () => component.preview]
+    )()
   );
 };

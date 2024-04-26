@@ -1,3 +1,8 @@
+/* 
+Usage:
+<button class="button button-[MODIFIER]">Basic</button>
+*/
+
 :root {
   --button-bg: var(--color-black-60, black);
   --button-bg-hover: var(--color-black, white);
@@ -148,9 +153,9 @@
   --button-outline-info-ghost-hover: var(--color-blue, blue);
 
   --button-font-family: var(--font-sans, sans-serif);
-  --button-font-small: 0.85rem;
-  --button-font-medium: 1rem;
-  --button-font-large: 1.25rem;
+  --button-font-small: 0.75rem;
+  --button-font-medium: 0.85rem;
+  --button-font-large: 1rem;
 
   --button-padding-small: 5px 10px;
   --button-padding-medium: 8px 15px;
@@ -165,6 +170,7 @@
   box-shadow: 0 0 0 var(--button-border-width) var(--button-border);
   color: var(--button-text);
   cursor: pointer;
+  font-family: var(--button-font-family);
   font-size: var(--button-font-medium);
   font-weight: bold;
   outline: none;
@@ -175,7 +181,7 @@
   user-select: none;
   vertical-align: middle;
   width: max-content;
-  text-wrap: none;
+  text-wrap: nowrap;
 }
 
 .button--disabled {
@@ -668,7 +674,6 @@
 }
 
 /* Animations */
-
 @keyframes button-loading-animation {
   0% {
     background-position: 0% 0;

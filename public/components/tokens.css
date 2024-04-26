@@ -46,9 +46,9 @@
   --color-blue-90: rgba(var(--color-blue-r), var(--color-blue-g), var(--color-blue-b), 0.9);
   --color-blue: rgba(var(--color-blue-r), var(--color-blue-g), var(--color-blue-b), 1);
 
-  --color-green-r: 80;
-  --color-green-g: 120;
-  --color-green-b: 97;
+  --color-green-r: 52;
+  --color-green-g: 163;
+  --color-green-b: 99;
   --color-green-01: rgba(var(--color-green-r), var(--color-green-g), var(--color-green-b), 0.01);
   --color-green-02: rgba(var(--color-green-r), var(--color-green-g), var(--color-green-b), 0.02);
   --color-green-03: rgba(var(--color-green-r), var(--color-green-g), var(--color-green-b), 0.03);

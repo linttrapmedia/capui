@@ -4,4 +4,5 @@ export type Component = {
   image: string;
   exampleSrc: `/${string}`;
   example: string | undefined;
+  preview: string;
 };
