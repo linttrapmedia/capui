@@ -65,11 +65,10 @@ dist: ## Build the project for distribution
 	@echo $(STATUS) Building...
 	@rm -rf dist
 	@mkdir dist
-	@rsync -avm --include='*/' --include='*.js' --include='*.css' --exclude='*' ./public/components/ ./dist/
+	@rsync -avm --include='*/' --exclude="examples.css" --exclude="examples.html" ./public/components/ ./dist/
 	@zip -r dist/capui.zip dist
 
 build: ## Build the project documentation
-	@bun run ./tasks/generate-button-examples.ts
 	@npx esbuild ./docs/index.ts --outfile=./public/scripts/docs.js --bundle --sourcemap --minify
 
 install: ## Install the project
