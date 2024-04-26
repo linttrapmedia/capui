@@ -1,0 +1,458 @@
+/* 
+<label class="alert alert--[MODIFIERS]">
+  <input type="checkbox" class="alert__toggle" />
+  <div class="alert__close">＋</div>
+  <div class="alert__title">Alert Title</div>
+  <div class="alert__message">
+    lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae
+    sunt a te dicta?
+  </div>
+</label> 
+*/
+
+:root {
+  --alert-bg: var(--color-black-60, black);
+  --alert-bg-hover: var(--color-black, white);
+  --alert-bg-disabled: var(--color-black-30, white);
+  --alert-bg-loading: var(--color-black-50, black);
+  --alert-bg-ghost: var(--color-black-20, black);
+  --alert-bg-ghost-hover: var(--color-black-30, white);
+
+  --alert-bg-danger: var(--color-red-80, red);
+  --alert-bg-danger-hover: var(--color-red, red);
+  --alert-bg-danger-disabled: var(--color-red-30, red);
+  --alert-bg-danger-loading: var(--color-red-50, red);
+  --alert-bg-danger-ghost: var(--color-red-10, red);
+  --alert-bg-danger-ghost-hover: var(--color-red-20, red);
+
+  --alert-bg-success: var(--color-green-80, green);
+  --alert-bg-success-hover: var(--color-green, green);
+  --alert-bg-success-disabled: var(--color-green-30, green);
+  --alert-bg-success-loading: var(--color-green-50, green);
+  --alert-bg-success-ghost: var(--color-green-08, green);
+  --alert-bg-success-ghost-hover: var(--color-green-20, green);
+
+  --alert-bg-warning: var(--color-yellow-80, yellow);
+  --alert-bg-warning-hover: var(--color-yellow, yellow);
+  --alert-bg-warning-disabled: var(--color-yellow-30, yellow);
+  --alert-bg-warning-loading: var(--color-yellow-50, yellow);
+  --alert-bg-warning-ghost: var(--color-yellow-10, yellow);
+  --alert-bg-warning-ghost-hover: var(--color-yellow-20, yellow);
+
+  --alert-bg-info: var(--color-blue-80, blue);
+  --alert-bg-info-hover: var(--color-blue, blue);
+  --alert-bg-info-disabled: var(--color-blue-30, blue);
+  --alert-bg-info-loading: var(--color-blue-50, blue);
+  --alert-bg-info-ghost: var(--color-blue-10, blue);
+  --alert-bg-info-ghost-hover: var(--color-blue-20, blue);
+
+  --alert-text: var(--color-white, white);
+  --alert-text-hover: var(--color-white, white);
+  --alert-text-disabled: var(--color-white-30, white);
+  --alert-text-loading: var(--color-white-50, white);
+  --alert-text-ghost: var(--color-white, black);
+  --alert-text-ghost-hover: var(--color-white, white);
+  --alert-text-ghost-disabled: var(--color-white-30, white);
+
+  --alert-text-danger: var(--color-white, white);
+  --alert-text-danger-hover: var(--color-white, white);
+  --alert-text-danger-disabled: var(--color-white-30, white);
+  --alert-text-danger-loading: var(--color-white-50, white);
+  --alert-text-danger-ghost: var(--color-red, red);
+  --alert-text-danger-ghost-hover: var(--color-red, red);
+  --alert-text-danger-ghost-disabled: var(--color-red-30, red);
+
+  --alert-text-success: var(--color-white, white);
+  --alert-text-success-hover: var(--color-white, white);
+  --alert-text-success-disabled: var(--color-white-30, white);
+  --alert-text-success-loading: var(--color-white-50, white);
+  --alert-text-success-ghost: var(--color-green, green);
+  --alert-text-success-ghost-hover: var(--color-green, green);
+  --alert-text-success-ghost-disabled: var(--color-green-30, green);
+
+  --alert-text-warning: var(--color-black, black);
+  --alert-text-warning-hover: var(--color-black, black);
+  --alert-text-warning-disabled: var(--color-black-50, black);
+  --alert-text-warning-loading: var(--color-black-50, black);
+  --alert-text-warning-ghost: var(--color-yellow, yellow);
+  --alert-text-warning-ghost-hover: var(--color-yellow, yellow);
+  --alert-text-warning-ghost-disabled: var(--color-yellow-30, yellow);
+
+  --alert-text-info: var(--color-white, white);
+  --alert-text-info-hover: var(--color-white, white);
+  --alert-text-info-disabled: var(--color-white-30, white);
+  --alert-text-info-loading: var(--color-white-50, white);
+  --alert-text-info-ghost: var(--color-blue, blue);
+  --alert-text-info-ghost-hover: var(--color-blue, blue);
+  --alert-text-info-ghost-disabled: var(--color-blue-30, blue);
+
+  --alert-border: var(--color-black-60, black);
+  --alert-border-hover: var(--color-black, white);
+  --alert-border-disabled: var(--color-black-30, white);
+  --alert-border-loading: var(--color-black-50, black);
+  --alert-border-ghost: var(--color-black, black);
+  --alert-border-ghost-hover: var(--color-black, black);
+
+  --alert-border-danger: var(--color-red-80, red);
+  --alert-border-danger-hover: var(--color-red, red);
+  --alert-border-danger-disabled: var(--color-red-30, red);
+  --alert-border-danger-loading: var(--color-red-50, red);
+  --alert-border-danger-ghost: var(--color-red, red);
+  --alert-border-danger-ghost-hover: var(--color-red, red);
+
+  --alert-border-success: var(--color-green-80, green);
+  --alert-border-success-hover: var(--color-green, green);
+  --alert-border-success-disabled: var(--color-green-30, green);
+  --alert-border-success-loading: var(--color-green-50, green);
+  --alert-border-success-ghost: var(--color-green, green);
+  --alert-border-success-ghost-hover: var(--color-green, green);
+
+  --alert-border-warning: var(--color-yellow-80, yellow);
+  --alert-border-warning-hover: var(--color-yellow, yellow);
+  --alert-border-warning-disabled: var(--color-yellow-30, yellow);
+  --alert-border-warning-loading: var(--color-yellow-50, yellow);
+  --alert-border-warning-ghost: var(--color-yellow, yellow);
+  --alert-border-warning-ghost-hover: var(--color-yellow, yellow);
+
+  --alert-border-info: var(--color-blue-80, blue);
+  --alert-border-info-hover: var(--color-blue, blue);
+  --alert-border-info-disabled: var(--color-blue-30, blue);
+  --alert-border-info-loading: var(--color-blue-50, blue);
+  --alert-border-info-ghost: var(--color-blue, blue);
+  --alert-border-info-ghost-hover: var(--color-blue, blue);
+
+  --alert-border-radius: 4px;
+  --alert-border-width: 2px;
+
+  --alert-outline: var(--color-white-60, white);
+  --alert-outline-hover: var(--color-white, white);
+  --alert-outline-disabled: var(--color-white-30, white);
+  --alert-outline-loading: var(--color-white-10, white);
+  --alert-outline-ghost: var(--color-black, black);
+  --alert-outline-ghost-hover: var(--color-black, black);
+
+  --alert-outline-danger: var(--color-red-80, red);
+  --alert-outline-danger-hover: var(--color-white, red);
+  --alert-outline-danger-disabled: var(--color-red-30, red);
+  --alert-outline-danger-loading: var(--color-red-10, red);
+  --alert-outline-danger-ghost: var(--color-red, red);
+  --alert-outline-danger-ghost-hover: var(--color-red, red);
+
+  --alert-outline-success: var(--color-green-80, green);
+  --alert-outline-success-hover: var(--color-white, green);
+  --alert-outline-success-disabled: var(--color-green-30, green);
+  --alert-outline-success-loading: var(--color-green-10, green);
+  --alert-outline-success-ghost: var(--color-green, green);
+  --alert-outline-success-ghost-hover: var(--color-green, green);
+
+  --alert-outline-warning: var(--color-yellow-80, yellow);
+  --alert-outline-warning-hover: var(--color-white, yellow);
+  --alert-outline-warning-disabled: var(--color-yellow-30, yellow);
+  --alert-outline-warning-loading: var(--color-yellow-10, yellow);
+  --alert-outline-warning-ghost: var(--color-yellow, yellow);
+  --alert-outline-warning-ghost-hover: var(--color-yellow, yellow);
+
+  --alert-outline-info: var(--color-blue-80, blue);
+  --alert-outline-info-hover: var(--color-white, blue);
+  --alert-outline-info-disabled: var(--color-blue-30, blue);
+  --alert-outline-info-loading: var(--color-blue-10, blue);
+  --alert-outline-info-ghost: var(--color-blue, blue);
+  --alert-outline-info-ghost-hover: var(--color-blue, blue);
+
+  --alert-font-family: var(--font-sans, sans-serif);
+  --alert-font-small: 0.75rem;
+  --alert-font-medium: 0.85rem;
+  --alert-font-large: 1rem;
+
+  --alert-padding-small: 10px;
+  --alert-padding-medium: 15px;
+  --alert-padding-large: 20px;
+
+  --alert-text-align: left;
+}
+
+/* Solid Alerts */
+.alert {
+  text-align: var(--alert-text-align, left);
+  cursor: pointer;
+  font-family: var(--alert-font-family);
+  font-size: var(--alert-font-medium);
+  padding: var(--alert-padding-medium);
+  background-color: var(--alert-bg);
+  color: var(--alert-text);
+  border-radius: var(--alert-border-radius);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--alert-padding-medium) / 2);
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.alert:hover {
+  background-color: var(--alert-bg-hover);
+}
+
+.alert__close {
+  cursor: pointer;
+  transform: rotate(45deg);
+  color: var(--alert-text);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 20px;
+}
+
+.alert__title {
+  color: var(--alert-text);
+  font-weight: bold;
+}
+
+.alert__toggle {
+  display: none;
+}
+
+.alert__message {
+  color: var(--alert-text);
+  opacity: 0.8;
+}
+
+.alert:has(.alert__toggle:checked) {
+  animation: alert-closing-animation 0.25s linear forwards;
+}
+
+.alert--success {
+  background-color: var(--alert-bg-success);
+}
+
+.alert--success .alert__title,
+.alert--success .alert__message,
+.alert--success .alert__close {
+  color: var(--alert-text-success);
+}
+
+.alert--success:hover {
+  background-color: var(--alert-bg-success-hover);
+}
+
+.alert--success:hover .alert__title,
+.alert--success:hover .alert__message,
+.alert--success:hover .alert__close {
+  color: var(--alert-text-success-hover);
+}
+
+.alert--info {
+  background-color: var(--alert-bg-info);
+}
+
+.alert--info .alert__title,
+.alert--info .alert__message,
+.alert--info .alert__close {
+  color: var(--alert-text-info);
+}
+
+.alert--info:hover {
+  background-color: var(--alert-bg-info-hover);
+}
+
+.alert--info:hover .alert__title,
+.alert--info:hover .alert__message,
+.alert--info:hover .alert__close {
+  color: var(--alert-text-info-hover);
+}
+
+.alert--warning {
+  background-color: var(--alert-bg-warning);
+}
+
+.alert--warning .alert__title,
+.alert--warning .alert__message,
+.alert--warning .alert__close {
+  color: var(--alert-text-warning);
+}
+
+.alert--warning:hover {
+  background-color: var(--alert-bg-warning-hover);
+}
+
+.alert--warning:hover .alert__title,
+.alert--warning:hover .alert__message,
+.alert--warning:hover .alert__close {
+  color: var(--alert-text-warning-hover);
+}
+
+.alert--danger {
+  background-color: var(--alert-bg-danger);
+}
+
+.alert--danger .alert__title,
+.alert--danger .alert__message,
+.alert--danger .alert__close {
+  color: var(--alert-text-danger);
+}
+
+.alert--danger:hover {
+  background-color: var(--alert-bg-danger-hover);
+}
+
+.alert--danger:hover .alert__title,
+.alert--danger:hover .alert__message,
+.alert--danger:hover .alert__close {
+  color: var(--alert-text-danger-hover);
+}
+
+/* Outline Alerts */
+.alert--outline {
+  background-color: transparent;
+  color: var(--alert-text-ghost);
+  border: var(--alert-border-width) solid var(--alert-outline);
+}
+
+.alert--outline:hover {
+  background-color: var(--alert-bg-ghost-hover);
+}
+
+.alert--outline.alert--success,
+.alert--outline.alert--success .alert__title,
+.alert--outline.alert--success .alert__message,
+.alert--outline.alert--success .alert__close {
+  border-color: var(--alert-outline-success);
+  color: var(--alert-outline-success);
+}
+
+.alert--outline.alert--success:hover {
+  background-color: var(--alert-bg-success-ghost-hover);
+}
+
+.alert--outline.alert--info,
+.alert--outline.alert--info .alert__title,
+.alert--outline.alert--info .alert__message,
+.alert--outline.alert--info .alert__close {
+  border-color: var(--alert-outline-info);
+  color: var(--alert-outline-info);
+}
+
+.alert--outline.alert--info:hover {
+  background-color: var(--alert-bg-info-ghost-hover);
+}
+
+.alert--outline.alert--warning,
+.alert--outline.alert--warning .alert__title,
+.alert--outline.alert--warning .alert__message,
+.alert--outline.alert--warning .alert__close {
+  border-color: var(--alert-outline-warning);
+  color: var(--alert-outline-warning);
+}
+
+.alert--outline.alert--warning:hover {
+  background-color: var(--alert-bg-warning-ghost-hover);
+}
+
+.alert--outline.alert--danger,
+.alert--outline.alert--danger .alert__title,
+.alert--outline.alert--danger .alert__message,
+.alert--outline.alert--danger .alert__close {
+  border-color: var(--alert-outline-danger);
+  color: var(--alert-outline-danger);
+}
+
+.alert--outline.alert--danger:hover {
+  background-color: var(--alert-bg-danger-ghost-hover);
+}
+
+/* Ghost Alerts */
+.alert--ghost {
+  background-color: var(--alert-bg-ghost);
+  color: var(--alert-text-ghost);
+}
+
+.alert--ghost,
+.alert--ghost .alert__title,
+.alert--ghost .alert__message,
+.alert--ghost .alert__close {
+  color: var(--alert-text-ghost);
+}
+
+.alert--ghost:hover {
+  background-color: var(--alert-bg-ghost-hover);
+}
+
+.alert--ghost.alert--success {
+  background-color: var(--alert-bg-success-ghost);
+}
+
+.alert--ghost.alert--success,
+.alert--ghost.alert--success .alert__title,
+.alert--ghost.alert--success .alert__message,
+.alert--ghost.alert--success .alert__close {
+  color: var(--alert-text-success-ghost);
+}
+
+.alert--ghost.alert--success:hover {
+  background-color: var(--alert-bg-success-ghost-hover);
+}
+
+.alert--ghost.alert--info {
+  background-color: var(--alert-bg-info-ghost);
+}
+
+.alert--ghost.alert--info,
+.alert--ghost.alert--info .alert__title,
+.alert--ghost.alert--info .alert__message,
+.alert--ghost.alert--info .alert__close {
+  color: var(--alert-text-info-ghost);
+}
+
+.alert--ghost.alert--info:hover {
+  background-color: var(--alert-bg-info-ghost-hover);
+}
+
+.alert--ghost.alert--warning {
+  background-color: var(--alert-bg-warning-ghost);
+}
+
+.alert--ghost.alert--warning,
+.alert--ghost.alert--warning .alert__title,
+.alert--ghost.alert--warning .alert__message,
+.alert--ghost.alert--warning .alert__close {
+  border-color: var(--alert-ghost-warning);
+  color: var(--alert-text-warning-ghost);
+}
+
+.alert--ghost.alert--warning:hover {
+  background-color: var(--alert-bg-warning-ghost-hover);
+}
+
+.alert--ghost.alert--danger {
+  background-color: var(--alert-bg-danger-ghost);
+}
+
+.alert--ghost.alert--danger,
+.alert--ghost.alert--danger .alert__title,
+.alert--ghost.alert--danger .alert__message,
+.alert--ghost.alert--danger .alert__close {
+  border-color: var(--alert-ghost-danger);
+  color: var(--alert-text-danger-ghost);
+}
+
+.alert--ghost.alert--danger:hover {
+  background-color: var(--alert-bg-danger-ghost-hover);
+}
+
+/* Animations */
+
+@keyframes alert-closing-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    height: auto;
+    padding: var(--alert-padding-medium);
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+  }
+}
