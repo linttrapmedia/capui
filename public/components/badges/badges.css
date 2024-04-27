@@ -1,0 +1,92 @@
+/* 
+Usage:
+<span class="badge badge-[MODIFIER]">Basic</badge>
+*/
+
+:root {
+  --badge-bg-dark: var(--color-black-60, black);
+  --badge-bg-light: var(--color-white-80, white);
+  --badge-bg-danger: var(--color-red-80, red);
+  --badge-bg-success: var(--color-green-80, green);
+  --badge-bg-warning: var(--color-yellow-80, yellow);
+  --badge-bg-info: var(--color-blue-80, blue);
+  --badge-text-dark: var(--color-white, white);
+  --badge-text-light: var(--color-black, black);
+  --badge-text-danger: var(--color-white, white);
+  --badge-text-success: var(--color-white, white);
+  --badge-text-warning: var(--color-black, black);
+  --badge-text-info: var(--color-white, white);
+  --badge-border-radius: 0.75rem;
+  --badge-border-width: 2px;
+  --badge-font-family: var(--font-sans, sans-serif);
+  --badge-font-small: 0.55rem;
+  --badge-font-medium: 0.65rem;
+  --badge-font-large: 0.75rem;
+  --badge-padding-small: 3px 6px;
+  --badge-padding-medium: 3px 6px;
+  --badge-padding-large: 4px 8px;
+}
+
+.badge {
+  border-radius: var(--badge-border-radius);
+  border: 0;
+  cursor: pointer;
+  font-family: var(--badge-font-family);
+  font-size: var(--badge-font-medium);
+  font-weight: bold;
+  outline: none;
+  padding: var(--badge-padding-medium);
+  position: relative;
+  text-align: center;
+  transition: all 0.3s;
+  user-select: none;
+  vertical-align: middle;
+  width: max-content;
+  text-wrap: nowrap;
+  min-width: 15px;
+}
+
+.badge--dark {
+  background-color: var(--badge-bg-dark);
+  color: var(--badge-text-dark);
+}
+
+.badge--light {
+  background-color: var(--badge-bg-light);
+  color: var(--badge-text-light);
+}
+
+.badge--success {
+  background-color: var(--badge-bg-success);
+  color: var(--badge-text-success);
+}
+
+.badge--danger {
+  background-color: var(--badge-bg-danger);
+  color: var(--badge-text-danger);
+}
+
+.badge--warning {
+  background-color: var(--badge-bg-warning);
+  color: var(--badge-text-warning);
+}
+
+.badge--info {
+  background-color: var(--badge-bg-info);
+  color: var(--badge-text-info);
+}
+
+.badge--small {
+  font-size: var(--badge-font-small);
+  padding: var(--badge-padding-small);
+}
+
+.badge--medium {
+  font-size: var(--badge-font-medium);
+  padding: var(--badge-padding-medium);
+}
+
+.badge--large {
+  font-size: var(--badge-font-large);
+  padding: var(--badge-padding-large);
+}

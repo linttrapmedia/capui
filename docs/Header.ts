@@ -52,13 +52,13 @@ export const Header = () => {
     ),
     // tagline
     html.div(
-      ["style", "color", "rgba(255,255,255,0.15)"],
+      ["style", "color", "rgba(255,255,255,0.35)"],
       ["style", "fontSize", "32px"],
       ["style", "textAlign", "center"]
     )("The Cut & Paste UI, Ctrl+Done."),
     // Description
     html.div(
-      ["style", "color", "rgba(255,255,255,0.15)"],
+      ["style", "color", "rgba(255,255,255,0.35)"],
       ["style", "fontSize", "14px"],
       ["style", "textAlign", "center"],
       ["style", "maxWidth", "960px"],

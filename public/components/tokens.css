@@ -138,9 +138,9 @@
   --color-red-90: rgba(var(--color-red-r), var(--color-red-g), var(--color-red-b), 0.9);
   --color-red: rgba(var(--color-red-r), var(--color-red-g), var(--color-red-b), 1);
 
-  --color-white-r: 220;
-  --color-white-g: 220;
-  --color-white-b: 220;
+  --color-white-r: 255;
+  --color-white-g: 255;
+  --color-white-b: 255;
   --color-white-01: rgba(var(--color-white-r), var(--color-white-g), var(--color-white-b), 0.01);
   --color-white-02: rgba(var(--color-white-r), var(--color-white-g), var(--color-white-b), 0.02);
   --color-white-03: rgba(var(--color-white-r), var(--color-white-g), var(--color-white-b), 0.03);

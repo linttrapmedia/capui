@@ -11,48 +11,63 @@
 */
 
 :root {
-  --alert-bg: var(--color-black-60, black);
-  --alert-bg-hover: var(--color-black, white);
-  --alert-bg-disabled: var(--color-black-30, white);
-  --alert-bg-loading: var(--color-black-50, black);
-  --alert-bg-ghost: var(--color-black-20, black);
-  --alert-bg-ghost-hover: var(--color-black-30, white);
+  --alert-bg-dark: var(--color-black-60, black);
+  --alert-bg-dark-hover: var(--color-black, white);
+  --alert-bg-dark-disabled: var(--color-black-30, white);
+  --alert-bg-dark-loading: var(--color-black-50, black);
+  --alert-bg-dark-ghost: var(--color-black-20, black);
+  --alert-bg-dark-ghost-hover: var(--color-black-10, white);
+
+  --alert-bg-light: var(--color-white, white);
+  --alert-bg-light-hover: var(--color-white-80, white);
+  --alert-bg-light-disabled: var(--color-white-80, white);
+  --alert-bg-light-loading: var(--color-white-80, white);
+  --alert-bg-light-ghost: var(--color-white-05, white);
+  --alert-bg-light-ghost-hover: var(--color-white-10, white);
 
   --alert-bg-danger: var(--color-red-80, red);
   --alert-bg-danger-hover: var(--color-red, red);
   --alert-bg-danger-disabled: var(--color-red-30, red);
   --alert-bg-danger-loading: var(--color-red-50, red);
   --alert-bg-danger-ghost: var(--color-red-10, red);
-  --alert-bg-danger-ghost-hover: var(--color-red-20, red);
+  --alert-bg-danger-ghost-hover: var(--color-red-10, red);
 
   --alert-bg-success: var(--color-green-80, green);
   --alert-bg-success-hover: var(--color-green, green);
   --alert-bg-success-disabled: var(--color-green-30, green);
   --alert-bg-success-loading: var(--color-green-50, green);
   --alert-bg-success-ghost: var(--color-green-08, green);
-  --alert-bg-success-ghost-hover: var(--color-green-20, green);
+  --alert-bg-success-ghost-hover: var(--color-green-10, green);
 
   --alert-bg-warning: var(--color-yellow-80, yellow);
   --alert-bg-warning-hover: var(--color-yellow, yellow);
   --alert-bg-warning-disabled: var(--color-yellow-30, yellow);
   --alert-bg-warning-loading: var(--color-yellow-50, yellow);
   --alert-bg-warning-ghost: var(--color-yellow-10, yellow);
-  --alert-bg-warning-ghost-hover: var(--color-yellow-20, yellow);
+  --alert-bg-warning-ghost-hover: var(--color-yellow-10, yellow);
 
   --alert-bg-info: var(--color-blue-80, blue);
   --alert-bg-info-hover: var(--color-blue, blue);
   --alert-bg-info-disabled: var(--color-blue-30, blue);
   --alert-bg-info-loading: var(--color-blue-50, blue);
   --alert-bg-info-ghost: var(--color-blue-10, blue);
-  --alert-bg-info-ghost-hover: var(--color-blue-20, blue);
+  --alert-bg-info-ghost-hover: var(--color-blue-10, blue);
 
-  --alert-text: var(--color-white, white);
-  --alert-text-hover: var(--color-white, white);
-  --alert-text-disabled: var(--color-white-30, white);
-  --alert-text-loading: var(--color-white-50, white);
-  --alert-text-ghost: var(--color-white, black);
-  --alert-text-ghost-hover: var(--color-white, white);
-  --alert-text-ghost-disabled: var(--color-white-30, white);
+  --alert-text-dark: var(--color-white, white);
+  --alert-text-dark-hover: var(--color-white, white);
+  --alert-text-dark-disabled: var(--color-white-30, white);
+  --alert-text-dark-loading: var(--color-white-50, white);
+  --alert-text-dark-ghost: var(--color-white, black);
+  --alert-text-dark-ghost-hover: var(--color-white, white);
+  --alert-text-dark-ghost-disabled: var(--color-white-30, white);
+
+  --alert-text-light: var(--color-black, black);
+  --alert-text-light-hover: var(--color-black, black);
+  --alert-text-light-disabled: var(--color-black-30, black);
+  --alert-text-light-loading: var(--color-black-50, black);
+  --alert-text-light-ghost: var(--color-white, white);
+  --alert-text-light-ghost-hover: var(--color-black, black);
+  --alert-text-light-ghost-disabled: var(--color-black-30, black);
 
   --alert-text-danger: var(--color-white, white);
   --alert-text-danger-hover: var(--color-white, white);
@@ -124,12 +139,19 @@
   --alert-border-radius: 4px;
   --alert-border-width: 2px;
 
-  --alert-outline: var(--color-white-60, white);
-  --alert-outline-hover: var(--color-white, white);
-  --alert-outline-disabled: var(--color-white-30, white);
-  --alert-outline-loading: var(--color-white-10, white);
-  --alert-outline-ghost: var(--color-black, black);
-  --alert-outline-ghost-hover: var(--color-black, black);
+  --alert-outline-dark: var(--color-black-60, black);
+  --alert-outline-dark-hover: var(--color-black, black);
+  --alert-outline-dark-disabled: var(--color-black-30, black);
+  --alert-outline-dark-loading: var(--color-black-10, black);
+  --alert-outline-dark-ghost: var(--color-white, white);
+  --alert-outline-dark-ghost-hover: var(--color-white, white);
+
+  --alert-outline-light: var(--color-white-60, white);
+  --alert-outline-light-hover: var(--color-white, white);
+  --alert-outline-light-disabled: var(--color-white-30, white);
+  --alert-outline-light-loading: var(--color-white-10, white);
+  --alert-outline-light-ghost: var(--color-black, black);
+  --alert-outline-light-ghost-hover: var(--color-black, black);
 
   --alert-outline-danger: var(--color-red-80, red);
   --alert-outline-danger-hover: var(--color-white, red);
@@ -178,8 +200,6 @@
   font-family: var(--alert-font-family);
   font-size: var(--alert-font-medium);
   padding: var(--alert-padding-medium);
-  background-color: var(--alert-bg);
-  color: var(--alert-text);
   border-radius: var(--alert-border-radius);
   position: relative;
   display: flex;
@@ -212,7 +232,8 @@
   display: none;
 }
 
-.alert__message {
+.alert__message,
+.alert__message a {
   color: var(--alert-text);
   opacity: 0.8;
 }
@@ -221,13 +242,56 @@
   animation: alert-closing-animation 0.25s linear forwards;
 }
 
+.alert--dark {
+  background-color: var(--alert-bg-dark);
+}
+
+.alert--dark .alert__title,
+.alert--dark .alert__message,
+.alert--dark .alert__close,
+.alert--dark .alert__message a {
+  color: var(--alert-text-dark);
+}
+
+.alert--dark:hover {
+  background-color: var(--alert-bg-dark-hover);
+}
+
+.alert--dark:hover .alert__title,
+.alert--dark:hover .alert__message,
+.alert--dark:hover .alert__close {
+  color: var(--alert-text-dark-hover);
+}
+
+.alert--light {
+  background-color: var(--alert-bg-light);
+}
+
+.alert--light .alert__title,
+.alert--light .alert__message,
+.alert--light .alert__close,
+.alert--light .alert__message a {
+  color: var(--alert-text-light);
+}
+
+.alert--light:hover {
+  background-color: var(--alert-bg-light-hover);
+}
+
+.alert--light:hover .alert__title,
+.alert--light:hover .alert__message,
+.alert--light:hover .alert__close {
+  color: var(--alert-text-light-hover);
+}
+
 .alert--success {
   background-color: var(--alert-bg-success);
 }
 
 .alert--success .alert__title,
 .alert--success .alert__message,
-.alert--success .alert__close {
+.alert--success .alert__close,
+.alert--success .alert__message a {
   color: var(--alert-text-success);
 }
 
@@ -247,6 +311,7 @@
 
 .alert--info .alert__title,
 .alert--info .alert__message,
+.alert--info .alert__message a,
 .alert--info .alert__close {
   color: var(--alert-text-info);
 }
@@ -267,6 +332,7 @@
 
 .alert--warning .alert__title,
 .alert--warning .alert__message,
+.alert--warning .alert__message a,
 .alert--warning .alert__close {
   color: var(--alert-text-warning);
 }
@@ -287,6 +353,7 @@
 
 .alert--danger .alert__title,
 .alert--danger .alert__message,
+.alert--danger .alert__message a,
 .alert--danger .alert__close {
   color: var(--alert-text-danger);
 }
@@ -304,20 +371,55 @@
 /* Outline Alerts */
 .alert--outline {
   background-color: transparent;
-  color: var(--alert-text-ghost);
-  border: var(--alert-border-width) solid var(--alert-outline);
 }
 
 .alert--outline:hover {
   background-color: var(--alert-bg-ghost-hover);
 }
 
+.alert--outline.alert--dark,
+.alert--outline.alert--dark .alert__title,
+.alert--outline.alert--dark .alert__message,
+.alert--outline.alert--dark .alert__message a,
+.alert--outline.alert--dark .alert__close {
+  color: var(--alert-outline-dark);
+}
+
+.alert--outline.alert--dark {
+  border: var(--alert-border-width) solid var(--alert-outline-dark);
+}
+
+.alert--outline.alert--dark:hover {
+  background-color: var(--alert-bg-dark-ghost-hover);
+}
+
+.alert--outline.alert--light,
+.alert--outline.alert--light .alert__title,
+.alert--outline.alert--light .alert__message,
+.alert--outline.alert--light .alert__message a,
+.alert--outline.alert--light .alert__close {
+  color: var(--alert-outline-light);
+}
+
+.alert--outline.alert--light {
+  border: var(--alert-border-width) solid var(--alert-outline-light);
+}
+
+.alert--outline.alert--light:hover {
+  background-color: var(--alert-bg-light-ghost-hover);
+}
+
 .alert--outline.alert--success,
 .alert--outline.alert--success .alert__title,
 .alert--outline.alert--success .alert__message,
+.alert--outline.alert--success .alert__message a,
 .alert--outline.alert--success .alert__close {
   border-color: var(--alert-outline-success);
   color: var(--alert-outline-success);
+}
+
+.alert--outline.alert--success {
+  border: var(--alert-border-width) solid var(--alert-outline-success);
 }
 
 .alert--outline.alert--success:hover {
@@ -327,9 +429,14 @@
 .alert--outline.alert--info,
 .alert--outline.alert--info .alert__title,
 .alert--outline.alert--info .alert__message,
+.alert--outline.alert--info .alert__message a,
 .alert--outline.alert--info .alert__close {
   border-color: var(--alert-outline-info);
   color: var(--alert-outline-info);
+}
+
+.alert--outline.alert--info {
+  border: var(--alert-border-width) solid var(--alert-outline-info);
 }
 
 .alert--outline.alert--info:hover {
@@ -339,9 +446,14 @@
 .alert--outline.alert--warning,
 .alert--outline.alert--warning .alert__title,
 .alert--outline.alert--warning .alert__message,
+.alert--outline.alert--warning .alert__message a,
 .alert--outline.alert--warning .alert__close {
   border-color: var(--alert-outline-warning);
   color: var(--alert-outline-warning);
+}
+
+.alert--outline.alert--warning {
+  border: var(--alert-border-width) solid var(--alert-outline-warning);
 }
 
 .alert--outline.alert--warning:hover {
@@ -351,30 +463,50 @@
 .alert--outline.alert--danger,
 .alert--outline.alert--danger .alert__title,
 .alert--outline.alert--danger .alert__message,
+.alert--outline.alert--danger .alert__message a,
 .alert--outline.alert--danger .alert__close {
   border-color: var(--alert-outline-danger);
   color: var(--alert-outline-danger);
 }
 
+.alert--outline.alert--danger {
+  border: var(--alert-border-width) solid var(--alert-outline-danger);
+}
+
 .alert--outline.alert--danger:hover {
   background-color: var(--alert-bg-danger-ghost-hover);
 }
-
 /* Ghost Alerts */
-.alert--ghost {
-  background-color: var(--alert-bg-ghost);
-  color: var(--alert-text-ghost);
+.alert--ghost.alert--danger {
+  background-color: var(--alert-bg-danger-ghost);
 }
 
-.alert--ghost,
-.alert--ghost .alert__title,
-.alert--ghost .alert__message,
-.alert--ghost .alert__close {
-  color: var(--alert-text-ghost);
+.alert--ghost.alert--dark,
+.alert--ghost.alert--dark .alert__title,
+.alert--ghost.alert--dark .alert__message,
+.alert--ghost.alert--dark .alert__message a,
+.alert--ghost.alert--dark .alert__close {
+  color: var(--alert-text-dark-ghost);
 }
 
-.alert--ghost:hover {
-  background-color: var(--alert-bg-ghost-hover);
+.alert--ghost.alert--dark:hover {
+  background-color: var(--alert-bg-dark-ghost-hover);
+}
+
+.alert--ghost.alert--light {
+  background-color: var(--alert-bg-light-ghost);
+}
+
+.alert--ghost.alert--light,
+.alert--ghost.alert--light .alert__title,
+.alert--ghost.alert--light .alert__message,
+.alert--ghost.alert--light .alert__message a,
+.alert--ghost.alert--light .alert__close {
+  color: var(--alert-text-light-ghost);
+}
+
+.alert--ghost.alert--light:hover {
+  background-color: var(--alert-bg-light-ghost-hover);
 }
 
 .alert--ghost.alert--success {
@@ -384,6 +516,7 @@
 .alert--ghost.alert--success,
 .alert--ghost.alert--success .alert__title,
 .alert--ghost.alert--success .alert__message,
+.alert--ghost.alert--success .alert__message a,
 .alert--ghost.alert--success .alert__close {
   color: var(--alert-text-success-ghost);
 }
@@ -399,6 +532,7 @@
 .alert--ghost.alert--info,
 .alert--ghost.alert--info .alert__title,
 .alert--ghost.alert--info .alert__message,
+.alert--ghost.alert--info .alert__message a,
 .alert--ghost.alert--info .alert__close {
   color: var(--alert-text-info-ghost);
 }
@@ -414,6 +548,7 @@
 .alert--ghost.alert--warning,
 .alert--ghost.alert--warning .alert__title,
 .alert--ghost.alert--warning .alert__message,
+.alert--ghost.alert--warning .alert__message a,
 .alert--ghost.alert--warning .alert__close {
   border-color: var(--alert-ghost-warning);
   color: var(--alert-text-warning-ghost);
@@ -430,6 +565,7 @@
 .alert--ghost.alert--danger,
 .alert--ghost.alert--danger .alert__title,
 .alert--ghost.alert--danger .alert__message,
+.alert--ghost.alert--danger .alert__message a,
 .alert--ghost.alert--danger .alert__close {
   border-color: var(--alert-ghost-danger);
   color: var(--alert-text-danger-ghost);

@@ -1,8 +1,12 @@
 <div class="specs" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))">
   <!-- Solid Buttons -->
   <div class="spec">
-    <div class="spec__example"><button class="button">Basic</button></div>
-    <div class="spec__code"><code>.button</code></div>
+    <div class="spec__example"><button class="button button--dark">Dark</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--dark</code></div>
+  </div>
+  <div class="spec">
+    <div class="spec__example"><button class="button button--light">Light</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--light</code></div>
   </div>
   <div class="spec">
     <div class="spec__example"><button class="button button--success">Success</button></div>
@@ -20,9 +24,14 @@
     <div class="spec__example"><button class="button button--danger">Danger</button></div>
     <div class="spec__code"><code>.button</code><code>.button--danger</code></div>
   </div>
+  <!-- Disabled -->
   <div class="spec">
-    <div class="spec__example"><button class="button button--disabled">Basic</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--disabled</code></div>
+    <div class="spec__example"><button class="button button--dark button--disabled">Dark</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--dark</code><code>.button--disabled</code></div>
+  </div>
+  <div class="spec">
+    <div class="spec__example"><button class="button button--light button--disabled">Light</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--light</code><code>.button--disabled</code></div>
   </div>
   <div class="spec">
     <div class="spec__example"><button class="button button--success button--disabled">Success</button></div>
@@ -40,9 +49,14 @@
     <div class="spec__example"><button class="button button--danger button--disabled">Danger</button></div>
     <div class="spec__code"><code>.button</code><code>.button--danger</code><code>.button--disabled</code></div>
   </div>
+  <!-- Loading -->
   <div class="spec">
-    <div class="spec__example"><button class="button button--loading">Basic</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--loading</code></div>
+    <div class="spec__example"><button class="button button--dark button--loading">Dark</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--dark</code><code>.button--loading</code></div>
+  </div>
+  <div class="spec">
+    <div class="spec__example"><button class="button button--light button--loading">Light</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--light</code><code>.button--loading</code></div>
   </div>
   <div class="spec">
     <div class="spec__example"><button class="button button--success button--loading">Success</button></div>
@@ -60,26 +74,31 @@
     <div class="spec__example"><button class="button button--danger button--loading">Danger</button></div>
     <div class="spec__code"><code>.button</code><code>.button--danger</code><code>.button--loading</code></div>
   </div>
+  <!-- Sizing -->
   <div class="spec">
-    <div class="spec__example"><button class="button button--small">Small</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--small</code></div>
+    <div class="spec__example"><button class="button button--dark button--small">Small</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--dark</code><code>.button--small</code></div>
   </div>
   <div class="spec">
-    <div class="spec__example"><button class="button button--medium">Medium</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--medium</code></div>
+    <div class="spec__example"><button class="button button--dark button--medium">Medium</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--dark</code><code>.button--medium</code></div>
   </div>
   <div class="spec">
-    <div class="spec__example"><button class="button button--large">Large</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--large</code></div>
+    <div class="spec__example"><button class="button button--dark button--large">Large</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--dark</code><code>.button--large</code></div>
   </div>
   <div class="spec">
-    <div class="spec__example"><button class="button button--block">Block</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--block</code></div>
+    <div class="spec__example"><button class="button button--dark button--block">Block</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--dark</code><code>.button--block</code></div>
   </div>
   <!-- Outline Buttons -->
+  <div class="spec spec--light">
+    <div class="spec__example"><button class="button button--dark button--outline">Dark</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--dark</code><code>.button--outline</code></div>
+  </div>
   <div class="spec">
-    <div class="spec__example"><button class="button button--outline">Basic</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--outline</code></div>
+    <div class="spec__example"><button class="button button--light button--outline">Light</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--light</code><code>.button--outline</code></div>
   </div>
   <div class="spec">
     <div class="spec__example"><button class="button button--success button--outline">Success</button></div>
@@ -97,9 +116,20 @@
     <div class="spec__example"><button class="button button--danger button--outline">Danger</button></div>
     <div class="spec__code"><code>.button</code><code>.button--danger</code><code>.button--outline</code></div>
   </div>
+  <!-- Disabled -->
+  <div class="spec spec--light">
+    <div class="spec__example"><button class="button button--dark button--disabled button--outline">Dark</button></div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--dark</code><code>.button--disabled</code><code>.button--outline</code>
+    </div>
+  </div>
   <div class="spec">
-    <div class="spec__example"><button class="button button--disabled button--outline">Basic</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--disabled</code><code>.button--outline</code></div>
+    <div class="spec__example">
+      <button class="button button--light button--disabled button--outline">Light</button>
+    </div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--light</code><code>.button--disabled</code><code>.button--outline</code>
+    </div>
   </div>
   <div class="spec">
     <div class="spec__example">
@@ -131,11 +161,22 @@
       <code>.button</code><code>.button--danger</code><code>.button--disabled</code><code>.button--outline</code>
     </div>
   </div>
+  <!-- Loading -->
+  <div class="spec spec--light">
+    <div class="spec__example">
+      <button class="button button--dark button--loading button--outline">Dark</button>
+    </div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--dark</code><code>.button--loading</code><code>.button--outline</code>
+    </div>
+  </div>
   <div class="spec">
     <div class="spec__example">
-      <button class="button button--loading button--outline">Basic</button>
+      <button class="button button--light button--loading button--outline">Light</button>
     </div>
-    <div class="spec__code"><code>.button</code><code>.button--loading</code><code>.button--outline</code></div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--light</code><code>.button--loading</code><code>.button--outline</code>
+    </div>
   </div>
   <div class="spec">
     <div class="spec__example">
@@ -167,26 +208,39 @@
       <code>.button</code><code>.button--danger</code><code>.button--loading</code><code>.button--outline</code>
     </div>
   </div>
+  <!-- Sizing -->
   <div class="spec">
-    <div class="spec__example"><button class="button button--small button--outline">Small</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--small</code><code>.button--outline</code></div>
+    <div class="spec__example"><button class="button button--light button--small button--outline">Small</button></div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--light</code><code>.button--small</code><code>.button--outline</code>
+    </div>
   </div>
   <div class="spec">
-    <div class="spec__example"><button class="button button--medium button--outline">Medium</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--medium</code><code>.button--outline</code></div>
+    <div class="spec__example"><button class="button button--light button--medium button--outline">Medium</button></div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--light</code><code>.button--medium</code><code>.button--outline</code>
+    </div>
   </div>
   <div class="spec">
-    <div class="spec__example"><button class="button button--large button--outline">Large</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--large</code><code>.button--outline</code></div>
+    <div class="spec__example"><button class="button button--light button--large button--outline">Large</button></div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--light</code><code>.button--large</code><code>.button--outline</code>
+    </div>
   </div>
   <div class="spec">
-    <div class="spec__example"><button class="button button--block button--outline">Block</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--block</code><code>.button--outline</code></div>
+    <div class="spec__example"><button class="button button--light button--block button--outline">Block</button></div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--block</code><code>.button--block</code><code>.button--outline</code>
+    </div>
   </div>
   <!-- Ghost Buttons -->
+  <div class="spec spec--light">
+    <div class="spec__example"><button class="button button--dark button--ghost">Dark</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--dark</code><code>.button--ghost</code></div>
+  </div>
   <div class="spec">
-    <div class="spec__example"><button class="button button--ghost">Basic</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--ghost</code></div>
+    <div class="spec__example"><button class="button button--light button--ghost">Light</button></div>
+    <div class="spec__code"><code>.button</code><code>.button--light</code><code>.button--ghost</code></div>
   </div>
   <div class="spec">
     <div class="spec__example"><button class="button button--success button--ghost">Success</button></div>
@@ -204,38 +258,92 @@
     <div class="spec__example"><button class="button button--danger button--ghost">Danger</button></div>
     <div class="spec__code"><code>.button</code><code>.button--danger</code><code>.button--ghost</code></div>
   </div>
-  <div class="spec">
-    <div class="spec__example"><button class="button button--disabled button--ghost">Basic</button></div>
-    <div class="spec__code"><code>.button</code><code>.button--disabled</code><code>.button--ghost</code></div>
-  </div>
-  <div class="spec">
-    <div class="spec__example">
-      <button class="button button--success button--disabled button--ghost">Success</button>
-    </div>
+
+  <!-- Disabled -->
+  <div class="spec spec--light">
+    <div class="spec__example"><button class="button button--disabled button--dark button--ghost">Dark</button></div>
     <div class="spec__code">
-      <code>.button</code><code>.button--success</code><code>.button--disabled</code><code>.button--ghost</code>
+      <code>.button</code><code>.button--disabled</code><code>.button--dark</code><code>.button--ghost</code>
     </div>
   </div>
   <div class="spec">
-    <div class="spec__example"><button class="button button--info button--disabled button--ghost">Info</button></div>
+    <div class="spec__example"><button class="button button--disabled button--light button--ghost">Light</button></div>
     <div class="spec__code">
-      <code>.button</code><code>.button--info</code><code>.button--disabled</code><code>.button--ghost</code>
+      <code>.button</code><code>.button--disabled</code><code>.button--light</code><code>.button--ghost</code>
     </div>
   </div>
   <div class="spec">
     <div class="spec__example">
-      <button class="button button--warning button--disabled button--ghost">Warning</button>
+      <button class="button button--disabled button--success button--ghost">Success</button>
     </div>
     <div class="spec__code">
-      <code>.button</code><code>.button--warning</code><code>.button--disabled</code><code>.button--ghost</code>
+      <code>.button</code><code>.button--disabled</code><code>.button--success</code><code>.button--ghost</code>
+    </div>
+  </div>
+  <div class="spec">
+    <div class="spec__example"><button class="button button--disabled button--info button--ghost">Info</button></div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--disabled</code><code>.button--info</code><code>.button--ghost</code>
     </div>
   </div>
   <div class="spec">
     <div class="spec__example">
-      <button class="button button--danger button--disabled button--ghost">Danger</button>
+      <button class="button button--disabled button--warning button--ghost">Warning</button>
     </div>
     <div class="spec__code">
-      <code>.button</code><code>.button--danger</code><code>.button--disabled</code><code>.button--ghost</code>
+      <code>.button</code><code>.button--disabled</code><code>.button--warning</code><code>.button--ghost</code>
+    </div>
+  </div>
+  <div class="spec">
+    <div class="spec__example">
+      <button class="button button--disabled button--danger button--ghost">Danger</button>
+    </div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--disabled</code><code>.button--danger</code><code>.button--ghost</code>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div class="spec spec--light">
+    <div class="spec__example"><button class="button button--loading button--dark button--ghost">Dark</button></div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--loading</code><code>.button--dark</code><code>.button--ghost</code>
+    </div>
+  </div>
+  <div class="spec">
+    <div class="spec__example"><button class="button button--loading button--light button--ghost">Light</button></div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--loading</code><code>.button--light</code><code>.button--ghost</code>
+    </div>
+  </div>
+  <div class="spec">
+    <div class="spec__example">
+      <button class="button button--loading button--success button--ghost">Success</button>
+    </div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--loading</code><code>.button--success</code><code>.button--ghost</code>
+    </div>
+  </div>
+  <div class="spec">
+    <div class="spec__example"><button class="button button--loading button--info button--ghost">Info</button></div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--loading</code><code>.button--info</code><code>.button--ghost</code>
+    </div>
+  </div>
+  <div class="spec">
+    <div class="spec__example">
+      <button class="button button--loading button--warning button--ghost">Warning</button>
+    </div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--loading</code><code>.button--warning</code><code>.button--ghost</code>
+    </div>
+  </div>
+  <div class="spec">
+    <div class="spec__example">
+      <button class="button button--loading button--danger button--ghost">Danger</button>
+    </div>
+    <div class="spec__code">
+      <code>.button</code><code>.button--loading</code><code>.button--danger</code><code>.button--ghost</code>
     </div>
   </div>
 </div>

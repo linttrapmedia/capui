@@ -52,14 +52,6 @@ body {
   box-sizing: border-box;
 }
 
-code {
-  font-family: monospace;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 2px;
-  display: inline-block;
-  padding: 0 3px;
-}
-
 /* Basic scrollbar styles */
 /* ::-webkit-scrollbar {
   width: 10px;

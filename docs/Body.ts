@@ -6,7 +6,7 @@ export const Body = () => {
     html.div(
       ["style", "display", "grid"],
       ["style", "justifyContent", "center"],
-      ["style", "gridTemplateColumns", "repeat(auto-fill, minmax(300px, 1fr))"],
+      ["style", "gridTemplateColumns", "repeat(auto-fill, minmax(400px, 1fr))"],
       ["style", "gap", "20px"],
       ["style", "maxWidth", "960px"],
       ["style", "margin", "auto"],

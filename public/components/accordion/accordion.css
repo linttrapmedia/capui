@@ -1,0 +1,158 @@
+/* Root-level CSS variables for broad usage (optional) */
+:root {
+  --accordion-light-border-color: var(--color-black-10, black);
+  --accordion-light-header-bg: var(--color-white-90, white);
+  --accordion-light-header-selected-bg: var(--color-white-90, white);
+  --accordion-light-header-hover-bg: var(--color-white-80, white);
+  --accordion-light-body-bg: var(--color-white, white);
+  --accordion-light-text-color: var(--color-black, black);
+
+  --accordion-dark-border-color: var(--color-white-10, white);
+  --accordion-dark-header-bg: var(--color-black-70, black);
+  --accordion-dark-header-selected-bg: var(--color-black-70, black);
+  --accordion-dark-header-hover-bg: var(--color-black-50, black);
+  --accordion-dark-body-bg: var(--color-black-30, black);
+  --accordion-dark-text-color: var(--color-white, white);
+
+  --accordion-font-family: var(--font-sans, sans-serif);
+  --accordion-font-size-small: 14px;
+  --accordion-font-size-medium: 16px;
+  --accordion-font-size-large: 18px;
+  --accordion-padding-small: 10px;
+  --accordion-padding-medium: 12px;
+  --accordion-padding-large: 14px;
+  --accordion-border-radius: 4px;
+  --accordion-toggle-size: 6px;
+}
+
+.accordion {
+  width: 100%;
+  font-family: var(--accordion-font-family);
+}
+
+.accordion__item:first-child .accordion__header {
+  border-top-left-radius: var(--accordion-border-radius);
+  border-top-right-radius: var(--accordion-border-radius);
+}
+
+.accordion__item:last-child:not(:has(.accordion__input:checked)) .accordion__header {
+  border-bottom-left-radius: var(--accordion-border-radius);
+  border-bottom-right-radius: var(--accordion-border-radius);
+}
+
+.accordion__item:last-child:has(.accordion__input:checked) .accordion__body {
+  border-bottom-left-radius: var(--accordion-border-radius);
+  border-bottom-right-radius: var(--accordion-border-radius);
+}
+
+.accordion__header {
+  padding: var(--accordion-padding-medium);
+  font-size: var(--accordion-font-size-medium);
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  position: relative;
+}
+
+.accordion__header::after {
+  content: "";
+  display: flex;
+  width: var(--accordion-toggle-size);
+  height: var(--accordion-toggle-size);
+  border-width: 2px;
+  position: absolute;
+  right: var(--accordion-padding-medium);
+  top: calc(50% - var(--accordion-toggle-size) / 2 * 2);
+  transform: rotate(-45deg);
+}
+
+.accordion__input:checked + .accordion__header::after {
+  transform: rotate(135deg);
+  top: calc(50% - var(--accordion-toggle-size) / 2);
+}
+
+.accordion__body {
+  padding: var(--accordion-padding-medium);
+  font-size: var(--accordion-font-size);
+  display: none;
+}
+
+.accordion__input {
+  display: none;
+}
+
+.accordion__input:checked + .accordion__header + .accordion__body {
+  display: block;
+}
+
+/* Colors */
+
+.accordion--light {
+  border: 1px solid var(--accordion-light-border-color);
+  color: var(--accordion-light-text-color);
+}
+
+.accordion--light .accordion__header::after {
+  border-left: 1px solid var(--accordion-light-text-color);
+  border-bottom: 1px solid var(--accordion-light-text-color);
+}
+
+.accordion--light .accordion__header {
+  background-color: var(--accordion-light-header-bg);
+  border-bottom: 1px solid var(--accordion-light-border-color);
+}
+
+.accordion--light .accordion__item:last-child:not(:has(.accordion__input:checked)) .accordion__header {
+  border-bottom: none;
+}
+
+.accordion--light .accordion__header:hover {
+  background-color: var(--accordion-light-header-hover-bg);
+}
+
+.accordion--light .accordion__body {
+  background-color: var(--accordion-light-body-bg);
+}
+
+.accordion--light .accordion__item:has(.accordion__input:checked) .accordion__header {
+  background-color: var(--accordion-light-header-selected-bg);
+}
+
+.accordion--light .accordion__item:not(:last-child) .accordion__input:checked + .accordion__header + .accordion__body {
+  border-bottom: 1px solid var(--accordion-light-border-color);
+}
+
+.accordion--dark {
+  border: 1px solid var(--accordion-dark-border-color);
+  color: var(--accordion-dark-text-color);
+}
+
+.accordion--dark .accordion__header {
+  background-color: var(--accordion-dark-header-bg);
+  border-bottom: 1px solid var(--accordion-dark-border-color);
+}
+
+.accordion--dark .accordion__header::after {
+  border-left: 1px solid var(--accordion-dark-text-color);
+  border-bottom: 1px solid var(--accordion-dark-text-color);
+}
+
+.accordion--dark .accordion__item:last-child:not(:has(.accordion__input:checked)) .accordion__header {
+  border-bottom: none;
+}
+
+.accordion--dark .accordion__header:hover {
+  background-color: var(--accordion-dark-header-hover-bg);
+}
+
+.accordion--dark .accordion__body {
+  background-color: var(--accordion-dark-body-bg);
+}
+
+.accordion--dark .accordion__item:has(.accordion__input:checked) .accordion__header {
+  background-color: var(--accordion-dark-header-selected-bg);
+}
+
+.accordion--dark .accordion__item:not(:last-child) .accordion__input:checked + .accordion__header + .accordion__body {
+  border-bottom: 1px solid var(--accordion-dark-border-color);
+}

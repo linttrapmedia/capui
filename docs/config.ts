@@ -48,31 +48,64 @@ export const html = HTML({
 
 export const lib: Component[] = [
   {
+    title: "Accordion",
+    exampleSrc: "/components/accordion/examples.html",
+    example: undefined,
+    preview: `<div class="accordion accordion--dark">
+    <div class="accordion__item">
+      <input type="radio" name="accordion-group" id="ag1" hidden class="accordion__input" />
+      <label for="ag1" class="accordion__header">Item 1</label>
+      <div class="accordion__body">Content for Item 1...</div>
+    </div>
+    <div class="accordion__item">
+      <input type="radio" name="accordion-group" id="ag2" hidden class="accordion__input" />
+      <label for="ag2" class="accordion__header">Item 2</label>
+      <div class="accordion__body">Content for Item 2...</div>
+    </div>
+    <div class="accordion__item">
+    <input type="radio" name="accordion-group" id="ag3" hidden class="accordion__input" />
+    <label for="ag3" class="accordion__header">Item 2</label>
+    <div class="accordion__body">Content for Item 2...</div>
+  </div>
+  </div>`,
+  },
+  {
     title: "Alerts",
-    description: "Alerts and notifications",
-    image: "static/images/button.svg",
     exampleSrc: "/components/alerts/examples.html",
     example: undefined,
-    preview: `<label class="alert">
-    <input type="checkbox" class="alert__toggle" />
-    <div class="alert__close">＋</div>
-    <div class="alert__title">Alert Title</div>
+    preview: `<div class="alert alert--dark">
+    <div class="alert__title">Alert</div>
     <div class="alert__message">
       lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     </div>
-  </label>`,
+  </div>
+  <div class="alert alert--light">
+    <div class="alert__title">Alert</div>
+    <div class="alert__message">
+      lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    </div>
+  </div>`,
+  },
+  {
+    title: "Badges",
+    exampleSrc: "/components/badges/examples.html",
+    example: undefined,
+    preview: `<button class="button button--dark">Alerts <span class="badge badge--light">1</span></button>
+    <button class="button button--light">Alerts <span class="badge badge--dark">2</span></button>
+    <button class="button button--outline button--light">Alerts <span class="badge badge--light">3</span></button>`,
   },
   {
     title: "Buttons",
-    description: "A simple button component",
-    image: "static/images/button.svg",
     exampleSrc: "/components/buttons/examples.html",
     example: undefined,
-    preview: `<button class="button">Button</button>&nbsp;<button class="button button--loading">Button</button>`,
+    preview: `<button class="button button--dark">Dark</button>
+    <button class="button button--light">Light</button>
+    <button class="button button--outline button--light">Outline</button>
+    <button class="button button--outline button--loading button--light">Loading</button>`,
   },
 ];
 
 // dialog.set({
-//   ...lib[0],
+//   ...lib[1],
 //   showing: true,
 // });

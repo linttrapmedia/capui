@@ -24,18 +24,14 @@ export const Dialog = () => {
         ["style", "justifyContent", "space-between"],
         ["style", "borderBottom", `1px solid rgba(255,255,255,0.05)`],
         ["style", "padding", "20px"],
-        ["style", "textAlign", "left"]
+        ["style", "textAlign", "left"],
+        ["style", "alignItems", "center"]
       )(
         html.div()(
           html.div(
             ["style", "fontSize", "21px"],
             ["style", "color", "rgba(255,255,255,1)"],
             ["innerText:dialog", () => dialog.get().title ?? ""]
-          )(),
-          html.div(
-            ["style", "fontSize", "14px"],
-            ["style", "color", "rgba(255,255,255,0.5)"],
-            ["innerText:dialog", () => dialog.get().description ?? ""]
           )()
         ),
         html.button(

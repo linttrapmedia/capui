@@ -4,12 +4,19 @@ Usage:
 */
 
 :root {
-  --button-bg: var(--color-black-60, black);
-  --button-bg-hover: var(--color-black, white);
-  --button-bg-disabled: var(--color-black-30, white);
-  --button-bg-loading: var(--color-black-50, black);
-  --button-bg-ghost: transparent;
-  --button-bg-ghost-hover: var(--color-black-30, white);
+  --button-bg-dark: var(--color-black-60, black);
+  --button-bg-dark-hover: var(--color-black, black);
+  --button-bg-dark-disabled: var(--color-black-30, black);
+  --button-bg-dark-loading: var(--color-black-20, black);
+  --button-bg-dark-ghost: transparent;
+  --button-bg-dark-ghost-hover: var(--color-black-30, black);
+
+  --button-bg-light: var(--color-white-80, white);
+  --button-bg-light-hover: var(--color-white, white);
+  --button-bg-light-disabled: var(--color-white-30, white);
+  --button-bg-light-loading: var(--color-white-10, white);
+  --button-bg-light-ghost: transparent;
+  --button-bg-light-ghost-hover: var(--color-white-10, white);
 
   --button-bg-danger: var(--color-red-80, red);
   --button-bg-danger-hover: var(--color-red, red);
@@ -39,13 +46,21 @@ Usage:
   --button-bg-info-ghost: transparent;
   --button-bg-info-ghost-hover: var(--color-blue-10, blue);
 
-  --button-text: var(--color-white, white);
-  --button-text-hover: var(--color-white, white);
-  --button-text-disabled: var(--color-white-30, white);
-  --button-text-loading: var(--color-white-50, white);
-  --button-text-ghost: var(--color-black, black);
-  --button-text-ghost-hover: var(--color-white, white);
-  --button-text-ghost-disabled: var(--color-white-30, white);
+  --button-text-dark: var(--color-white, white);
+  --button-text-dark-hover: var(--color-white, white);
+  --button-text-dark-disabled: var(--color-white-30, white);
+  --button-text-dark-loading: var(--color-white-50, white);
+  --button-text-dark-ghost: var(--color-black, black);
+  --button-text-dark-ghost-hover: var(--color-black, black);
+  --button-text-dark-ghost-disabled: var(--color-black-30, black);
+
+  --button-text-light: var(--color-black, black);
+  --button-text-light-hover: var(--color-black, black);
+  --button-text-light-disabled: var(--color-black-60, black);
+  --button-text-light-loading: var(--color-black-50, black);
+  --button-text-light-ghost: var(--color-black, black);
+  --button-text-light-ghost-hover: var(--color-white, white);
+  --button-text-light-ghost-disabled: var(--color-white-30, white);
 
   --button-text-danger: var(--color-white, white);
   --button-text-danger-hover: var(--color-white, white);
@@ -79,12 +94,19 @@ Usage:
   --button-text-info-ghost-hover: var(--color-blue, blue);
   --button-text-info-ghost-disabled: var(--color-blue-30, blue);
 
-  --button-border: var(--color-black-60, black);
-  --button-border-hover: var(--color-black, white);
-  --button-border-disabled: var(--color-black-30, white);
-  --button-border-loading: var(--color-black-50, black);
-  --button-border-ghost: var(--color-black, black);
-  --button-border-ghost-hover: var(--color-black, black);
+  --button-border-dark: var(--color-black-60, black);
+  --button-border-dark-hover: var(--color-black, white);
+  --button-border-dark-disabled: var(--color-black-30, white);
+  --button-border-dark-loading: var(--color-black-50, black);
+  --button-border-dark-ghost: var(--color-black, black);
+  --button-border-dark-ghost-hover: var(--color-black, black);
+
+  --button-border-light: var(--color-white-80, white);
+  --button-border-light-hover: var(--color-white, white);
+  --button-border-light-disabled: var(--color-white-30, white);
+  --button-border-light-loading: var(--color-white-50, white);
+  --button-border-light-ghost: var(--color-white, white);
+  --button-border-light-ghost-hover: var(--color-white, white);
 
   --button-border-danger: var(--color-red-80, red);
   --button-border-danger-hover: var(--color-red, red);
@@ -117,12 +139,19 @@ Usage:
   --button-border-radius: 4px;
   --button-border-width: 2px;
 
-  --button-outline: var(--color-white-60, white);
-  --button-outline-hover: var(--color-white, white);
-  --button-outline-disabled: var(--color-white-30, white);
-  --button-outline-loading: var(--color-white-10, white);
-  --button-outline-ghost: var(--color-black, black);
-  --button-outline-ghost-hover: var(--color-black, black);
+  --button-outline-dark: var(--color-black-60, black);
+  --button-outline-dark-hover: var(--color-black, black);
+  --button-outline-dark-disabled: var(--color-black-30, black);
+  --button-outline-dark-loading: var(--color-black-20, black);
+  --button-outline-dark-ghost: var(--color-black, black);
+  --button-outline-dark-ghost-hover: var(--color-black, black);
+
+  --button-outline-light: var(--color-white-60, white);
+  --button-outline-light-hover: var(--color-white, white);
+  --button-outline-light-disabled: var(--color-white-30, white);
+  --button-outline-light-loading: var(--color-white-10, white);
+  --button-outline-light-ghost: var(--color-white, white);
+  --button-outline-light-ghost-hover: var(--color-white, white);
 
   --button-outline-danger: var(--color-red-80, red);
   --button-outline-danger-hover: var(--color-white, red);
@@ -160,15 +189,15 @@ Usage:
   --button-padding-small: 5px 10px;
   --button-padding-medium: 8px 15px;
   --button-padding-large: 10px 20px;
+  --button-gap-small: 5px;
+  --button-gap-medium: 8px;
+  --button-gap-large: 11px;
 }
 
 /* Solid Buttons */
 .button {
-  background-color: var(--button-bg);
   border-radius: var(--button-border-radius);
   border: 0;
-  box-shadow: 0 0 0 var(--button-border-width) var(--button-border);
-  color: var(--button-text);
   cursor: pointer;
   font-family: var(--button-font-family);
   font-size: var(--button-font-medium);
@@ -182,6 +211,8 @@ Usage:
   vertical-align: middle;
   width: max-content;
   text-wrap: nowrap;
+  gap: var(--button-gap-medium);
+  display: inline-flex;
 }
 
 .button--disabled {
@@ -203,6 +234,70 @@ Usage:
     -45deg,
     var(--button-bg-loading),
     var(--button-bg-loading) 5px,
+    transparent 5px,
+    transparent 10px /* Adjust stripe width */
+  );
+  background-size: 200px 100%; /* Adjust the size of the background pattern */
+  animation: button-loading-animation 2s linear infinite;
+  cursor: not-allowed;
+}
+
+.button--dark {
+  background-color: var(--button-bg-dark);
+  color: var(--button-text-dark);
+  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-dark);
+}
+
+.button--dark.button--disabled {
+  background-color: var(--button-bg-dark-disabled);
+  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-dark-disabled);
+  color: var(--button-text-dark-disabled);
+  cursor: not-allowed;
+}
+
+.button--dark:not(.button--disabled):not(.button--loading):hover {
+  background-color: var(--button-bg-dark-hover);
+  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-dark-hover);
+  color: var(--button-text-dark-hover);
+}
+
+.button--dark.button--loading {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--button-bg-dark-loading),
+    var(--button-bg-dark-loading) 5px,
+    transparent 5px,
+    transparent 10px /* Adjust stripe width */
+  );
+  background-size: 200px 100%; /* Adjust the size of the background pattern */
+  animation: button-loading-animation 2s linear infinite;
+  cursor: not-allowed;
+}
+
+.button--light {
+  background-color: var(--button-bg-light);
+  color: var(--button-text-light);
+  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-light);
+}
+
+.button--light.button--disabled {
+  background-color: var(--button-bg-light-disabled);
+  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-light-disabled);
+  color: var(--button-text-light-disabled);
+  cursor: not-allowed;
+}
+
+.button--light:not(.button--disabled):not(.button--loading):hover {
+  background-color: var(--button-bg-light-hover);
+  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-light-hover);
+  color: var(--button-text-light-hover);
+}
+
+.button--light.button--loading {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--button-bg-light-loading),
+    var(--button-bg-light-loading) 5px,
     transparent 5px,
     transparent 10px /* Adjust stripe width */
   );
@@ -340,36 +435,74 @@ Usage:
 }
 
 /* Outline Buttons */
-.button--outline {
-  background: none;
+.button--outline.button--dark {
+  background-color: transparent;
   border-width: var(--button-border-width);
-  border-color: var(--button-outline);
+  border-color: var(--button-outline-dark);
   border-style: solid;
-  color: var(--button-outline);
+  color: var(--button-outline-dark);
   box-shadow: none;
   z-index: 1;
 }
 
-.button--outline:not(.button--disabled):not(.button--loading):hover {
+.button--outline.button--dark:not(.button--disabled):not(.button--loading):hover {
   box-shadow: none;
   background-color: transparent;
-  border-color: var(--button-outline-hover);
-  color: var(--button-outline-hover);
+  border-color: var(--button-outline-dark-hover);
+  color: var(--button-outline-dark-hover);
 }
 
-.button--outline.button--disabled {
+.button--outline.button--dark.button--disabled {
   cursor: not-allowed;
   box-shadow: none;
   background: transparent;
-  border-color: var(--button-outline-disabled);
-  color: var(--button-outline-disabled);
+  border-color: var(--button-outline-dark-disabled);
+  color: var(--button-outline-dark-disabled);
 }
 
-.button--outline.button--loading {
+.button--outline.button--dark.button--loading {
   background-image: repeating-linear-gradient(
     -45deg,
-    var(--button-outline-loading),
-    var(--button-outline-loading) 5px,
+    var(--button-outline-dark-loading),
+    var(--button-outline-dark-loading) 5px,
+    transparent 5px,
+    transparent 10px /* Adjust stripe width */
+  );
+  background-size: 200px 100%; /* Adjust the size of the background pattern */
+  animation: button-loading-animation 2s linear infinite;
+  cursor: not-allowed;
+}
+
+.button--outline.button--light {
+  background-color: transparent;
+  border-width: var(--button-border-width);
+  border-color: var(--button-outline-light);
+  border-style: solid;
+  color: var(--button-outline-light);
+  box-shadow: none;
+  z-index: 1;
+}
+
+.button--outline.button--light:not(.button--disabled):not(.button--loading):hover {
+  box-shadow: none;
+  background-color: transparent;
+  border-color: var(--button-outline-light-hover);
+  color: var(--button-outline-light-hover);
+}
+
+.button--outline.button--light.button--disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  background: transparent;
+  border-color: var(--button-outline-light-disabled);
+  color: var(--button-outline-light-disabled);
+}
+
+.button--outline.button--light.button--loading {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--button-outline-light-loading),
+    var(--button-outline-light-loading) 5px,
     transparent 5px,
     transparent 10px /* Adjust stripe width */
   );
@@ -379,15 +512,20 @@ Usage:
 }
 
 .button--outline.button--success {
-  border-color: var(--button-bg-success);
-  color: var(--button-bg-success);
+  background: none;
+  border-width: var(--button-border-width);
+  border-color: var(--button-outline-success);
+  border-style: solid;
+  color: var(--button-outline-success);
+  box-shadow: none;
+  z-index: 1;
 }
 
 .button--outline.button--success:not(.button--disabled):not(.button--loading):hover {
   box-shadow: none;
   background-color: transparent;
   border-color: var(--button-outline-success-hover);
-  color: var(--button-outline-success--hover);
+  color: var(--button-outline-success-hover);
 }
 
 .button--outline.button--success.button--disabled {
@@ -412,15 +550,20 @@ Usage:
 }
 
 .button--outline.button--danger {
-  border-color: var(--button-bg-danger);
-  color: var(--button-bg-danger);
+  background: none;
+  border-width: var(--button-border-width);
+  border-color: var(--button-outline-danger);
+  border-style: solid;
+  color: var(--button-outline-danger);
+  box-shadow: none;
+  z-index: 1;
 }
 
 .button--outline.button--danger:not(.button--disabled):not(.button--loading):hover {
   box-shadow: none;
   background-color: transparent;
   border-color: var(--button-outline-danger-hover);
-  color: var(--button-outline-danger--hover);
+  color: var(--button-outline-danger-hover);
 }
 
 .button--outline.button--danger.button--disabled {
@@ -445,15 +588,20 @@ Usage:
 }
 
 .button--outline.button--warning {
-  border-color: var(--button-bg-warning);
-  color: var(--button-bg-warning);
+  background: none;
+  border-width: var(--button-border-width);
+  border-color: var(--button-outline-warning);
+  border-style: solid;
+  color: var(--button-outline-warning);
+  box-shadow: none;
+  z-index: 1;
 }
 
 .button--outline.button--warning:not(.button--disabled):not(.button--loading):hover {
   box-shadow: none;
   background-color: transparent;
   border-color: var(--button-outline-warning-hover);
-  color: var(--button-outline-warning--hover);
+  color: var(--button-outline-warning-hover);
 }
 
 .button--outline.button--warning.button--disabled {
@@ -478,15 +626,20 @@ Usage:
 }
 
 .button--outline.button--info {
-  border-color: var(--button-bg-info);
-  color: var(--button-bg-info);
+  background: none;
+  border-width: var(--button-border-width);
+  border-color: var(--button-outline-info);
+  border-style: solid;
+  color: var(--button-outline-info);
+  box-shadow: none;
+  z-index: 1;
 }
 
 .button--outline.button--info:not(.button--disabled):not(.button--loading):hover {
   box-shadow: none;
   background-color: transparent;
   border-color: var(--button-outline-info-hover);
-  color: var(--button-outline-info--hover);
+  color: var(--button-outline-info-hover);
 }
 
 .button--outline.button--info.button--disabled {
@@ -511,33 +664,67 @@ Usage:
 }
 
 /* Ghost Buttons */
-.button--ghost {
-  background: none;
+
+.button--ghost.button--dark {
+  background-color: transparent;
   border: none;
-  color: var(--button-ghost);
-  box-shadow: none;
-  z-index: 1;
+  box-shadow: 0 0 0 var(--button-border-width) transparent;
+  color: var(--button-bg-dark);
 }
 
-.button--ghost:not(.button--disabled):not(.button--loading):hover {
+.button--ghost.button--dark:not(.button--disabled):not(.button--loading):hover {
   box-shadow: none;
-  background-color: var(--button-bg-ghost-hover);
-  color: var(--button-text-ghost-hover);
+  background-color: var(--button-bg-dark-ghost-hover);
+  color: var(--button-text-dark-ghost-hover);
 }
 
-.button--ghost.button--disabled {
+.button--ghost.button--dark.button--disabled {
   cursor: not-allowed;
   box-shadow: none;
   background: transparent;
-  border-color: var(--button-text-ghost-disabled);
-  color: var(--button-text-ghost-disabled);
+  border-color: var(--button-text-dark-ghost-disabled);
+  color: var(--button-text-dark-ghost-disabled);
 }
 
-.button--ghost.button--loading {
+.button--ghost.button--dark.button--loading {
   background-image: repeating-linear-gradient(
     -45deg,
-    var(--button-ghost-loading),
-    var(--button-ghost-loading) 5px,
+    var(--button-outline-dark-loading),
+    var(--button-outline-dark-loading) 5px,
+    transparent 5px,
+    transparent 10px /* Adjust stripe width */
+  );
+  background-size: 200px 100%; /* Adjust the size of the background pattern */
+  animation: button-loading-animation 2s linear infinite;
+  cursor: not-allowed;
+}
+
+.button--ghost.button--light {
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 0 0 var(--button-border-width) transparent;
+  color: var(--button-bg-light);
+}
+
+.button--ghost.button--light:not(.button--disabled):not(.button--loading):hover {
+  box-shadow: none;
+  background-color: var(--button-bg-light-ghost-hover);
+  color: var(--button-text-light-ghost-hover);
+}
+
+.button--ghost.button--light.button--disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  background: transparent;
+  border-color: var(--button-text-light-ghost-disabled);
+  color: var(--button-text-light-ghost-disabled);
+}
+
+.button--ghost.button--light.button--loading {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--button-outline-light-loading),
+    var(--button-outline-light-loading) 5px,
     transparent 5px,
     transparent 10px /* Adjust stripe width */
   );
@@ -547,7 +734,8 @@ Usage:
 }
 
 .button--ghost.button--success {
-  border-color: var(--button-bg-success);
+  background-color: transparent;
+  box-shadow: 0 0 0 var(--button-border-width) transparent;
   color: var(--button-bg-success);
 }
 
@@ -568,8 +756,8 @@ Usage:
 .button--ghost.button--success.button--loading {
   background-image: repeating-linear-gradient(
     -45deg,
-    var(--button-ghost-success-loading),
-    var(--button-ghost-success-loading) 5px,
+    var(--button-outline-success-loading),
+    var(--button-outline-success-loading) 5px,
     transparent 5px,
     transparent 10px /* Adjust stripe width */
   );
@@ -579,12 +767,14 @@ Usage:
 }
 
 .button--ghost.button--danger {
-  border-color: var(--button-bg-danger);
+  background-color: transparent;
+  border-color: var(--button-bg-warning);
   color: var(--button-bg-danger);
+  box-shadow: 0 0 0 var(--button-border-width) transparent;
 }
 
 .button--ghost.button--danger:not(.button--disabled):not(.button--loading):hover {
-  box-shadow: none;
+  box-shadow: 0 0 0 var(--button-border-width) transparent;
   background-color: var(--button-bg-danger-ghost-hover);
   color: var(--button-text-danger-ghost-hover);
 }
@@ -600,8 +790,8 @@ Usage:
 .button--ghost.button--danger.button--loading {
   background-image: repeating-linear-gradient(
     -45deg,
-    var(--button-ghost-danger-loading),
-    var(--button-ghost-danger-loading) 5px,
+    var(--button-outline-danger-loading),
+    var(--button-outline-danger-loading) 5px,
     transparent 5px,
     transparent 10px /* Adjust stripe width */
   );
@@ -611,12 +801,13 @@ Usage:
 }
 
 .button--ghost.button--warning {
-  border-color: var(--button-bg-warning);
+  background-color: transparent;
+  box-shadow: 0 0 0 var(--button-border-width) transparent;
   color: var(--button-bg-warning);
 }
 
 .button--ghost.button--warning:not(.button--disabled):not(.button--loading):hover {
-  box-shadow: none;
+  box-shadow: 0 0 0 var(--button-border-width) transparent;
   background-color: var(--button-bg-warning-ghost-hover);
   color: var(--button-text-warning-ghost-hover);
 }
@@ -631,8 +822,8 @@ Usage:
 .button--ghost.button--warning.button--loading {
   background-image: repeating-linear-gradient(
     -45deg,
-    var(--button-ghost-warning-loading),
-    var(--button-ghost-warning-loading) 5px,
+    var(--button-outline-warning-loading),
+    var(--button-outline-warning-loading) 5px,
     transparent 5px,
     transparent 10px /* Adjust stripe width */
   );
@@ -642,12 +833,13 @@ Usage:
 }
 
 .button--ghost.button--info {
-  border-color: var(--button-bg-info);
+  background-color: transparent;
+  box-shadow: 0 0 0 var(--button-border-width) transparent;
   color: var(--button-bg-info);
 }
 
 .button--ghost.button--info:not(.button--disabled):not(.button--loading):hover {
-  box-shadow: none;
+  box-shadow: 0 0 0 var(--button-border-width) transparent;
   background-color: var(--button-bg-info-ghost-hover);
   color: var(--button-text-info-ghost-hover);
 }
@@ -663,8 +855,8 @@ Usage:
 .button--ghost.button--info.button--loading {
   background-image: repeating-linear-gradient(
     -45deg,
-    var(--button-ghost-info-loading),
-    var(--button-ghost-info-loading) 5px,
+    var(--button-outline-info-loading),
+    var(--button-outline-info-loading) 5px,
     transparent 5px,
     transparent 10px /* Adjust stripe width */
   );
@@ -687,16 +879,19 @@ Usage:
 .button--small {
   font-size: var(--button-font-small);
   padding: var(--button-padding-small);
+  gap: var(--button-gap-small);
 }
 
 .button--medium {
   font-size: var(--button-font-medium);
   padding: var(--button-padding-medium);
+  gap: var(--button-gap-medium);
 }
 
 .button--large {
   font-size: var(--button-font-large);
   padding: var(--button-padding-large);
+  gap: var(--button-gap-large);
 }
 
 .button--block {

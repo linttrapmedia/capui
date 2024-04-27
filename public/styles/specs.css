@@ -10,7 +10,7 @@
   flex-direction: row;
   gap: 10px;
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   background-color: rgba(255, 255, 255, 0.02);
   border-radius: 5px;
@@ -32,10 +32,15 @@
 .specs .spec__code code {
   white-space: pre;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 11px;
   padding: 2px 5px;
   margin: 0;
-  opacity: 0.5;
+  opacity: 0.4;
+  font-family: monospace;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px;
+  display: inline-block;
+  padding: 2px 5px;
 }
 
 .specs .spec__example {
@@ -45,4 +50,12 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+}
+
+.specs .spec--light {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.specs .spec--light .spec__code code {
+  background-color: rgba(0, 0, 0, 0.8);
 }
