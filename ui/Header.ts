@@ -17,7 +17,7 @@ export const Header = () => {
       ["style", "position", "absolute"],
       ["style", "top", "10px"],
       ["style", "right", "10px"]
-    )(html.img(["attr", "src", "/images/github.svg"], ["attr", "width", "30px"], ["style", "opacity", "0.5"])()),
+    )(html.img(["attr", "src", "images/github.svg"], ["attr", "width", "30px"], ["style", "opacity", "0.5"])()),
     // logo
     html.div(
       ["style", "position", "relative"],
