@@ -7,7 +7,7 @@
 
 ## The Cut & Paste UI, Ctrl+Done.
 
-[capui.js.org →](https://capui.js.org)
+[https://linttrapmedia.github.io/capui/ →](https://linttrapmedia.github.io/capui/)
 
 ## Charter
 
