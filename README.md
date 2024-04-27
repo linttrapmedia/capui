@@ -1,9 +1,5 @@
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Splash&display=swap" rel="stylesheet">
-
-# <div style="position: relative; height: 75px; width: 148px; align-self: center; margin: 0px 0px 30px;"><span style="font-family: Splash; font-size: 75px; color: rgb(255, 255, 255); font-weight:normal;">cap</span><span style="color: rgba(0, 0, 0); font-size: 20px; line-height: 0.85; position: absolute; top: 27px; padding: 7px; right: 0px; background-color: rgb(255, 255, 255); border-radius: 6px;">ui</span><span style="position: absolute; bottom: 0px; right: 5px; font-size: 10px; color: rgba(255, 255, 255, 0.15);">0.0.1</span></div>
+# cap ui
 
 ## The Cut & Paste UI, Ctrl+Done.
 

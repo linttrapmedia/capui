@@ -49,7 +49,7 @@ export const html = HTML({
 export const lib: Component[] = [
   {
     title: "Accordion",
-    exampleSrc: "/components/accordion/examples.html",
+    exampleSrc: "components/accordion/examples.html",
     example: undefined,
     preview: `<div class="accordion accordion--dark">
     <div class="accordion__item">
@@ -71,7 +71,7 @@ export const lib: Component[] = [
   },
   {
     title: "Alerts",
-    exampleSrc: "/components/alerts/examples.html",
+    exampleSrc: "components/alerts/examples.html",
     example: undefined,
     preview: `<div class="alert alert--dark">
     <div class="alert__title">Alert</div>
@@ -88,7 +88,7 @@ export const lib: Component[] = [
   },
   {
     title: "Badges",
-    exampleSrc: "/components/badges/examples.html",
+    exampleSrc: "components/badges/examples.html",
     example: undefined,
     preview: `<button class="button button--dark">Alerts <span class="badge badge--light">1</span></button>
     <button class="button button--light">Alerts <span class="badge badge--dark">2</span></button>
@@ -96,7 +96,7 @@ export const lib: Component[] = [
   },
   {
     title: "Buttons",
-    exampleSrc: "/components/buttons/examples.html",
+    exampleSrc: "components/buttons/examples.html",
     example: undefined,
     preview: `<button class="button button--dark">Dark</button>
     <button class="button button--light">Light</button>
