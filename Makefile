@@ -24,52 +24,39 @@ help:
 clean: ## Clean the project
 	@echo $(STATUS) Cleaning...
 	@rm -rf ./dist
-	@rm -f ./public/scripts/docs.js
+	@rm -f ./docs/scripts/ui.js
 
 nuke: ## Clean the project
 	@echo $(STATUS) Cleaning...
 	@rm -rf ./dist
 	@rm -rf ./node_modules
-	@rm -f ./public/scripts/docs.js
+	@rm -f ./docs/scripts/ui.js
 
 css: ## Build the project css
 	@echo $(STATUS) Building css...
 	@npx pollen
 
-deploy: ## Deploy the project
-	@echo $(STATUS) Deploying...
-	@git branch -D gh-pages
-	@git checkout -b gh-pages
-	@git merge main --no-commit --no-ff
-	@make clean
-	@make install
-	@make docs
-	@git add .
-	@git commit -m 'deploy'
-	@git push -f origin gh-pages
-	@git checkout main
-
 dev: ## Run the project in development mode
 	@echo $(STATUS) Running in development mode...
-	@${MAKE} -j 2 dev-docs dev-ts
+	@${MAKE} -j 2 dev-ui dev-ts
 
 dev-ts: ## Run the js in development mode
 	@echo $(STATUS) Running js in development mode...
-	@npx esbuild ./docs/index.ts --outfile=./public/scripts/docs.js --bundle --sourcemap --minify --watch
+	@npx esbuild ./ui/index.ts --outfile=./docs/scripts/ui.js --bundle --sourcemap --minify --watch
 
-dev-docs: ## Run the docs in development mode
-	@echo $(STATUS) Running docs in development mode...
-	@npx http-server public --gzip
+dev-ui: ## Run the docs in development mode
+	@echo $(STATUS) Running ui in development mode...
+	@npx http-server docs --gzip
 
 dist: ## Build the project for distribution
 	@echo $(STATUS) Building...
 	@rm -rf dist
 	@mkdir dist
-	@rsync -avm --include='*/' --exclude="examples.css" --exclude="examples.html" ./public/components/ ./dist/
+	@rsync -avm --include='*/' --exclude="examples.css" --exclude="examples.html" ./docs/components/ ./dist/
 	@zip -r dist/capui.zip dist
 
 build: ## Build the project documentation
-	@npx esbuild ./docs/index.ts --outfile=./public/scripts/docs.js --bundle --sourcemap --minify
+	@npx esbuild ./ui/index.ts --outfile=./docs/scripts/ui.js --bundle --sourcemap --minify
 
 install: ## Install the project
 	@echo $(STATUS) Installing...
@@ -81,7 +68,7 @@ kill: ## Kill the project
 
 publish: ## Publish the project to npm
 	@echo $(STATUS) Publish package...
-	@npm publish --access public
+	@npm publish --access docs
 
 test: ## Run tests
 	@echo $(STATUS) Testing...
