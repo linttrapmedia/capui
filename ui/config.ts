@@ -15,10 +15,13 @@ export const dialog = State<{
   example: undefined,
 });
 
+const isGithub = window.location.host === "linttrapmedia.github.io";
+
 dialog.sub((d) => {
   if (d.example === undefined) {
     if (!d.exampleSrc) return;
-    fetch(d.exampleSrc)
+    const url = isGithub ? `/capui/${d.exampleSrc}` : d.exampleSrc;
+    fetch(url)
       .then((res) => res.text())
       .then((htmlString) =>
         dialog.set({
