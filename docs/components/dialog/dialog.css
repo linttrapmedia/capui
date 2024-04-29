@@ -1,0 +1,115 @@
+.dialog {
+  display: flex;
+  --dialog-bg-color: #fff;
+  --dialog-border-radius: 8px;
+  --dialog-padding: 16px;
+  --header-bg-color: #f1f1f1;
+  --body-bg-color: #fff;
+  --footer-bg-color: #f9f9f9;
+  --scrollbar-thumb-color: #888;
+  --scrollbar-track-color: #f0f0f0;
+  --dialog-max-height: 80vh; /* Maximum height for the dialog */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Optional: for dimming the background */
+  z-index: 1000; /* High z-index to ensure it is on top */
+  backdrop-filter: blur(2px); /* Optional: Adds a blur effect to the background elements */
+}
+
+.dialog__container {
+  display: flex;
+  flex-direction: column;
+  background: var(--dialog-bg-color);
+  border-radius: var(--dialog-border-radius);
+  padding: var(--dialog-padding);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: var(--dialog-max-height);
+  width: auto; /* Adjust width here if needed */
+}
+
+.dialog__header,
+.dialog__footer {
+  padding: 10px;
+  background-color: var(--header-bg-color);
+}
+
+.dialog__body {
+  flex: 1;
+  background-color: var(--body-bg-color);
+  overflow-y: auto; /* Ensure only vertical scrolling */
+  padding: 10px;
+  max-height: calc(var(--dialog-max-height) - 60px); /* Subtract header and footer heights */
+}
+
+.dialog__footer {
+  background-color: var(--footer-bg-color);
+}
+
+/* Scrollbar styling */
+.dialog__body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dialog__body::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color);
+}
+
+.dialog__body::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color);
+  border-radius: 5px;
+}
+
+/* Modifier classes for different dialog sizes */
+.dialog--full-screen {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  border-radius: 0;
+}
+
+.dialog--big {
+  width: 80%;
+  max-width: 800px;
+  height: 60%;
+}
+
+.dialog--medium {
+  width: 60%;
+  max-width: 600px;
+  height: 50%;
+}
+
+.dialog--small {
+  width: 40%;
+  max-width: 400px;
+  height: 40%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .dialog--big,
+  .dialog--medium,
+  .dialog--small {
+    width: 90%;
+    max-width: none;
+    height: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .dialog--full-screen,
+  .dialog--big,
+  .dialog--medium,
+  .dialog--small {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+}

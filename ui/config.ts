@@ -16,11 +16,12 @@ export const dialog = State<{
 });
 
 const isGithub = window.location.host === "linttrapmedia.github.io";
+export const baseUrl = isGithub ? "/capui" : "";
 
 dialog.sub((d) => {
   if (d.example === undefined) {
     if (!d.exampleSrc) return;
-    const url = isGithub ? `/capui/${d.exampleSrc}` : d.exampleSrc;
+    const url = isGithub ? `${baseUrl}/${d.exampleSrc}` : d.exampleSrc;
     fetch(url)
       .then((res) => res.text())
       .then((htmlString) =>
@@ -90,16 +91,16 @@ export const lib: Component[] = [
   </div>`,
   },
   {
-    title: "Badges",
-    exampleSrc: "components/badges/examples.html",
+    title: "Badge",
+    exampleSrc: "components/badge/examples.html",
     example: undefined,
     preview: `<button class="button button--dark">Alerts <span class="badge badge--light">1</span></button>
     <button class="button button--light">Alerts <span class="badge badge--dark">2</span></button>
     <button class="button button--outline button--light">Alerts <span class="badge badge--light">3</span></button>`,
   },
   {
-    title: "Buttons",
-    exampleSrc: "components/buttons/examples.html",
+    title: "Button",
+    exampleSrc: "components/button/examples.html",
     example: undefined,
     preview: `<button class="button button--dark">Dark</button>
     <button class="button button--light">Light</button>
@@ -108,7 +109,7 @@ export const lib: Component[] = [
   },
 ];
 
-// dialog.set({
-//   ...lib[1],
-//   showing: true,
-// });
+dialog.set({
+  ...lib[1],
+  showing: true,
+});

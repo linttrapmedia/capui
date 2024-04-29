@@ -31,7 +31,7 @@
 }
 
 #root {
-  --color: #232930;
+  --color: #232323;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -73,21 +73,4 @@ body {
 
 input:focus {
   outline: none;
-}
-
-dialog[open] {
-  background-color: var(--color);
-  margin: 0;
-  padding: 0;
-  border: none;
-  width: 100%;
-  position: absolute;
-  z-index: 1000;
-  min-height: 100%;
-}
-
-/* Blurring the background behind the dialog */
-dialog[open]::backdrop {
-  background-color: rgba(255, 255, 255) !important;
-  backdrop-filter: blur(5px);
 }
