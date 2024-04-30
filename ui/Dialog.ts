@@ -15,9 +15,19 @@ export const Dialog = () => {
     html.div(["class", "dialog__container"])(
       html.div(["class", "dialog__header"])(
         html.div(["class", "dialog__title"], ["innerText:dialog", () => dialog.get().title ?? ""])(),
-        html.button(["click", () => dialog.set({ showing: false })], ["class", "dialog__close"])("")
+        html.button(
+          ["click", () => dialog.set({ showing: false })],
+          ["class", "button button--light button--ghost"]
+        )("close")
       ),
-      html.div(["class", "dialog__body"], ["innerHTML:dialog", () => dialog.get().example ?? ""])()
+      html.div(["class", "dialog__body"], ["innerHTML:dialog", () => dialog.get().example ?? ""])(),
+      html.div(["class", "dialog__footer"])(
+        html.button(
+          ["click", () => dialog.set({ showing: false })],
+          ["class", "button button--light button--ghost"],
+          ["style", "fontSize", "16px"]
+        )("close")
+      )
     )
   );
 };

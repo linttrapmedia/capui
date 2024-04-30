@@ -34,7 +34,6 @@ nuke: ## Clean the project
 
 css: ## Build the project css
 	@echo $(STATUS) Building css...
-	@npx pollen
 
 dev: ## Run the project in development mode
 	@echo $(STATUS) Running in development mode...

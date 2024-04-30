@@ -1,18 +1,18 @@
 /* Root-level CSS variables for broad usage (optional) */
 :root {
-  --accordion-light-border-color: var(--color-black-10, black);
-  --accordion-light-header-bg: var(--color-white-90, white);
-  --accordion-light-header-selected-bg: var(--color-white-90, white);
-  --accordion-light-header-hover-bg: var(--color-white-80, white);
-  --accordion-light-body-bg: var(--color-white, white);
-  --accordion-light-text-color: var(--color-black, black);
+  --accordion-light-border-color: var(--palette-black-10, black);
+  --accordion-light-header-bg: var(--palette-white-90, white);
+  --accordion-light-header-selected-bg: var(--palette-white-90, white);
+  --accordion-light-header-hover-bg: var(--palette-white-80, white);
+  --accordion-light-body-bg: var(--palette-white, white);
+  --accordion-light-text-color: var(--palette-black, black);
 
-  --accordion-dark-border-color: var(--color-white-10, white);
-  --accordion-dark-header-bg: var(--color-black-70, black);
-  --accordion-dark-header-selected-bg: var(--color-black-70, black);
-  --accordion-dark-header-hover-bg: var(--color-black-50, black);
-  --accordion-dark-body-bg: var(--color-black-30, black);
-  --accordion-dark-text-color: var(--color-white, white);
+  --accordion-dark-border-color: var(--palette-white-10, white);
+  --accordion-dark-header-bg: var(--palette-black-70, black);
+  --accordion-dark-header-selected-bg: var(--palette-black-70, black);
+  --accordion-dark-header-hover-bg: var(--palette-black-50, black);
+  --accordion-dark-body-bg: var(--palette-black-30, black);
+  --accordion-dark-text-color: var(--palette-white, white);
 
   --accordion-font-family: var(--font-sans, sans-serif);
   --accordion-font-size-small: 14px;

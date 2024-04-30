@@ -1,15 +1,18 @@
-.dialog {
-  display: flex;
-  --dialog-bg-color: #fff;
+:root {
+  --dialog-bg-color: var(--palette-black, black);
   --dialog-border-radius: 8px;
-  --dialog-padding: 16px;
-  --header-bg-color: #f1f1f1;
-  --body-bg-color: #fff;
-  --footer-bg-color: #f9f9f9;
-  --scrollbar-thumb-color: #888;
-  --scrollbar-track-color: #f0f0f0;
-  --dialog-max-height: 80vh; /* Maximum height for the dialog */
+  --dialog-spacing: 16px;
+  --dialog-text-color: var(--palette-white, white);
+  --dialog-scrollbar-thumb-color: var(--palette-black-80, black);
+  --dialog-scrollbar-track-color: var(--palette-white-10, black);
+  --dialog-max-height: 90vh;
+  --dialog-max-width: 90vh;
+  --dialog-gap: 20px;
+  --dialog-title-size: 20px;
+  --dialog-close-size: 13px;
+}
 
+.dialog[open] {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +21,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Optional: for dimming the background */
+  background-color: var(--palette-white-03, white); /* Optional: for dimming the background */
   z-index: 1000; /* High z-index to ensure it is on top */
   backdrop-filter: blur(2px); /* Optional: Adds a blur effect to the background elements */
 }
@@ -28,41 +31,51 @@
   flex-direction: column;
   background: var(--dialog-bg-color);
   border-radius: var(--dialog-border-radius);
-  padding: var(--dialog-padding);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-height: var(--dialog-max-height);
-  width: auto; /* Adjust width here if needed */
+  height: var(--dialog-max-height);
+  width: var(--dialog-max-width);
+  gap: var(--dialog-gap);
 }
 
-.dialog__header,
-.dialog__footer {
-  padding: 10px;
-  background-color: var(--header-bg-color);
+.dialog__header {
+  align-items: center;
+  color: var(--palette-white);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: var(--dialog-title-size);
+  border-bottom: 1px solid var(--palette-white-10);
+  padding: var(--dialog-spacing);
 }
 
 .dialog__body {
   flex: 1;
-  background-color: var(--body-bg-color);
   overflow-y: auto; /* Ensure only vertical scrolling */
-  padding: 10px;
   max-height: calc(var(--dialog-max-height) - 60px); /* Subtract header and footer heights */
+  padding: var(--dialog-spacing);
 }
 
 .dialog__footer {
-  background-color: var(--footer-bg-color);
+  padding: var(--dialog-spacing);
+  border-top: 1px solid var(--palette-white-10);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: var(--dialog-spacing);
 }
 
 /* Scrollbar styling */
 .dialog__body::-webkit-scrollbar {
   width: 10px;
+  background-color: var(--dialog-scrollbar-track-color);
 }
 
 .dialog__body::-webkit-scrollbar-track {
-  background: var(--scrollbar-track-color);
+  background-color: var(--dialog-scrollbar-track-color);
 }
 
 .dialog__body::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb-color);
+  background-color: var(--dialog-scrollbar-thumb-color);
   border-radius: 5px;
 }
 
