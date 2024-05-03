@@ -41,7 +41,7 @@ dev: ## Run the project in development mode
 
 dev-ts: ## Run the js in development mode
 	@echo $(STATUS) Running js in development mode...
-	@npx esbuild ./ui/index.ts --outfile=./docs/scripts/ui.js --bundle --sourcemap --minify --watch
+	@npx esbuild ./src/index.ts --outfile=./docs/scripts/ui.js --bundle --sourcemap --minify --watch
 
 dev-ui: ## Run the docs in development mode
 	@echo $(STATUS) Running ui in development mode...
@@ -55,7 +55,7 @@ dist: ## Build the project for distribution
 	@zip -r dist/capui.zip dist
 
 build: ## Build the project documentation
-	@npx esbuild ./ui/index.ts --outfile=./docs/scripts/ui.js --bundle --sourcemap --minify
+	@npx esbuild ./src/index.ts --outfile=./docs/scripts/ui.js --bundle --sourcemap --minify
 
 install: ## Install the project
 	@echo $(STATUS) Installing...

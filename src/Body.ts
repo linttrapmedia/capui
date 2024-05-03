@@ -9,7 +9,6 @@ export const Body = () => {
       ["style", "gridTemplateColumns", "repeat(auto-fill, minmax(400px, 1fr))"],
       ["style", "gap", "20px"],
       ["style", "maxWidth", "960px"],
-      ["style", "margin", "auto"],
       ["style", "width", "100%"]
     )(...lib.map(Card))
   );

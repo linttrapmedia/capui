@@ -1,9 +1,9 @@
 :root {
+  /* Color Palette */
   --palette-black-r: 20;
   --palette-black-g: 21;
   --palette-black-b: 27;
   --palette-black: rgba(var(--palette-black-r), var(--palette-black-g), var(--palette-black-b), 1);
-
   --palette-black-01: rgba(var(--palette-black-r), var(--palette-black-g), var(--palette-black-b), 0.01);
   --palette-black-02: rgba(var(--palette-black-r), var(--palette-black-g), var(--palette-black-b), 0.02);
   --palette-black-03: rgba(var(--palette-black-r), var(--palette-black-g), var(--palette-black-b), 0.03);
@@ -26,6 +26,7 @@
   --palette-blue-r: 66;
   --palette-blue-g: 153;
   --palette-blue-b: 225;
+  --palette-blue: rgba(var(--palette-blue-r), var(--palette-blue-g), var(--palette-blue-b), 1);
   --palette-blue-01: rgba(var(--palette-blue-r), var(--palette-blue-g), var(--palette-blue-b), 0.01);
   --palette-blue-02: rgba(var(--palette-blue-r), var(--palette-blue-g), var(--palette-blue-b), 0.02);
   --palette-blue-03: rgba(var(--palette-blue-r), var(--palette-blue-g), var(--palette-blue-b), 0.03);
@@ -44,11 +45,11 @@
   --palette-blue-70: rgba(var(--palette-blue-r), var(--palette-blue-g), var(--palette-blue-b), 0.7);
   --palette-blue-80: rgba(var(--palette-blue-r), var(--palette-blue-g), var(--palette-blue-b), 0.8);
   --palette-blue-90: rgba(var(--palette-blue-r), var(--palette-blue-g), var(--palette-blue-b), 0.9);
-  --palette-blue: rgba(var(--palette-blue-r), var(--palette-blue-g), var(--palette-blue-b), 1);
 
   --palette-green-r: 52;
   --palette-green-g: 163;
   --palette-green-b: 99;
+  --palette-green: rgba(var(--palette-green-r), var(--palette-green-g), var(--palette-green-b), 1);
   --palette-green-01: rgba(var(--palette-green-r), var(--palette-green-g), var(--palette-green-b), 0.01);
   --palette-green-02: rgba(var(--palette-green-r), var(--palette-green-g), var(--palette-green-b), 0.02);
   --palette-green-03: rgba(var(--palette-green-r), var(--palette-green-g), var(--palette-green-b), 0.03);
@@ -67,11 +68,11 @@
   --palette-green-70: rgba(var(--palette-green-r), var(--palette-green-g), var(--palette-green-b), 0.7);
   --palette-green-80: rgba(var(--palette-green-r), var(--palette-green-g), var(--palette-green-b), 0.8);
   --palette-green-90: rgba(var(--palette-green-r), var(--palette-green-g), var(--palette-green-b), 0.9);
-  --palette-green: rgba(var(--palette-green-r), var(--palette-green-g), var(--palette-green-b), 1);
 
   --palette-orange-r: 237;
   --palette-orange-g: 137;
   --palette-orange-b: 54;
+  --palette-orange: rgba(var(--palette-orange-r), var(--palette-orange-g), var(--palette-orange-b), 1);
   --palette-orange-01: rgba(var(--palette-orange-r), var(--palette-orange-g), var(--palette-orange-b), 0.01);
   --palette-orange-02: rgba(var(--palette-orange-r), var(--palette-orange-g), var(--palette-orange-b), 0.02);
   --palette-orange-03: rgba(var(--palette-orange-r), var(--palette-orange-g), var(--palette-orange-b), 0.03);
@@ -90,11 +91,11 @@
   --palette-orange-70: rgba(var(--palette-orange-r), var(--palette-orange-g), var(--palette-orange-b), 0.7);
   --palette-orange-80: rgba(var(--palette-orange-r), var(--palette-orange-g), var(--palette-orange-b), 0.8);
   --palette-orange-90: rgba(var(--palette-orange-r), var(--palette-orange-g), var(--palette-orange-b), 0.9);
-  --palette-orange: rgba(var(--palette-orange-r), var(--palette-orange-g), var(--palette-orange-b), 1);
 
   --palette-purple-r: 128;
   --palette-purple-g: 90;
   --palette-purple-b: 213;
+  --palette-purple: rgba(var(--palette-purple-r), var(--palette-purple-g), var(--palette-purple-b), 1);
   --palette-purple-01: rgba(var(--palette-purple-r), var(--palette-purple-g), var(--palette-purple-b), 0.01);
   --palette-purple-02: rgba(var(--palette-purple-r), var(--palette-purple-g), var(--palette-purple-b), 0.02);
   --palette-purple-03: rgba(var(--palette-purple-r), var(--palette-purple-g), var(--palette-purple-b), 0.03);
@@ -113,11 +114,11 @@
   --palette-purple-70: rgba(var(--palette-purple-r), var(--palette-purple-g), var(--palette-purple-b), 0.7);
   --palette-purple-80: rgba(var(--palette-purple-r), var(--palette-purple-g), var(--palette-purple-b), 0.8);
   --palette-purple-90: rgba(var(--palette-purple-r), var(--palette-purple-g), var(--palette-purple-b), 0.9);
-  --palette-purple: rgba(var(--palette-purple-r), var(--palette-purple-g), var(--palette-purple-b), 1);
 
   --palette-red-r: 229;
   --palette-red-g: 62;
   --palette-red-b: 62;
+  --palette-red: rgba(var(--palette-red-r), var(--palette-red-g), var(--palette-red-b), 1);
   --palette-red-01: rgba(var(--palette-red-r), var(--palette-red-g), var(--palette-red-b), 0.01);
   --palette-red-02: rgba(var(--palette-red-r), var(--palette-red-g), var(--palette-red-b), 0.02);
   --palette-red-03: rgba(var(--palette-red-r), var(--palette-red-g), var(--palette-red-b), 0.03);
@@ -136,11 +137,11 @@
   --palette-red-70: rgba(var(--palette-red-r), var(--palette-red-g), var(--palette-red-b), 0.7);
   --palette-red-80: rgba(var(--palette-red-r), var(--palette-red-g), var(--palette-red-b), 0.8);
   --palette-red-90: rgba(var(--palette-red-r), var(--palette-red-g), var(--palette-red-b), 0.9);
-  --palette-red: rgba(var(--palette-red-r), var(--palette-red-g), var(--palette-red-b), 1);
 
   --palette-white-r: 255;
   --palette-white-g: 255;
   --palette-white-b: 255;
+  --palette-white: rgba(var(--palette-white-r), var(--palette-white-g), var(--palette-white-b), 1);
   --palette-white-01: rgba(var(--palette-white-r), var(--palette-white-g), var(--palette-white-b), 0.01);
   --palette-white-02: rgba(var(--palette-white-r), var(--palette-white-g), var(--palette-white-b), 0.02);
   --palette-white-03: rgba(var(--palette-white-r), var(--palette-white-g), var(--palette-white-b), 0.03);
@@ -159,11 +160,11 @@
   --palette-white-70: rgba(var(--palette-white-r), var(--palette-white-g), var(--palette-white-b), 0.7);
   --palette-white-80: rgba(var(--palette-white-r), var(--palette-white-g), var(--palette-white-b), 0.8);
   --palette-white-90: rgba(var(--palette-white-r), var(--palette-white-g), var(--palette-white-b), 0.9);
-  --palette-white: rgba(var(--palette-white-r), var(--palette-white-g), var(--palette-white-b), 1);
 
   --palette-yellow-r: 236;
   --palette-yellow-g: 201;
   --palette-yellow-b: 75;
+  --palette-yellow: rgba(var(--palette-yellow-r), var(--palette-yellow-g), var(--palette-yellow-b), 1);
   --palette-yellow-01: rgba(var(--palette-yellow-r), var(--palette-yellow-g), var(--palette-yellow-b), 0.01);
   --palette-yellow-02: rgba(var(--palette-yellow-r), var(--palette-yellow-g), var(--palette-yellow-b), 0.02);
   --palette-yellow-03: rgba(var(--palette-yellow-r), var(--palette-yellow-g), var(--palette-yellow-b), 0.03);
@@ -182,7 +183,8 @@
   --palette-yellow-70: rgba(var(--palette-yellow-r), var(--palette-yellow-g), var(--palette-yellow-b), 0.7);
   --palette-yellow-80: rgba(var(--palette-yellow-r), var(--palette-yellow-g), var(--palette-yellow-b), 0.8);
   --palette-yellow-90: rgba(var(--palette-yellow-r), var(--palette-yellow-g), var(--palette-yellow-b), 0.9);
-  --palette-yellow: rgba(var(--palette-yellow-r), var(--palette-yellow-g), var(--palette-yellow-b), 1);
+
+  /* Fonts */
 
   --font-mono: Consolas, Menlo, Monaco, "Liberation Mono", monospace;
   --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;

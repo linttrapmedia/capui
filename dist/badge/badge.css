@@ -6,13 +6,13 @@ Usage:
 :root {
   --badge-bg-dark: var(--palette-black-60, black);
   --badge-bg-light: var(--palette-white-80, white);
-  --badge-bg-danger: var(--palette-red-80, red);
+  --badge-bg-error: var(--palette-red-80, red);
   --badge-bg-success: var(--palette-green-80, green);
   --badge-bg-warning: var(--palette-yellow-80, yellow);
   --badge-bg-info: var(--palette-blue-80, blue);
   --badge-text-dark: var(--palette-white, white);
   --badge-text-light: var(--palette-black, black);
-  --badge-text-danger: var(--palette-white, white);
+  --badge-text-error: var(--palette-white, white);
   --badge-text-success: var(--palette-white, white);
   --badge-text-warning: var(--palette-black, black);
   --badge-text-info: var(--palette-white, white);
@@ -61,9 +61,9 @@ Usage:
   color: var(--badge-text-success);
 }
 
-.badge--danger {
-  background-color: var(--badge-bg-danger);
-  color: var(--badge-text-danger);
+.badge--error {
+  background-color: var(--badge-bg-error);
+  color: var(--badge-text-error);
 }
 
 .badge--warning {

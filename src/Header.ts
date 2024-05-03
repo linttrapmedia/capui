@@ -68,7 +68,6 @@ export const Header = () => {
       ["style", "fontSize", "14px"],
       ["style", "textAlign", "center"],
       ["style", "maxWidth", "960px"],
-      ["style", "margin", "auto"],
       ["style", "padding", "0 40px"],
       ["style", "opacity", "0.6"]
     )(

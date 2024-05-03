@@ -25,12 +25,12 @@
   --alert-bg-light-ghost: var(--palette-white-05, white);
   --alert-bg-light-ghost-hover: var(--palette-white-10, white);
 
-  --alert-bg-danger: var(--palette-red-80, red);
-  --alert-bg-danger-hover: var(--palette-red, red);
-  --alert-bg-danger-disabled: var(--palette-red-30, red);
-  --alert-bg-danger-loading: var(--palette-red-50, red);
-  --alert-bg-danger-ghost: var(--palette-red-10, red);
-  --alert-bg-danger-ghost-hover: var(--palette-red-10, red);
+  --alert-bg-error: var(--palette-red-80, red);
+  --alert-bg-error-hover: var(--palette-red, red);
+  --alert-bg-error-disabled: var(--palette-red-30, red);
+  --alert-bg-error-loading: var(--palette-red-50, red);
+  --alert-bg-error-ghost: var(--palette-red-10, red);
+  --alert-bg-error-ghost-hover: var(--palette-red-10, red);
 
   --alert-bg-success: var(--palette-green-80, green);
   --alert-bg-success-hover: var(--palette-green, green);
@@ -69,13 +69,13 @@
   --alert-text-light-ghost-hover: var(--palette-black, black);
   --alert-text-light-ghost-disabled: var(--palette-black-30, black);
 
-  --alert-text-danger: var(--palette-white, white);
-  --alert-text-danger-hover: var(--palette-white, white);
-  --alert-text-danger-disabled: var(--palette-white-30, white);
-  --alert-text-danger-loading: var(--palette-white-50, white);
-  --alert-text-danger-ghost: var(--palette-red, red);
-  --alert-text-danger-ghost-hover: var(--palette-red, red);
-  --alert-text-danger-ghost-disabled: var(--palette-red-30, red);
+  --alert-text-error: var(--palette-white, white);
+  --alert-text-error-hover: var(--palette-white, white);
+  --alert-text-error-disabled: var(--palette-white-30, white);
+  --alert-text-error-loading: var(--palette-white-50, white);
+  --alert-text-error-ghost: var(--palette-red, red);
+  --alert-text-error-ghost-hover: var(--palette-red, red);
+  --alert-text-error-ghost-disabled: var(--palette-red-30, red);
 
   --alert-text-success: var(--palette-white, white);
   --alert-text-success-hover: var(--palette-white, white);
@@ -108,12 +108,12 @@
   --alert-border-ghost: var(--palette-black, black);
   --alert-border-ghost-hover: var(--palette-black, black);
 
-  --alert-border-danger: var(--palette-red-80, red);
-  --alert-border-danger-hover: var(--palette-red, red);
-  --alert-border-danger-disabled: var(--palette-red-30, red);
-  --alert-border-danger-loading: var(--palette-red-50, red);
-  --alert-border-danger-ghost: var(--palette-red, red);
-  --alert-border-danger-ghost-hover: var(--palette-red, red);
+  --alert-border-error: var(--palette-red-80, red);
+  --alert-border-error-hover: var(--palette-red, red);
+  --alert-border-error-disabled: var(--palette-red-30, red);
+  --alert-border-error-loading: var(--palette-red-50, red);
+  --alert-border-error-ghost: var(--palette-red, red);
+  --alert-border-error-ghost-hover: var(--palette-red, red);
 
   --alert-border-success: var(--palette-green-80, green);
   --alert-border-success-hover: var(--palette-green, green);
@@ -153,12 +153,12 @@
   --alert-outline-light-ghost: var(--palette-black, black);
   --alert-outline-light-ghost-hover: var(--palette-black, black);
 
-  --alert-outline-danger: var(--palette-red-80, red);
-  --alert-outline-danger-hover: var(--palette-white, red);
-  --alert-outline-danger-disabled: var(--palette-red-30, red);
-  --alert-outline-danger-loading: var(--palette-red-10, red);
-  --alert-outline-danger-ghost: var(--palette-red, red);
-  --alert-outline-danger-ghost-hover: var(--palette-red, red);
+  --alert-outline-error: var(--palette-red-80, red);
+  --alert-outline-error-hover: var(--palette-white, red);
+  --alert-outline-error-disabled: var(--palette-red-30, red);
+  --alert-outline-error-loading: var(--palette-red-10, red);
+  --alert-outline-error-ghost: var(--palette-red, red);
+  --alert-outline-error-ghost-hover: var(--palette-red, red);
 
   --alert-outline-success: var(--palette-green-80, green);
   --alert-outline-success-hover: var(--palette-white, green);
@@ -347,25 +347,25 @@
   color: var(--alert-text-warning-hover);
 }
 
-.alert--danger {
-  background-color: var(--alert-bg-danger);
+.alert--error {
+  background-color: var(--alert-bg-error);
 }
 
-.alert--danger .alert__title,
-.alert--danger .alert__message,
-.alert--danger .alert__message a,
-.alert--danger .alert__close {
-  color: var(--alert-text-danger);
+.alert--error .alert__title,
+.alert--error .alert__message,
+.alert--error .alert__message a,
+.alert--error .alert__close {
+  color: var(--alert-text-error);
 }
 
-.alert--danger:hover {
-  background-color: var(--alert-bg-danger-hover);
+.alert--error:hover {
+  background-color: var(--alert-bg-error-hover);
 }
 
-.alert--danger:hover .alert__title,
-.alert--danger:hover .alert__message,
-.alert--danger:hover .alert__close {
-  color: var(--alert-text-danger-hover);
+.alert--error:hover .alert__title,
+.alert--error:hover .alert__message,
+.alert--error:hover .alert__close {
+  color: var(--alert-text-error-hover);
 }
 
 /* Outline Alerts */
@@ -460,25 +460,25 @@
   background-color: var(--alert-bg-warning-ghost-hover);
 }
 
-.alert--outline.alert--danger,
-.alert--outline.alert--danger .alert__title,
-.alert--outline.alert--danger .alert__message,
-.alert--outline.alert--danger .alert__message a,
-.alert--outline.alert--danger .alert__close {
-  border-color: var(--alert-outline-danger);
-  color: var(--alert-outline-danger);
+.alert--outline.alert--error,
+.alert--outline.alert--error .alert__title,
+.alert--outline.alert--error .alert__message,
+.alert--outline.alert--error .alert__message a,
+.alert--outline.alert--error .alert__close {
+  border-color: var(--alert-outline-error);
+  color: var(--alert-outline-error);
 }
 
-.alert--outline.alert--danger {
-  border: var(--alert-border-width) solid var(--alert-outline-danger);
+.alert--outline.alert--error {
+  border: var(--alert-border-width) solid var(--alert-outline-error);
 }
 
-.alert--outline.alert--danger:hover {
-  background-color: var(--alert-bg-danger-ghost-hover);
+.alert--outline.alert--error:hover {
+  background-color: var(--alert-bg-error-ghost-hover);
 }
 /* Ghost Alerts */
-.alert--ghost.alert--danger {
-  background-color: var(--alert-bg-danger-ghost);
+.alert--ghost.alert--error {
+  background-color: var(--alert-bg-error-ghost);
 }
 
 .alert--ghost.alert--dark,
@@ -558,21 +558,21 @@
   background-color: var(--alert-bg-warning-ghost-hover);
 }
 
-.alert--ghost.alert--danger {
-  background-color: var(--alert-bg-danger-ghost);
+.alert--ghost.alert--error {
+  background-color: var(--alert-bg-error-ghost);
 }
 
-.alert--ghost.alert--danger,
-.alert--ghost.alert--danger .alert__title,
-.alert--ghost.alert--danger .alert__message,
-.alert--ghost.alert--danger .alert__message a,
-.alert--ghost.alert--danger .alert__close {
-  border-color: var(--alert-ghost-danger);
-  color: var(--alert-text-danger-ghost);
+.alert--ghost.alert--error,
+.alert--ghost.alert--error .alert__title,
+.alert--ghost.alert--error .alert__message,
+.alert--ghost.alert--error .alert__message a,
+.alert--ghost.alert--error .alert__close {
+  border-color: var(--alert-ghost-error);
+  color: var(--alert-text-error-ghost);
 }
 
-.alert--ghost.alert--danger:hover {
-  background-color: var(--alert-bg-danger-ghost-hover);
+.alert--ghost.alert--error:hover {
+  background-color: var(--alert-bg-error-ghost-hover);
 }
 
 /* Animations */

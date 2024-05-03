@@ -18,12 +18,12 @@ Usage:
   --button-bg-light-ghost: transparent;
   --button-bg-light-ghost-hover: var(--palette-white-10, white);
 
-  --button-bg-danger: var(--palette-red-80, red);
-  --button-bg-danger-hover: var(--palette-red, red);
-  --button-bg-danger-disabled: var(--palette-red-30, red);
-  --button-bg-danger-loading: var(--palette-red-50, red);
-  --button-bg-danger-ghost: transparent;
-  --button-bg-danger-ghost-hover: var(--palette-red-10, red);
+  --button-bg-error: var(--palette-red-80, red);
+  --button-bg-error-hover: var(--palette-red, red);
+  --button-bg-error-disabled: var(--palette-red-30, red);
+  --button-bg-error-loading: var(--palette-red-50, red);
+  --button-bg-error-ghost: transparent;
+  --button-bg-error-ghost-hover: var(--palette-red-10, red);
 
   --button-bg-success: var(--palette-green-80, green);
   --button-bg-success-hover: var(--palette-green, green);
@@ -62,13 +62,13 @@ Usage:
   --button-text-light-ghost-hover: var(--palette-white, white);
   --button-text-light-ghost-disabled: var(--palette-white-30, white);
 
-  --button-text-danger: var(--palette-white, white);
-  --button-text-danger-hover: var(--palette-white, white);
-  --button-text-danger-disabled: var(--palette-white-30, white);
-  --button-text-danger-loading: var(--palette-white-50, white);
-  --button-text-danger-ghost: var(--palette-red, red);
-  --button-text-danger-ghost-hover: var(--palette-red, red);
-  --button-text-danger-ghost-disabled: var(--palette-red-30, red);
+  --button-text-error: var(--palette-white, white);
+  --button-text-error-hover: var(--palette-white, white);
+  --button-text-error-disabled: var(--palette-white-30, white);
+  --button-text-error-loading: var(--palette-white-50, white);
+  --button-text-error-ghost: var(--palette-red, red);
+  --button-text-error-ghost-hover: var(--palette-red, red);
+  --button-text-error-ghost-disabled: var(--palette-red-30, red);
 
   --button-text-success: var(--palette-white, white);
   --button-text-success-hover: var(--palette-white, white);
@@ -108,12 +108,12 @@ Usage:
   --button-border-light-ghost: var(--palette-white, white);
   --button-border-light-ghost-hover: var(--palette-white, white);
 
-  --button-border-danger: var(--palette-red-80, red);
-  --button-border-danger-hover: var(--palette-red, red);
-  --button-border-danger-disabled: var(--palette-red-30, red);
-  --button-border-danger-loading: var(--palette-red-50, red);
-  --button-border-danger-ghost: var(--palette-red, red);
-  --button-border-danger-ghost-hover: var(--palette-red, red);
+  --button-border-error: var(--palette-red-80, red);
+  --button-border-error-hover: var(--palette-red, red);
+  --button-border-error-disabled: var(--palette-red-30, red);
+  --button-border-error-loading: var(--palette-red-50, red);
+  --button-border-error-ghost: var(--palette-red, red);
+  --button-border-error-ghost-hover: var(--palette-red, red);
 
   --button-border-success: var(--palette-green-80, green);
   --button-border-success-hover: var(--palette-green, green);
@@ -153,12 +153,12 @@ Usage:
   --button-outline-light-ghost: var(--palette-white, white);
   --button-outline-light-ghost-hover: var(--palette-white, white);
 
-  --button-outline-danger: var(--palette-red-80, red);
-  --button-outline-danger-hover: var(--palette-white, red);
-  --button-outline-danger-disabled: var(--palette-red-30, red);
-  --button-outline-danger-loading: var(--palette-red-10, red);
-  --button-outline-danger-ghost: var(--palette-red, red);
-  --button-outline-danger-ghost-hover: var(--palette-red, red);
+  --button-outline-error: var(--palette-red-80, red);
+  --button-outline-error-hover: var(--palette-white, red);
+  --button-outline-error-disabled: var(--palette-red-30, red);
+  --button-outline-error-loading: var(--palette-red-10, red);
+  --button-outline-error-ghost: var(--palette-red, red);
+  --button-outline-error-ghost-hover: var(--palette-red, red);
 
   --button-outline-success: var(--palette-green-80, green);
   --button-outline-success-hover: var(--palette-white, green);
@@ -338,30 +338,30 @@ Usage:
   cursor: not-allowed;
 }
 
-.button--danger {
-  background-color: var(--button-bg-danger);
-  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-danger);
-  color: var(--button-text-danger);
+.button--error {
+  background-color: var(--button-bg-error);
+  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-error);
+  color: var(--button-text-error);
 }
 
-.button--danger.button--disabled {
-  background-color: var(--button-bg-danger-disabled);
-  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-danger-disabled);
-  color: var(--button-text-danger-disabled);
+.button--error.button--disabled {
+  background-color: var(--button-bg-error-disabled);
+  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-error-disabled);
+  color: var(--button-text-error-disabled);
   cursor: not-allowed;
 }
 
-.button--danger:not(.button--disabled):not(.button--loading):hover {
-  background-color: var(--button-bg-danger-hover);
-  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-danger-hover);
-  color: var(--button-text-danger-hover);
+.button--error:not(.button--disabled):not(.button--loading):hover {
+  background-color: var(--button-bg-error-hover);
+  box-shadow: 0 0 0 var(--button-border-width) var(--button-border-error-hover);
+  color: var(--button-text-error-hover);
 }
 
-.button--danger.button--loading {
+.button--error.button--loading {
   background-image: repeating-linear-gradient(
     -45deg,
-    var(--button-bg-danger-loading),
-    var(--button-bg-danger-loading) 5px,
+    var(--button-bg-error-loading),
+    var(--button-bg-error-loading) 5px,
     transparent 5px,
     transparent 10px /* Adjust stripe width */
   );
@@ -549,36 +549,36 @@ Usage:
   cursor: not-allowed;
 }
 
-.button--outline.button--danger {
+.button--outline.button--error {
   background: none;
   border-width: var(--button-border-width);
-  border-color: var(--button-outline-danger);
+  border-color: var(--button-outline-error);
   border-style: solid;
-  color: var(--button-outline-danger);
+  color: var(--button-outline-error);
   box-shadow: none;
   z-index: 1;
 }
 
-.button--outline.button--danger:not(.button--disabled):not(.button--loading):hover {
+.button--outline.button--error:not(.button--disabled):not(.button--loading):hover {
   box-shadow: none;
   background-color: transparent;
-  border-color: var(--button-outline-danger-hover);
-  color: var(--button-outline-danger-hover);
+  border-color: var(--button-outline-error-hover);
+  color: var(--button-outline-error-hover);
 }
 
-.button--outline.button--danger.button--disabled {
+.button--outline.button--error.button--disabled {
   cursor: not-allowed;
   box-shadow: none;
   background: transparent;
-  border-color: var(--button-outline-danger-disabled);
-  color: var(--button-outline-danger-disabled);
+  border-color: var(--button-outline-error-disabled);
+  color: var(--button-outline-error-disabled);
 }
 
-.button--outline.button--danger.button--loading {
+.button--outline.button--error.button--loading {
   background-image: repeating-linear-gradient(
     -45deg,
-    var(--button-outline-danger-loading),
-    var(--button-outline-danger-loading) 5px,
+    var(--button-outline-error-loading),
+    var(--button-outline-error-loading) 5px,
     transparent 5px,
     transparent 10px /* Adjust stripe width */
   );
@@ -766,32 +766,32 @@ Usage:
   cursor: not-allowed;
 }
 
-.button--ghost.button--danger {
+.button--ghost.button--error {
   background-color: transparent;
   border-color: var(--button-bg-warning);
-  color: var(--button-bg-danger);
+  color: var(--button-bg-error);
   box-shadow: 0 0 0 var(--button-border-width) transparent;
 }
 
-.button--ghost.button--danger:not(.button--disabled):not(.button--loading):hover {
+.button--ghost.button--error:not(.button--disabled):not(.button--loading):hover {
   box-shadow: 0 0 0 var(--button-border-width) transparent;
-  background-color: var(--button-bg-danger-ghost-hover);
-  color: var(--button-text-danger-ghost-hover);
+  background-color: var(--button-bg-error-ghost-hover);
+  color: var(--button-text-error-ghost-hover);
 }
 
-.button--ghost.button--danger.button--disabled {
+.button--ghost.button--error.button--disabled {
   cursor: not-allowed;
   box-shadow: none;
   background: transparent;
-  border-color: var(--button-text-danger-ghost-disabled);
-  color: var(--button-text-danger-ghost-disabled);
+  border-color: var(--button-text-error-ghost-disabled);
+  color: var(--button-text-error-ghost-disabled);
 }
 
-.button--ghost.button--danger.button--loading {
+.button--ghost.button--error.button--loading {
   background-image: repeating-linear-gradient(
     -45deg,
-    var(--button-outline-danger-loading),
-    var(--button-outline-danger-loading) 5px,
+    var(--button-outline-error-loading),
+    var(--button-outline-error-loading) 5px,
     transparent 5px,
     transparent 10px /* Adjust stripe width */
   );
