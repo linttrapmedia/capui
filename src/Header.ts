@@ -5,8 +5,7 @@ export const Header = () => {
     ["style", "alignItems", "center"],
     ["style", "display", "flex"],
     ["style", "flexDirection", "column"],
-    ["style", "gap", "30px"],
-    ["style", "padding", "20px"]
+    ["style", "gap", "30px"]
   )(
     // github link
     html.a(
@@ -95,7 +94,6 @@ export const Header = () => {
         ["style", "alignItems", "center"],
         ["style", "gap", "10px"],
         ["style", "width", "100%"],
-        ["style", "maxWidth", "500px"],
         ["style", "color", "rgba(255,255,255,1)"]
       )(
         html.div()("$"),

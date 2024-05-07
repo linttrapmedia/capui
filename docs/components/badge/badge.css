@@ -4,24 +4,12 @@ Usage:
 */
 
 :root {
-  --badge-bg-dark: var(--palette-black-60, black);
-  --badge-bg-light: var(--palette-white-80, white);
-  --badge-bg-error: var(--palette-red-80, red);
-  --badge-bg-success: var(--palette-green-80, green);
-  --badge-bg-warning: var(--palette-yellow-80, yellow);
-  --badge-bg-info: var(--palette-blue-80, blue);
-  --badge-text-dark: var(--palette-white, white);
-  --badge-text-light: var(--palette-black, black);
-  --badge-text-error: var(--palette-white, white);
-  --badge-text-success: var(--palette-white, white);
-  --badge-text-warning: var(--palette-black, black);
-  --badge-text-info: var(--palette-white, white);
-  --badge-border-radius: 0.75rem;
+  --badge-border-radius: 5px;
   --badge-border-width: 2px;
   --badge-font-family: var(--font-sans, sans-serif);
-  --badge-font-small: 0.55rem;
-  --badge-font-medium: 0.65rem;
-  --badge-font-large: 0.75rem;
+  --badge-font-small: 10px;
+  --badge-font-medium: 12px;
+  --badge-font-large: 13px;
   --badge-padding-small: 3px 6px;
   --badge-padding-medium: 3px 6px;
   --badge-padding-large: 4px 8px;
@@ -44,49 +32,16 @@ Usage:
   width: max-content;
   text-wrap: nowrap;
   min-width: 15px;
+
+  &.badge--dark { background-color: var(--palette-black-60); color: var(--palette-white); }
+  &.badge--light {background-color: var(--palette-white-80); color: var(--palette-black); }
+  &.badge--success { background-color: var(--palette-green); color: var(--palette-white); }
+  &.badge--error {background-color: var(--palette-red); color: var(--palette-white); }
+  &.badge--warning { background-color: var(--palette-yellow); color: var(--palette-black); }
+  &.badge--info { background-color: var(--palette-blue); color: var(--palette-white); }
+  &.badge--small { font-size: var(--badge-font-small); padding: var(--badge-padding-small); }
+  &.badge--medium { font-size: var(--badge-font-medium); padding: var(--badge-padding-medium); } 
+  &.badge--large { font-size: var(--badge-font-large); padding: var(--badge-padding-large); }
+  
 }
 
-.badge--dark {
-  background-color: var(--badge-bg-dark);
-  color: var(--badge-text-dark);
-}
-
-.badge--light {
-  background-color: var(--badge-bg-light);
-  color: var(--badge-text-light);
-}
-
-.badge--success {
-  background-color: var(--badge-bg-success);
-  color: var(--badge-text-success);
-}
-
-.badge--error {
-  background-color: var(--badge-bg-error);
-  color: var(--badge-text-error);
-}
-
-.badge--warning {
-  background-color: var(--badge-bg-warning);
-  color: var(--badge-text-warning);
-}
-
-.badge--info {
-  background-color: var(--badge-bg-info);
-  color: var(--badge-text-info);
-}
-
-.badge--small {
-  font-size: var(--badge-font-small);
-  padding: var(--badge-padding-small);
-}
-
-.badge--medium {
-  font-size: var(--badge-font-medium);
-  padding: var(--badge-padding-medium);
-}
-
-.badge--large {
-  font-size: var(--badge-font-large);
-  padding: var(--badge-padding-large);
-}

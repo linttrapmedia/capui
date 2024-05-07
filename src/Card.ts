@@ -11,7 +11,8 @@ export const Card = (component: Component) => {
     ["style", "gap", "10px"],
     ["style", "position", "relative"],
     ["style", "transition", "all 0.3s"],
-    ["style", "borderRadius", "5px"]
+    ["style", "borderRadius", "5px"],
+    ["style", "gridColumn", "span 6"]
   )(
     html.div(
       ["click", () => dialog.set({ ...component, showing: true })],

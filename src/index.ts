@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
   root(
     ["class", "ui__bg"],
+    ["style", "padding", "20px"],
+    ["style", "boxSizing", "border-box"],
     [
       "innerHTML",
       () =>

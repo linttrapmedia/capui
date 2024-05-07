@@ -207,6 +207,7 @@
   gap: calc(var(--alert-padding-medium) / 2);
   transition: all 0.3s;
   overflow: hidden;
+  width:100%;
 }
 
 .alert:hover {

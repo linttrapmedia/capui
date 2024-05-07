@@ -107,9 +107,22 @@ export const lib: Component[] = [
     <button class="button button--outline button--light">Outline</button>
     <button class="button button--outline button--loading button--light">Loading</button>`,
   },
+  {
+    title: "Card",
+    exampleSrc: "components/card/examples.html",
+    example: undefined,
+    preview: `<div class="card card--dark card--small">
+    <div class="card__header">
+    <span>Card</span>
+      <button class="button button--light button--ghost">open</button>
+    </div>
+    <div class="card__body">lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+    <div class="card__footer">Footer</div>
+  </div>`,
+  },
 ];
 
 // dialog.set({
-//   ...lib[1],
+//   ...lib[2],
 //   showing: true,
 // });

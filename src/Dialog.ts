@@ -12,7 +12,7 @@ export const Dialog = () => {
     ["attr:dialog", "open", () => dialog.get().showing],
     ["class", "dialog"]
   )(
-    html.div(["class", "dialog__container"])(
+    html.div(["class", "dialog__view"])(
       html.div(["class", "dialog__header"])(
         html.div(["class", "dialog__title"], ["innerText:dialog", () => dialog.get().title ?? ""])(),
         html.button(

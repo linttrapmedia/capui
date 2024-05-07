@@ -44,25 +44,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Basic scrollbar styles */
-/* ::-webkit-scrollbar {
-  width: 10px;
-} */
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-}
-
-/* Hover effect on the scrollbar thumb */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
 input:focus {
   outline: none;
 }
