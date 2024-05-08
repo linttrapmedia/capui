@@ -22,7 +22,15 @@ export const Card = (component: Component) => {
         ["style", "transform", "rotate(-45deg)"]
       )("")
     ),
-    html.div(["class", "card__body"], ["innerHTML", () => component.preview])()
+    html.div(
+      ["class", "card__body"],
+      ["innerHTML", () => component.preview],
+      ["style", "display", "flex"],
+      ["style", "gap", "10px"],
+      ["style", "flexWrap", "wrap"],
+      ["style", "alignItems", "center"],
+      ["style", "justifyContent", "center"]
+    )()
   );
 };
 

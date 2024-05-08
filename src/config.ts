@@ -77,18 +77,15 @@ export const lib: Component[] = [
     title: "Alerts",
     exampleSrc: "components/alerts/examples.html",
     example: undefined,
-    preview: `<div class="alert alert--dark">
-    <div class="alert__title">Alert</div>
+    preview: ` <label class="alert alert--dark">
+    <div class="alert__close">＋</div>
+    <div class="alert__title">Dark</div>
     <div class="alert__message">
-      lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipiscing elit. Sed nonne merninisti licere mihi ista
+      probare, quae sunt a te dicta?
     </div>
-  </div>
-  <div class="alert alert--light">
-    <div class="alert__title">Alert</div>
-    <div class="alert__message">
-      lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    </div>
-  </div>`,
+  </label>
+ `,
   },
   {
     title: "Badge",
@@ -96,7 +93,7 @@ export const lib: Component[] = [
     example: undefined,
     preview: `<button class="button button--dark">Alerts <span class="badge badge--light">1</span></button>
     <button class="button button--light">Alerts <span class="badge badge--dark">2</span></button>
-    <button class="button button--outline button--light">Alerts <span class="badge badge--light">3</span></button>`,
+    <button class="button button--outline button--light">Alerts <span class="badge badge--light badge--outline">3</span></button>`,
   },
   {
     title: "Button",
@@ -111,18 +108,15 @@ export const lib: Component[] = [
     title: "Card",
     exampleSrc: "components/card/examples.html",
     example: undefined,
-    preview: `<div class="card card--dark card--small">
-    <div class="card__header">
-    <span>Card</span>
-      <button class="button button--light button--ghost">open</button>
-    </div>
-    <div class="card__body">lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-    <div class="card__footer">Footer</div>
+    preview: `<div class="card card--dark">
+    <div class="card__title">Title</div>
+    <div class="card__actions"><button class="button button--light button--ghost button--small">go</button></div>
+    <div class="card__body">lorem ipsum dolor sit amet, consectetur adipiscing elit.  </div>
   </div>`,
   },
 ];
 
 // dialog.set({
-//   ...lib[4],
+//   ...lib[1],
 //   showing: true,
 // });
