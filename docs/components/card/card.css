@@ -1,107 +1,205 @@
-/* Define default variables at the root level */
-:root {
-    --card-bg-dark: var(--palette-black, black);
-    --card-bg-light: var(--palette-white, white);
-    --card-border-radius: 8px;
-    --card-border-color-dark: var(--palette-white-10, black);
-    --card-border-color-light: var(--palette-black-10, white);
-    --card-border-width: 1px;
-    --card-color: #333;
-    --card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    --card-font-family: var(--font-sans, sans-serif);
-    --card-font-small: 14px;
-    --card-font-medium: 16px;
-    --card-font-large: 21px;
-    --card-padding-small: 10px;
-    --card-padding-medium: 15px;
-    --card-padding-large: 24px;
-    --card-text-dark: var(--palette-white, white);
-    --card-text-light: var(--palette-black, black);
-  }
-  
-  /* Base component */
+
 .card {
-    border-radius: var(--card-border-radius);
-    border-width: var(--card-border-width);
+
+    /* Settings */
+    --card-bg-color: inherit;
+    --card-font-family: inherit;
+    --card-title-font-size: inherit;
+    --card-title-font-color: inherit;
+    --card-inner-border-color: inherit;
+    --card-inner-border-width: inherit;
+    --card-outer-border-color: inherit;
+    --card-outer-border-radius: inherit;
+    --card-outer-border-width: inherit;
+    --card-spacing: inherit;
+
+    &.card--small {
+        --card-spacing: 10px;
+        --card-title-font-size: 14px;
+        --card-outer-border-radius: 4px;
+        --card-outer-border-width: 1px;
+        --card-inner-border-width: 1px;
+    }
+
+    &.card--medium {
+        --card-spacing: 15px;
+        --card-title-font-size: 16px;
+        --card-outer-border-radius: 8px;
+        --card-outer-border-width: 2px;
+        --card-inner-border-width: 1px;
+    }
+
+    &.card--large {
+        --card-spacing: 20px;
+        --card-title-font-size: 18px;
+        --card-outer-border-radius: 12px;
+        --card-outer-border-width: 3px;
+        --card-inner-border-width: 2px;
+    }
+
+    &.card--dark {
+        --card-bg-color: var(--palette-black, black);
+        --card-title-font-color: var(--palette-white, white);
+        --card-inner-border-color: var(--palette-white-20, white);
+        --card-outer-border-color: var(--palette-black, black);
+        &.card--ghost {
+            --card-bg-color: var(--palette-black-10, black);
+            --card-title-font-color: var(--palette-black, black);
+            --card-inner-border-color: var(--palette-black-20, black);
+            --card-outer-border-color: transparent;
+        }
+        &.card--outline {
+            --card-bg-color: transparent;
+            --card-title-font-color: var(--palette-black, black);
+            --card-inner-border-color: var(--palette-black-20, black);
+            --card-outer-border-color: var(--palette-black-70, black);
+        }
+    }
+
+    &.card--error {
+        --card-bg-color: var(--palette-red);
+        --card-title-font-color: var(--palette-white, white);
+        --card-inner-border-color: var(--palette-white-30, white);
+        --card-outer-border-color: var(--palette-red, red);
+        &.card--ghost {
+            --card-bg-color: var(--palette-red-10, red);
+            --card-title-font-color: var(--palette-red, red);
+            --card-inner-border-color: var(--palette-red-30, red);
+            --card-outer-border-color: transparent;
+        }
+        &.card--outline {
+            --card-bg-color: transparent;
+            --card-title-font-color: var(--palette-red, red);
+            --card-inner-border-color: var(--palette-red-30, red);
+            --card-outer-border-color: var(--palette-red, red);
+        }
+    }
+
+    &.card--info {
+        --card-bg-color: var(--palette-blue);
+        --card-title-font-color: var(--palette-white, white);
+        --card-inner-border-color: var(--palette-white-30, white);
+        --card-outer-border-color: var(--palette-blue, blue);
+        &.card--ghost {
+            --card-bg-color: var(--palette-blue-10, blue);
+            --card-title-font-color: var(--palette-blue, blue);
+            --card-inner-border-color: var(--palette-blue-30, blue);
+            --card-outer-border-color: transparent;
+        }
+        &.card--outline {
+            --card-bg-color: transparent;
+            --card-title-font-color: var(--palette-blue, blue);
+            --card-inner-border-color: var(--palette-blue-30, blue);
+            --card-outer-border-color: var(--palette-blue, blue);
+        }
+    }
+
+    &.card--light {
+        --card-bg-color: var(--palette-white, white);
+        --card-title-font-color: var(--palette-black, black);
+        --card-inner-border-color: var(--palette-black-20, black);
+        --card-outer-border-color: var(--palette-white, white);
+        &.card--ghost {
+            --card-bg-color: var(--palette-white-05, white);
+            --card-title-font-color: var(--palette-white, white);
+            --card-inner-border-color: var(--palette-white-20, white);
+            --card-outer-border-color: transparent;
+        }
+        &.card--outline {
+            --card-bg-color: transparent;
+            --card-title-font-color: var(--palette-white, white);
+            --card-inner-border-color: var(--palette-white-20, white);
+            --card-outer-border-color: var(--palette-white-70, white);
+        }
+    }
+
+    &.card--success {
+        --card-bg-color: var(--palette-green);
+        --card-title-font-color: var(--palette-white, white);
+        --card-inner-border-color: var(--palette-white-30, white);
+        --card-outer-border-color: var(--palette-green, green);
+        &.card--ghost {
+            --card-bg-color: var(--palette-green-10, green);
+            --card-title-font-color: var(--palette-green, green);
+            --card-inner-border-color: var(--palette-green-30, green);
+            --card-outer-border-color: transparent;
+        }
+        &.card--outline {
+            --card-bg-color: transparent;
+            --card-title-font-color: var(--palette-green, green);
+            --card-inner-border-color: var(--palette-green-20, green);
+            --card-outer-border-color: var(--palette-green, green);
+        }
+    }
+
+    &.card--warning {
+        --card-bg-color: var(--palette-yellow);
+        --card-title-font-color: var(--palette-black, black);
+        --card-inner-border-color: var(--palette-black-20, black);
+        --card-outer-border-color: var(--palette-yellow, yellow);
+        &.card--ghost {
+            --card-bg-color: var(--palette-yellow-10, yellow);
+            --card-title-font-color: var(--palette-yellow, yellow);
+            --card-inner-border-color: var(--palette-yellow-20, yellow);
+            --card-outer-border-color: transparent;
+        }
+        &.card--outline {
+            --card-bg-color: transparent;
+            --card-title-font-color: var(--palette-yellow, yellow);
+            --card-inner-border-color: var(--palette-yellow-20, yellow);
+            --card-outer-border-color: var(--palette-yellow, yellow);
+        }
+    }
+    
+
+    /* Rules */
+    background-color: var(--card-bg-color);
+    border-radius: var(--card-outer-border-radius);
     border-style: solid;
-    box-shadow: var(--card-shadow);
-    direction: ltr;
-    display: flex;
-    flex-direction: column;
+    border-width: var(--card-outer-border-width);
+    border-color: var(--card-outer-border-color);
+    display: grid;
+    grid-template-areas: "card__title card__actions" "card__body card__body" "card__footer card__footer";
     font-family: var(--card-font-family);
+    font-size: var(--card-title-font-size);
     font-weight: normal;
-    font-size: var(--card-font-medium);
-    gap: var(--card-padding-medium);
-    padding: var(--card-padding-medium);
-    position: relative;
+    row-gap: var(--card-spacing);
+    padding: var(--card-spacing);
     text-align: left;
     transition: all 0.3s;
-}
 
-/* Structure */
+    .card__actions {
+        align-items: center;
+        border-bottom: var(--card-inner-border-width) solid var(--card-inner-border-color); 
+        display: flex;
+        flex-wrap: wrap;
+        grid-area: card__actions;
+        justify-content: flex-end;
+        padding-bottom: calc(var(--card-spacing) / 2); 
+    }
+    
+    .card__body { 
+        grid-area: card__body; 
+    }
 
-.card__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: var(--card-padding-medium);
-    font-weight: bold;
-    font-size: 1.1em;
-}
+    .card__footer { 
+        align-items: center;
+        border-top: var(--card-inner-border-width) solid var(--card-inner-border-color); 
+        display: flex;
+        grid-area: card__footer;
+        padding-top: calc(var(--card-spacing) / 2);
+        justify-content: flex-end;
+    }
 
-.card__footer {
-    padding-top: var(--card-padding-medium);
-}
+    .card__title {
+        align-items: center;
+        border-bottom: var(--card-inner-border-width) solid var(--card-inner-border-color);
+        color: var(--card-title-font-color);
+        display: flex;
+        font-size: var(--card-font-large);
+        font-weight: bold;
+        grid-area: card__title;
+        padding-bottom: calc(var(--card-spacing) / 2); 
+    }
 
-/* Colors */
-
-.card--dark {
-    background-color: var(--card-bg-dark);
-    border-color: var(--card-border-color-dark);
-    color: var(--card-text-dark);
-}
-
-.card--light {  
-    background-color: var(--card-bg-light);
-    border-color: var(--card-border-color-light);
-    color: var(--card-text-light);
-}
-
-.card--rtl {
-    direction: rtl;
-    text-align: right;
-}
-
-
-.card--dark .card__header {
-    border-bottom-width: var(--card-border-width);
-    border-bottom-style: solid;
-    border-color: var(--card-border-color-dark);
-}
-
-.card--light .card__header {
-    border-bottom-width: var(--card-border-width);
-    border-color: var(--card-border-color-light);
-    border-bottom-style: solid;
-}
-
-/* Modifiers */
-.card--small {
-    font-size: var(--card-font-small);
-    gap: var(--card-padding-small);
-    padding: var(--card-padding-small);
-}
-
-.card--small .card__header {
-    padding-bottom: var(--card-padding-small);
-}
-
-.card--large {
-    font-size: var(--card-font-large);
-    gap: var(--card-padding-large);
-    padding: var(--card-padding-large);
-}
-
-.card--large .card__header {
-    padding-bottom: var(--card-padding-large);
 }
