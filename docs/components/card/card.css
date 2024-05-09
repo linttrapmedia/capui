@@ -160,6 +160,7 @@
     border-color: var(--card-outer-border-color);
     display: grid;
     grid-template-areas: "card__title card__actions" "card__body card__body" "card__footer card__footer";
+    grid-template-rows: max-content 1fr max-content;
     font-family: var(--card-font-family);
     font-size: var(--card-title-font-size);
     font-weight: normal;

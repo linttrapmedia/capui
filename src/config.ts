@@ -91,9 +91,10 @@ export const lib: Component[] = [
     title: "Badge",
     exampleSrc: "components/badge/examples.html",
     example: undefined,
-    preview: `<button class="button button--dark">Alerts <span class="badge badge--light">1</span></button>
-    <button class="button button--light">Alerts <span class="badge badge--dark">2</span></button>
-    <button class="button button--outline button--light">Alerts <span class="badge badge--light badge--outline">3</span></button>`,
+    preview: `
+    <div>Lorem <span class="badge badge--dark">1</span></div>
+    <div>Ipsum <span class="badge badge--light badge--outline">1</span></div>
+    <div>Dolor <span class="badge badge--light">1</span></div>`,
   },
   {
     title: "Button",
@@ -117,6 +118,6 @@ export const lib: Component[] = [
 ];
 
 // dialog.set({
-//   ...lib[1],
+//   ...lib[2],
 //   showing: true,
 // });

@@ -26,7 +26,7 @@ export const Card = (component: Component) => {
       ["class", "card__body"],
       ["innerHTML", () => component.preview],
       ["style", "display", "flex"],
-      ["style", "gap", "10px"],
+      ["style", "gap", "20px"],
       ["style", "flexWrap", "wrap"],
       ["style", "alignItems", "center"],
       ["style", "justifyContent", "center"]

@@ -20,7 +20,7 @@
   --alert-border-style: solid;
   --alert-border-width: 2px;
   --alert-font-family: var(--font-sans, sans-serif);
-  --alert-font-size: 12px;
+  --alert-font-size: 13px;
   --alert-padding: 20px;
   --alert-text-align: left;
   --alert-text-color: inherit;
@@ -38,11 +38,12 @@
     &.alert--ghost {
         --alert-bg: var(--palette-black-20, black);
         --alert-bg-hover: var(--palette-black-40, black);
-        --alert-border-color: var(--palette-black, black);
+        --alert-border-color: transparent;
+        --alert-border-color-hover: transparent;
         --alert-text-color: var(--palette-black, black);
         --alert-link-color: var(--palette-black, black);
         --alert-link-color-hover: var(--palette-black-60, black);
-      }
+    }
     &.alert--outline {
         --alert-bg: transparent;
         --alert-bg-hover: var(--palette-black-20, black);
@@ -64,7 +65,8 @@
     &.alert--ghost {
         --alert-bg: var(--palette-red-10, red);
         --alert-bg-hover: var(--palette-red-20, red);
-        --alert-border-color: var(--palette-red, red);
+        --alert-border-color: transparent;
+        --alert-border-color-hover: transparent;
         --alert-text-color: var(--palette-red, red);
         --alert-link-color: var(--palette-red, red);
         --alert-link-color-hover: var(--palette-red-60, red);
@@ -90,7 +92,8 @@
     &.alert--ghost {
         --alert-bg: var(--palette-blue-10, blue);
         --alert-bg-hover: var(--palette-blue-20, blue);
-        --alert-border-color: var(--palette-blue, blue);
+        --alert-border-color: transparent;
+        --alert-border-color-hover: transparent;
         --alert-text-color: var(--palette-blue, blue);
         --alert-link-color: var(--palette-blue, blue);
         --alert-link-color-hover: var(--palette-blue-60, blue);
@@ -116,7 +119,8 @@
     &.alert--ghost {
         --alert-bg: var(--palette-white-10, white);
         --alert-bg-hover: var(--palette-white-20, white);
-        --alert-border-color: var(--palette-white, white);
+        --alert-border-color: transparent;
+        --alert-border-color-hover: transparent;
         --alert-text-color: var(--palette-white, white);
         --alert-link-color: var(--palette-white, white);
         --alert-link-color-hover: var(--palette-white-60, white);
@@ -142,7 +146,8 @@
     &.alert--ghost {
         --alert-bg: var(--palette-green-10, green);
         --alert-bg-hover: var(--palette-green-20, green);
-        --alert-border-color: var(--palette-green, green);
+        --alert-border-color: transparent;
+        --alert-border-color-hover: transparent;
         --alert-text-color: var(--palette-green, green);
         --alert-link-color: var(--palette-green, green);
         --alert-link-color-hover: var(--palette-green-60, green);
@@ -168,7 +173,8 @@
     &.alert--ghost {
         --alert-bg: var(--palette-yellow-10, yellow);
         --alert-bg-hover: var(--palette-yellow-20, yellow);
-        --alert-border-color: var(--palette-yellow, yellow);
+        --alert-border-color: transparent;
+        --alert-border-color-hover: transparent;
         --alert-text-color: var(--palette-yellow, yellow);
         --alert-link-color: var(--palette-yellow, yellow);
         --alert-link-color-hover: var(--palette-yellow-60, yellow);
