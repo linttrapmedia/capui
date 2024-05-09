@@ -4,364 +4,423 @@ Usage:
 */
 
 .button {
+  --animation: none;
+  --bg-loading-color: var(--palette-black-10, black);
+  --bg-color: inherit;
+  --bg-color-hover: var(--palette-black-80, black);
+  --bg-image: none;
+  --bg-size: auto;
+  --border-color: var(--palette-black-90, black);
+  --border-radius: 4px;
+  --border-width: 2px;
+  --box-shadow: none;
+  --cursor: pointer;
+  --display: inline-flex;
+  --font-family: var(--font-sans, sans-serif);
+  --font-size: 13px;
+  --gap: 8px;
+  --opacity: 1;
+  --padding: 8px 15px;
+  --pointer-events: auto;
+  --width: max-content;
 
-  --button-border-radius: 4px;
-  --button-border-width: 2px;
-  --button-font-family: var(--font-sans, sans-serif);
-  --button-font-large: 1rem;
-  --button-font-medium: 0.85rem;
-  --button-font-small: 0.75rem;
-  --button-gap-large: 11px;
-  --button-gap-medium: 8px;
-  --button-gap-small: 5px;
-  --button-padding-large: 10px 20px;
-  --button-padding-medium: 8px 15px;
-  --button-padding-small: 5px 10px;
+  /* Colors */
+
+  &.button--dark {
+    --bg-color: var(--palette-black, black);
+    --bg-color-hover: var(--palette-black-80, black);
+    --border-color: var(--palette-black, black);
+    --text-color: var(--palette-white, white);
+    &:not(.button--disabled):not(.button--loading):hover {
+      --bg-color: var(--palette-black-80, black);
+      --bg-color-hover: var(--palette-black-60, black);
+      --border-color: var(--palette-black-80, black);
+    }
+    &.button--disabled {
+      --opacity: 0.5;
+    }
+    &.button--loading {
+      --bg-loading-color: var(--palette-white-10, white);
+      --border-color: var(--palette-white-10, white);
+    }
+    &.button--ghost {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-black-20, black);
+      --border-color: transparent;
+      --text-color: var(--palette-black, black);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-black-20, black);
+        --bg-color-hover: var(--palette-black-40, black);
+        --border-color: var(--palette-black-10, black);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-black-10, black);
+        --border-color: var(--palette-black-10, black);
+      }
+    }
+    &.button--outline {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-black-20, black);
+      --border-color: ;
+      --text-color: var(--palette-black, black);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-black-20, black);
+        --bg-color-hover: var(--palette-black-40, black);
+        --border-color: var(--palette-black-20, black);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-black-10, black);
+        --border-color: var(--palette-black, black);
+      }
+    }
+  }
+
+  &.button--light {
+    --bg-color: var(--palette-white, white);
+    --bg-color-hover: var(--palette-white-80, white);
+    --border-color: var(--palette-white, white);
+    --text-color: var(--palette-black, black);
+    &:not(.button--disabled):not(.button--loading):hover {
+      --bg-color: var(--palette-white-80, white);
+      --bg-color-hover: var(--palette-white-60, white);
+      --border-color: var(--palette-white-80, white);
+    }
+    &.button--disabled {
+      --opacity: 0.5;
+    }
+    &.button--loading {
+      --bg-loading-color: var(--palette-black-10, black);
+      --border-color: var(--palette-black-10, black);
+    }
+    &.button--ghost {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-white-20, white);
+      --border-color: transparent;
+      --text-color: var(--palette-white, white);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-white-20, white);
+        --bg-color-hover: var(--palette-white-40, white);
+        --border-color: var(--palette-white-10, white);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-white-10, white);
+        --border-color: var(--palette-white-10, white);
+      }
+    }
+    &.button--outline {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-white-20, white);
+      --border-color: ;
+      --text-color: var(--palette-white, white);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-white-20, white);
+        --bg-color-hover: var(--palette-white-40, white);
+        --border-color: var(--palette-white-20, white);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-white-10, white);
+        --border-color: var(--palette-white, white);
+      }
+    }
+  }
+
+  &.button--info {
+    --bg-color: var(--palette-blue, blue);
+    --bg-color-hover: var(--palette-blue-80, blue);
+    --border-color: var(--palette-blue, blue);
+    --text-color: var(--palette-black, black);
+    &:not(.button--disabled):not(.button--loading):hover {
+      --bg-color: var(--palette-blue-80, blue);
+      --bg-color-hover: var(--palette-blue-60, blue);
+      --border-color: var(--palette-blue-80, blue);
+    }
+    &.button--disabled {
+      --opacity: 0.5;
+    }
+    &.button--loading {
+      --bg-loading-color: var(--palette-black-10, black);
+      --border-color: var(--palette-black-10, black);
+    }
+    &.button--ghost {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-blue-20, blue);
+      --border-color: transparent;
+      --text-color: var(--palette-blue, blue);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-blue-20, blue);
+        --bg-color-hover: var(--palette-blue-40, blue);
+        --border-color: var(--palette-blue-10, blue);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-blue-10, blue);
+        --border-color: var(--palette-blue-10, blue);
+      }
+    }
+    &.button--outline {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-blue-20, blue);
+      --border-color: ;
+      --text-color: var(--palette-blue, blue);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-blue-20, blue);
+        --bg-color-hover: var(--palette-blue-40, blue);
+        --border-color: var(--palette-blue-20, blue);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-blue-10, blue);
+        --border-color: var(--palette-blue, blue);
+      }
+    }
+  }
+
+  &.button--success {
+    --bg-color: var(--palette-green, green);
+    --bg-color-hover: var(--palette-green-80, green);
+    --border-color: var(--palette-green, green);
+    --text-color: var(--palette-black, black);
+    &:not(.button--disabled):not(.button--loading):hover {
+      --bg-color: var(--palette-green-80, green);
+      --bg-color-hover: var(--palette-green-60, green);
+      --border-color: var(--palette-green-80, green);
+    }
+    &.button--disabled {
+      --opacity: 0.5;
+    }
+    &.button--loading {
+      --bg-loading-color: var(--palette-black-10, black);
+      --border-color: var(--palette-black-10, black);
+    }
+    &.button--ghost {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-green-20, green);
+      --border-color: transparent;
+      --text-color: var(--palette-green, green);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-green-20, green);
+        --bg-color-hover: var(--palette-green-40, green);
+        --border-color: var(--palette-green-10, green);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-green-10, green);
+        --border-color: var(--palette-green-10, green);
+      }
+    }
+    &.button--outline {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-green-20, green);
+      --border-color: ;
+      --text-color: var(--palette-green, green);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-green-20, green);
+        --bg-color-hover: var(--palette-green-40, green);
+        --border-color: var(--palette-green-20, green);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-green-10, green);
+        --border-color: var(--palette-green, green);
+      }
+    }
+  }
+
+  &.button--warning {
+    --bg-color: var(--palette-yellow, yellow);
+    --bg-color-hover: var(--palette-yellow-80, yellow);
+    --border-color: var(--palette-yellow, yellow);
+    --text-color: var(--palette-black, black);
+    &:not(.button--disabled):not(.button--loading):hover {
+      --bg-color: var(--palette-yellow-80, yellow);
+      --bg-color-hover: var(--palette-yellow-60, yellow);
+      --border-color: var(--palette-yellow-80, yellow);
+    }
+    &.button--disabled {
+      --opacity: 0.5;
+    }
+    &.button--loading {
+      --bg-loading-color: var(--palette-black-10, black);
+      --border-color: var(--palette-black-10, black);
+    }
+    &.button--ghost {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-yellow-20, yellow);
+      --border-color: transparent;
+      --text-color: var(--palette-yellow, yellow);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-yellow-20, yellow);
+        --bg-color-hover: var(--palette-yellow-40, yellow);
+        --border-color: var(--palette-yellow-10, yellow);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-yellow-10, yellow);
+        --border-color: var(--palette-yellow-10, yellow);
+      }
+    }
+    &.button--outline {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-yellow-20, yellow);
+      --border-color: ;
+      --text-color: var(--palette-yellow, yellow);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-yellow-20, yellow);
+        --bg-color-hover: var(--palette-yellow-40, yellow);
+        --border-color: var(--palette-yellow-20, yellow);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-yellow-10, yellow);
+        --border-color: var(--palette-yellow, yellow);
+      }
+    }
+  }
+
+  &.button--error {
+    --bg-color: var(--palette-red, red);
+    --bg-color-hover: var(--palette-red-80, red);
+    --border-color: var(--palette-red, red);
+    --text-color: var(--palette-black, black);
+    &:not(.button--disabled):not(.button--loading):hover {
+      --bg-color: var(--palette-red-80, red);
+      --bg-color-hover: var(--palette-red-60, red);
+      --border-color: var(--palette-red-80, red);
+    }
+    &.button--disabled {
+      --opacity: 0.5;
+    }
+    &.button--loading {
+      --bg-loading-color: var(--palette-black-10, black);
+      --border-color: var(--palette-black-10, black);
+    }
+    &.button--ghost {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-red-20, red);
+      --border-color: transparent;
+      --text-color: var(--palette-red, red);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-red-20, red);
+        --bg-color-hover: var(--palette-red-40, red);
+        --border-color: var(--palette-red-10, red);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-red-10, red);
+        --border-color: var(--palette-red-10, red);
+      }
+    }
+    &.button--outline {
+      --bg-color: transparent;
+      --bg-color-hover: var(--palette-red-20, red);
+      --border-color: ;
+      --text-color: var(--palette-red, red);
+      &:not(.button--disabled):not(.button--loading):hover {
+        --bg-color: var(--palette-red-20, red);
+        --bg-color-hover: var(--palette-red-40, red);
+        --border-color: var(--palette-red-20, red);
+      }
+      &.button--disabled {
+        --opacity: 0.5;
+      }
+      &.button--loading {
+        --bg-loading-color: var(--palette-red-10, red);
+        --border-color: var(--palette-red, red);
+      }
+    }
+  }
+
+  /* Modifiers */
+  &.button--block {
+    --display: block;
+    --width: 100%;
+  }
+  &.button--large {
+    --font-size: 16px;
+    --padding: 12px 20px;
+    --gap: 12px;
+  }
+  &.button--small {
+    --font-size: 12px;
+    --padding: 6px 10px;
+    --gap: 6px;
+  }
+  &.button--disabled {
+    --pointer-events: none;
+    --cursor: not-allowed;
+  }
+  &.button--loading {
+    --bg-size: 200px 100%;
+    --bg-image: repeating-linear-gradient(
+      -45deg,
+      var(--bg-loading-color, white),
+      var(--bg-loading-color, white) 5px,
+      transparent 5px,
+      transparent 10px
+    );
+    --animation: button-loading-animation 2s linear infinite;
+    --cursor: not-allowed;
+    --pointer-events: none;
+  }
 
   align-items: center;
-  border-radius: var(--button-border-radius);
+  animation: var(--animation);
+  background-color: var(--bg-color);
+  background-size: var(--bg-size);
+  background-image: var(--bg-image);
+  border-color: var(--border-color);
+  box-shadow: var(--box-shadow);
+  box-sizing: border-box;
+  clip-path: inset(0);
+  color: var(--text-color, white);
+  border-radius: var(--border-radius);
   border-style: solid;
-  border-width: var(--button-border-width);
-  cursor: pointer;
+  border-width: var(--border-width);
+  cursor: var(--cursor, pointer);
   display: inline-flex;
-  font-family: var(--button-font-family);
-  font-size: var(--button-font-medium);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
   font-weight: bold;
-  gap: var(--button-gap-medium);
+  gap: var(--gap);
+  justify-content: center;
   outline: none;
-  padding: var(--button-padding-medium);
+  opacity: var(--opacity);
+  padding: var(--padding);
   position: relative;
+  pointer-events: var(--pointer-events);
+  overflow: hidden;
   text-align: center;
   text-wrap: nowrap;
   transition: all 0.3s;
   user-select: none;
   vertical-align: middle;
-  width: max-content;
-  
-  /* Sizes */
-  &.button--block { display: block; width: 100%; }
-  &.button--medium { font-size: var(--button-font-medium); padding: var(--button-padding-medium); gap: var(--button-gap-medium); }
-  &.button--large { font-size: var(--button-font-large); padding: var(--button-padding-large); gap: var(--button-gap-large); }
-  &.button--small { font-size: var(--button-font-small); padding: var(--button-padding-small); gap: var(--button-gap-small); }
-  
-  /* States */
-  &.button--disabled { cursor: not-allowed; pointer-events: none; } 
-  &.button--loading {  pointer-events: none; cursor: not-allowed; } 
-
-  /* Colors */
-  &.button--dark { 
-    background-color: var(--palette-black-90, black);
-    border-color: var(--palette-black-90, black);
-    color: var(--palette-white, white);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-white-80, white); 
-      color: var(--palette-black, black); 
-      border-color: var(--palette-black, black); 
-    }
-    &.button--disabled { cursor: not-allowed; opacity: 0.5; }
-    &.button--loading { 
-      pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-white-10, white),  var(--palette-white-10, white) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-black, black);
-    } 
-    &.button--outline {
-      background-color: transparent;
-      border-color: var(--palette-black-90, black);
-      color: var(--palette-black-90, black);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-black-80, black); 
-        color: var(--palette-white, white); 
-        border-color: var(--palette-black-80, black); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, white) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-black, black);
-      } 
-    }
-    &.button--ghost {
-      background-color: transparent;
-      border-color: transparent;
-      color: var(--palette-black-90, black);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-black-10, black); 
-        border-color: var(--palette-black-10, black); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, white) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-black, black);
-      } 
-    }
-  }
-
-  &.button--error { 
-    background-color: var(--palette-red-90, red);
-    border-color: var(--palette-red-90, red);
-    color: var(--palette-black, black);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-black-80, black); 
-      color: var(--palette-red-80, red); 
-      border-color: var(--palette-red-80, red); 
-    }
-    &.button--disabled { cursor: not-allowed; opacity: 0.35; }
-    &.button--loading { 
-      pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, black) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-red, red);
-    } 
-    &.button--outline {
-      background-color: transparent;
-      border-color: var(--palette-red-90, red);
-      color: var(--palette-red-90, red);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-red-80, red); 
-        color: var(--palette-black, black); 
-        border-color: var(--palette-red-80, red); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-red-10, red),  var(--palette-red-10, red) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-red, red);
-      } 
-    }
-    &.button--ghost {
-      background-color: transparent;
-      border-color: transparent;
-      color: var(--palette-red-90, red);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-red-10, red); 
-        border-color: var(--palette-red-10, red); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-red-10, red),  var(--palette-red-10, red) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-red, red);
-      } 
-    }
-  }
-
-  &.button--info { 
-    background-color: var(--palette-blue-90, blue);
-    border-color: var(--palette-blue-90, blue);
-    color: var(--palette-black, black);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-black-80, black); 
-      color: var(--palette-blue-80, blue); 
-      border-color: var(--palette-blue-80, blue); 
-    }
-    &.button--disabled { cursor: not-allowed; opacity: 0.35; }
-    &.button--loading { 
-      pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, black) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-blue, blue);
-    } 
-    &.button--outline {
-      background-color: transparent;
-      border-color: var(--palette-blue-90, blue);
-      color: var(--palette-blue-90, blue);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-blue-80, blue); 
-        color: var(--palette-black, black); 
-        border-color: var(--palette-blue-80, blue); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-blue-10, blue),  var(--palette-blue-10, blue) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-blue, blue);
-      } 
-    }
-    &.button--ghost {
-      background-color: transparent;
-      border-color: transparent;
-      color: var(--palette-blue-90, blue);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-blue-10, blue); 
-        border-color: var(--palette-blue-10, blue); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-blue-10, blue),  var(--palette-blue-10, blue) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-blue, blue);
-      } 
-    }
-  }
-
-  &.button--light { 
-    background-color: var(--palette-white-90, white);
-    border-color: var(--palette-white-90, white);
-    color: var(--palette-black, black);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-black-80, black); 
-      color: var(--palette-white-80, white); 
-      border-color: var(--palette-white-80, white); 
-    }
-    &.button--disabled { cursor: not-allowed; opacity: 0.35; }
-    &.button--loading { 
-      pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, black) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-white, white);
-    } 
-    &.button--outline {
-      background-color: transparent;
-      border-color: var(--palette-white-90, white);
-      color: var(--palette-white-90, white);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-white-80, white); 
-        color: var(--palette-black, black); 
-        border-color: var(--palette-white-80, white); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-white-10, white),  var(--palette-white-10, white) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-white, white);
-      } 
-    }
-    &.button--ghost {
-      background-color: transparent;
-      border-color: transparent;
-      color: var(--palette-white-90, white);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-white-10, white); 
-        border-color: var(--palette-white-10, white); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-white-10, white),  var(--palette-white-10, white) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-white-10, white);
-      } 
-    }
-  }
-
-  &.button--success { 
-    background-color: var(--palette-green-90, green);
-    border-color: var(--palette-green-90, green);
-    color: var(--palette-black, black);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-black-80, black); 
-      color: var(--palette-green-80, green); 
-      border-color: var(--palette-green-80, green); 
-    }
-    &.button--disabled { cursor: not-allowed; opacity: 0.35; }
-    &.button--loading { 
-      pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, black) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-green, green);
-    } 
-    &.button--outline {
-      background-color: transparent;
-      border-color: var(--palette-green-90, green);
-      color: var(--palette-green-90, green);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-green-80, green); 
-        color: var(--palette-black, black); 
-        border-color: var(--palette-green-80, green); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-green-10, green),  var(--palette-green-10, green) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-green, green);
-      } 
-    }
-    &.button--ghost {
-      background-color: transparent;
-      border-color: transparent;
-      color: var(--palette-green-90, green);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-green-10, green); 
-        border-color: var(--palette-green-10, green); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-green-10, green),  var(--palette-green-10, green) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-green, green);
-      } 
-    }
-  }
-
-  &.button--warning { 
-    background-color: var(--palette-yellow-90, yellow);
-    border-color: var(--palette-yellow-90, yellow);
-    color: var(--palette-black, black);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-black-80, black); 
-      color: var(--palette-yellow-80, yellow); 
-      border-color: var(--palette-yellow-80, yellow); 
-    }
-    &.button--disabled { cursor: not-allowed; opacity: 0.35; }
-    &.button--loading { 
-      pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, black) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-yellow, yellow);
-    } 
-    &.button--outline {
-      background-color: transparent;
-      border-color: var(--palette-yellow-90, yellow);
-      color: var(--palette-yellow-90, yellow);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-yellow-80, yellow); 
-        color: var(--palette-black, black); 
-        border-color: var(--palette-yellow-80, yellow); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-yellow-10, yellow),  var(--palette-yellow-10, yellow) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-yellow, yellow);
-      } 
-    }
-    &.button--ghost {
-      background-color: transparent;
-      border-color: transparent;
-      color: var(--palette-yellow-90, yellow);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-yellow-10, yellow); 
-        border-color: var(--palette-yellow-10, yellow); 
-      }
-      &.button--loading { 
-        pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-yellow-10, yellow),  var(--palette-yellow-10, yellow) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-yellow, yellow);
-      } 
-    }
-  }
-
-
+  width: var(--width);
 }
 
 /* Animations */
@@ -373,4 +432,3 @@ Usage:
     background-position: 100% 0;
   }
 }
-

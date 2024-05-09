@@ -117,7 +117,7 @@ export const lib: Component[] = [
   },
 ];
 
-// dialog.set({
-//   ...lib[2],
-//   showing: true,
-// });
+dialog.set({
+  ...lib[3],
+  showing: true,
+});

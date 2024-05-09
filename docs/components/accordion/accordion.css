@@ -1,91 +1,102 @@
+/* 
+<div class="accordion accordion--dark">
+    <div class="accordion__item">
+      <input type="radio" name="accordion-group" id="ag1" hidden="" class="accordion__input">
+      <label for="ag1" class="accordion__header">Item 1</label>
+      <div class="accordion__body">Content for Item 1...</div>
+    </div>
+    ...
+</div> 
+*/
+
 .accordion {
-  --accordion-body-bg: inherit;
-  --accordion-body-text-color: inherit;
-  --accordion-border-color: inherit;
-  --accordion-border-radius: 4px;
-  --accordion-font-family: var(--font-sans, sans-serif);
-  --accordion-font-size: 14px;
-  --accordion-header-bg: inherit;
-  --accordion-header-color: inherit;
-  --accordion-header-hover-bg: inherit;
-  --accordion-header-selected-bg: inherit;
-  --accordion-spacing: 12px;
-  --accordion-toggle-size: 6px;
+  --body-bg: inherit;
+  --body-text-color: inherit;
+  --border-color: inherit;
+  --border-radius: 4px;
+  --font-family: var(--font-sans, sans-serif);
+  --font-size: 14px;
+  --header-bg: inherit;
+  --header-color: inherit;
+  --header-hover-bg: inherit;
+  --header-selected-bg: inherit;
+  --spacing: 12px;
+  --toggle-size: 6px;
 
   &.accordion--dark {
-    --accordion-body-bg: var(--palette-black-90, black);
-    --accordion-body-text-color: var(--palette-white, white);
-    --accordion-border-color: var(--palette-white-10, white);
-    --accordion-border-radius: 4px;
-    --accordion-font-family: var(--font-sans, sans-serif);
-    --accordion-font-size: 14px;
-    --accordion-header-bg: var(--palette-black, black);
-    --accordion-header-color: var(--palette-white, white);
-    --accordion-header-hover-bg: var(--palette-black-90, black);
-    --accordion-spacing: 12px;
-    --accordion-toggle-size: 6px;
+    --body-bg: var(--palette-black-90, black);
+    --body-text-color: var(--palette-white, white);
+    --border-color: var(--palette-white-10, white);
+    --border-radius: 4px;
+    --font-family: var(--font-sans, sans-serif);
+    --font-size: 14px;
+    --header-bg: var(--palette-black, black);
+    --header-color: var(--palette-white, white);
+    --header-hover-bg: var(--palette-black-90, black);
+    --spacing: 12px;
+    --toggle-size: 6px;
   }
 
   &.accordion--light {
-    --accordion-body-bg: var(--palette-white, white);
-    --accordion-body-text-color: var(--palette-black, black);
-    --accordion-border-color: var(--palette-black-10, black);
-    --accordion-border-radius: 4px;
-    --accordion-font-family: var(--font-sans, sans-serif);
-    --accordion-font-size: 14px;
-    --accordion-header-bg: var(--palette-white-90, white);
-    --accordion-header-color: var(--palette-black, black);
-    --accordion-header-hover-bg: var(--palette-white-90, white);
-    --accordion-spacing: 12px;
-    --accordion-toggle-size: 6px;
+    --body-bg: var(--palette-white, white);
+    --body-text-color: var(--palette-black, black);
+    --border-color: var(--palette-black-10, black);
+    --border-radius: 4px;
+    --font-family: var(--font-sans, sans-serif);
+    --font-size: 14px;
+    --header-bg: var(--palette-white-90, white);
+    --header-color: var(--palette-black, black);
+    --header-hover-bg: var(--palette-white-90, white);
+    --spacing: 12px;
+    --toggle-size: 6px;
   }
 
   width: 100%;
-  font-family: var(--accordion-font-family);
-  font-size: var(--accordion-font-size);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
 
   .accordion__item {
     &:first-child .accordion__header {
-      border-top-left-radius: var(--accordion-border-radius);
-      border-top-right-radius: var(--accordion-border-radius);
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
     }
 
     &:last-child:not(:has(.accordion__input:checked)) .accordion__header {
-      border-bottom-left-radius: var(--accordion-border-radius);
-      border-bottom-right-radius: var(--accordion-border-radius);
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
     }
 
     &:last-child:has(.accordion__input:checked) .accordion__body {
-      border-bottom-left-radius: var(--accordion-border-radius);
-      border-bottom-right-radius: var(--accordion-border-radius);
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
     }
 
     .accordion__header {
-      background-color: var(--accordion-header-bg);
-      border-bottom: 1px solid var(--accordion-border-color);
-      color: var(--accordion-header-color);
+      background-color: var(--header-bg);
+      border-bottom: 1px solid var(--border-color);
+      color: var(--header-color);
       cursor: pointer;
       display: block;
       font-weight: bold;
-      padding: var(--accordion-spacing);
+      padding: var(--spacing);
       position: relative;
 
       &:hover {
-        background-color: var(--accordion-header-hover-bg);
+        background-color: var(--header-hover-bg);
         transition: all 200ms;
       }
 
       &::after {
-        border-left: 2px solid var(--accordion-header-color);
-        border-bottom: 2px solid var(--accordion-header-color);
-        color: var(--accordion-header-text-color);
+        border-left: 2px solid var(--header-color);
+        border-bottom: 2px solid var(--header-color);
+        color: var(--header-text-color);
         content: "";
         display: flex;
-        width: var(--accordion-toggle-size);
-        height: var(--accordion-toggle-size);
+        width: var(--toggle-size);
+        height: var(--toggle-size);
         position: absolute;
-        right: var(--accordion-spacing);
-        top: calc(50% - var(--accordion-toggle-size) / 2 * 2);
+        right: var(--spacing);
+        top: calc(50% - var(--toggle-size) / 2 * 2);
         transform: rotate(-45deg);
       }
     }
@@ -98,16 +109,16 @@
       }
       &:checked + .accordion__header::after {
         transform: rotate(135deg);
-        top: calc(50% - var(--accordion-toggle-size) / 2);
+        top: calc(50% - var(--toggle-size) / 2);
       }
     }
 
     .accordion__body {
-      background-color: var(--accordion-body-bg);
-      border-bottom: 1px solid var(--accordion-border-color);
-      color: var(--accordion-body-text-color);
-      padding: var(--accordion-spacing);
-      font-size: var(--accordion-font-size);
+      background-color: var(--body-bg);
+      border-bottom: 1px solid var(--border-color);
+      color: var(--body-text-color);
+      padding: var(--spacing);
+      font-size: var(--font-size);
       display: none;
     }
   }
