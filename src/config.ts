@@ -1,19 +1,5 @@
-import { HTML, State, useAttribute, useClassName, useEvent, useInnerHTML, useStyle, useText } from "@linttrap/oem";
+import { dialog } from "./state";
 import { Component } from "./typings";
-
-export const dialog = State<{
-  showing: boolean;
-  title?: string;
-  description?: string;
-  exampleSrc?: string;
-  example?: string | undefined;
-}>({
-  showing: false,
-  title: "",
-  description: "",
-  exampleSrc: "",
-  example: undefined,
-});
 
 const isGithub = window.location.host === "linttrapmedia.github.io";
 export const baseUrl = isGithub ? "/capui" : "";
@@ -33,23 +19,6 @@ dialog.sub((d) => {
   }
 });
 
-export const html = HTML({
-  attr: useAttribute(),
-  click: useEvent("click"),
-  class: useClassName(),
-  "attr:dialog": useAttribute({ state: dialog }),
-  style: useStyle(),
-  "style:mouseover": useStyle({
-    event: "mouseover",
-  }),
-  "style:mouseout": useStyle({
-    event: "mouseout",
-  }),
-  innerHTML: useInnerHTML(),
-  "innerHTML:dialog": useInnerHTML({ state: dialog }),
-  "innerText:dialog": useText({ state: dialog }),
-});
-
 export const lib: Component[] = [
   {
     title: "Accordion",
@@ -57,20 +26,20 @@ export const lib: Component[] = [
     example: undefined,
     preview: `<div class="accordion accordion--dark">
     <div class="accordion__item">
-      <input type="radio" name="accordion-group" id="ag1" hidden class="accordion__input" />
-      <label for="ag1" class="accordion__header">Item 1</label>
-      <div class="accordion__body">Content for Item 1...</div>
+      <input type="radio" name="group2" id="item3" hidden class="accordion__input" />
+      <label for="item3" class="accordion__header">Item 1</label>
+      <div class="accordion__body">Content for section 1...</div>
     </div>
     <div class="accordion__item">
-      <input type="radio" name="accordion-group" id="ag2" hidden class="accordion__input" />
-      <label for="ag2" class="accordion__header">Item 2</label>
-      <div class="accordion__body">Content for Item 2...</div>
+      <input type="radio" name="group2" id="item4" hidden class="accordion__input" />
+      <label for="item4" class="accordion__header">Item 2</label>
+      <div class="accordion__body">Content for section 2...</div>
     </div>
     <div class="accordion__item">
-    <input type="radio" name="accordion-group" id="ag3" hidden class="accordion__input" />
-    <label for="ag3" class="accordion__header">Item 2</label>
-    <div class="accordion__body">Content for Item 2...</div>
-  </div>
+      <input type="radio" name="group2" id="item5" hidden class="accordion__input" />
+      <label for="item5" class="accordion__header">Item 3</label>
+      <div class="accordion__body">Content for section 3...</div>
+    </div>
   </div>`,
   },
   {
@@ -117,7 +86,7 @@ export const lib: Component[] = [
   },
 ];
 
-dialog.set({
-  ...lib[3],
-  showing: true,
-});
+// dialog.set({
+//   ...lib[2],
+//   showing: true,
+// });

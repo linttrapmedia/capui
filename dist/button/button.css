@@ -4,10 +4,9 @@ Usage:
 */
 
 .button {
-
   --button-border-radius: 4px;
   --button-border-width: 2px;
-  --button-font-family: var(--font-sans, sans-serif);
+  --button-font-family: var(--token-font-sans, sans-serif);
   --button-font-large: 1rem;
   --button-font-medium: 0.85rem;
   --button-font-small: 0.75rem;
@@ -36,331 +35,494 @@ Usage:
   user-select: none;
   vertical-align: middle;
   width: max-content;
-  
+
   /* Sizes */
-  &.button--block { display: block; width: 100%; }
-  &.button--medium { font-size: var(--button-font-medium); padding: var(--button-padding-medium); gap: var(--button-gap-medium); }
-  &.button--large { font-size: var(--button-font-large); padding: var(--button-padding-large); gap: var(--button-gap-large); }
-  &.button--small { font-size: var(--button-font-small); padding: var(--button-padding-small); gap: var(--button-gap-small); }
-  
+  &.button--block {
+    display: block;
+    width: 100%;
+  }
+  &.button--medium {
+    font-size: var(--button-font-medium);
+    padding: var(--button-padding-medium);
+    gap: var(--button-gap-medium);
+  }
+  &.button--large {
+    font-size: var(--button-font-large);
+    padding: var(--button-padding-large);
+    gap: var(--button-gap-large);
+  }
+  &.button--small {
+    font-size: var(--button-font-small);
+    padding: var(--button-padding-small);
+    gap: var(--button-gap-small);
+  }
+
   /* States */
-  &.button--disabled { cursor: not-allowed; pointer-events: none; } 
-  &.button--loading {  pointer-events: none; cursor: not-allowed; } 
+  &.button--disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  &.button--loading {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 
   /* Colors */
-  &.button--dark { 
-    background-color: var(--palette-black-90, black);
-    border-color: var(--palette-black-90, black);
-    color: var(--palette-white, white);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-white-80, white); 
-      color: var(--palette-black, black); 
-      border-color: var(--palette-black, black); 
+  &.button--dark {
+    background-color: var(--token-black-90, black);
+    border-color: var(--token-black-90, black);
+    color: var(--token-white, white);
+    &:not(.button--disabled):not(.button--loading):hover {
+      background-color: var(--token-white-80, white);
+      color: var(--token-black, black);
+      border-color: var(--token-black, black);
     }
-    &.button--disabled { cursor: not-allowed; opacity: 0.5; }
-    &.button--loading { 
+    &.button--disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+    &.button--loading {
       pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-white-10, white),  var(--palette-white-10, white) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-black, black);
-    } 
+      background-image: repeating-linear-gradient(
+        -45deg,
+        var(--token-white-10, white),
+        var(--token-white-10, white) 5px,
+        transparent 5px,
+        transparent 10px
+      );
+      background-size: 200px 100%;
+      animation: button-loading-animation 2s linear infinite;
+      cursor: not-allowed;
+      border-color: var(--token-black, black);
+    }
     &.button--outline {
       background-color: transparent;
-      border-color: var(--palette-black-90, black);
-      color: var(--palette-black-90, black);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-black-80, black); 
-        color: var(--palette-white, white); 
-        border-color: var(--palette-black-80, black); 
+      border-color: var(--token-black-90, black);
+      color: var(--token-black-90, black);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-black-80, black);
+        color: var(--token-white, white);
+        border-color: var(--token-black-80, black);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, white) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-black, black);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-black-10, black),
+          var(--token-black-10, white) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-black, black);
+      }
     }
     &.button--ghost {
       background-color: transparent;
       border-color: transparent;
-      color: var(--palette-black-90, black);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-black-10, black); 
-        border-color: var(--palette-black-10, black); 
+      color: var(--token-black-90, black);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-black-10, black);
+        border-color: var(--token-black-10, black);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, white) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-black, black);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-black-10, black),
+          var(--token-black-10, white) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-black, black);
+      }
     }
   }
 
-  &.button--error { 
-    background-color: var(--palette-red-90, red);
-    border-color: var(--palette-red-90, red);
-    color: var(--palette-black, black);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-black-80, black); 
-      color: var(--palette-red-80, red); 
-      border-color: var(--palette-red-80, red); 
+  &.button--error {
+    background-color: var(--token-red-90, red);
+    border-color: var(--token-red-90, red);
+    color: var(--token-black, black);
+    &:not(.button--disabled):not(.button--loading):hover {
+      background-color: var(--token-black-80, black);
+      color: var(--token-red-80, red);
+      border-color: var(--token-red-80, red);
     }
-    &.button--disabled { cursor: not-allowed; opacity: 0.35; }
-    &.button--loading { 
+    &.button--disabled {
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+    &.button--loading {
       pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, black) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-red, red);
-    } 
+      background-image: repeating-linear-gradient(
+        -45deg,
+        var(--token-black-10, black),
+        var(--token-black-10, black) 5px,
+        transparent 5px,
+        transparent 10px
+      );
+      background-size: 200px 100%;
+      animation: button-loading-animation 2s linear infinite;
+      cursor: not-allowed;
+      border-color: var(--token-red, red);
+    }
     &.button--outline {
       background-color: transparent;
-      border-color: var(--palette-red-90, red);
-      color: var(--palette-red-90, red);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-red-80, red); 
-        color: var(--palette-black, black); 
-        border-color: var(--palette-red-80, red); 
+      border-color: var(--token-red-90, red);
+      color: var(--token-red-90, red);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-red-80, red);
+        color: var(--token-black, black);
+        border-color: var(--token-red-80, red);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-red-10, red),  var(--palette-red-10, red) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-red, red);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-red-10, red),
+          var(--token-red-10, red) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-red, red);
+      }
     }
     &.button--ghost {
       background-color: transparent;
       border-color: transparent;
-      color: var(--palette-red-90, red);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-red-10, red); 
-        border-color: var(--palette-red-10, red); 
+      color: var(--token-red-90, red);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-red-10, red);
+        border-color: var(--token-red-10, red);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-red-10, red),  var(--palette-red-10, red) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-red, red);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-red-10, red),
+          var(--token-red-10, red) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-red, red);
+      }
     }
   }
 
-  &.button--info { 
-    background-color: var(--palette-blue-90, blue);
-    border-color: var(--palette-blue-90, blue);
-    color: var(--palette-black, black);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-black-80, black); 
-      color: var(--palette-blue-80, blue); 
-      border-color: var(--palette-blue-80, blue); 
+  &.button--info {
+    background-color: var(--token-blue-90, blue);
+    border-color: var(--token-blue-90, blue);
+    color: var(--token-black, black);
+    &:not(.button--disabled):not(.button--loading):hover {
+      background-color: var(--token-black-80, black);
+      color: var(--token-blue-80, blue);
+      border-color: var(--token-blue-80, blue);
     }
-    &.button--disabled { cursor: not-allowed; opacity: 0.35; }
-    &.button--loading { 
+    &.button--disabled {
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+    &.button--loading {
       pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, black) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-blue, blue);
-    } 
+      background-image: repeating-linear-gradient(
+        -45deg,
+        var(--token-black-10, black),
+        var(--token-black-10, black) 5px,
+        transparent 5px,
+        transparent 10px
+      );
+      background-size: 200px 100%;
+      animation: button-loading-animation 2s linear infinite;
+      cursor: not-allowed;
+      border-color: var(--token-blue, blue);
+    }
     &.button--outline {
       background-color: transparent;
-      border-color: var(--palette-blue-90, blue);
-      color: var(--palette-blue-90, blue);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-blue-80, blue); 
-        color: var(--palette-black, black); 
-        border-color: var(--palette-blue-80, blue); 
+      border-color: var(--token-blue-90, blue);
+      color: var(--token-blue-90, blue);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-blue-80, blue);
+        color: var(--token-black, black);
+        border-color: var(--token-blue-80, blue);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-blue-10, blue),  var(--palette-blue-10, blue) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-blue, blue);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-blue-10, blue),
+          var(--token-blue-10, blue) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-blue, blue);
+      }
     }
     &.button--ghost {
       background-color: transparent;
       border-color: transparent;
-      color: var(--palette-blue-90, blue);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-blue-10, blue); 
-        border-color: var(--palette-blue-10, blue); 
+      color: var(--token-blue-90, blue);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-blue-10, blue);
+        border-color: var(--token-blue-10, blue);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-blue-10, blue),  var(--palette-blue-10, blue) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-blue, blue);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-blue-10, blue),
+          var(--token-blue-10, blue) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-blue, blue);
+      }
     }
   }
 
-  &.button--light { 
-    background-color: var(--palette-white-90, white);
-    border-color: var(--palette-white-90, white);
-    color: var(--palette-black, black);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-black-80, black); 
-      color: var(--palette-white-80, white); 
-      border-color: var(--palette-white-80, white); 
+  &.button--light {
+    background-color: var(--token-white-90, white);
+    border-color: var(--token-white-90, white);
+    color: var(--token-black, black);
+    &:not(.button--disabled):not(.button--loading):hover {
+      background-color: var(--token-black-80, black);
+      color: var(--token-white-80, white);
+      border-color: var(--token-white-80, white);
     }
-    &.button--disabled { cursor: not-allowed; opacity: 0.35; }
-    &.button--loading { 
+    &.button--disabled {
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+    &.button--loading {
       pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, black) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-white, white);
-    } 
+      background-image: repeating-linear-gradient(
+        -45deg,
+        var(--token-black-10, black),
+        var(--token-black-10, black) 5px,
+        transparent 5px,
+        transparent 10px
+      );
+      background-size: 200px 100%;
+      animation: button-loading-animation 2s linear infinite;
+      cursor: not-allowed;
+      border-color: var(--token-white, white);
+    }
     &.button--outline {
       background-color: transparent;
-      border-color: var(--palette-white-90, white);
-      color: var(--palette-white-90, white);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-white-80, white); 
-        color: var(--palette-black, black); 
-        border-color: var(--palette-white-80, white); 
+      border-color: var(--token-white-90, white);
+      color: var(--token-white-90, white);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-white-80, white);
+        color: var(--token-black, black);
+        border-color: var(--token-white-80, white);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-white-10, white),  var(--palette-white-10, white) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-white, white);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-white-10, white),
+          var(--token-white-10, white) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-white, white);
+      }
     }
     &.button--ghost {
       background-color: transparent;
       border-color: transparent;
-      color: var(--palette-white-90, white);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-white-10, white); 
-        border-color: var(--palette-white-10, white); 
+      color: var(--token-white-90, white);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-white-10, white);
+        border-color: var(--token-white-10, white);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-white-10, white),  var(--palette-white-10, white) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-white-10, white);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-white-10, white),
+          var(--token-white-10, white) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-white-10, white);
+      }
     }
   }
 
-  &.button--success { 
-    background-color: var(--palette-green-90, green);
-    border-color: var(--palette-green-90, green);
-    color: var(--palette-black, black);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-black-80, black); 
-      color: var(--palette-green-80, green); 
-      border-color: var(--palette-green-80, green); 
+  &.button--success {
+    background-color: var(--token-green-90, green);
+    border-color: var(--token-green-90, green);
+    color: var(--token-black, black);
+    &:not(.button--disabled):not(.button--loading):hover {
+      background-color: var(--token-black-80, black);
+      color: var(--token-green-80, green);
+      border-color: var(--token-green-80, green);
     }
-    &.button--disabled { cursor: not-allowed; opacity: 0.35; }
-    &.button--loading { 
+    &.button--disabled {
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+    &.button--loading {
       pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, black) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-green, green);
-    } 
+      background-image: repeating-linear-gradient(
+        -45deg,
+        var(--token-black-10, black),
+        var(--token-black-10, black) 5px,
+        transparent 5px,
+        transparent 10px
+      );
+      background-size: 200px 100%;
+      animation: button-loading-animation 2s linear infinite;
+      cursor: not-allowed;
+      border-color: var(--token-green, green);
+    }
     &.button--outline {
       background-color: transparent;
-      border-color: var(--palette-green-90, green);
-      color: var(--palette-green-90, green);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-green-80, green); 
-        color: var(--palette-black, black); 
-        border-color: var(--palette-green-80, green); 
+      border-color: var(--token-green-90, green);
+      color: var(--token-green-90, green);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-green-80, green);
+        color: var(--token-black, black);
+        border-color: var(--token-green-80, green);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-green-10, green),  var(--palette-green-10, green) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-green, green);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-green-10, green),
+          var(--token-green-10, green) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-green, green);
+      }
     }
     &.button--ghost {
       background-color: transparent;
       border-color: transparent;
-      color: var(--palette-green-90, green);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-green-10, green); 
-        border-color: var(--palette-green-10, green); 
+      color: var(--token-green-90, green);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-green-10, green);
+        border-color: var(--token-green-10, green);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-green-10, green),  var(--palette-green-10, green) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-green, green);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-green-10, green),
+          var(--token-green-10, green) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-green, green);
+      }
     }
   }
 
-  &.button--warning { 
-    background-color: var(--palette-yellow-90, yellow);
-    border-color: var(--palette-yellow-90, yellow);
-    color: var(--palette-black, black);
-    &:not(.button--disabled):not(.button--loading):hover { 
-      background-color: var(--palette-black-80, black); 
-      color: var(--palette-yellow-80, yellow); 
-      border-color: var(--palette-yellow-80, yellow); 
+  &.button--warning {
+    background-color: var(--token-yellow-90, yellow);
+    border-color: var(--token-yellow-90, yellow);
+    color: var(--token-black, black);
+    &:not(.button--disabled):not(.button--loading):hover {
+      background-color: var(--token-black-80, black);
+      color: var(--token-yellow-80, yellow);
+      border-color: var(--token-yellow-80, yellow);
     }
-    &.button--disabled { cursor: not-allowed; opacity: 0.35; }
-    &.button--loading { 
+    &.button--disabled {
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+    &.button--loading {
       pointer-events: none;
-      background-image: repeating-linear-gradient(-45deg, var(--palette-black-10, black),  var(--palette-black-10, black) 5px, transparent 5px, transparent 10px); 
-      background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-      cursor: not-allowed; 
-      border-color: var(--palette-yellow, yellow);
-    } 
+      background-image: repeating-linear-gradient(
+        -45deg,
+        var(--token-black-10, black),
+        var(--token-black-10, black) 5px,
+        transparent 5px,
+        transparent 10px
+      );
+      background-size: 200px 100%;
+      animation: button-loading-animation 2s linear infinite;
+      cursor: not-allowed;
+      border-color: var(--token-yellow, yellow);
+    }
     &.button--outline {
       background-color: transparent;
-      border-color: var(--palette-yellow-90, yellow);
-      color: var(--palette-yellow-90, yellow);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-yellow-80, yellow); 
-        color: var(--palette-black, black); 
-        border-color: var(--palette-yellow-80, yellow); 
+      border-color: var(--token-yellow-90, yellow);
+      color: var(--token-yellow-90, yellow);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-yellow-80, yellow);
+        color: var(--token-black, black);
+        border-color: var(--token-yellow-80, yellow);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-yellow-10, yellow),  var(--palette-yellow-10, yellow) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-yellow, yellow);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-yellow-10, yellow),
+          var(--token-yellow-10, yellow) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-yellow, yellow);
+      }
     }
     &.button--ghost {
       background-color: transparent;
       border-color: transparent;
-      color: var(--palette-yellow-90, yellow);
-      &:not(.button--disabled):not(.button--loading):hover { 
-        background-color: var(--palette-yellow-10, yellow); 
-        border-color: var(--palette-yellow-10, yellow); 
+      color: var(--token-yellow-90, yellow);
+      &:not(.button--disabled):not(.button--loading):hover {
+        background-color: var(--token-yellow-10, yellow);
+        border-color: var(--token-yellow-10, yellow);
       }
-      &.button--loading { 
+      &.button--loading {
         pointer-events: none;
-        background-image: repeating-linear-gradient(-45deg, var(--palette-yellow-10, yellow),  var(--palette-yellow-10, yellow) 5px, transparent 5px, transparent 10px); 
-        background-size: 200px 100%; animation: button-loading-animation 2s linear infinite; 
-        cursor: not-allowed; 
-        border-color: var(--palette-yellow, yellow);
-      } 
+        background-image: repeating-linear-gradient(
+          -45deg,
+          var(--token-yellow-10, yellow),
+          var(--token-yellow-10, yellow) 5px,
+          transparent 5px,
+          transparent 10px
+        );
+        background-size: 200px 100%;
+        animation: button-loading-animation 2s linear infinite;
+        cursor: not-allowed;
+        border-color: var(--token-yellow, yellow);
+      }
     }
   }
-
-
 }
 
 /* Animations */
@@ -372,4 +534,3 @@ Usage:
     background-position: 100% 0;
   }
 }
-

@@ -1,4 +1,5 @@
-import { baseUrl, html } from "./config";
+import { baseUrl } from "../config";
+import { html } from "../template";
 
 export const Header = () => {
   return html.div(

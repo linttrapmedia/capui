@@ -14,7 +14,7 @@
   --body-text-color: inherit;
   --border-color: inherit;
   --border-radius: 4px;
-  --font-family: var(--font-sans, sans-serif);
+  --font-family: var(--token-font-sans, sans-serif);
   --font-size: 14px;
   --header-bg: inherit;
   --header-color: inherit;
@@ -24,29 +24,29 @@
   --toggle-size: 6px;
 
   &.accordion--dark {
-    --body-bg: var(--palette-black-90, black);
-    --body-text-color: var(--palette-white, white);
-    --border-color: var(--palette-white-10, white);
+    --body-bg: var(--token-black-90, black);
+    --body-text-color: var(--token-white, white);
+    --border-color: var(--token-white-10, white);
     --border-radius: 4px;
-    --font-family: var(--font-sans, sans-serif);
+    --font-family: var(--token-font-sans, sans-serif);
     --font-size: 14px;
-    --header-bg: var(--palette-black, black);
-    --header-color: var(--palette-white, white);
-    --header-hover-bg: var(--palette-black-90, black);
+    --header-bg: var(--token-black, black);
+    --header-color: var(--token-white, white);
+    --header-hover-bg: var(--token-black-90, black);
     --spacing: 12px;
     --toggle-size: 6px;
   }
 
   &.accordion--light {
-    --body-bg: var(--palette-white, white);
-    --body-text-color: var(--palette-black, black);
-    --border-color: var(--palette-black-10, black);
+    --body-bg: var(--token-white, white);
+    --body-text-color: var(--token-black, black);
+    --border-color: var(--token-black-10, black);
     --border-radius: 4px;
-    --font-family: var(--font-sans, sans-serif);
+    --font-family: var(--token-font-sans, sans-serif);
     --font-size: 14px;
-    --header-bg: var(--palette-white-90, white);
-    --header-color: var(--palette-black, black);
-    --header-hover-bg: var(--palette-white-90, white);
+    --header-bg: var(--token-white-90, white);
+    --header-color: var(--token-black, black);
+    --header-hover-bg: var(--token-white-80, white);
     --spacing: 12px;
     --toggle-size: 6px;
   }

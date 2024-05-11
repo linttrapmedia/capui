@@ -1,8 +1,8 @@
-import { Body } from "./Body";
-import { Dialog } from "./Dialog";
-import { Footer } from "./Footer";
-import { Header } from "./Header";
-import { html } from "./config";
+import { Body } from "./components/Body";
+import { Dialog } from "./components/Dialog";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
+import { html } from "./template";
 
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card");

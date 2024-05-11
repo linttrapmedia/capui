@@ -1,5 +1,7 @@
+import { lib } from "../config";
+import { html } from "../template";
 import { Card } from "./Card";
-import { html, lib } from "./config";
+import { Tokens } from "./tokens/Tokens";
 
 export const Body = () => {
   return html.div(
@@ -7,5 +9,5 @@ export const Body = () => {
     ["style", "justifyContent", "center"],
     ["style", "gridTemplateColumns", "subgrid"],
     ["style", "gap", "20px"]
-  )(...lib.map(Card));
+  )(Tokens(), ...lib.map(Card));
 };

@@ -19,7 +19,7 @@
   --border-radius: 4px;
   --border-style: solid;
   --border-width: 2px;
-  --font-family: var(--font-sans, sans-serif);
+  --font-family: var(--token-font-sans, sans-serif);
   --font-size: 13px;
   --padding: 20px;
   --text-align: left;
@@ -28,164 +28,164 @@
   --link-color-hover: inherit;
 
   &.alert--dark {
-    --bg: var(--palette-black, black);
-    --bg-hover: var(--palette-black-80, black);
-    --border-color: var(--palette-black, black);
-    --border-color-hover: var(--palette-black-60, black);
-    --text-color: var(--palette-white, white);
-    --link-color: var(--palette-white, white);
-    --link-color-hover: var(--palette-white-60, white);
+    --bg: var(--token-black, black);
+    --bg-hover: var(--token-black-80, black);
+    --border-color: var(--token-black, black);
+    --border-color-hover: var(--token-black-60, black);
+    --text-color: var(--token-white, white);
+    --link-color: var(--token-white, white);
+    --link-color-hover: var(--token-white-60, white);
     &.alert--ghost {
-      --bg: var(--palette-black-20, black);
-      --bg-hover: var(--palette-black-40, black);
+      --bg: var(--token-black-20, black);
+      --bg-hover: var(--token-black-40, black);
       --border-color: transparent;
       --border-color-hover: transparent;
-      --text-color: var(--palette-black, black);
-      --link-color: var(--palette-black, black);
-      --link-color-hover: var(--palette-black-60, black);
+      --text-color: var(--token-black, black);
+      --link-color: var(--token-black, black);
+      --link-color-hover: var(--token-black-60, black);
     }
     &.alert--outline {
       --bg: transparent;
-      --bg-hover: var(--palette-black-20, black);
-      --border-color: var(--palette-black, black);
-      --text-color: var(--palette-black, black);
-      --link-color: var(--palette-black, black);
-      --link-color-hover: var(--palette-black-60, black);
+      --bg-hover: var(--token-black-20, black);
+      --border-color: var(--token-black, black);
+      --text-color: var(--token-black, black);
+      --link-color: var(--token-black, black);
+      --link-color-hover: var(--token-black-60, black);
     }
   }
 
   &.alert--error {
-    --bg: var(--palette-red, red);
-    --bg-hover: var(--palette-red-80, red);
-    --border-color: var(--palette-red, red);
-    --border-color-hover: var(--palette-red-60, red);
-    --text-color: var(--palette-black, black);
-    --link-color: var(--palette-black, black);
-    --link-color-hover: var(--palette-black-60, black);
+    --bg: var(--token-red, red);
+    --bg-hover: var(--token-red-80, red);
+    --border-color: var(--token-red, red);
+    --border-color-hover: var(--token-red-60, red);
+    --text-color: var(--token-black, black);
+    --link-color: var(--token-black, black);
+    --link-color-hover: var(--token-black-60, black);
     &.alert--ghost {
-      --bg: var(--palette-red-10, red);
-      --bg-hover: var(--palette-red-20, red);
+      --bg: var(--token-red-10, red);
+      --bg-hover: var(--token-red-20, red);
       --border-color: transparent;
       --border-color-hover: transparent;
-      --text-color: var(--palette-red, red);
-      --link-color: var(--palette-red, red);
-      --link-color-hover: var(--palette-red-60, red);
+      --text-color: var(--token-red, red);
+      --link-color: var(--token-red, red);
+      --link-color-hover: var(--token-red-60, red);
     }
     &.alert--outline {
       --bg: transparent;
-      --bg-hover: var(--palette-red-20, red);
-      --border-color: var(--palette-red, red);
-      --text-color: var(--palette-red, red);
-      --link-color: var(--palette-red, red);
-      --link-color-hover: var(--palette-red-60, red);
+      --bg-hover: var(--token-red-20, red);
+      --border-color: var(--token-red, red);
+      --text-color: var(--token-red, red);
+      --link-color: var(--token-red, red);
+      --link-color-hover: var(--token-red-60, red);
     }
   }
 
   &.alert--info {
-    --bg: var(--palette-blue, blue);
-    --bg-hover: var(--palette-blue-80, blue);
-    --border-color: var(--palette-blue, blue);
-    --border-color-hover: var(--palette-blue-60, blue);
-    --text-color: var(--palette-black, black);
-    --link-color: var(--palette-black, black);
-    --link-color-hover: var(--palette-black-60, black);
+    --bg: var(--token-blue, blue);
+    --bg-hover: var(--token-blue-80, blue);
+    --border-color: var(--token-blue, blue);
+    --border-color-hover: var(--token-blue-60, blue);
+    --text-color: var(--token-black, black);
+    --link-color: var(--token-black, black);
+    --link-color-hover: var(--token-black-60, black);
     &.alert--ghost {
-      --bg: var(--palette-blue-10, blue);
-      --bg-hover: var(--palette-blue-20, blue);
+      --bg: var(--token-blue-10, blue);
+      --bg-hover: var(--token-blue-20, blue);
       --border-color: transparent;
       --border-color-hover: transparent;
-      --text-color: var(--palette-blue, blue);
-      --link-color: var(--palette-blue, blue);
-      --link-color-hover: var(--palette-blue-60, blue);
+      --text-color: var(--token-blue, blue);
+      --link-color: var(--token-blue, blue);
+      --link-color-hover: var(--token-blue-60, blue);
     }
     &.alert--outline {
       --bg: transparent;
-      --bg-hover: var(--palette-blue-20, blue);
-      --border-color: var(--palette-blue, blue);
-      --text-color: var(--palette-blue, blue);
-      --link-color: var(--palette-blue, blue);
-      --link-color-hover: var(--palette-blue-60, blue);
+      --bg-hover: var(--token-blue-20, blue);
+      --border-color: var(--token-blue, blue);
+      --text-color: var(--token-blue, blue);
+      --link-color: var(--token-blue, blue);
+      --link-color-hover: var(--token-blue-60, blue);
     }
   }
 
   &.alert--light {
-    --bg: var(--palette-white, white);
-    --bg-hover: var(--palette-white-80, white);
-    --border-color: var(--palette-white, white);
-    --border-color-hover: var(--palette-white-60, white);
-    --text-color: var(--palette-black, black);
-    --link-color: var(--palette-black, black);
-    --link-color-hover: var(--palette-black-60, black);
+    --bg: var(--token-white, white);
+    --bg-hover: var(--token-white-80, white);
+    --border-color: var(--token-white, white);
+    --border-color-hover: var(--token-white-60, white);
+    --text-color: var(--token-black, black);
+    --link-color: var(--token-black, black);
+    --link-color-hover: var(--token-black-60, black);
     &.alert--ghost {
-      --bg: var(--palette-white-10, white);
-      --bg-hover: var(--palette-white-20, white);
+      --bg: var(--token-white-10, white);
+      --bg-hover: var(--token-white-20, white);
       --border-color: transparent;
       --border-color-hover: transparent;
-      --text-color: var(--palette-white, white);
-      --link-color: var(--palette-white, white);
-      --link-color-hover: var(--palette-white-60, white);
+      --text-color: var(--token-white, white);
+      --link-color: var(--token-white, white);
+      --link-color-hover: var(--token-white-60, white);
     }
     &.alert--outline {
       --bg: transparent;
-      --bg-hover: var(--palette-white-20, white);
-      --border-color: var(--palette-white, white);
-      --text-color: var(--palette-white, white);
-      --link-color: var(--palette-white, white);
-      --link-color-hover: var(--palette-white-60, white);
+      --bg-hover: var(--token-white-20, white);
+      --border-color: var(--token-white, white);
+      --text-color: var(--token-white, white);
+      --link-color: var(--token-white, white);
+      --link-color-hover: var(--token-white-60, white);
     }
   }
 
   &.alert--success {
-    --bg: var(--palette-green, green);
-    --bg-hover: var(--palette-green-80, green);
-    --border-color: var(--palette-green, green);
-    --border-color-hover: var(--palette-green-60, green);
-    --text-color: var(--palette-black, black);
-    --link-color: var(--palette-black, black);
-    --link-color-hover: var(--palette-black-60, black);
+    --bg: var(--token-green, green);
+    --bg-hover: var(--token-green-80, green);
+    --border-color: var(--token-green, green);
+    --border-color-hover: var(--token-green-60, green);
+    --text-color: var(--token-black, black);
+    --link-color: var(--token-black, black);
+    --link-color-hover: var(--token-black-60, black);
     &.alert--ghost {
-      --bg: var(--palette-green-10, green);
-      --bg-hover: var(--palette-green-20, green);
+      --bg: var(--token-green-10, green);
+      --bg-hover: var(--token-green-20, green);
       --border-color: transparent;
       --border-color-hover: transparent;
-      --text-color: var(--palette-green, green);
-      --link-color: var(--palette-green, green);
-      --link-color-hover: var(--palette-green-60, green);
+      --text-color: var(--token-green, green);
+      --link-color: var(--token-green, green);
+      --link-color-hover: var(--token-green-60, green);
     }
     &.alert--outline {
       --bg: transparent;
-      --bg-hover: var(--palette-green-20, green);
-      --border-color: var(--palette-green, green);
-      --text-color: var(--palette-green, green);
-      --link-color: var(--palette-green, green);
-      --link-color-hover: var(--palette-green-60, green);
+      --bg-hover: var(--token-green-20, green);
+      --border-color: var(--token-green, green);
+      --text-color: var(--token-green, green);
+      --link-color: var(--token-green, green);
+      --link-color-hover: var(--token-green-60, green);
     }
   }
 
   &.alert--warning {
-    --bg: var(--palette-yellow, yellow);
-    --bg-hover: var(--palette-yellow-80, yellow);
-    --border-color: var(--palette-yellow, yellow);
-    --border-color-hover: var(--palette-yellow-60, yellow);
-    --text-color: var(--palette-black, black);
-    --link-color: var(--palette-black, black);
-    --link-color-hover: var(--palette-black-60, black);
+    --bg: var(--token-yellow, yellow);
+    --bg-hover: var(--token-yellow-80, yellow);
+    --border-color: var(--token-yellow, yellow);
+    --border-color-hover: var(--token-yellow-60, yellow);
+    --text-color: var(--token-black, black);
+    --link-color: var(--token-black, black);
+    --link-color-hover: var(--token-black-60, black);
     &.alert--ghost {
-      --bg: var(--palette-yellow-10, yellow);
-      --bg-hover: var(--palette-yellow-20, yellow);
+      --bg: var(--token-yellow-10, yellow);
+      --bg-hover: var(--token-yellow-20, yellow);
       --border-color: transparent;
       --border-color-hover: transparent;
-      --text-color: var(--palette-yellow, yellow);
-      --link-color: var(--palette-yellow, yellow);
-      --link-color-hover: var(--palette-yellow-60, yellow);
+      --text-color: var(--token-yellow, yellow);
+      --link-color: var(--token-yellow, yellow);
+      --link-color-hover: var(--token-yellow-60, yellow);
     }
     &.alert--outline {
       --bg: transparent;
-      --bg-hover: var(--palette-yellow-20, yellow);
-      --border-color: var(--palette-yellow, yellow);
-      --text-color: var(--palette-yellow, yellow);
-      --link-color: var(--palette-yellow, yellow);
-      --link-color-hover: var(--palette-yellow-60, yellow);
+      --bg-hover: var(--token-yellow-20, yellow);
+      --border-color: var(--token-yellow, yellow);
+      --text-color: var(--token-yellow, yellow);
+      --link-color: var(--token-yellow, yellow);
+      --link-color-hover: var(--token-yellow-60, yellow);
     }
   }
 
