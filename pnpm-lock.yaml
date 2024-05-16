@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@linttrap/oem':
-    specifier: ^0.0.13
-    version: 0.0.13
+    specifier: ^0.1.0
+    version: 0.1.0
   pollen-css:
     specifier: ^4.6.2
     version: 4.6.2
@@ -43,17 +43,14 @@ devDependencies:
   prettier:
     specifier: 2.7.1
     version: 2.7.1
-  prismjs:
-    specifier: ^1.29.0
-    version: 1.29.0
   serve:
     specifier: ^14.2.1
     version: 14.2.1
 
 packages:
 
-  /@linttrap/oem@0.0.13:
-    resolution: {integrity: sha512-OJxtwoOBxQ+WyRmjLsNnKVqSTT0SGi0ziIN3JqHyfKTqRbhwsNExNswkuqrMcy825EGS94FC2+MlgIIZR8G+Wg==}
+  /@linttrap/oem@0.1.0:
+    resolution: {integrity: sha512-jnOEOjdxhTzRkoccWLheS3I+Wt9I5hxor9yCZBltgGm2OioZr3l/xQkz8LHWY0xLkx6DLehUaHwjb+i7ManZUg==}
     dev: false
 
   /@playwright/test@1.41.2:
@@ -1160,11 +1157,6 @@ packages:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-
-  /prismjs@1.29.0:
-    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
-    engines: {node: '>=6'}
-    dev: true
 
   /punycode@1.4.1:
     resolution: {integrity: sha512-jmYNElW7yvO7TV33CjSmvSiE2yco3bV2czu/OzDKdMNVZQWfxCblURLhf+47syQRBntjfLdd/H0egrzIG+oaFQ==}

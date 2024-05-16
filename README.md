@@ -1,5 +1,4 @@
-
-# cap ui
+<img src="docs/images/capui.png" width="200" style="border-radius:5px;">
 
 ## The Cut & Paste UI, Ctrl+Done.
 

@@ -1,72 +1,129 @@
-import { Body } from "./components/Body";
-import { Dialog } from "./components/Dialog";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
 import { html } from "./template";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".card");
-  cards.forEach((card) => {
-    const dialog = card.querySelector("dialog") as HTMLDialogElement;
-    const close = document.querySelector("dialog .dialog__header__close") as HTMLElement;
-    card.addEventListener("click", () => {
-      dialog.showModal();
-    });
-    close.addEventListener("click", (e) => {
-      e.stopPropagation();
-      dialog.close();
-    });
-  });
-});
+const Logo = () =>
+  html.div(
+    ["style", "backgroundColor", "red"],
+    ["style", "gridRowStart", "1"],
+    ["style", "gridRowEnd", "2"],
+    [
+      "class",
+      [
+        "ui__item",
+        "mobile:ui__item--col-start-1",
+        "mobile:ui__item--col-end-7",
+        "desktop:ui__item--col-start-2",
+        "desktop:ui__item--col-end-5",
+      ].join(" "),
+    ]
+  )("Logo");
+
+const GlobalNav = () =>
+  html.div(
+    ["style", "backgroundColor", "red"],
+    ["style", "gridRowStart", "1"],
+    ["style", "gridRowEnd", "2"],
+    [
+      "class",
+      [
+        "ui__item",
+        "mobile:ui__item--col-start-1",
+        "mobile:ui__item--col-end-7",
+        "desktop:ui__item--col-start-5",
+        "desktop:ui__item--col-end-14",
+      ].join(" "),
+    ]
+  )("GlobalNav");
+
+const Download = () =>
+  html.div(
+    ["style", "backgroundColor", "red"],
+    ["style", "gridRowStart", "2"],
+    ["style", "gridRowEnd", "3"],
+    [
+      "class",
+      [
+        "ui__item",
+        "mobile:ui__item--col-start-1",
+        "mobile:ui__item--col-end-7",
+        "desktop:ui__item--col-start-2",
+        "desktop:ui__item--col-end-5",
+      ].join(" "),
+    ]
+  )("Download");
+
+const PageNav = () =>
+  html.div(
+    ["style", "backgroundColor", "red"],
+    ["style", "gridRowStart", "2"],
+    ["style", "gridRowEnd", "3"],
+    [
+      "class",
+      [
+        "ui__item",
+        "mobile:ui__item--col-start-1",
+        "mobile:ui__item--col-end-7",
+        "desktop:ui__item--col-start-5",
+        "desktop:ui__item--col-end-14",
+      ].join(" "),
+    ]
+  )("PageNav");
+
+const Components = () =>
+  html.div(
+    ["style", "backgroundColor", "red"],
+    ["style", "gridRowStart", "3"],
+    ["style", "gridRowEnd", "4"],
+    [
+      "class",
+      [
+        "ui__item",
+        "mobile:ui__item--col-start-1",
+        "mobile:ui__item--col-end-7",
+        "desktop:ui__item--col-start-2",
+        "desktop:ui__item--col-end-5",
+      ].join(" "),
+    ]
+  )("Components");
+
+const Content = () =>
+  html.div(
+    ["style", "backgroundColor", "red"],
+    ["style", "gridRowStart", "3"],
+    ["style", "gridRowEnd", "5"],
+    [
+      "class",
+      [
+        "ui__item",
+        "mobile:ui__item--col-start-1",
+        "mobile:ui__item--col-end-7",
+        "desktop:ui__item--col-start-5",
+        "desktop:ui__item--col-end-14",
+      ].join(" "),
+    ]
+  )("Content");
+
+const Footer = () =>
+  html.div(
+    ["style", "backgroundColor", "red"],
+    ["style", "gridRow", "4 / 5"],
+    [
+      "class",
+      [
+        "ui__item",
+        "mobile:ui__item--col-start-1",
+        "mobile:ui__item--col-end-7",
+        "desktop:ui__item--col-start-2",
+        "desktop:ui__item--col-end-5",
+      ].join(" "),
+    ]
+  )("Footer");
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
   root(
-    ["class", "ui__bg"],
+    ["class", "ui"],
     ["style", "padding", "20px"],
     ["style", "boxSizing", "border-box"],
-    [
-      "innerHTML",
-      () =>
-        html.div(
-          ["class", "ui"],
-          [
-            "innerHTML",
-            () => [
-              Dialog(),
-              html.div([
-                "class",
-                [
-                  "ui__item",
-                  "mobile:ui__item--start-1",
-                  "mobile:ui__item--end-7",
-                  "desktop:ui__item--start-1",
-                  "desktop:ui__item--end-13",
-                ].join(" "),
-              ])(Header()),
-              html.div([
-                "class",
-                [
-                  "ui__item",
-                  "mobile:ui__item--start-1",
-                  "mobile:ui__item--end-7",
-                  "desktop:ui__item--start-1",
-                  "desktop:ui__item--end-13",
-                ].join(" "),
-              ])(Body()),
-              html.div([
-                "class",
-                [
-                  "ui__item",
-                  "mobile:ui__item--start-1",
-                  "mobile:ui__item--end-7",
-                  "desktop:ui__item--start-1",
-                  "desktop:ui__item--end-13",
-                ].join(" "),
-              ])(Footer()),
-            ],
-          ]
-        )(),
-    ]
+    ["innerHTML", () => [Logo(), GlobalNav(), Download(), PageNav(), Components(), Content(), Footer()]]
   );
 });
