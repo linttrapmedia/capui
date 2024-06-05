@@ -1,129 +1,32 @@
 import { html } from "./template";
 
-const Logo = () =>
-  html.div(
-    ["style", "backgroundColor", "red"],
-    ["style", "gridRowStart", "1"],
-    ["style", "gridRowEnd", "2"],
-    [
-      "class",
-      [
-        "ui__item",
-        "mobile:ui__item--col-start-1",
-        "mobile:ui__item--col-end-7",
-        "desktop:ui__item--col-start-2",
-        "desktop:ui__item--col-end-5",
-      ].join(" "),
-    ]
-  )("Logo");
+const Logo = html.div(["class", "dashboard__logo"])(
+  html.img(["attr", "src", "/images/capui-transparent.png"], ["attr", "width", "200"])()
+);
 
-const GlobalNav = () =>
-  html.div(
-    ["style", "backgroundColor", "red"],
-    ["style", "gridRowStart", "1"],
-    ["style", "gridRowEnd", "2"],
-    [
-      "class",
-      [
-        "ui__item",
-        "mobile:ui__item--col-start-1",
-        "mobile:ui__item--col-end-7",
-        "desktop:ui__item--col-start-5",
-        "desktop:ui__item--col-end-14",
-      ].join(" "),
-    ]
-  )("GlobalNav");
+const Header = html.div(["class", "dashboard__header"])("Header");
 
-const Download = () =>
-  html.div(
-    ["style", "backgroundColor", "red"],
-    ["style", "gridRowStart", "2"],
-    ["style", "gridRowEnd", "3"],
-    [
-      "class",
-      [
-        "ui__item",
-        "mobile:ui__item--col-start-1",
-        "mobile:ui__item--col-end-7",
-        "desktop:ui__item--col-start-2",
-        "desktop:ui__item--col-end-5",
-      ].join(" "),
-    ]
-  )("Download");
+const Nav = html.div(["class", "dashboard__nav"])(
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Tokens"),
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Accordion"),
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Alerts"),
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Badge"),
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Button"),
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Card"),
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Dashboard"),
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Dialog"),
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Flexpane"),
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Grid"),
+  html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Tag")
+);
 
-const PageNav = () =>
-  html.div(
-    ["style", "backgroundColor", "red"],
-    ["style", "gridRowStart", "2"],
-    ["style", "gridRowEnd", "3"],
-    [
-      "class",
-      [
-        "ui__item",
-        "mobile:ui__item--col-start-1",
-        "mobile:ui__item--col-end-7",
-        "desktop:ui__item--col-start-5",
-        "desktop:ui__item--col-end-14",
-      ].join(" "),
-    ]
-  )("PageNav");
+const Main = html.div(["class", "dashboard__main"])("Main");
 
-const Components = () =>
-  html.div(
-    ["style", "backgroundColor", "red"],
-    ["style", "gridRowStart", "3"],
-    ["style", "gridRowEnd", "4"],
-    [
-      "class",
-      [
-        "ui__item",
-        "mobile:ui__item--col-start-1",
-        "mobile:ui__item--col-end-7",
-        "desktop:ui__item--col-start-2",
-        "desktop:ui__item--col-end-5",
-      ].join(" "),
-    ]
-  )("Components");
+const Footer = html.div(["class", "dashboard__footer"])("Footer");
 
-const Content = () =>
-  html.div(
-    ["style", "backgroundColor", "red"],
-    ["style", "gridRowStart", "3"],
-    ["style", "gridRowEnd", "5"],
-    [
-      "class",
-      [
-        "ui__item",
-        "mobile:ui__item--col-start-1",
-        "mobile:ui__item--col-end-7",
-        "desktop:ui__item--col-start-5",
-        "desktop:ui__item--col-end-14",
-      ].join(" "),
-    ]
-  )("Content");
-
-const Footer = () =>
-  html.div(
-    ["style", "backgroundColor", "red"],
-    ["style", "gridRow", "4 / 5"],
-    [
-      "class",
-      [
-        "ui__item",
-        "mobile:ui__item--col-start-1",
-        "mobile:ui__item--col-end-7",
-        "desktop:ui__item--col-start-2",
-        "desktop:ui__item--col-end-5",
-      ].join(" "),
-    ]
-  )("Footer");
+const Drawer = html.div(["class", "dashboard__drawer"])("Drawer");
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
-  root(
-    ["class", "ui"],
-    ["style", "padding", "20px"],
-    ["style", "boxSizing", "border-box"],
-    ["innerHTML", () => [Logo(), GlobalNav(), Download(), PageNav(), Components(), Content(), Footer()]]
-  );
+  root(["class", "dashboard"], ["innerHTML", () => [Logo, Header, Nav, Main, Footer, Drawer]]);
 });

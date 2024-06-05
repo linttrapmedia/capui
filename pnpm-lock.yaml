@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@linttrap/oem':
-    specifier: ^0.1.0
-    version: 0.1.0
+    specifier: ^0.1.3
+    version: 0.1.3
   pollen-css:
     specifier: ^4.6.2
     version: 4.6.2
@@ -49,8 +49,8 @@ devDependencies:
 
 packages:
 
-  /@linttrap/oem@0.1.0:
-    resolution: {integrity: sha512-jnOEOjdxhTzRkoccWLheS3I+Wt9I5hxor9yCZBltgGm2OioZr3l/xQkz8LHWY0xLkx6DLehUaHwjb+i7ManZUg==}
+  /@linttrap/oem@0.1.3:
+    resolution: {integrity: sha512-bQ1R1svi0/dwCFNsvM1hq12h/RJZmb2TDZm4EDgwR0LIc5zLChNQGKwyhysEtEPE4Xi+UxbX8RIIJuEsh6/WqQ==}
     dev: false
 
   /@playwright/test@1.41.2:
