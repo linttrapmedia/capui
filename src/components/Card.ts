@@ -1,7 +1,7 @@
 import {} from "../config";
 import { dialog } from "../state";
 import { html } from "../template";
-import { Component } from "../typings";
+import { Component } from "../x.typings";
 
 export const Card = (component: Component) => {
   return html.div(["class", "card card--medium card--light card--ghost"], ["style", "gridColumn", "span 6"])(

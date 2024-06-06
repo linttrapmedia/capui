@@ -1,5 +1,5 @@
 import { dialog } from "./state";
-import { Component } from "./typings";
+import { Component } from "./x.typings";
 
 const isGithub = window.location.host === "linttrapmedia.github.io";
 export const baseUrl = isGithub ? "/capui" : "";

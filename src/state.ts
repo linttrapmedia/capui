@@ -1,12 +1,28 @@
 import { State } from "@linttrap/oem";
-import { Settings, TokenDialogProps } from "./typings";
+import { Settings, TokenDialogProps } from "./x.typings";
 
-export const tokenDialog = State<TokenDialogProps>({
-  view: "preview",
-  showing: true,
+export const dialog = State<{
+  showing: boolean;
+  title?: string;
+  description?: string;
+  exampleSrc?: string;
+  example?: string | undefined;
+}>({
+  showing: false,
+  title: "",
+  description: "",
+  exampleSrc: "",
+  example: undefined,
 });
 
-export const settings = State<Settings>({
+type Pages = "HOME" | "TOKENS" | "ACCORDION";
+
+export const pageState = State<Pages>("HOME", {
+  key: "page",
+  storage: sessionStorage,
+});
+
+export const tokens = State<Settings>({
   tokens: {
     blackLightness: 1,
     blackAaxis: 0,
@@ -44,16 +60,7 @@ export const settings = State<Settings>({
   },
 });
 
-export const dialog = State<{
-  showing: boolean;
-  title?: string;
-  description?: string;
-  exampleSrc?: string;
-  example?: string | undefined;
-}>({
-  showing: false,
-  title: "",
-  description: "",
-  exampleSrc: "",
-  example: undefined,
+export const tokenDialog = State<TokenDialogProps>({
+  view: "preview",
+  showing: true,
 });

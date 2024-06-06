@@ -1,7 +1,7 @@
 import { StateType } from "@linttrap/oem";
 import { dialog, tokenDialog } from "../state";
 import { html } from "../template";
-import { TokenDialogProps } from "../typings";
+import { TokenDialogProps } from "../x.typings";
 
 export const Dialog = () => {
   // close dialog on escape key
