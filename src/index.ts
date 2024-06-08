@@ -1,48 +1,60 @@
 import { AccordionPage } from "./pages/AccordionPage";
 import { HomePage } from "./pages/HomePage";
-import { TokenPage } from "./pages/TokenPage";
-import { pageState } from "./state";
+import { ColorPicker } from "./pages/Themes/ColorPicker";
+import { ThemePage } from "./pages/Themes/ThemePage";
+import { pageState, propertiesState } from "./state";
 import { html } from "./template";
 
 const NavHeader = html.div(["class", "dashboard__nav-header"])(
   html.img(["attr", "src", "/images/capui-transparent.png"], ["attr", "height", "80"])()
 );
 
+const navButtonStyle: any = [
+  ["class", "button"],
+  ["class", "button--light"],
+  ["class", "button--ghost"],
+  ["class", "button--block"],
+  ["class", "button--justify-start"],
+];
+
 const Nav = html.nav(["class", "dashboard__nav"])(
   html.div(
     ["style", "display", "flex"],
     ["style", "flexDirection", "column"],
     ["style", "gap", "3px"],
-    ["style", "alignItems", "center"]
+    ["style", "alignItems", "flex-start"],
+    ["style", "width", "100%"]
   )(
     html.button(
       ["class", "button"],
       ["class", "button--light"],
+      ["class", "button--block"],
+      ["style", "marginBottom", "10px"],
+      ["style", "gap", "10px"],
+      ["class", "button--justify-start"],
+      ["click", () => pageState.set("HOME")]
+    )(html.span()("capui.zip"), html.span()("[↓]")),
+    html.button(
+      ["class", "button"],
+      ["class", "button--light"],
       ["class", "button--outline"],
-      ["style", "margin", "20px"],
+      ["class", "button--block"],
+      ["style", "marginBottom", "10px"],
+      ["class", "button--justify-start"],
       ["click", () => pageState.set("HOME")]
     )("Home"),
-    html.button(
-      ["class", "button"],
-      ["class", "button--light"],
-      ["class", "button--ghost"],
-      ["click", () => pageState.set("TOKENS")]
-    )("Tokens"),
-    html.button(
-      ["class", "button"],
-      ["class", "button--light"],
-      ["class", "button--ghost"],
-      ["click", () => pageState.set("ACCORDION")]
-    )("Accordion"),
-    html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Alerts"),
-    html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Badge"),
-    html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Button"),
-    html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Card"),
-    html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Dashboard"),
-    html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Dialog"),
-    html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Flexpane"),
-    html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Grid"),
-    html.button(["class", "button"], ["class", "button--light"], ["class", "button--ghost"])("Tag")
+    html.button(...navButtonStyle, ["click", () => pageState.set("THEME")])("Theme"),
+    html.button(...navButtonStyle, ["click", () => pageState.set("UTILITY")])("Utility"),
+    html.button(...navButtonStyle, ["click", () => pageState.set("ACCORDION")])("Accordion"),
+    html.button(...navButtonStyle)("Alerts"),
+    html.button(...navButtonStyle)("Badge"),
+    html.button(...navButtonStyle)("Button"),
+    html.button(...navButtonStyle)("Card"),
+    html.button(...navButtonStyle)("Dashboard"),
+    html.button(...navButtonStyle)("Dialog"),
+    html.button(...navButtonStyle)("Flexpane"),
+    html.button(...navButtonStyle)("Grid"),
+    html.button(...navButtonStyle)("Tag")
   )
 );
 
@@ -54,13 +66,13 @@ const NavFooter = html.div(
 )("©Copyright 2024");
 
 const MainHeader = html.div(["class", "dashboard__main-header"])(
-  html.h1([
+  html.div([
     "innerText:pages",
     () =>
       pageState.get() === "HOME"
         ? "Introduction"
-        : pageState.get() === "TOKENS"
-        ? "Tokens"
+        : pageState.get() === "THEME"
+        ? "Theme"
         : pageState.get() === "ACCORDION"
         ? "Accordion"
         : "",
@@ -74,11 +86,11 @@ const Main = html.div(
     () =>
       pageState.get() === "HOME"
         ? HomePage()
-        : pageState.get() === "TOKENS"
-        ? TokenPage()
+        : pageState.get() === "THEME"
+        ? ThemePage()
         : pageState.get() === "ACCORDION"
         ? AccordionPage()
-        : "",
+        : "Not found",
   ]
 )();
 
@@ -107,7 +119,10 @@ const MainFooter = html.div(
 
 const AsideHeader = html.div(["class", "dashboard__aside-header"])("Aside Header");
 
-const Aside = html.aside(["class", "dashboard__aside"])("Aside");
+const Aside = html.aside(
+  ["class", "dashboard__aside"],
+  ["innerHTML:properties", () => (propertiesState.get() === "COLOR_PICKER" ? ColorPicker() : "None")]
+)();
 
 const AsideFooter = html.aside(["class", "dashboard__aside-footer"])("Aside footer");
 

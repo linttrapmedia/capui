@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0;
   }
   .dashboard__nav-header,
   .dashboard__nav,
@@ -23,6 +24,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+  }
+  .dashboard__main::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .dashboard__main::-webkit-scrollbar-track {
+    background: var(--bg-color);
+  }
+
+  .dashboard__main::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.055);
+    border-radius: 20px;
+    border: 3px solid var(--bg-color);
   }
 }
 
@@ -30,9 +45,10 @@
   .dashboard {
     align-items: flex-start;
     display: grid;
-    grid-template-columns: max-content 2fr 1fr;
+    grid-template-columns: max-content 2fr min-content;
     grid-template-rows: max-content 1fr max-content;
     height: 100vh;
+    overflow: hidden;
     margin: 0 auto;
     max-height: 100vh;
     width: 100%;
@@ -44,6 +60,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   .dashboard__nav {
@@ -53,10 +70,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    overflow-y: auto;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
   }
   .dashboard__nav-footer {
     grid-column: 1/2;
     grid-row: 3/4;
+    border-top: 1px solid var(--token-white-10, black);
+    background-color: rgba(255, 255, 255, 0.05);
   }
   .dashboard__main-header {
     align-items: flex-start;
@@ -73,9 +95,12 @@
     align-items: flex-start;
     grid-row: 2/3;
     grid-column: 2/3;
+    overflow-y: auto;
+    height: 100%;
   }
   .dashboard__main-footer {
     grid-row: 3/4;
+    border-top: 1px solid var(--token-white-10, black);
     grid-column: 2/3;
   }
   .dashboard__aside-header {
@@ -86,10 +111,14 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    border-left: 1px solid var(--token-white-10, black);
   }
   .dashboard__aside {
     grid-column: 3/4;
     grid-row: 2/3;
+    overflow-y: auto;
+    border-left: 1px solid var(--token-white-10, black);
+    height: 100%;
   }
   .dashboard__aside-footer {
     grid-column: 3/4;
@@ -97,5 +126,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    border-left: 1px solid var(--token-white-10, black);
+    border-top: 1px solid var(--token-white-10, black);
   }
 }

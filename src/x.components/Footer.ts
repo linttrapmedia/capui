@@ -1,5 +1,5 @@
-import {} from "../config";
 import { html } from "../template";
+import {} from "../x.config";
 
 export const Footer = () => {
   return html.div(

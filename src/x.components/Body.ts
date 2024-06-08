@@ -1,5 +1,5 @@
-import { lib } from "../config";
 import { html } from "../template";
+import { lib } from "../x.config";
 import { Card } from "./Card";
 import { Tokens } from "./tokens/Tokens";
 

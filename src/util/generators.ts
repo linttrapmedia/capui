@@ -1,8 +1,17 @@
+import { OklchColorToken } from "../typings";
+
 const alphaFormat = (n: number) =>
   new Intl.NumberFormat("en", {
     minimumIntegerDigits: 2,
     useGrouping: false,
   }).format(n);
+
+export const genOKlchColor = (color: OklchColorToken) => {
+  const lightness = (color[1] * 0.01).toFixed(2);
+  const aAxis = (color[2] * 0.01).toFixed(2);
+  const bAxis = color[3];
+  return `oklch(${lightness} ${aAxis} ${bAxis})`;
+};
 
 export const genOklchColorTokens = (
   color: string,

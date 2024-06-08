@@ -1,5 +1,5 @@
-import { baseUrl } from "../config";
 import { html } from "../template";
+import { baseUrl } from "../x.config";
 
 export const Header = () => {
   return html.div(

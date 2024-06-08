@@ -16,7 +16,7 @@
     --card-title-font-size: 14px;
     --card-outer-border-radius: 4px;
     --card-outer-border-width: 1px;
-    --card-inner-border-width: 1px;
+    --card-inner-border-width: 0px;
   }
 
   &.card--medium {

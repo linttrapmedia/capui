@@ -1,24 +1,19 @@
+import { dialog } from "../state";
 import { html } from "../template";
 import {} from "../x.config";
+import { Component } from "../x.typings";
 
-type CardProps = {
-  onClick: () => void;
-  title: string;
-  content: HTMLElement;
-};
-
-export const Card = (props: CardProps) => {
-  return html.div(
-    ["class", "card"],
-    ["class", "card--small"],
-    ["class", "card--light"],
-    ["class", "card--ghost"]
-  )(
-    html.div(["class", "card__title"], ["style", "cursor", "pointer"], ["click", props.onClick])(props.title),
+export const Card = (component: Component) => {
+  return html.div(["class", "card card--medium card--light card--ghost"], ["style", "gridColumn", "span 6"])(
+    html.div(
+      ["class", "card__title"],
+      ["style", "cursor", "pointer"],
+      ["click", () => dialog.set({ ...component, showing: true })]
+    )(component.title),
     html.div(
       ["class", "card__actions"],
       ["style", "cursor", "pointer"],
-      ["click", props.onClick]
+      ["click", () => dialog.set({ ...component, showing: true })]
     )(
       html.div(
         ["style", "width", "8px"],
@@ -31,7 +26,7 @@ export const Card = (props: CardProps) => {
     ),
     html.div(
       ["class", "card__body"],
-      ["innerHTML:static", () => props.content],
+      ["innerHTML", () => component.preview],
       ["style", "display", "flex"],
       ["style", "gap", "20px"],
       ["style", "flexWrap", "wrap"],

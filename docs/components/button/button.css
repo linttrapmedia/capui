@@ -19,6 +19,7 @@ Usage:
   --font-family: var(--token-font-sans, sans-serif);
   --font-size: 13px;
   --gap: 8px;
+  --justify: center;
   --opacity: 1;
   --padding: 8px 15px;
   --pointer-events: auto;
@@ -387,6 +388,9 @@ Usage:
     --cursor: not-allowed;
     --pointer-events: none;
   }
+  &.button--justify-start {
+    --justify: flex-start;
+  }
 
   /* border-color: var(--border-color); */
   align-items: center;
@@ -406,7 +410,7 @@ Usage:
   font-size: var(--font-size);
   font-weight: bold;
   gap: var(--gap);
-  justify-content: center;
+  justify-content: var(--justify);
   opacity: var(--opacity);
   outline: none;
   overflow: hidden;
