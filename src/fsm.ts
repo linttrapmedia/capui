@@ -1,4 +1,4 @@
-import { Pages, Properties, colorPickerState, pageState, propertiesState, tokensState } from "./state";
+import { Pages, Properties, Tokens, colorPickerState, pageState, propertiesState, tokensState } from "./state";
 
 type FSM =
   | {
@@ -11,30 +11,35 @@ type FSM =
     }
   | {
       action: "SET_COLOR_PICKER";
-      token: string;
+      colorKey: keyof Tokens["colors"];
     }
   | {
-      action: "SET_TOKEN";
-      key: string;
-      value: string;
+      action: "SET_COLOR_TOKEN";
+      key: keyof Tokens["colors"];
+      color: string;
+      contrast: string;
     };
 
 export const fsm = (msg: FSM) => {
   switch (msg.action) {
     case "SET_PAGE":
       pageState.set(msg.page);
+      window.history.pushState(null, "", `?page=${msg.page}`);
       break;
     case "SET_PROPERTIES":
       propertiesState.set(msg.properties);
       break;
     case "SET_COLOR_PICKER":
       propertiesState.set("COLOR_PICKER");
-      colorPickerState.set(msg.token);
+      colorPickerState.set(msg.colorKey);
       break;
-    case "SET_TOKEN":
+    case "SET_COLOR_TOKEN":
       tokensState.set({
         ...tokensState.get(),
-        [msg.key]: [msg.value],
+        colors: {
+          ...tokensState.get().colors,
+          [msg.key]: [msg.color, msg.contrast],
+        },
       });
       break;
   }

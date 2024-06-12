@@ -2,6 +2,7 @@ import { html } from "../template";
 import {} from "../x.config";
 
 type CardProps = {
+  backgroundColor?: string;
   onClick: () => void;
   title: string;
   content: HTMLElement;
@@ -12,9 +13,10 @@ export const Card = (props: CardProps) => {
     ["class", "card"],
     ["class", "card--small"],
     ["class", "card--light"],
-    ["class", "card--ghost"]
+    ["class", "card--ghost"],
+    ["style", "--card-bg-color", props.backgroundColor ?? "initial", Boolean(props.backgroundColor)]
   )(
-    html.div(["class", "card__title"], ["style", "cursor", "pointer"], ["click", props.onClick])(props.title),
+    html.div(["class", "card__title"])(props.title),
     html.div(
       ["class", "card__actions"],
       ["style", "cursor", "pointer"],

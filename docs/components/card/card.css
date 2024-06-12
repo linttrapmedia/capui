@@ -10,6 +10,8 @@
   --card-outer-border-radius: inherit;
   --card-outer-border-width: inherit;
   --card-spacing: inherit;
+  --card-transition-duration: inherit;
+  --card-transition-timing: inherit;
 
   &.card--small {
     --card-spacing: 10px;
@@ -164,7 +166,7 @@
   row-gap: var(--card-spacing);
   padding: var(--card-spacing);
   text-align: left;
-  transition: all 0.3s;
+  transition: all var(--card-transition-duration, 0.3s) var(--card-transition-timing, ease);
 
   .card__actions {
     align-items: center;

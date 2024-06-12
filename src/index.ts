@@ -1,7 +1,7 @@
-import { AccordionPage } from "./pages/AccordionPage";
-import { HomePage } from "./pages/HomePage";
+import { fsm } from "./fsm";
 import { ColorPicker } from "./pages/Themes/ColorPicker";
 import { ThemePage } from "./pages/Themes/ThemePage";
+import { ThemePicker } from "./pages/Themes/ThemePicker";
 import { pageState, propertiesState } from "./state";
 import { html } from "./template";
 
@@ -43,9 +43,9 @@ const Nav = html.nav(["class", "dashboard__nav"])(
       ["class", "button--justify-start"],
       ["click", () => pageState.set("HOME")]
     )("Home"),
-    html.button(...navButtonStyle, ["click", () => pageState.set("THEME")])("Theme"),
-    html.button(...navButtonStyle, ["click", () => pageState.set("UTILITY")])("Utility"),
-    html.button(...navButtonStyle, ["click", () => pageState.set("ACCORDION")])("Accordion"),
+    html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "THEME" })])("Theme"),
+    html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "UTILITY" })])("Utility"),
+    html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "ACCORDION" })])("Accordion"),
     html.button(...navButtonStyle)("Alerts"),
     html.button(...navButtonStyle)("Badge"),
     html.button(...navButtonStyle)("Button"),
@@ -65,33 +65,20 @@ const NavFooter = html.div(
   ["style", "fontSize", "12px"]
 )("©Copyright 2024");
 
-const MainHeader = html.div(["class", "dashboard__main-header"])(
-  html.div([
-    "innerText:pages",
-    () =>
-      pageState.get() === "HOME"
-        ? "Introduction"
-        : pageState.get() === "THEME"
-        ? "Theme"
-        : pageState.get() === "ACCORDION"
-        ? "Accordion"
-        : "",
-  ])()
-);
+const MainHeader = html.div(
+  ["class", "dashboard__main-header"],
+  ["innerHTML:pages", () => "Home", () => pageState.get() === "HOME"],
+  ["innerHTML:pages", () => "Accordion", () => pageState.get() === "ACCORDION"],
+  ["innerHTML:pages", ThemePicker, () => pageState.get() === "THEME"],
+  ["innerHTML:pages", () => "Utility", () => pageState.get() === "UTILITY"]
+)();
 
 const Main = html.div(
   ["class", "dashboard__main"],
-  [
-    "innerHTML:pages",
-    () =>
-      pageState.get() === "HOME"
-        ? HomePage()
-        : pageState.get() === "THEME"
-        ? ThemePage()
-        : pageState.get() === "ACCORDION"
-        ? AccordionPage()
-        : "Not found",
-  ]
+  ["innerHTML:pages", () => "Home", () => pageState.get() === "HOME"],
+  ["innerHTML:pages", () => "Accordion", () => pageState.get() === "ACCORDION"],
+  ["innerHTML:pages", ThemePage, () => pageState.get() === "THEME"],
+  ["innerHTML:pages", () => "Utility", () => pageState.get() === "UTILITY"]
 )();
 
 const MainFooter = html.div(
@@ -121,7 +108,7 @@ const AsideHeader = html.div(["class", "dashboard__aside-header"])("Aside Header
 
 const Aside = html.aside(
   ["class", "dashboard__aside"],
-  ["innerHTML:properties", () => (propertiesState.get() === "COLOR_PICKER" ? ColorPicker() : "None")]
+  ["innerHTML:properties", ColorPicker, () => propertiesState.get() === "COLOR_PICKER"]
 )();
 
 const AsideFooter = html.aside(["class", "dashboard__aside-footer"])("Aside footer");

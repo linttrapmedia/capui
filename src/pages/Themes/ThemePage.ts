@@ -1,30 +1,68 @@
-import { Card } from "../../components/Card";
 import { fsm } from "../../fsm";
-import { tokensState } from "../../state";
+import { Tokens, tokensState } from "../../state";
 import { html } from "../../template";
 
-const Token = (token: string) => {
+const ColorCard = (colorKey: keyof Tokens["colors"]) => {
+  const getColor = () => tokensState.get().colors[colorKey][0];
+  const getContrast = () => tokensState.get().colors[colorKey][1];
+
   return html.div(["class", "flexgrid__item"])(
-    Card({
-      onClick: () => fsm({ action: "SET_COLOR_PICKER", token }),
-      title: `
-      ${token}`,
-      content: html.div(
-        ["style", "height", "40px"],
-        ["style", "width", "100%"],
-        ["style:tokens", "backgroundColor", () => (tokensState.get() as any)[token]]
-      )(),
-    })
+    html.div(
+      ["class", "card"],
+      ["class", "card--small"],
+      ["class", "card--light"],
+      ["class", "card--ghost"],
+      ["style:tokens", "--card-bg-color", getColor],
+      ["style", "--card-transition-duration", 0],
+      ["click", () => fsm({ action: "SET_COLOR_PICKER", colorKey })],
+      ["style", "cursor", "pointer"]
+    )(
+      html.div(["class", "card__title"], ["style:tokens", "--card-text-color", getContrast])(colorKey),
+      html.div(["class", "card__actions"])(
+        html.div(
+          ["style", "width", "8px"],
+          ["style", "height", "8px"],
+          ["style", "borderRight", "1px solid rgba(255,255,255,1)"],
+          ["style", "borderBottom", "1px solid rgba(255,255,255,1)"],
+          ["style", "display", "flex"],
+          ["style", "transform", "rotate(-45deg)"]
+        )("")
+      ),
+      html.div(
+        ["class", "card__body"],
+        ["style", "display", "flex"],
+        ["style", "gap", "20px"],
+        ["style", "flexWrap", "wrap"],
+        ["style", "alignItems", "center"],
+        ["style", "position", "relative"],
+        ["style", "alignItems", "flex-start"],
+        ["style", "justifyContent", "flex-start"]
+      )(
+        html.div(
+          ["style", "borderRadius", "2px"],
+          ["style", "display", "flex"],
+          ["style", "flexDirection", "column"],
+          ["style", "height", "30px"],
+          ["style", "width", "30px"],
+          ["style:tokens", "backgroundColor", getContrast]
+        )()
+      )
+    )
   );
 };
 
-export const ThemePage = () =>
-  html.div(
+export const ThemePage = () => {
+  const colors = tokensState.get().colors;
+  return html.div(
     ["style", "display", "flex"],
     ["style", "flexDirection", "column"],
     ["style", "gap", "20px"]
   )(
-    html.section()(
+    html.section(
+      ["style", "display", "flex"],
+      ["style", "flexDirection", "column"],
+      ["style", "gap", "20px"]
+    )(
       html.div()("Colors"),
       html.div(
         ["class", "flexgrid"],
@@ -34,11 +72,8 @@ export const ThemePage = () =>
         ["style", "--mobile-gap", "10px"],
         ["style", "--tablet-gap", "10px"],
         ["style", "--desktop-gap", "10px"]
-      )(
-        ...Object.keys(tokensState.get())
-          .filter((t) => t.startsWith("--token-color"))
-          .map(Token)
-      )
+      )(...Object.keys(colors).map(ColorCard as any))
     ),
     html.section()(html.h2()("Fonts"))
   );
+};

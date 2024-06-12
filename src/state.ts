@@ -1,38 +1,47 @@
 import { State } from "@linttrap/oem";
 
-type Tokens = {
-  "--token-color-black": string;
-  "--token-color-blue": string;
-  "--token-color-cyan": string;
-  "--token-color-gray": string;
-  "--token-color-green": string;
-  "--token-color-orange": string;
-  "--token-color-purple": string;
-  "--token-color-red": string;
-  "--token-color-white": string;
-  "--token-color-yellow": string;
-  "--token-font-family-mono": string;
-  "--token-font-family-sans": string;
-  "--token-font-family-serif": string;
-  "--token-font-size-base": string;
+// motif-element-variant/state
+export type Tokens = {
+  colors: {
+    accent: [color: string, contrast: string];
+    black: [color: string, contrast: string];
+    brand: [color: string, contrast: string];
+    error: [color: string, contrast: string];
+    grey: [color: string, contrast: string];
+    info: [color: string, contrast: string];
+    primary: [color: string, contrast: string];
+    secondary: [color: string, contrast: string];
+    success: [color: string, contrast: string];
+    warning: [color: string, contrast: string];
+    white: [color: string, contrast: string];
+  };
+  fonts: {
+    primary: string;
+    secondary: string;
+    tertiary: string;
+  };
 };
 
 export const tokensState = State<Tokens>(
   {
-    "--token-color-black": "#000000",
-    "--token-color-blue": "#0000ff",
-    "--token-color-cyan": "#00ffff",
-    "--token-color-gray": "#808080",
-    "--token-color-green": "#008000",
-    "--token-color-orange": "#ffa500",
-    "--token-color-purple": "#800080",
-    "--token-color-red": "#ff0000",
-    "--token-color-white": "#ffffff",
-    "--token-color-yellow": "#ffff00",
-    "--token-font-family-mono": "monospace",
-    "--token-font-family-sans": "sans-serif",
-    "--token-font-family-serif": "serif",
-    "--token-font-size-base": "10px",
+    colors: {
+      accent: ["#FF5A5F", "#FFFFFF"],
+      black: ["#1F1F1F", "#FFFFFF"],
+      brand: ["#4A90E2", "#FFFFFF"],
+      error: ["#FF6347", "#FFFFFF"],
+      grey: ["#757575", "#FFFFFF"],
+      info: ["#3E82FC", "#FFFFFF"],
+      primary: ["#1E88E5", "#FFFFFF"],
+      secondary: ["#4CAF50", "#FFFFFF"],
+      success: ["#00C853", "#FFFFFF"],
+      warning: ["#FFC107", "#FFFFFF"],
+      white: ["#FFFFFF", "#000000"],
+    },
+    fonts: {
+      primary: "Arial, sans-serif",
+      secondary: "Arial, sans-serif",
+      tertiary: "Arial, sans-serif",
+    },
   },
   {
     key: "tokens",
@@ -40,19 +49,20 @@ export const tokensState = State<Tokens>(
   }
 );
 
-export const colorPickerState = State<string>("--token-color-black", {
+export const colorPickerState = State<keyof Tokens["colors"]>("black", {
   key: "colorPicker",
   storage: sessionStorage,
 });
 
 export type Pages = "ACCORDION" | "HOME" | "THEME" | "UTILITY";
-export const pageState = State<Pages>("HOME", {
+const page = new URLSearchParams(window.location.search).get("page") as Pages;
+export const pageState = State<Pages>(page ?? "HOME", {
   key: "page",
   storage: sessionStorage,
 });
 
 export type Properties = "COLOR_PICKER";
-export const propertiesState = State<Properties | undefined>(undefined, {
+export const propertiesState = State<Properties>("COLOR_PICKER", {
   key: "properties",
   storage: sessionStorage,
 });
