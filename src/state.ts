@@ -67,6 +67,11 @@ export const propertiesState = State<Properties>("COLOR_PICKER", {
   storage: sessionStorage,
 });
 
+export const themeState = State<"DARK" | "LIGHT">("DARK", {
+  key: "theme",
+  storage: sessionStorage,
+});
+
 // export const tokenDialog = State<TokenDialogProps>({
 //   view: "preview",
 //   showing: true,

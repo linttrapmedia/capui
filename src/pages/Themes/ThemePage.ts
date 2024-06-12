@@ -17,7 +17,7 @@ const ColorCard = (colorKey: keyof Tokens["colors"]) => {
       ["click", () => fsm({ action: "SET_COLOR_PICKER", colorKey })],
       ["style", "cursor", "pointer"]
     )(
-      html.div(["class", "card__title"], ["style:tokens", "--card-text-color", getContrast])(colorKey),
+      html.div(["class", "card__title"], ["style:tokens", "--card-title-font-color", getContrast])(colorKey),
       html.div(["class", "card__actions"])(
         html.div(
           ["style", "width", "8px"],

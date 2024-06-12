@@ -21,5 +21,6 @@ export const html = HTML({
   class: useClassName(),
   click: useEvent("click"),
   input: useEvent("input"),
+  change: useEvent("change"),
   style: useStyle(),
 });
