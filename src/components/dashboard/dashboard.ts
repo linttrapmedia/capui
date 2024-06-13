@@ -4,7 +4,7 @@ export const syncDashboardStyleSheet = () =>
   dashboardStyleSheet.replaceSync(`
 @media (min-width: 0px) {
     .dashboard {
-        --bg-color: var(--token-black, black);
+        --bg-color: var(--token-color-black, black);
         --scrollbar-thumb-color: var(--token-black-80, black);
         --scrollbar-track-color: var(--token-white-10, black);
         --text-color: var(--token-white, white);

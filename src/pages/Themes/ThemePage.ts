@@ -13,7 +13,7 @@ const ColorCard = (colorKey: keyof Tokens["colors"]) => {
       ["class", "card--small"],
       ["class", "card--light"],
       ["class", "card--ghost"],
-      ["style:themes", "--card-bg-color", getColor],
+      ["style", "--card-bg-color", `var(--token-color-${colorKey})`],
       ["style", "--card-transition-duration", 0],
       ["click", () => fsm({ action: "SET_COLOR_PICKER", colorKey })],
       ["style", "cursor", "pointer"]
@@ -46,7 +46,7 @@ const ColorCard = (colorKey: keyof Tokens["colors"]) => {
           ["style", "flexDirection", "column"],
           ["style", "height", "20px"],
           ["style", "width", "10%"],
-          ["style:themes", "backgroundColor", getContrast]
+          ["style", "backgroundColor", `var(--token-color-${colorKey}-contrast)`]
         )()
       )
     )

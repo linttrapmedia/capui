@@ -1,3 +1,19 @@
+import { accordionStyleSheet } from "./components/accordion/accordion";
+import { alertsStyleSheet } from "./components/alerts/alerts";
+import { badgeStyleSheet } from "./components/badge/badge";
+import { bgStyleSheet } from "./components/bg/bg";
+import { buttonStyleSheet } from "./components/button/button";
+import { cardStyleSheet } from "./components/card/card";
+import { dashboardStyleSheet } from "./components/dashboard/dashboard";
+import { dialogStyleSheet } from "./components/dialog/dialog";
+import { dropdownStyleSheet } from "./components/dropdown/dropdown";
+import { flexgridStyleSheet } from "./components/flexgrid/flexgrid";
+import { flexpaneStyleSheet } from "./components/flexpane/flexpane";
+import { gridStyleSheet } from "./components/grid/grid";
+import { sectionStyleSheet } from "./components/section/section";
+import { togglesStyleSheet } from "./components/toggles/toggles";
+import { syncTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
+import { tooltipStyleSheet } from "./components/tooltip/tooltip";
 import {
   Pages,
   Properties,
@@ -9,8 +25,14 @@ import {
   themeState,
   themesState,
 } from "./state";
+import { getStylesheetContents } from "./util/css";
+
+declare var JSZip: any;
 
 type FSM =
+  | {
+      action: "DOWNLOAD_ZIP";
+    }
   | {
       action: "SET_PAGE";
       page: Pages;
@@ -37,6 +59,32 @@ type FSM =
 
 export const fsm = (msg: FSM) => {
   switch (msg.action) {
+    case "DOWNLOAD_ZIP":
+      const zip = new JSZip();
+      zip.file("tokens.css", getStylesheetContents(tokensStyleSheet));
+      zip.file("accordion.css", getStylesheetContents(accordionStyleSheet));
+      zip.file("alerts.css", getStylesheetContents(alertsStyleSheet));
+      zip.file("badge.css", getStylesheetContents(badgeStyleSheet));
+      zip.file("bg.css", getStylesheetContents(bgStyleSheet));
+      zip.file("button.css", getStylesheetContents(buttonStyleSheet));
+      zip.file("card.css", getStylesheetContents(cardStyleSheet));
+      zip.file("dashboard.css", getStylesheetContents(dashboardStyleSheet));
+      zip.file("dialog.css", getStylesheetContents(dialogStyleSheet));
+      zip.file("dropdown.css", getStylesheetContents(dropdownStyleSheet));
+      zip.file("flexgrid.css", getStylesheetContents(flexgridStyleSheet));
+      zip.file("flexpane.css", getStylesheetContents(flexpaneStyleSheet));
+      zip.file("grid.css", getStylesheetContents(gridStyleSheet));
+      zip.file("section.css", getStylesheetContents(sectionStyleSheet));
+      zip.file("toggles.css", getStylesheetContents(togglesStyleSheet));
+      zip.file("tooltip.css", getStylesheetContents(tooltipStyleSheet));
+      zip.generateAsync({ type: "blob" }).then((content: any) => {
+        const link: any = document.createElement("a");
+        link.href = URL.createObjectURL(content);
+        link.download = "capui.zip";
+        link.click();
+        console.log(link);
+      });
+      break;
     case "SET_PAGE":
       pageState.set(msg.page);
       window.history.pushState(null, "", `?page=${msg.page}`);
@@ -50,9 +98,11 @@ export const fsm = (msg: FSM) => {
       break;
     case "SET_COLOR_TOKEN":
       themesState.deepSet(`${msg.theme}.colors.${msg.key}`, [msg.color, msg.contrast]);
+      syncTokensStyleSheet();
       break;
     case "SET_THEME":
       themeState.set(msg.theme);
+      syncTokensStyleSheet();
       break;
   }
 };

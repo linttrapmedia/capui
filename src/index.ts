@@ -20,7 +20,6 @@ import { ThemePage } from "./pages/Themes/ThemePage";
 import { ThemePicker } from "./pages/Themes/ThemePicker";
 import { pageState, propertiesState } from "./state";
 import { html } from "./template";
-import { getStylesheetContents } from "./util/css";
 
 const NavHeader = html.div(["class", "dashboard__nav-header"])(
   html.img(["attr", "src", "/images/capui-transparent.png"], ["attr", "height", "80"])()
@@ -49,7 +48,7 @@ const Nav = html.nav(["class", "dashboard__nav"])(
       ["style", "marginBottom", "10px"],
       ["style", "gap", "10px"],
       ["class", "button--justify-start"],
-      ["click", () => pageState.set("HOME")]
+      ["click", () => fsm({ action: "DOWNLOAD_ZIP" })]
     )(html.span()("capui.zip"), html.span()("[↓]")),
     html.button(
       ["class", "button"],
@@ -58,7 +57,7 @@ const Nav = html.nav(["class", "dashboard__nav"])(
       ["class", "button--block"],
       ["style", "marginBottom", "10px"],
       ["class", "button--justify-start"],
-      ["click", () => pageState.set("HOME")]
+      ["click", () => fsm({ action: "SET_PAGE", page: "HOME" })]
     )("Home"),
     html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "THEME" })])("Theme"),
     html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "UTILITY" })])("Utility"),
@@ -173,6 +172,4 @@ document.addEventListener("DOMContentLoaded", () => {
     togglesStyleSheet,
     tooltipStyleSheet,
   ];
-
-  console.log(getStylesheetContents(tokensStyleSheet));
 });
