@@ -1,26 +1,19 @@
 import { HTML, useAttribute, useClassName, useEvent, useInnerHTML, useStyle, useTextContent } from "@linttrap/oem";
-import { colorPickerState, pageState, propertiesState, tokensState } from "./state";
+import { colorPickerState, pageState, propertiesState, themeState, themesState } from "./state";
 
 export const html = HTML({
+  "innerHTML:colorPicker": useInnerHTML({ state: colorPickerState }),
   "innerHTML:pages": useInnerHTML({ state: pageState }),
   "innerHTML:properties": useInnerHTML({ state: propertiesState }),
-  "innerHTML:colorPicker": useInnerHTML({ state: colorPickerState }),
-  "innerHTML:static": useInnerHTML(),
+  "innerHTML:themes": useInnerHTML({ state: themesState }),
+  "innerHTML:theme": useInnerHTML({ state: themeState }),
   "innerText:pages": useTextContent({ state: pageState }),
-  "innerHTML:tokens": useInnerHTML({ state: tokensState }),
-  "style:tokens": useStyle({ state: tokensState }),
-  // "attr:dialog": useAttribute({ state: dialog }),
-  // "innerHTML:dialog": useInnerHTML({ state: dialog }),
-  // "innerText:dialog": useTextContent({ state: dialog }),
-  // "tokens:innerHTML": useInnerHTML({ state: tokens }),
-  // "style:mouseout": useStyle({ event: "mouseout" }),
-  // "style:mouseover": useStyle({ event: "mouseover" }),
-  // "tokenDialog:attr": useAttribute({ state: tokenDialog }),
-  // "tokenDialog:innerHTML": useInnerHTML({ state: tokenDialog }),
+  "style:themes": useStyle({ state: themesState }),
   attr: useAttribute(),
+  change: useEvent("change"),
   class: useClassName(),
   click: useEvent("click"),
+  innerHTML: useInnerHTML(),
   input: useEvent("input"),
-  change: useEvent("change"),
   style: useStyle(),
 });

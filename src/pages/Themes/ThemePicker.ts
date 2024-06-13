@@ -1,10 +1,11 @@
-import { DARK_THEME, LIGHT_THEME } from "../../constants";
 import { fsm } from "../../fsm";
-import { themeState } from "../../state";
+import { Themes, themeState, themesState } from "../../state";
 import { html } from "../../template";
 
-export const ThemePicker = () =>
-  html.div(
+const Option = (theme: string) => html.option(["attr", "selected", true, () => themeState.get() === theme])(theme);
+
+export const ThemePicker = () => {
+  return html.div(
     ["style", "display", "flex"],
     ["style", "flexDirection", "row"],
     ["style", "gap", "10px"]
@@ -13,12 +14,9 @@ export const ThemePicker = () =>
     html.select([
       "change",
       (e: Event) => {
-        const value = (e.target as HTMLSelectElement).value;
-        if (value === "Light") fsm({ action: "SET_THEME", theme: "LIGHT", tokens: LIGHT_THEME });
-        if (value === "Dark") fsm({ action: "SET_THEME", theme: "DARK", tokens: DARK_THEME });
+        const theme = (e.target as HTMLSelectElement).value as Themes;
+        fsm({ action: "SET_THEME", theme });
       },
-    ])(
-      html.option(["attr", "selected", true, () => themeState.get() === "LIGHT"])("Light"),
-      html.option(["attr", "selected", true, () => themeState.get() === "DARK"])("Dark")
-    )
+    ])(...Object.keys(themesState.get()).map(Option))
   );
+};

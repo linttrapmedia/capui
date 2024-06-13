@@ -1,9 +1,26 @@
+import { accordionStyleSheet, syncAccordionStyleSheet } from "./components/accordion/accordion";
+import { alertsStyleSheet, syncAlertsStyleSheet } from "./components/alerts/alerts";
+import { badgeStyleSheet, syncBadgeStyleSheet } from "./components/badge/badge";
+import { bgStyleSheet, syncBGStyleSheet } from "./components/bg/bg";
+import { buttonStyleSheet, syncButtonStyleSheet } from "./components/button/button";
+import { cardStyleSheet, syncCardStyleSheet } from "./components/card/card";
+import { dashboardStyleSheet, syncDashboardStyleSheet } from "./components/dashboard/dashboard";
+import { dialogStyleSheet, syncDialogStyleSheet } from "./components/dialog/dialog";
+import { dropdownStyleSheet, syncDropdownStyleSheet } from "./components/dropdown/dropdown";
+import { flexgridStyleSheet, syncFlexGridStyleSheet } from "./components/flexgrid/flexgrid";
+import { flexpaneStyleSheet, syncFlexpaneStyleSheet } from "./components/flexpane/flexpane";
+import { gridStyleSheet, syncGridStyleSheet } from "./components/grid/grid";
+import { sectionStyleSheet, syncSectionStyleSheet } from "./components/section/section";
+import { syncTogglesStyleSheet, togglesStyleSheet } from "./components/toggles/toggles";
+import { syncTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
+import { syncTooltipStyleSheet, tooltipStyleSheet } from "./components/tooltip/tooltip";
 import { fsm } from "./fsm";
 import { ColorPicker } from "./pages/Themes/ColorPicker";
 import { ThemePage } from "./pages/Themes/ThemePage";
 import { ThemePicker } from "./pages/Themes/ThemePicker";
 import { pageState, propertiesState } from "./state";
 import { html } from "./template";
+import { getStylesheetContents } from "./util/css";
 
 const NavHeader = html.div(["class", "dashboard__nav-header"])(
   html.img(["attr", "src", "/images/capui-transparent.png"], ["attr", "height", "80"])()
@@ -117,9 +134,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
   root(
     ["class", "dashboard"],
-    [
-      "innerHTML:static",
-      () => [NavHeader, Nav, NavFooter, MainHeader, Main, MainFooter, AsideHeader, Aside, AsideFooter],
-    ]
+    ["innerHTML", () => [NavHeader, Nav, NavFooter, MainHeader, Main, MainFooter, AsideHeader, Aside, AsideFooter]]
   );
+
+  // load style sheets
+  syncTokensStyleSheet();
+  syncDashboardStyleSheet();
+  syncAccordionStyleSheet();
+  syncAlertsStyleSheet();
+  syncBadgeStyleSheet();
+  syncBGStyleSheet();
+  syncButtonStyleSheet();
+  syncCardStyleSheet();
+  syncDashboardStyleSheet();
+  syncDialogStyleSheet();
+  syncDropdownStyleSheet();
+  syncFlexGridStyleSheet();
+  syncFlexpaneStyleSheet();
+  syncGridStyleSheet();
+  syncSectionStyleSheet();
+  syncTogglesStyleSheet();
+  syncTooltipStyleSheet();
+  document.adoptedStyleSheets = [
+    tokensStyleSheet,
+    accordionStyleSheet,
+    alertsStyleSheet,
+    badgeStyleSheet,
+    bgStyleSheet,
+    buttonStyleSheet,
+    cardStyleSheet,
+    dashboardStyleSheet,
+    dialogStyleSheet,
+    dropdownStyleSheet,
+    flexgridStyleSheet,
+    flexpaneStyleSheet,
+    gridStyleSheet,
+    sectionStyleSheet,
+    togglesStyleSheet,
+    tooltipStyleSheet,
+  ];
+
+  console.log(getStylesheetContents(tokensStyleSheet));
 });

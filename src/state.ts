@@ -1,16 +1,13 @@
 import { State } from "@linttrap/oem";
 
-// motif-element-variant/state
 export type Tokens = {
   colors: {
-    accent: [color: string, contrast: string];
-    black: [color: string, contrast: string];
     brand: [color: string, contrast: string];
+    black: [color: string, contrast: string];
     error: [color: string, contrast: string];
     grey: [color: string, contrast: string];
     info: [color: string, contrast: string];
-    primary: [color: string, contrast: string];
-    secondary: [color: string, contrast: string];
+    action: [color: string, contrast: string];
     success: [color: string, contrast: string];
     warning: [color: string, contrast: string];
     white: [color: string, contrast: string];
@@ -22,34 +19,8 @@ export type Tokens = {
   };
 };
 
-export const tokensState = State<Tokens>(
-  {
-    colors: {
-      accent: ["#FF5A5F", "#FFFFFF"],
-      black: ["#1F1F1F", "#FFFFFF"],
-      brand: ["#4A90E2", "#FFFFFF"],
-      error: ["#FF6347", "#FFFFFF"],
-      grey: ["#757575", "#FFFFFF"],
-      info: ["#3E82FC", "#FFFFFF"],
-      primary: ["#1E88E5", "#FFFFFF"],
-      secondary: ["#4CAF50", "#FFFFFF"],
-      success: ["#00C853", "#FFFFFF"],
-      warning: ["#FFC107", "#FFFFFF"],
-      white: ["#FFFFFF", "#000000"],
-    },
-    fonts: {
-      primary: "Arial, sans-serif",
-      secondary: "Arial, sans-serif",
-      tertiary: "Arial, sans-serif",
-    },
-  },
-  {
-    key: "tokens",
-    storage: sessionStorage,
-  }
-);
-
-export const colorPickerState = State<keyof Tokens["colors"]>("black", {
+export type Colors = keyof Tokens["colors"];
+export const colorPickerState = State<Colors>("black", {
   key: "colorPicker",
   storage: sessionStorage,
 });
@@ -67,25 +38,57 @@ export const propertiesState = State<Properties>("COLOR_PICKER", {
   storage: sessionStorage,
 });
 
-export const themeState = State<"DARK" | "LIGHT">("DARK", {
+export type Themes = "Dark" | "Crazy";
+export const themeState = State<Themes>("Dark", {
   key: "theme",
   storage: sessionStorage,
 });
 
-// export const tokenDialog = State<TokenDialogProps>({
-//   view: "preview",
-//   showing: true,
-// });
-// export const dialog = State<{
-//   showing: boolean;
-//   title?: string;
-//   description?: string;
-//   exampleSrc?: string;
-//   example?: string | undefined;
-// }>({
-//   showing: false,
-//   title: "",
-//   description: "",
-//   exampleSrc: "",
-//   example: undefined,
-// });
+export const DEFAULT_DARK_THEME: Tokens = {
+  colors: {
+    brand: ["#FF5A5F", "#FFFFFF"],
+    black: ["#1F1F1F", "#FFFFFF"],
+    error: ["#FF6347", "#FFFFFF"],
+    grey: ["#757575", "#FFFFFF"],
+    info: ["#3E82FC", "#FFFFFF"],
+    action: ["#1E88E5", "#FFFFFF"],
+    success: ["#00C853", "#FFFFFF"],
+    warning: ["#FFC107", "#1F1F1F"],
+    white: ["#FFFFFF", "#1F1F1F"],
+  },
+  fonts: {
+    primary: "Arial, sans-serif",
+    secondary: "Arial, sans-serif",
+    tertiary: "Arial, sans-serif",
+  },
+};
+
+export const DEFAULT_CRAZY_THEME: Tokens = {
+  colors: {
+    black: ["#000000", "#FFFF00"],
+    brand: ["#FF00FF", "#00FFFF"],
+    error: ["#FF0000", "#0000FF"],
+    grey: ["#808080", "#FF69B4"],
+    info: ["#0000FF", "#00FF00"],
+    action: ["#FFA500", "#8A2BE2"],
+    success: ["#00FF00", "#FF0000"],
+    warning: ["#FF4500", "#32CD32"],
+    white: ["#FFFFFF", "#0000FF"],
+  },
+  fonts: {
+    primary: "'Comic Sans MS', cursive, sans-serif",
+    secondary: "'Comic Sans MS', cursive, sans-serif",
+    tertiary: "'Comic Sans MS', cursive, sans-serif",
+  },
+};
+
+export const themesState = State<Record<Themes, Tokens>>(
+  {
+    Dark: DEFAULT_DARK_THEME,
+    Crazy: DEFAULT_CRAZY_THEME,
+  },
+  {
+    key: "tokens",
+    storage: sessionStorage,
+  }
+);

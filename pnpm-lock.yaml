@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@linttrap/oem':
-    specifier: ^0.1.4
-    version: 0.1.4
+    specifier: ^0.1.8
+    version: 0.1.8
 
 devDependencies:
   '@playwright/test':
@@ -46,8 +46,8 @@ devDependencies:
 
 packages:
 
-  /@linttrap/oem@0.1.4:
-    resolution: {integrity: sha512-tlviRQigFLJU0B4lGBqSt6Ju+lm3QMCvsHlbYkSeCDYHBv3v2Uv9eeRekQoLStvKt3r0M1oYa0L2/UMB/VCNWg==}
+  /@linttrap/oem@0.1.8:
+    resolution: {integrity: sha512-RpLVTvzazVeV7af1YdMe0OE9JNc0f0toBdfQbhq0/hJs330jPOAG8aDBgaFzCbTShOjPetCAbMiep/+79tkp1Q==}
     dev: false
 
   /@playwright/test@1.41.2:

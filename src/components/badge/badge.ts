@@ -1,0 +1,102 @@
+export const badgeStyleSheet = new CSSStyleSheet();
+
+export const syncBadgeStyleSheet = () =>
+  badgeStyleSheet.replaceSync(`/* 
+Usage:
+<span class="badge badge-[MODIFIER]">Basic</badge>
+*/
+
+.badge {
+  --bg: inherit;
+  --text-color: inherit;
+  --border-radius: 5px;
+  --border-width: 2px;
+  --border-color: inherit;
+  --font-family: var(--token-font-sans, sans-serif);
+  --font-size: 10px;
+  --padding: 3px 6px;
+
+  &.badge--dark {
+    --bg: var(--token-black);
+    --text-color: var(--token-white);
+    &.badge--outline {
+      --bg: transparent;
+      --text-color: var(--token-black);
+      --border-color: var(--token-black);
+    }
+  }
+  &.badge--error {
+    --bg: var(--token-red);
+    --text-color: var(--token-black);
+    &.badge--outline {
+      --bg: transparent;
+      --text-color: var(--token-red);
+      --border-color: var(--token-red);
+    }
+  }
+  &.badge--info {
+    --bg: var(--token-blue);
+    --text-color: var(--token-black);
+    &.badge--outline {
+      --bg: transparent;
+      --text-color: var(--token-blue);
+      --border-color: var(--token-blue);
+    }
+  }
+  &.badge--light {
+    --bg: var(--token-white);
+    --text-color: var(--token-black);
+    &.badge--outline {
+      --bg: transparent;
+      --text-color: var(--token-white);
+      --border-color: var(--token-white);
+    }
+  }
+  &.badge--success {
+    --bg: var(--token-green);
+    --text-color: var(--token-black);
+    &.badge--outline {
+      --bg: transparent;
+      --text-color: var(--token-green);
+      --border-color: var(--token-green);
+    }
+  }
+  &.badge--warning {
+    --bg: var(--token-yellow);
+    --text-color: var(--token-black);
+    &.badge--outline {
+      --bg: transparent;
+      --text-color: var(--token-yellow);
+      --border-color: var(--token-yellow);
+    }
+  }
+  &.badge--small {
+    --font-size: 9px;
+    --padding: 2px 4px;
+  }
+  &.badge--large {
+    --font-size: 11px;
+    --padding: 4px 8px;
+  }
+
+  background-color: var(--bg);
+  border-radius: var(--border-radius);
+  border: 0;
+  box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
+  color: var(--text-color);
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: bold;
+  min-width: 15px;
+  outline: none;
+  padding: var(--padding);
+  position: relative;
+  text-align: center;
+  text-wrap: nowrap;
+  transition: all 0.3s;
+  user-select: none;
+  vertical-align: middle;
+  width: max-content;
+}
+`);

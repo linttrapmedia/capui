@@ -1,12 +1,13 @@
 import {
   Pages,
   Properties,
+  Themes,
   Tokens,
   colorPickerState,
   pageState,
   propertiesState,
   themeState,
-  tokensState,
+  themesState,
 } from "./state";
 
 type FSM =
@@ -25,13 +26,13 @@ type FSM =
   | {
       action: "SET_COLOR_TOKEN";
       key: keyof Tokens["colors"];
+      theme: Themes;
       color: string;
       contrast: string;
     }
   | {
       action: "SET_THEME";
-      theme: "DARK" | "LIGHT";
-      tokens: Tokens;
+      theme: Themes;
     };
 
 export const fsm = (msg: FSM) => {
@@ -48,17 +49,10 @@ export const fsm = (msg: FSM) => {
       colorPickerState.set(msg.colorKey);
       break;
     case "SET_COLOR_TOKEN":
-      tokensState.set({
-        ...tokensState.get(),
-        colors: {
-          ...tokensState.get().colors,
-          [msg.key]: [msg.color, msg.contrast],
-        },
-      });
+      themesState.deepSet(`${msg.theme}.colors.${msg.key}`, [msg.color, msg.contrast]);
       break;
     case "SET_THEME":
       themeState.set(msg.theme);
-      tokensState.set(msg.tokens);
       break;
   }
 };

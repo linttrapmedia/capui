@@ -1,34 +1,17 @@
 import { fsm } from "../../fsm";
-import { colorPickerState, tokensState } from "../../state";
+import { colorPickerState, themeState, themesState } from "../../state";
 import { html } from "../../template";
 
 export const ColorPicker = () => {
   const colorKey = () => colorPickerState.get();
-  const getColor = () => tokensState.get().colors[colorPickerState.get()][0];
-  const getContrast = () => tokensState.get().colors[colorPickerState.get()][1];
+  const getTheme = () => themeState.get();
+  const getColor = () => themesState.get()[getTheme()].colors[colorKey()][0];
+  const getContrast = () => themesState.get()[getTheme()].colors[colorKey()][1];
+
   const width = 150;
   const height = 80;
   const clipping = 20;
-  const tokenSuffixes = [
-    "-01",
-    "-02",
-    "-03",
-    "-04",
-    "-05",
-    "-06",
-    "-07",
-    "-08",
-    "-09",
-    "-10",
-    "-20",
-    "-30",
-    "-40",
-    "-50",
-    "-60",
-    "-70",
-    "-80",
-    "-90",
-  ];
+
   return html.div(
     [
       "innerHTML:colorPicker",
@@ -54,12 +37,12 @@ export const ColorPicker = () => {
             [
               "input",
               (e: any) => {
-                const colorValues = tokensState.get().colors[colorPickerState.get()];
                 fsm({
                   action: "SET_COLOR_TOKEN",
                   key: colorPickerState.get(),
+                  theme: themeState.get(),
                   color: e.target.value,
-                  contrast: colorValues[1],
+                  contrast: getContrast(),
                 });
               },
             ],
@@ -85,11 +68,11 @@ export const ColorPicker = () => {
             [
               "input",
               (e: any) => {
-                const colorValues = tokensState.get().colors[colorPickerState.get()];
                 fsm({
                   action: "SET_COLOR_TOKEN",
                   key: colorPickerState.get(),
-                  color: colorValues[0],
+                  theme: themeState.get(),
+                  color: getColor(),
                   contrast: e.target.value,
                 });
               },
@@ -103,18 +86,6 @@ export const ColorPicker = () => {
           ["style", "fontSize", "0.8em"],
           ["style", "opacity", "0.35"]
         )(`--token-${colorKey()}`),
-        html.div(["style", "fontSize", "0.85em"], ["style", "opacity", 0.6])("Modifiers"),
-
-        html.div(["style", "fontSize", "0.75em"], ["style", "opacity", 0.4])("Opacity"),
-        html.div()(
-          ...tokenSuffixes.map((suffix) =>
-            html.div(
-              ["style", "whiteSpace", "nowrap"],
-              ["style", "fontSize", "0.8em"],
-              ["style", "opacity", "0.25"]
-            )(`--token-${colorKey()}${suffix}`)
-          )
-        ),
       ],
     ],
     ["style", "display", "flex"],
