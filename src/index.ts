@@ -133,6 +133,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
   root(
     ["class", "dashboard"],
+    [
+      "style",
+      "--main-bg-color",
+      "hsl(var(--token-color-background-hue), var(--token-color-background-saturation), calc(var(--token-color-background-lightness) + -5%))",
+    ],
     ["innerHTML", () => [NavHeader, Nav, NavFooter, MainHeader, Main, MainFooter, AsideHeader, Aside, AsideFooter]]
   );
 
