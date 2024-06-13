@@ -31,7 +31,10 @@ declare var JSZip: any;
 
 type FSM =
   | {
-      action: "DOWNLOAD_ZIP";
+      action: "DOWNLOAD_ALL";
+    }
+  | {
+      action: "DOWNLOAD_THEME_TOKENS";
     }
   | {
       action: "SET_PAGE";
@@ -57,10 +60,11 @@ type FSM =
       theme: Themes;
     };
 
+const zip = new JSZip();
+
 export const fsm = (msg: FSM) => {
   switch (msg.action) {
-    case "DOWNLOAD_ZIP":
-      const zip = new JSZip();
+    case "DOWNLOAD_ALL":
       zip.file("tokens.css", getStylesheetContents(tokensStyleSheet));
       zip.file("accordion.css", getStylesheetContents(accordionStyleSheet));
       zip.file("alerts.css", getStylesheetContents(alertsStyleSheet));
@@ -82,8 +86,13 @@ export const fsm = (msg: FSM) => {
         link.href = URL.createObjectURL(content);
         link.download = "capui.zip";
         link.click();
-        console.log(link);
       });
+      break;
+    case "DOWNLOAD_THEME_TOKENS":
+      const link: any = document.createElement("a");
+      link.href = URL.createObjectURL(new Blob([getStylesheetContents(tokensStyleSheet)], { type: "text/css" }));
+      link.download = "tokens.css";
+      link.click();
       break;
     case "SET_PAGE":
       pageState.set(msg.page);

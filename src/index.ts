@@ -48,7 +48,9 @@ const Nav = html.nav(["class", "dashboard__nav"])(
       ["style", "marginBottom", "10px"],
       ["style", "gap", "10px"],
       ["class", "button--justify-start"],
-      ["click", () => fsm({ action: "DOWNLOAD_ZIP" })]
+      ["class", "tooltip"],
+      ["attr", "aria-label", "Download all components"],
+      ["click", () => fsm({ action: "DOWNLOAD_ALL" })]
     )(html.span()("capui.zip"), html.span()("[↓]")),
     html.button(
       ["class", "button"],
