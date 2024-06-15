@@ -1,6 +1,13 @@
 import { HTML, useAttribute, useClassName, useEvent, useInnerHTML, useStyle, useTextContent } from "@linttrap/oem";
 import { colorPickerState, pageState, propertiesState, themeState, themesState } from "./state";
 
+export function useSVGImage() {
+  return (el: HTMLElement, path: string) =>
+    fetch(path)
+      .then((response) => response.text())
+      .then((text) => (el.innerHTML = text));
+}
+
 export const html = HTML({
   "innerHTML:colorPicker": useInnerHTML({ state: colorPickerState }),
   "innerHTML:pages": useInnerHTML({ state: pageState }),
@@ -9,6 +16,7 @@ export const html = HTML({
   "innerHTML:theme": useInnerHTML({ state: themeState }),
   "innerText:pages": useTextContent({ state: pageState }),
   "style:themes": useStyle({ state: themesState }),
+  "svg:load": useSVGImage(),
   attr: useAttribute(),
   change: useEvent("change"),
   class: useClassName(),

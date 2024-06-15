@@ -81,7 +81,7 @@ export const ThemePage = () => {
       ),
       html.div(
         ["class", "flexgrid"],
-        ["style", "--mobile-width", "200px"],
+        ["style", "--mobile-width", "80px"],
         ["style", "--tablet-width", "200px"],
         ["style", "--desktop-width", "200px"],
         ["style", "--mobile-gap", "20px"],
@@ -90,6 +90,7 @@ export const ThemePage = () => {
         ["innerHTML:theme", () => Object.keys(colors).map(ColorCard as any) as unknown as HTMLElement]
       )()
     ),
+    // html.div(["svg:load", "/images/theme-preview.svg"], ["style", "maxWidth", "500px"], ["style", "width", "100%"])(),
     html.section()(html.h2()("Fonts"))
   );
 };

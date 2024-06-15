@@ -20,6 +20,12 @@ export type Tokens = {
     secondary: string;
     tertiary: string;
   };
+  sizing: {
+    padding: number;
+    margin: number;
+    fonts: number;
+  };
+  // expression:{} // TBD
 };
 
 export type Colors = keyof Tokens["colors"];
@@ -64,6 +70,7 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
       white: ["#e6e6e6", "#5c5c5c"],
     },
     fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
+    sizing: { padding: 1, margin: 1, fonts: 1 },
   },
   Light: {
     colors: {
@@ -81,6 +88,7 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
       white: ["#e6e6e6", "#5c5c5c"],
     },
     fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
+    sizing: { padding: 1, margin: 1, fonts: 1 },
   },
   Pastel: {
     colors: {
@@ -98,6 +106,7 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
       white: ["#FFFFFF", "#D3D3D3"],
     },
     fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
+    sizing: { padding: 1, margin: 1, fonts: 1 },
   },
   Cafe: {
     colors: {
@@ -115,6 +124,7 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
       white: ["#FFFFFF", "#757575"],
     },
     fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
+    sizing: { padding: 1, margin: 1, fonts: 1 },
   },
   Ocean: {
     colors: {
@@ -132,6 +142,7 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
       white: ["#DDDDDD", "#001F3F"],
     },
     fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
+    sizing: { padding: 1, margin: 1, fonts: 1 },
   },
 };
 
