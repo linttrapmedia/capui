@@ -35,5 +35,5 @@ ${Object.entries(colors)
 }
 `;
   tokensStyleSheet.replaceSync(tokens);
-  console.log(tokens);
+  // console.log(tokens);
 };

@@ -2,7 +2,7 @@ import { fsm } from "../../fsm";
 import { colorPickerState, themeState, themesState } from "../../state";
 import { html } from "../../template";
 
-export const ColorPicker = () => {
+export const ThemeColorPicker = () => {
   const colorKey = () => colorPickerState.get();
   const getTheme = () => themeState.get();
   const getColor = () => themesState.get()[getTheme()].colors[colorKey()][0];
@@ -20,6 +20,7 @@ export const ColorPicker = () => {
         html.div(["style", "opacity", "0.35"], ["style", "fontSize", "0.8em"])(`Set the color and it's contrast`),
         html.div(["style", "fontSize", "0.85em"], ["style", "opacity", 0.6])("Color"),
         html.div(
+          ["style", "boxShadow", "1px 0px 20px -2px rgba(0,0,0,0.5)"],
           ["style", "borderRadius", "5px"],
           ["style", "width", `${width - clipping}px`],
           ["style", "height", `${height - clipping}px`],
@@ -51,6 +52,7 @@ export const ColorPicker = () => {
         ),
         html.div(["style", "fontSize", "0.85em"], ["style", "opacity", 0.6])("Contrast"),
         html.div(
+          ["style", "boxShadow", "1px 0px 20px -2px rgba(0,0,0,0.5)"],
           ["style", "borderRadius", "5px"],
           ["style", "width", `${width - clipping}px`],
           ["style", "height", `${height - clipping}px`],

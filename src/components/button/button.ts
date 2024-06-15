@@ -8,12 +8,12 @@ Usage:
 
 .button {
   --animation: none;
-  --bg-loading-color: var(--token-black-10, black);
+  --bg-loading-color: var(--token-color-black, black);
   --bg-color: inherit;
-  --bg-color-hover: var(--token-black-80, black);
+  --bg-color-hover: var(--token-color-black, black);
   --bg-image: none;
   --bg-size: auto;
-  --border-color: var(--token-black-90, black);
+  --border-color: var(--token-color-black-90, black);
   --border-radius: 4px;
   --border-width: 2px;
   --box-shadow: none;
@@ -31,138 +31,138 @@ Usage:
   /* Colors */
 
   &.button--dark {
-    --bg-color: var(--token-black, black);
-    --bg-color-hover: var(--token-black-80, black);
-    --border-color: var(--token-black, black);
-    --text-color: var(--token-white, white);
+    --bg-color: var(--token-color-black, black);
+    --bg-color-hover: var(--token-color-black, black);
+    --border-color: var(--token-color-black, black);
+    --text-color: var(--token-color-white, white);
     &:not(.button--disabled):not(.button--loading):hover {
-      --bg-color: var(--token-black-80, black);
-      --bg-color-hover: var(--token-black-60, black);
-      --border-color: var(--token-black-80, black);
+      --bg-color: var(--token-color-black, black);
+      --bg-color-hover: var(--token-color-black, black);
+      --border-color: var(--token-color-black, black);
     }
     &.button--disabled {
       --opacity: 0.5;
     }
     &.button--loading {
-      --bg-loading-color: var(--token-white-10, white);
-      --border-color: var(--token-white-10, white);
+      --bg-loading-color: var(--token-color-white, white);
+      --border-color: var(--token-color-white, white);
     }
     &.button--ghost {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-black-20, black);
+      --bg-color-hover: var(--token-color-black, black);
       --border-color: transparent;
-      --text-color: var(--token-black, black);
+      --text-color: var(--token-color-black, black);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-black-20, black);
-        --bg-color-hover: var(--token-black-40, black);
+        --bg-color: var(--token-color-black, black);
+        --bg-color-hover: var(--token-color-black-40, black);
         --border-color: transparent;
       }
       &.button--disabled {
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-black-10, black);
+        --bg-loading-color: var(--token-color-black, black);
         --border-color: transparent;
       }
     }
     &.button--outline {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-black-20, black);
+      --bg-color-hover: var(--token-color-black, black);
       --border-color: ;
-      --text-color: var(--token-black, black);
+      --text-color: var(--token-color-black, black);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-black-20, black);
-        --bg-color-hover: var(--token-black-40, black);
+        --bg-color: var(--token-color-black, black);
+        --bg-color-hover: var(--token-color-black-40, black);
       }
       &.button--disabled {
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-black-10, black);
-        --border-color: var(--token-black, black);
+        --bg-loading-color: var(--token-color-black, black);
+        --border-color: var(--token-color-black, black);
       }
     }
   }
 
   &.button--light {
-    --bg-color: var(--token-white, white);
-    --bg-color-hover: var(--token-white-80, white);
-    --border-color: var(--token-white, white);
-    --text-color: var(--token-black, black);
+    --bg-color: var(--token-color-white, white);
+    --bg-color-hover: var(--token-color-white, white);
+    --border-color: var(--token-color-white, white);
+    --text-color: var(--token-color-black, black);
     &:not(.button--disabled):not(.button--loading):hover {
-      --bg-color: var(--token-white-80, white);
-      --bg-color-hover: var(--token-white-60, white);
+      --bg-color: var(--token-color-white, white);
+      --bg-color-hover: var(--token-color-white, white);
       --border-color: transparent;
     }
     &.button--disabled {
       --opacity: 0.5;
     }
     &.button--loading {
-      --bg-loading-color: var(--token-black-10, black);
-      --border-color: var(--token-black-10, black);
+      --bg-loading-color: var(--token-color-black, black);
+      --border-color: var(--token-color-black, black);
     }
     &.button--ghost {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-white-20, white);
+      --bg-color-hover: var(--token-color-white, white);
       --border-color: transparent;
-      --text-color: var(--token-white, white);
+      --text-color: var(--token-color-white, white);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-white-20, white);
-        --bg-color-hover: var(--token-white-40, white);
+        --bg-color: var(--token-color-white, white);
+        --bg-color-hover: var(--token-color-white-40, white);
         --border-color: transparent;
       }
       &.button--disabled {
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-white-10, white);
+        --bg-loading-color: var(--token-color-white, white);
         --border-color: transparent;
       }
     }
     &.button--outline {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-white-20, white);
+      --bg-color-hover: var(--token-color-white, white);
       --border-color: ;
-      --text-color: var(--token-white, white);
+      --text-color: var(--token-color-white, white);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-white-20, white);
-        --bg-color-hover: var(--token-white-40, white);
-        --border-color: var(--token-white, white);
+        --bg-color: var(--token-color-white, white);
+        --bg-color-hover: var(--token-color-white-40, white);
+        --border-color: var(--token-color-white, white);
       }
       &.button--disabled {
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-white-10, white);
-        --border-color: var(--token-white, white);
+        --bg-loading-color: var(--token-color-white, white);
+        --border-color: var(--token-color-white, white);
       }
     }
   }
 
   &.button--info {
     --bg-color: var(--token-blue, blue);
-    --bg-color-hover: var(--token-blue-80, blue);
+    --bg-color-hover: var(--token-blue, blue);
     --border-color: var(--token-blue, blue);
-    --text-color: var(--token-black, black);
+    --text-color: var(--token-color-black, black);
     &:not(.button--disabled):not(.button--loading):hover {
-      --bg-color: var(--token-blue-80, blue);
-      --bg-color-hover: var(--token-blue-60, blue);
+      --bg-color: var(--token-blue, blue);
+      --bg-color-hover: var(--token-blue, blue);
       --border-color: transparent;
     }
     &.button--disabled {
       --opacity: 0.5;
     }
     &.button--loading {
-      --bg-loading-color: var(--token-black-10, black);
-      --border-color: var(--token-black-10, black);
+      --bg-loading-color: var(--token-color-black, black);
+      --border-color: var(--token-color-black, black);
     }
     &.button--ghost {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-blue-20, blue);
+      --bg-color-hover: var(--token-blue, blue);
       --border-color: transparent;
       --text-color: var(--token-blue, blue);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-blue-20, blue);
+        --bg-color: var(--token-blue, blue);
         --bg-color-hover: var(--token-blue-40, blue);
         --border-color: transparent;
       }
@@ -170,17 +170,17 @@ Usage:
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-blue-20, blue);
+        --bg-loading-color: var(--token-blue, blue);
         --border-color: transparent;
       }
     }
     &.button--outline {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-blue-20, blue);
+      --bg-color-hover: var(--token-blue, blue);
       --border-color: ;
       --text-color: var(--token-blue, blue);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-blue-20, blue);
+        --bg-color: var(--token-blue, blue);
         --bg-color-hover: var(--token-blue-40, blue);
         --border-color: var(--token-blue, blue);
       }
@@ -188,7 +188,7 @@ Usage:
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-blue-20, blue);
+        --bg-loading-color: var(--token-blue, blue);
         --border-color: transparent;
       }
     }
@@ -196,28 +196,28 @@ Usage:
 
   &.button--success {
     --bg-color: var(--token-green, green);
-    --bg-color-hover: var(--token-green-80, green);
+    --bg-color-hover: var(--token-green, green);
     --border-color: var(--token-green, green);
-    --text-color: var(--token-black, black);
+    --text-color: var(--token-color-black, black);
     &:not(.button--disabled):not(.button--loading):hover {
-      --bg-color: var(--token-green-80, green);
-      --bg-color-hover: var(--token-green-60, green);
+      --bg-color: var(--token-green, green);
+      --bg-color-hover: var(--token-green, green);
       --border-color: transparent;
     }
     &.button--disabled {
       --opacity: 0.5;
     }
     &.button--loading {
-      --bg-loading-color: var(--token-black-10, black);
+      --bg-loading-color: var(--token-color-black, black);
       --border-color: transparent;
     }
     &.button--ghost {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-green-20, green);
+      --bg-color-hover: var(--token-green, green);
       --border-color: transparent;
       --text-color: var(--token-green, green);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-green-20, green);
+        --bg-color: var(--token-green, green);
         --bg-color-hover: var(--token-green-40, green);
         --border-color: transparent;
       }
@@ -225,17 +225,17 @@ Usage:
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-green-20, green);
+        --bg-loading-color: var(--token-green, green);
         --border-color: transparent;
       }
     }
     &.button--outline {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-green-20, green);
+      --bg-color-hover: var(--token-green, green);
       --border-color: ;
       --text-color: var(--token-green, green);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-green-20, green);
+        --bg-color: var(--token-green, green);
         --bg-color-hover: var(--token-green-40, green);
         --border-color: var(--token-green, green);
       }
@@ -243,7 +243,7 @@ Usage:
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-green-20, green);
+        --bg-loading-color: var(--token-green, green);
         --border-color: var(--token-green, green);
       }
     }
@@ -251,28 +251,28 @@ Usage:
 
   &.button--warning {
     --bg-color: var(--token-yellow, yellow);
-    --bg-color-hover: var(--token-yellow-80, yellow);
+    --bg-color-hover: var(--token-yellow, yellow);
     --border-color: var(--token-yellow, yellow);
-    --text-color: var(--token-black, black);
+    --text-color: var(--token-color-black, black);
     &:not(.button--disabled):not(.button--loading):hover {
-      --bg-color: var(--token-yellow-80, yellow);
-      --bg-color-hover: var(--token-yellow-60, yellow);
+      --bg-color: var(--token-yellow, yellow);
+      --bg-color-hover: var(--token-yellow, yellow);
       --border-color: transparent;
     }
     &.button--disabled {
       --opacity: 0.5;
     }
     &.button--loading {
-      --bg-loading-color: var(--token-black-10, black);
+      --bg-loading-color: var(--token-color-black, black);
       --border-color: transparent;
     }
     &.button--ghost {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-yellow-20, yellow);
+      --bg-color-hover: var(--token-yellow, yellow);
       --border-color: transparent;
       --text-color: var(--token-yellow, yellow);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-yellow-20, yellow);
+        --bg-color: var(--token-yellow, yellow);
         --bg-color-hover: var(--token-yellow-40, yellow);
         --border-color: transparent;
       }
@@ -280,17 +280,17 @@ Usage:
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-yellow-20, yellow);
+        --bg-loading-color: var(--token-yellow, yellow);
         --border-color: transparent;
       }
     }
     &.button--outline {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-yellow-20, yellow);
+      --bg-color-hover: var(--token-yellow, yellow);
       --border-color: ;
       --text-color: var(--token-yellow, yellow);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-yellow-20, yellow);
+        --bg-color: var(--token-yellow, yellow);
         --bg-color-hover: var(--token-yellow-40, yellow);
         --border-color: var(--token-yellow, yellow);
       }
@@ -298,7 +298,7 @@ Usage:
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-yellow-20, yellow);
+        --bg-loading-color: var(--token-yellow, yellow);
         --border-color: var(--token-yellow, yellow);
       }
     }
@@ -306,28 +306,28 @@ Usage:
 
   &.button--error {
     --bg-color: var(--token-red, red);
-    --bg-color-hover: var(--token-red-80, red);
+    --bg-color-hover: var(--token-red, red);
     --border-color: var(--token-red, red);
-    --text-color: var(--token-black, black);
+    --text-color: var(--token-color-black, black);
     &:not(.button--disabled):not(.button--loading):hover {
-      --bg-color: var(--token-red-80, red);
-      --bg-color-hover: var(--token-red-60, red);
+      --bg-color: var(--token-red, red);
+      --bg-color-hover: var(--token-red, red);
       --border-color: transparent;
     }
     &.button--disabled {
       --opacity: 0.5;
     }
     &.button--loading {
-      --bg-loading-color: var(--token-black-10, black);
+      --bg-loading-color: var(--token-color-black, black);
       --border-color: transparent;
     }
     &.button--ghost {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-red-20, red);
+      --bg-color-hover: var(--token-red, red);
       --border-color: transparent;
       --text-color: var(--token-red, red);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-red-20, red);
+        --bg-color: var(--token-red, red);
         --bg-color-hover: var(--token-red-40, red);
         --border-color: transparent;
       }
@@ -335,17 +335,17 @@ Usage:
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-red-20, red);
+        --bg-loading-color: var(--token-red, red);
         --border-color: transparent;
       }
     }
     &.button--outline {
       --bg-color: transparent;
-      --bg-color-hover: var(--token-red-20, red);
+      --bg-color-hover: var(--token-red, red);
       --border-color: ;
       --text-color: var(--token-red, red);
       &:not(.button--disabled):not(.button--loading):hover {
-        --bg-color: var(--token-red-20, red);
+        --bg-color: var(--token-red, red);
         --bg-color-hover: var(--token-red-40, red);
         --border-color: var(--token-red, red);
       }
@@ -353,7 +353,7 @@ Usage:
         --opacity: 0.5;
       }
       &.button--loading {
-        --bg-loading-color: var(--token-red-20, red);
+        --bg-loading-color: var(--token-red, red);
         --border-color: var(--token-red, red);
       }
     }

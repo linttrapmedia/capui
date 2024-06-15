@@ -15,7 +15,7 @@ import { syncTogglesStyleSheet, togglesStyleSheet } from "./components/toggles/t
 import { syncTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
 import { syncTooltipStyleSheet, tooltipStyleSheet } from "./components/tooltip/tooltip";
 import { fsm } from "./fsm";
-import { ColorPicker } from "./pages/Themes/ColorPicker";
+import { ThemeColorPicker } from "./pages/Themes/ThemeColorPicker";
 import { ThemePage } from "./pages/Themes/ThemePage";
 import { ThemePicker } from "./pages/Themes/ThemePicker";
 import { pageState, propertiesState } from "./state";
@@ -76,12 +76,7 @@ const Nav = html.nav(["class", "dashboard__nav"])(
   )
 );
 
-const NavFooter = html.div(
-  ["class", "dashboard__nav-footer"],
-  ["style", "padding", "20px"],
-  ["style", "opacity", "0.5"],
-  ["style", "fontSize", "12px"]
-)("©Copyright 2024");
+const NavFooter = html.div(["class", "dashboard__nav-footer"])("©Copyright 2024");
 
 const MainHeader = html.div(
   ["class", "dashboard__main-header"],
@@ -101,10 +96,7 @@ const Main = html.div(
 
 const MainFooter = html.div(
   ["class", "dashboard__main-footer"],
-  ["class", "dashboard__nav-footer"],
-  ["style", "padding", "20px"],
-  ["style", "opacity", "0.5"],
-  ["style", "fontSize", "12px"]
+  ["class", "dashboard__nav-footer"]
 )(
   html.span()(
     "All rights reserved. Made in the USA 🇺🇸 by ",
@@ -126,7 +118,7 @@ const AsideHeader = html.div(["class", "dashboard__aside-header"])("Aside Header
 
 const Aside = html.aside(
   ["class", "dashboard__aside"],
-  ["innerHTML:properties", ColorPicker, () => propertiesState.get() === "COLOR_PICKER"]
+  ["innerHTML:properties", ThemeColorPicker, () => propertiesState.get() === "COLOR_PICKER"]
 )();
 
 const AsideFooter = html.aside(["class", "dashboard__aside-footer"])("Aside footer");
@@ -135,11 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
   root(
     ["class", "dashboard"],
-    [
-      "style",
-      "--main-bg-color",
-      "hsl(var(--token-color-background-hue), var(--token-color-background-saturation), calc(var(--token-color-background-lightness) + -5%))",
-    ],
     ["innerHTML", () => [NavHeader, Nav, NavFooter, MainHeader, Main, MainFooter, AsideHeader, Aside, AsideFooter]]
   );
 

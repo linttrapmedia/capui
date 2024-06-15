@@ -5,12 +5,14 @@ export type Tokens = {
     background: [color: string, contrast: string];
     foreground: [color: string, contrast: string];
     brand: [color: string, contrast: string];
-    black: [color: string, contrast: string];
     error: [color: string, contrast: string];
     info: [color: string, contrast: string];
-    action: [color: string, contrast: string];
+    active: [color: string, contrast: string];
+    passive: [color: string, contrast: string];
     success: [color: string, contrast: string];
     warning: [color: string, contrast: string];
+    black: [color: string, contrast: string];
+    neutral: [color: string, contrast: string];
     white: [color: string, contrast: string];
   };
   fonts: {
@@ -45,116 +47,95 @@ export const themeState = State<Themes>("Dark", {
   storage: sessionStorage,
 });
 
-export const DEFAULT_DARK_THEME: Tokens = {
-  colors: {
-    background: ["#000000", "#FFFFFF"],
-    black: ["#000000", "#FFFFFF"],
-    brand: ["#800080", "#00FFFF"],
-    error: ["#FF0000", "#0000FF"],
-    foreground: ["#000000", "#FFFF00"],
-    info: ["#0000FF", "#00FF00"],
-    action: ["#FF8C00", "#9370DB"],
-    success: ["#006400", "#FF0000"],
-    warning: ["#FF4500", "#32CD32"],
-    white: ["#FFFFFF", "#0000FF"],
+const DEFAULT_THEMES: Record<string, Tokens> = {
+  Dark: {
+    colors: {
+      background: ["#212121", "#bababa"],
+      brand: ["#9e93b4", "#FFFFFF"],
+      error: ["#da7272", "#44313f"],
+      foreground: ["#383838", "#FFFFFF"],
+      info: ["#87B5D9", "#283443"],
+      active: ["#5f9ece", "#324153"],
+      passive: ["#292929", "#e0e0e0"],
+      success: ["#578557", "#c5d3c5"],
+      warning: ["#dab350", "#494022"],
+      black: ["#212121", "#FFFFFF"],
+      neutral: ["#3d3d3d", "#bababa"],
+      white: ["#e6e6e6", "#5c5c5c"],
+    },
+    fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
   },
-  fonts: {
-    primary: "Arial, sans-serif",
-    secondary: "Arial, sans-serif",
-    tertiary: "Arial, sans-serif",
+  Light: {
+    colors: {
+      background: ["#dedede", "#969696"],
+      brand: ["#9e93b4", "#FFFFFF"],
+      error: ["#da7272", "#44313f"],
+      foreground: ["#d1d1d1", "#949494"],
+      info: ["#87B5D9", "#283443"],
+      active: ["#5f9ece", "#324153"],
+      passive: ["#c2c2c2", "#999999"],
+      success: ["#578557", "#c5d3c5"],
+      warning: ["#dab350", "#494022"],
+      black: ["#212121", "#FFFFFF"],
+      neutral: ["#3d3d3d", "#bababa"],
+      white: ["#e6e6e6", "#5c5c5c"],
+    },
+    fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
   },
-};
-
-export const DEFAULT_LIGHT_THEME: Tokens = {
-  colors: {
-    background: ["#FFFFFF", "#000000"],
-    black: ["#FFFFFF", "#000000"],
-    brand: ["#FF69B4", "#00CED1"],
-    error: ["#FF6347", "#4169E1"],
-    foreground: ["#FFFFFF", "#000000"],
-    info: ["#ADD8E6", "#32CD32"],
-    action: ["#FFD700", "#8A2BE2"],
-    success: ["#7FFF00", "#DC143C"],
-    warning: ["#FFA500", "#006400"],
-    white: ["#000000", "#FFFFFF"],
+  Pastel: {
+    colors: {
+      background: ["#FFB6C1", "#FFFACD"],
+      brand: ["#FFB6C1", "#E0FFFF"],
+      error: ["#FFA07A", "#87CEFA"],
+      foreground: ["#D8BFD8", "#FFD700"],
+      info: ["#B0E0E6", "#98FB98"],
+      active: ["#FFDAB9", "#DDA0DD"],
+      passive: ["#FFDEAD", "#F0E68C"],
+      success: ["#98FB98", "#FF6A6A"],
+      warning: ["#FFD700", "#90EE90"],
+      black: ["#D3D3D3", "#FFFFE0"],
+      neutral: ["#808080", "#FFFFFF"],
+      white: ["#FFFFFF", "#D3D3D3"],
+    },
+    fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
   },
-  fonts: {
-    primary: "Arial, sans-serif",
-    secondary: "Arial, sans-serif",
-    tertiary: "Arial, sans-serif",
+  Cafe: {
+    colors: {
+      background: ["#3E2723", "#FFD54F"],
+      brand: ["#795548", "#D7CCC8"],
+      error: ["#D32F2F", "#C5E1A5"],
+      foreground: ["#5D4037", "#FFEB3B"],
+      info: ["#8D6E63", "#FFCC80"],
+      active: ["#FF7043", "#A1887F"],
+      passive: ["#FFA726", "#AED581"],
+      success: ["#388E3C", "#FF5252"],
+      warning: ["#F57C00", "#8BC34A"],
+      black: ["#4E342E", "#FFECB3"],
+      neutral: ["#808080", "#FFFFFF"],
+      white: ["#FFFFFF", "#757575"],
+    },
+    fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
   },
-};
-
-export const DEFAULT_PASTEL_THEME: Tokens = {
-  colors: {
-    background: ["#FFB6C1", "#FFFACD"],
-    black: ["#D3D3D3", "#FFFFE0"],
-    brand: ["#FFB6C1", "#E0FFFF"],
-    error: ["#FFA07A", "#87CEFA"],
-    foreground: ["#D8BFD8", "#FFD700"],
-    info: ["#B0E0E6", "#98FB98"],
-    action: ["#FFDAB9", "#DDA0DD"],
-    success: ["#98FB98", "#FF6A6A"],
-    warning: ["#FFD700", "#90EE90"],
-    white: ["#FFFFFF", "#D3D3D3"],
-  },
-  fonts: {
-    primary: "Arial, sans-serif",
-    secondary: "Arial, sans-serif",
-    tertiary: "Arial, sans-serif",
-  },
-};
-
-export const DEFAULT_CAFE_THEME: Tokens = {
-  colors: {
-    background: ["#3E2723", "#FFD54F"],
-    black: ["#4E342E", "#FFECB3"],
-    brand: ["#795548", "#D7CCC8"],
-    error: ["#D32F2F", "#C5E1A5"],
-    foreground: ["#5D4037", "#FFEB3B"],
-    info: ["#8D6E63", "#FFCC80"],
-    action: ["#FF7043", "#A1887F"],
-    success: ["#388E3C", "#FF5252"],
-    warning: ["#F57C00", "#8BC34A"],
-    white: ["#FFFFFF", "#757575"],
-  },
-  fonts: {
-    primary: "Arial, sans-serif",
-    secondary: "Arial, sans-serif",
-    tertiary: "Arial, sans-serif",
-  },
-};
-
-export const DEFAULT_OCEAN_THEME: Tokens = {
-  colors: {
-    background: ["#001F3F", "#7FDBFF"],
-    black: ["#001F3F", "#7FDBFF"],
-    brand: ["#0074D9", "#39CCCC"],
-    error: ["#FF4136", "#85144b"],
-    foreground: ["#001F3F", "#FFDC00"],
-    info: ["#39CCCC", "#3D9970"],
-    action: ["#FF851B", "#B10DC9"],
-    success: ["#2ECC40", "#FF4136"],
-    warning: ["#FF851B", "#2ECC40"],
-    white: ["#DDDDDD", "#001F3F"],
-  },
-  fonts: {
-    primary: "Arial, sans-serif",
-    secondary: "Arial, sans-serif",
-    tertiary: "Arial, sans-serif",
+  Ocean: {
+    colors: {
+      background: ["#001F3F", "#7FDBFF"],
+      brand: ["#0074D9", "#39CCCC"],
+      error: ["#FF4136", "#85144b"],
+      foreground: ["#001F3F", "#FFDC00"],
+      info: ["#39CCCC", "#3D9970"],
+      active: ["#FF851B", "#B10DC9"],
+      passive: ["#FFDC00", "#FF4136"],
+      success: ["#2ECC40", "#FF4136"],
+      warning: ["#FF851B", "#2ECC40"],
+      black: ["#001F3F", "#7FDBFF"],
+      neutral: ["#808080", "#FFFFFF"],
+      white: ["#DDDDDD", "#001F3F"],
+    },
+    fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
   },
 };
 
-export const themesState = State<Record<Themes, Tokens>>(
-  {
-    Dark: DEFAULT_DARK_THEME,
-    Light: DEFAULT_LIGHT_THEME,
-    Pastel: DEFAULT_PASTEL_THEME,
-    Cafe: DEFAULT_CAFE_THEME,
-    Ocean: DEFAULT_OCEAN_THEME,
-  },
-  {
-    key: "tokens",
-    storage: sessionStorage,
-  }
-);
+export const themesState = State<Record<Themes, Tokens>>(DEFAULT_THEMES, {
+  key: "tokens",
+  storage: sessionStorage,
+});

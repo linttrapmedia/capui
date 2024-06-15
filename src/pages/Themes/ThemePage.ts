@@ -3,9 +3,10 @@ import { Tokens, themeState, themesState } from "../../state";
 import { html } from "../../template";
 
 const ColorCard = (colorKey: keyof Tokens["colors"]) => {
-  const getTheme = () => themeState.get();
-  const getColor = () => themesState.get()[getTheme()].colors[colorKey][0];
-  const getContrast = () => themesState.get()[getTheme()].colors[colorKey][1];
+  const colorHue = `--token-color-${colorKey}-contrast-hue`;
+  const colorSaturation = `--token-color-${colorKey}-contrast-saturation`;
+  const colorLightness = `--token-color-${colorKey}-contrast-lightness`;
+  const colorShadow = `hsla(var(${colorHue}), var(${colorSaturation}), var(${colorLightness}),0.1)`;
 
   return html.div(["class", "flexgrid__item"])(
     html.div(
@@ -14,11 +15,15 @@ const ColorCard = (colorKey: keyof Tokens["colors"]) => {
       ["class", "card--light"],
       ["class", "card--ghost"],
       ["style", "--card-bg-color", `var(--token-color-${colorKey})`],
+      ["style", "--card-outer-border-color", colorShadow],
       ["style", "--card-transition-duration", 0],
       ["click", () => fsm({ action: "SET_COLOR_PICKER", colorKey })],
       ["style", "cursor", "pointer"]
     )(
-      html.div(["class", "card__title"], ["style:themes", "--card-title-font-color", getContrast])(colorKey),
+      html.div(
+        ["class", "card__title"],
+        ["style:themes", "--card-title-font-color", `var(--token-color-${colorKey}-contrast)`]
+      )(colorKey),
       html.div(["class", "card__actions"])(
         html.div(
           ["style", "width", "8px"],
@@ -58,7 +63,9 @@ export const ThemePage = () => {
   return html.div(
     ["style", "display", "flex"],
     ["style", "flexDirection", "column"],
-    ["style", "gap", "20px"]
+    ["style", "gap", "20px"],
+    ["style", "padding", "20px"],
+    ["style", "borderRadius", "10px"]
   )(
     html.section(
       ["class", "section"],
@@ -77,9 +84,9 @@ export const ThemePage = () => {
         ["style", "--mobile-width", "200px"],
         ["style", "--tablet-width", "200px"],
         ["style", "--desktop-width", "200px"],
-        ["style", "--mobile-gap", "10px"],
-        ["style", "--tablet-gap", "10px"],
-        ["style", "--desktop-gap", "10px"],
+        ["style", "--mobile-gap", "20px"],
+        ["style", "--tablet-gap", "20px"],
+        ["style", "--desktop-gap", "20px"],
         ["innerHTML:theme", () => Object.keys(colors).map(ColorCard as any) as unknown as HTMLElement]
       )()
     ),
