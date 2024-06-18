@@ -1,6 +1,6 @@
 #!/usr/bin/env
 
-.PHONY: help build clean cdn dev docs deploy dist install publish test
+.PHONY: help build clean css cdn dev docs deploy dist install publish test
 
 STATUS:="\x1b[96;01m\xE2\x80\xA2\x1b[0m"
 ECHO = @echo "\033[0;34m$(1)\033[0m$(2)"
@@ -26,14 +26,9 @@ clean: ## Clean the project
 	@rm -rf ./dist
 	@rm -f ./docs/scripts/ui.js
 
-nuke: ## Clean the project
-	@echo $(STATUS) Cleaning...
-	@rm -rf ./dist
-	@rm -rf ./node_modules
-	@rm -f ./docs/scripts/ui.js
-
 css: ## Build the project css
 	@echo $(STATUS) Building css...
+	@cp ./node_modules/css.gg/icons/icons.css ./docs/styles/icons.css
 
 dev: ## Run the project in development mode
 	@echo $(STATUS) Running in development mode...
@@ -64,6 +59,12 @@ install: ## Install the project
 kill: ## Kill the project
 	@echo $(STATUS) Killing...
 	@lsof -i :8081 | grep LISTEN | awk '{print $2}' | xargs kill -9
+
+nuke: ## Clean the project
+	@echo $(STATUS) Cleaning...
+	@rm -rf ./dist
+	@rm -rf ./node_modules
+	@rm -f ./docs/scripts/ui.js
 
 publish: ## Publish the project to npm
 	@echo $(STATUS) Publish package...

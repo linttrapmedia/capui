@@ -22,17 +22,10 @@ const ColorCard = (colorKey: keyof Tokens["colors"]) => {
     )(
       html.div(
         ["class", "card__title"],
-        ["style:themes", "--card-title-font-color", `var(--token-color-${colorKey}-contrast)`]
+        ["style", "--card-text-color", `var(--token-color-${colorKey}-contrast)`]
       )(colorKey),
       html.div(["class", "card__actions"])(
-        html.div(
-          ["style", "width", "8px"],
-          ["style", "height", "8px"],
-          ["style", "borderRight", "1px solid rgba(255,255,255,1)"],
-          ["style", "borderBottom", "1px solid rgba(255,255,255,1)"],
-          ["style", "display", "flex"],
-          ["style", "transform", "rotate(-45deg)"]
-        )("")
+        html.div(["class", "gg-chevron-right"], ["style", "color", `var(--token-color-${colorKey}-contrast)`])()
       ),
       html.div(
         ["class", "card__body"],

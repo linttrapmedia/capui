@@ -9,11 +9,11 @@ Usage:
 .button {
   --animation: none;
   --bg-loading-color: var(--token-color-black, black);
-  --bg-color: inherit;
+  --bg-color: black;
   --bg-color-hover: var(--token-color-black, black);
   --bg-image: none;
   --bg-size: auto;
-  --border-color: var(--token-color-black-90, black);
+  --border-color: var(--token-color-black, black);
   --border-radius: 4px;
   --border-width: 2px;
   --box-shadow: none;
@@ -68,11 +68,11 @@ Usage:
     &.button--outline {
       --bg-color: transparent;
       --bg-color-hover: var(--token-color-black, black);
-      --border-color: ;
+      --border-color: --border-color: var(--token-color-black, black);
       --text-color: var(--token-color-black, black);
       &:not(.button--disabled):not(.button--loading):hover {
         --bg-color: var(--token-color-black, black);
-        --bg-color-hover: var(--token-color-black-40, black);
+        --bg-color-hover: var(--token-color-black, black);
       }
       &.button--disabled {
         --opacity: 0.5;
@@ -122,19 +122,19 @@ Usage:
     &.button--outline {
       --bg-color: transparent;
       --bg-color-hover: var(--token-color-white, white);
-      --border-color: ;
-      --text-color: var(--token-color-white, white);
+      --border-color: var(--token-color-white, black);
+      --text-color: var(--token-color-white, black);
       &:not(.button--disabled):not(.button--loading):hover {
         --bg-color: var(--token-color-white, white);
         --bg-color-hover: var(--token-color-white-40, white);
-        --border-color: var(--token-color-white, white);
+        --border-color: var(--token-color-white, black);
       }
       &.button--disabled {
         --opacity: 0.5;
       }
       &.button--loading {
         --bg-loading-color: var(--token-color-white, white);
-        --border-color: var(--token-color-white, white);
+        --border-color: var(--token-color-black, black);
       }
     }
   }

@@ -5,8 +5,8 @@ export const syncCardStyleSheet = () =>
   /* Settings */
   --card-bg-color: inherit;
   --card-font-family: inherit;
-  --card-title-font-size: inherit;
-  --card-title-font-color: inherit;
+  --card-font-size: inherit;
+  --card-text-color: inherit;
   --card-inner-border-color: inherit;
   --card-inner-border-width: inherit;
   --card-outer-border-color: inherit;
@@ -18,7 +18,7 @@ export const syncCardStyleSheet = () =>
 
   &.card--small {
     --card-spacing: 10px;
-    --card-title-font-size: 14px;
+    --card-font-size: 14px;
     --card-outer-border-radius: 4px;
     --card-outer-border-width: 1px;
     --card-inner-border-width: 0px;
@@ -26,7 +26,7 @@ export const syncCardStyleSheet = () =>
 
   &.card--medium {
     --card-spacing: 15px;
-    --card-title-font-size: 16px;
+    --card-font-size: 16px;
     --card-outer-border-radius: 8px;
     --card-outer-border-width: 2px;
     --card-inner-border-width: 1px;
@@ -34,7 +34,7 @@ export const syncCardStyleSheet = () =>
 
   &.card--large {
     --card-spacing: 20px;
-    --card-title-font-size: 18px;
+    --card-font-size: 18px;
     --card-outer-border-radius: 12px;
     --card-outer-border-width: 3px;
     --card-inner-border-width: 2px;
@@ -42,18 +42,18 @@ export const syncCardStyleSheet = () =>
 
   &.card--dark {
     --card-bg-color: var(--token-black, black);
-    --card-title-font-color: var(--token-white, white);
+    --card-text-color: var(--token-white, white);
     --card-inner-border-color: var(--token-white-20, white);
     --card-outer-border-color: var(--token-black, black);
     &.card--ghost {
       --card-bg-color: var(--token-black-10, black);
-      --card-title-font-color: var(--token-black, black);
+      --card-text-color: var(--token-black, black);
       --card-inner-border-color: var(--token-black-20, black);
       --card-outer-border-color: transparent;
     }
     &.card--outline {
       --card-bg-color: transparent;
-      --card-title-font-color: var(--token-black, black);
+      --card-text-color: var(--token-black, black);
       --card-inner-border-color: var(--token-black-20, black);
       --card-outer-border-color: var(--token-black-70, black);
     }
@@ -61,18 +61,18 @@ export const syncCardStyleSheet = () =>
 
   &.card--error {
     --card-bg-color: var(--token-red);
-    --card-title-font-color: var(--token-white, white);
+    --card-text-color: var(--token-white, white);
     --card-inner-border-color: var(--token-white-30, white);
     --card-outer-border-color: var(--token-red, red);
     &.card--ghost {
       --card-bg-color: var(--token-red-10, red);
-      --card-title-font-color: var(--token-red, red);
+      --card-text-color: var(--token-red, red);
       --card-inner-border-color: var(--token-red-30, red);
       --card-outer-border-color: transparent;
     }
     &.card--outline {
       --card-bg-color: transparent;
-      --card-title-font-color: var(--token-red, red);
+      --card-text-color: var(--token-red, red);
       --card-inner-border-color: var(--token-red-30, red);
       --card-outer-border-color: var(--token-red, red);
     }
@@ -80,18 +80,18 @@ export const syncCardStyleSheet = () =>
 
   &.card--info {
     --card-bg-color: var(--token-blue);
-    --card-title-font-color: var(--token-white, white);
+    --card-text-color: var(--token-white, white);
     --card-inner-border-color: var(--token-white-30, white);
     --card-outer-border-color: var(--token-blue, blue);
     &.card--ghost {
       --card-bg-color: var(--token-blue-10, blue);
-      --card-title-font-color: var(--token-blue, blue);
+      --card-text-color: var(--token-blue, blue);
       --card-inner-border-color: var(--token-blue-30, blue);
       --card-outer-border-color: transparent;
     }
     &.card--outline {
       --card-bg-color: transparent;
-      --card-title-font-color: var(--token-blue, blue);
+      --card-text-color: var(--token-blue, blue);
       --card-inner-border-color: var(--token-blue-30, blue);
       --card-outer-border-color: var(--token-blue, blue);
     }
@@ -99,18 +99,18 @@ export const syncCardStyleSheet = () =>
 
   &.card--light {
     --card-bg-color: var(--token-white, white);
-    --card-title-font-color: var(--token-black, black);
+    --card-text-color: var(--token-black, black);
     --card-inner-border-color: var(--token-black-20, black);
     --card-outer-border-color: var(--token-white, white);
     &.card--ghost {
       --card-bg-color: var(--token-white-05, white);
-      --card-title-font-color: var(--token-white, white);
+      --card-text-color: var(--token-white, white);
       --card-inner-border-color: var(--token-white-20, white);
       --card-outer-border-color: transparent;
     }
     &.card--outline {
       --card-bg-color: transparent;
-      --card-title-font-color: var(--token-white, white);
+      --card-text-color: var(--token-white, white);
       --card-inner-border-color: var(--token-white-20, white);
       --card-outer-border-color: var(--token-white-70, white);
     }
@@ -118,18 +118,18 @@ export const syncCardStyleSheet = () =>
 
   &.card--success {
     --card-bg-color: var(--token-green);
-    --card-title-font-color: var(--token-white, white);
+    --card-text-color: var(--token-white, white);
     --card-inner-border-color: var(--token-white-30, white);
     --card-outer-border-color: var(--token-green, green);
     &.card--ghost {
       --card-bg-color: var(--token-green-10, green);
-      --card-title-font-color: var(--token-green, green);
+      --card-text-color: var(--token-green, green);
       --card-inner-border-color: var(--token-green-30, green);
       --card-outer-border-color: transparent;
     }
     &.card--outline {
       --card-bg-color: transparent;
-      --card-title-font-color: var(--token-green, green);
+      --card-text-color: var(--token-green, green);
       --card-inner-border-color: var(--token-green-20, green);
       --card-outer-border-color: var(--token-green, green);
     }
@@ -137,18 +137,18 @@ export const syncCardStyleSheet = () =>
 
   &.card--warning {
     --card-bg-color: var(--token-yellow);
-    --card-title-font-color: var(--token-black, black);
+    --card-text-color: var(--token-black, black);
     --card-inner-border-color: var(--token-black-20, black);
     --card-outer-border-color: var(--token-yellow, yellow);
     &.card--ghost {
       --card-bg-color: var(--token-yellow-10, yellow);
-      --card-title-font-color: var(--token-yellow, yellow);
+      --card-text-color: var(--token-yellow, yellow);
       --card-inner-border-color: var(--token-yellow-20, yellow);
       --card-outer-border-color: transparent;
     }
     &.card--outline {
       --card-bg-color: transparent;
-      --card-title-font-color: var(--token-yellow, yellow);
+      --card-text-color: var(--token-yellow, yellow);
       --card-inner-border-color: var(--token-yellow-20, yellow);
       --card-outer-border-color: var(--token-yellow, yellow);
     }
@@ -164,7 +164,7 @@ export const syncCardStyleSheet = () =>
   grid-template-areas: "card__title card__actions" "card__body card__body" "card__footer card__footer";
   grid-template-rows: max-content 1fr max-content;
   font-family: var(--card-font-family);
-  font-size: var(--card-title-font-size);
+  font-size: var(--card-font-size);
   font-weight: normal;
   row-gap: var(--card-spacing);
   padding: var(--card-spacing);
@@ -197,7 +197,7 @@ export const syncCardStyleSheet = () =>
   .card__title {
     align-items: center;
     border-bottom: var(--card-inner-border-width) solid var(--card-inner-border-color);
-    color: var(--card-title-font-color);
+    color: var(--card-text-color);
     display: flex;
     font-size: var(--card-font-large);
     font-weight: bold;

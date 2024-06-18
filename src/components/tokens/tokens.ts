@@ -1,9 +1,10 @@
-import { themeState, themesState } from "../../state";
+import { themeState, themesState, tokensEnabledState } from "../../state";
 import { hexToHSL } from "../../util/generators";
 
 export const tokensStyleSheet = new CSSStyleSheet();
 
 export const syncTokensStyleSheet = () => {
+  if (tokensEnabledState.get() === false) return tokensStyleSheet.replaceSync("");
   const theme = themesState.get()[themeState.get()];
   const { colors, fonts } = theme;
 
@@ -46,9 +47,7 @@ export const syncTokensStyleSheet = () => {
 ${colorTokens}
 ${fontFamilyTokens}
 ${fontSettingsTokens}
-}
-`;
+}`;
 
   tokensStyleSheet.replaceSync(tokens);
-  console.log(tokens);
 };

@@ -6,8 +6,11 @@ settings:
 
 dependencies:
   '@linttrap/oem':
-    specifier: ^0.1.8
-    version: 0.1.8
+    specifier: ^0.1.11
+    version: 0.1.11
+  css.gg:
+    specifier: ^2.1.1
+    version: 2.1.1
 
 devDependencies:
   '@playwright/test':
@@ -46,8 +49,8 @@ devDependencies:
 
 packages:
 
-  /@linttrap/oem@0.1.8:
-    resolution: {integrity: sha512-RpLVTvzazVeV7af1YdMe0OE9JNc0f0toBdfQbhq0/hJs330jPOAG8aDBgaFzCbTShOjPetCAbMiep/+79tkp1Q==}
+  /@linttrap/oem@0.1.11:
+    resolution: {integrity: sha512-+aiaB7MyMKaJiqILXTgY30NVvFgkGw5g0ez+7RkwyxZ35LUBpfBpX19UJQSk0rUSBnKnr0c9RC748pI4+sx4fA==}
     dev: false
 
   /@playwright/test@1.41.2:
@@ -364,6 +367,10 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /css.gg@2.1.1:
+    resolution: {integrity: sha512-OJrjd4+CdjrLvrVB+EFctAnk7eeM+zc8aKfVlO5BfNBgSqcC9wMHQTZ7ALcCiZGpE62kVVhwQ3Mvl1u6RkVFvQ==}
+    dev: false
 
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}

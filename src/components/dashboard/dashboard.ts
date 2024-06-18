@@ -16,34 +16,41 @@ export const syncDashboardStyleSheet = () => {
     --dashboard-max-height: auto;
     --dashboard-bg-color: var(${bg}, black);
     --dashboard-columns: 1fr 1fr 1fr;
-    --dashboard-gap: 0;
     --dashboard-overflow: auto;
     --dashboard-overflow-y: auto;
 
     --dashboard-aside-bg-color: hsl(${bgHueVar}, ${bgSaturationVar}, calc(${bgLightnessVar} + 1.5%));
     --dashboard-aside-body-column: 1/4;
     --dashboard-aside-body-row: 6/7;
+    --dashboard-aside-body-padding: 20px;
     --dashboard-aside-footer-column: 1/4;
-    --dashboard-aside-footer-row: 10/11;
+    --dashboard-aside-footer-row: 8/9;
+    --dashboard-aside-footer-padding: 20px;
     --dashboard-aside-header-column: 1/4;
     --dashboard-aside-header-row: 5/6;
+    --dashboard-aside-header-padding: 20px;
     
     --dashboard-main-bg-color: hsl(${bgHueVar}, ${bgSaturationVar}, calc(${bgLightnessVar} + 0%));
     --dashboard-main-body-column: 1/4;
     --dashboard-main-body-row: 4/5;
+    --dashboard-main-body-padding: 20px;
     --dashboard-main-footer-column: 1/4;
-    --dashboard-main-footer-row: 9/10;
+    --dashboard-main-footer-row: 10/11;
+    --dashboard-main-footer-padding: 20px;
     --dashboard-main-header-column: 1/4;
     --dashboard-main-header-row: 3/4;
+    --dashboard-main-header-padding: 20px;
 
     --dashboard-nav-bg-color: hsl(${bgHueVar}, ${bgSaturationVar}, calc(${bgLightnessVar} + 1.5%));
     --dashboard-nav-body-column: 1/4;
     --dashboard-nav-body-row: 2/3;
+    --dashboard-nav-body-padding: 20px;
     --dashboard-nav-footer-column: 1/4;
-    --dashboard-nav-footer-row: 8/9;
+    --dashboard-nav-footer-row: 9/10;
+    --dashboard-nav-footer-padding: 20px;
     --dashboard-nav-header-column: 1/4;
     --dashboard-nav-header-row: 1/2;
-
+    --dashboard-nav-header-padding: 20px;
 }`;
 
   const tablet = `@media (min-width: 768px) {
@@ -100,6 +107,7 @@ export const syncDashboardStyleSheet = () => {
     grid-column: var(--dashboard-nav-header-column, 1/2);
     grid-row: var(--dashboard-nav-header-row, 1/2);
     height: 100%;
+    padding: var(--dashboard-nav-header-padding, 20px);
 }
 
 .dashboard__nav {
@@ -112,6 +120,7 @@ export const syncDashboardStyleSheet = () => {
     height: 100%;
     justify-content: flex-start;
     overflow-y: var(--dashboard-overflow-y, auto);
+    padding: var(--dashboard-nav-body-padding, 20px);
 }
 
 .dashboard__nav-footer {
@@ -119,6 +128,7 @@ export const syncDashboardStyleSheet = () => {
     grid-column: var(--dashboard-nav-footer-column, 1/2);
     grid-row: var(--dashboard-nav-footer-row, 3/4);
     height: 100%;
+    padding: var(--dashboard-nav-footer-padding, 20px);
 }
 
 .dashboard__main-header {
@@ -130,6 +140,7 @@ export const syncDashboardStyleSheet = () => {
     grid-row: var(--dashboard-main-header-row, 1/2);
     height: 100%;
     justify-content: center;
+    padding: var(--dashboard-main-header-padding, 20px);
 }
 
 .dashboard__main {
@@ -141,6 +152,7 @@ export const syncDashboardStyleSheet = () => {
     grid-row: var(--dashboard-main-body-row, 2/3);
     height: 100%;
     overflow-y: var(--dashboard-overflow-y, auto);
+    padding: var(--dashboard-main-body-padding, 20px);
 }
 
 .dashboard__main-footer {
@@ -148,6 +160,7 @@ export const syncDashboardStyleSheet = () => {
     grid-row: var(--dashboard-main-footer-row, 3/4);
     grid-column: var(--dashboard-main-footer-column, 2/3);
     height: 100%;
+    padding: var(--dashboard-main-footer-padding, 20px);
 }
 
 .dashboard__aside-header {
@@ -159,6 +172,7 @@ export const syncDashboardStyleSheet = () => {
     grid-row: var(--dashboard-aside-header-row, 1/2);
     height: 100%;
     justify-content: center;
+    padding: var(--dashboard-aside-header-padding, 20px);
 }
 
 .dashboard__aside {
@@ -167,6 +181,7 @@ export const syncDashboardStyleSheet = () => {
     grid-row: var(--dashboard-aside-body-row, 2/3);
     height: 100%;
     overflow-y: var(--dashboard-overflow-y, auto);
+    padding: var(--dashboard-aside-body-padding, 20px);
 }
 
 .dashboard__aside-footer {
@@ -174,6 +189,7 @@ export const syncDashboardStyleSheet = () => {
     grid-column: var(--dashboard-aside-footer-column, 3/4);
     grid-row: var(--dashboard-aside-footer-row, 3/4);
     height: 100%;
+    padding: var(--dashboard-aside-footer-padding, 20px);
 }`;
 
   return dashboardStyleSheet.replaceSync(`${vars}${tablet}${rules}`);

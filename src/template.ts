@@ -1,5 +1,5 @@
 import { HTML, useAttribute, useClassName, useEvent, useInnerHTML, useStyle, useTextContent } from "@linttrap/oem";
-import { colorPickerState, pageState, propertiesState, themeState, themesState } from "./state";
+import { colorPickerState, pageState, propertiesState, themeState, themesState, tokensEnabledState } from "./state";
 
 export function useSVGImage() {
   return (el: HTMLElement, path: string) =>
@@ -9,6 +9,8 @@ export function useSVGImage() {
 }
 
 export const html = HTML({
+  "attr:tokensEnabled": useAttribute({ state: tokensEnabledState }),
+  "click:tokensEnabled": useEvent({ event: "click", state: tokensEnabledState }),
   "innerHTML:colorPicker": useInnerHTML({ state: colorPickerState }),
   "innerHTML:pages": useInnerHTML({ state: pageState }),
   "innerHTML:properties": useInnerHTML({ state: propertiesState }),
@@ -17,11 +19,12 @@ export const html = HTML({
   "innerText:pages": useTextContent({ state: pageState }),
   "style:themes": useStyle({ state: themesState }),
   "svg:load": useSVGImage(),
+  "text:tokensEnabled": useTextContent({ state: tokensEnabledState }),
   attr: useAttribute(),
-  change: useEvent("change"),
+  change: useEvent({ event: "change" }),
   class: useClassName(),
-  click: useEvent("click"),
+  click: useEvent({ event: "click" }),
   innerHTML: useInnerHTML(),
-  input: useEvent("input"),
+  input: useEvent({ event: "input" }),
   style: useStyle(),
 });

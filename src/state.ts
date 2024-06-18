@@ -62,7 +62,7 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
       foreground: ["#383838", "#FFFFFF"],
       info: ["#87B5D9", "#283443"],
       active: ["#5f9ece", "#324153"],
-      passive: ["#292929", "#e0e0e0"],
+      passive: ["#c2c2c2", "#262626"],
       success: ["#578557", "#c5d3c5"],
       warning: ["#dab350", "#494022"],
       black: ["#212121", "#FFFFFF"],
@@ -114,11 +114,11 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
       brand: ["#795548", "#D7CCC8"],
       error: ["#D32F2F", "#C5E1A5"],
       foreground: ["#5D4037", "#FFEB3B"],
-      info: ["#8D6E63", "#FFCC80"],
-      active: ["#FF7043", "#A1887F"],
-      passive: ["#FFA726", "#AED581"],
-      success: ["#388E3C", "#FF5252"],
-      warning: ["#F57C00", "#8BC34A"],
+      info: ["#627f8d", "#FFCC80"],
+      active: ["#659cb3", "#ffffff"],
+      passive: ["#FFA726", "#3e2723"],
+      success: ["#388E3C", "#ffffff"],
+      warning: ["#ff8000", "#ffffff"],
       black: ["#4E342E", "#FFECB3"],
       neutral: ["#808080", "#FFFFFF"],
       white: ["#FFFFFF", "#757575"],
@@ -148,5 +148,10 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
 
 export const themesState = State<Record<Themes, Tokens>>(DEFAULT_THEMES, {
   key: "tokens",
+  storage: sessionStorage,
+});
+
+export const tokensEnabledState = State<boolean>(true, {
+  key: "tokensEnabled",
   storage: sessionStorage,
 });

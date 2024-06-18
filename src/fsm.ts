@@ -24,6 +24,7 @@ import {
   propertiesState,
   themeState,
   themesState,
+  tokensEnabledState,
 } from "./state";
 import { getStylesheetContents } from "./util/css";
 
@@ -31,10 +32,16 @@ declare var JSZip: any;
 
 type FSM =
   | {
+      action: "DISABLE_TOKENS";
+    }
+  | {
       action: "DOWNLOAD_ALL";
     }
   | {
       action: "DOWNLOAD_THEME_TOKENS";
+    }
+  | {
+      action: "ENABLE_TOKENS";
     }
   | {
       action: "SET_PAGE";
@@ -64,6 +71,10 @@ const zip = new JSZip();
 
 export const fsm = (msg: FSM) => {
   switch (msg.action) {
+    case "DISABLE_TOKENS":
+      tokensEnabledState.set(false);
+      syncTokensStyleSheet();
+      break;
     case "DOWNLOAD_ALL":
       zip.file("tokens.css", getStylesheetContents(tokensStyleSheet));
       zip.file("accordion.css", getStylesheetContents(accordionStyleSheet));
@@ -93,6 +104,10 @@ export const fsm = (msg: FSM) => {
       link.href = URL.createObjectURL(new Blob([getStylesheetContents(tokensStyleSheet)], { type: "text/css" }));
       link.download = "tokens.css";
       link.click();
+      break;
+    case "ENABLE_TOKENS":
+      tokensEnabledState.set(true);
+      syncTokensStyleSheet();
       break;
     case "SET_PAGE":
       pageState.set(msg.page);
