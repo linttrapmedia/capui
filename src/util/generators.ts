@@ -40,6 +40,26 @@ export function hexToHSL(hex: string) {
   };
 }
 
+export const generateColorVariation = (
+  hex: string,
+  variation: number,
+  lightnessRange: number,
+  saturationRange: number
+) => {
+  const { hue, saturation, lightness } = hexToHSL(hex);
+  const _lightness = lightness >= 100 ? 100 : lightness;
+  const _saturation = saturation >= 100 ? 100 : saturation;
+  const rangedLightness =
+    variation === 50 ? lightness : Math.min(Math.max(_lightness + (variation - 50) * lightnessRange, 0), 100);
+  const rangedSaturation =
+    saturation === 0
+      ? 0
+      : saturation === 50
+      ? saturation
+      : Math.min(Math.max(_saturation + (variation - 50) * saturationRange, 0), 100);
+  return { hue, saturation: rangedSaturation, lightness: rangedLightness };
+};
+
 // // Function to generate HSL variations
 // export function generateHSLVariations(hexColor: string): { [key: number]: string } {
 //   const [baseHue, baseSaturation, baseLightness] = hexToHSL(hexColor);

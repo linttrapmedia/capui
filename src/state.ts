@@ -1,5 +1,56 @@
 import { State } from "@linttrap/oem";
 
+type Palette = {
+  colors: {
+    black: string;
+    white: string;
+    blue: string;
+    yellow: string;
+    red: string;
+    green: string;
+    orange: string;
+    purple: string;
+    pink: string;
+  };
+  saturationRange: number;
+  lightnessRange: number;
+};
+
+const DEFAULT_PALETTES: Record<string, Palette> = {
+  pastel: {
+    colors: {
+      black: "#333333",
+      red: "#ff6f61",
+      orange: "#ffb347",
+      yellow: "#fffacd",
+      green: "#77dd77",
+      blue: "#aec6cf",
+      purple: "#c3b1e1",
+      pink: "#ffb6c1",
+      white: "#ffffff",
+    },
+    saturationRange: 0.5,
+    lightnessRange: 0.25,
+  },
+  rich: {
+    colors: {
+      black: "#000000",
+      red: "#b22222",
+      orange: "#ff4500",
+      yellow: "#ffd700",
+      green: "#006400",
+      blue: "#00008b",
+      purple: "#4b0082",
+      pink: "#ff1493",
+      white: "#f5f5f5",
+    },
+    saturationRange: 0.1,
+    lightnessRange: 0.25,
+  },
+};
+
+export const paletteState = State<Palette>(DEFAULT_PALETTES.pastel);
+
 export type Tokens = {
   colors: {
     background: [color: string, contrast: string];
@@ -47,14 +98,14 @@ export const propertiesState = State<Properties>("COLOR_PICKER", {
   storage: sessionStorage,
 });
 
-export type Themes = "Dark" | "Light" | "Pastel" | "Cafe" | "Ocean";
-export const themeState = State<Themes>("Dark", {
+export type Themes = "dark" | "light" | "pastel" | "cafe" | "ocean";
+export const themeState = State<Themes>("dark", {
   key: "theme",
   storage: sessionStorage,
 });
 
 const DEFAULT_THEMES: Record<string, Tokens> = {
-  Dark: {
+  dark: {
     colors: {
       background: ["#212121", "#bababa"],
       brand: ["#9e93b4", "#FFFFFF"],
@@ -72,7 +123,7 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
     fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
     sizing: { padding: 1, margin: 1, fonts: 1 },
   },
-  Light: {
+  light: {
     colors: {
       background: ["#dedede", "#969696"],
       brand: ["#9e93b4", "#FFFFFF"],
@@ -90,7 +141,7 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
     fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
     sizing: { padding: 1, margin: 1, fonts: 1 },
   },
-  Pastel: {
+  pastel: {
     colors: {
       background: ["#FFB6C1", "#FFFACD"],
       brand: ["#FFB6C1", "#E0FFFF"],
@@ -108,7 +159,7 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
     fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
     sizing: { padding: 1, margin: 1, fonts: 1 },
   },
-  Cafe: {
+  cafe: {
     colors: {
       background: ["#3E2723", "#FFD54F"],
       brand: ["#795548", "#D7CCC8"],
@@ -126,7 +177,7 @@ const DEFAULT_THEMES: Record<string, Tokens> = {
     fonts: { primary: "Arial, sans-serif", secondary: "Arial, sans-serif", tertiary: "Arial, sans-serif" },
     sizing: { padding: 1, margin: 1, fonts: 1 },
   },
-  Ocean: {
+  ocean: {
     colors: {
       background: ["#001F3F", "#7FDBFF"],
       brand: ["#0074D9", "#39CCCC"],

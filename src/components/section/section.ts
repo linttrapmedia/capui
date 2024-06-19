@@ -11,31 +11,12 @@ export const syncSectionStyleSheet = () =>
   font-size: 1.5em;
 }
 
-
-.section__subsection {
-}
-
-.section__subsection__title {
-  font-size: 1.25em;
-}
-
 .section__header__description {
   font-size: 1em;
   opacity: 0.5;
 }
 
-.section__article {
+.section__content {
 }
 
-.section__aside {
-}
-
-.section__figure {
-}
-
-.section__figure__figcaption {
-}
-
-.section__footer {
-}
 `);

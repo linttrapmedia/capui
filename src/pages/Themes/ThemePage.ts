@@ -1,6 +1,7 @@
 import { fsm } from "../../fsm";
 import { Tokens, themeState, themesState } from "../../state";
 import { html } from "../../template";
+import { PaletteList } from "./PaletteList";
 
 const ColorCard = (colorKey: keyof Tokens["colors"]) => {
   const colorHue = `--token-color-${colorKey}-contrast-hue`;
@@ -60,6 +61,15 @@ export const ThemePage = () => {
     ["style", "padding", "20px"],
     ["style", "borderRadius", "10px"]
   )(
+    html.section(["class", "section"])(
+      html.div(["class", "section__header"])(
+        html.h2(["class", "section__header__title"])("Palette"),
+        html.p(["class", "section__header__description"])(
+          "Define a palette of colors that can be used to create a consistent color space across your application."
+        )
+      ),
+      html.div(["class", "section_body"])(PaletteList())
+    ),
     html.section(
       ["class", "section"],
       ["style", "display", "flex"],
@@ -72,7 +82,6 @@ export const ThemePage = () => {
           "Colors are defined along with a contasting color to form a set of semantic primitives which can be further modified in context (per component) through the use of CSS variables."
         )
       ),
-      html.h3(["class", "section__subheader__title"])("Primitives"),
 
       html.div(
         ["class", "flexgrid"],

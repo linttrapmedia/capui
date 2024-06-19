@@ -27,4 +27,30 @@ export const html = HTML({
   innerHTML: useInnerHTML(),
   input: useEvent({ event: "input" }),
   style: useStyle(),
+  column: (
+    el: HTMLElement,
+    gap: string = "0px",
+    alignItems: CSSStyleDeclaration["alignItems"] = "center",
+    justifyContent: CSSStyleDeclaration["justifyContent"] = "center"
+  ) => (
+    (el.style.display = "flex"),
+    (el.style.gap = gap),
+    (el.style.flexDirection = "column"),
+    (el.style.alignItems = alignItems),
+    (el.style.justifyContent = justifyContent),
+    (el.style.width = "100%")
+  ),
+  row: (
+    el: HTMLElement,
+    gap: string = "0px",
+    alignItems: CSSStyleDeclaration["alignItems"] = "center",
+    justifyContent: CSSStyleDeclaration["justifyContent"] = "center"
+  ) => (
+    (el.style.display = "flex"),
+    (el.style.gap = gap),
+    (el.style.flexDirection = "row"),
+    (el.style.alignItems = alignItems),
+    (el.style.justifyContent = justifyContent),
+    (el.style.width = "100%")
+  ),
 });
