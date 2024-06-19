@@ -20,7 +20,6 @@ export const ThemePicker = () => {
       ["style", "justifyContent", "center"],
       ["style", "flex", 1]
     )(
-      html.label(["style", "fontSize", "21px"])("Theme"),
       html.select(
         ["class", "dropdown"],
         ["class", "dropdown--small"],

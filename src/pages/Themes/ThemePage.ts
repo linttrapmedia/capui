@@ -72,11 +72,13 @@ export const ThemePage = () => {
           "Colors are defined along with a contasting color to form a set of semantic primitives which can be further modified in context (per component) through the use of CSS variables."
         )
       ),
+      html.h3(["class", "section__subheader__title"])("Primitives"),
+
       html.div(
         ["class", "flexgrid"],
         ["style", "--mobile-width", "80px"],
-        ["style", "--tablet-width", "200px"],
-        ["style", "--desktop-width", "200px"],
+        ["style", "--tablet-width", "100px"],
+        ["style", "--desktop-width", "100px"],
         ["style", "--mobile-gap", "20px"],
         ["style", "--tablet-gap", "20px"],
         ["style", "--desktop-gap", "20px"],

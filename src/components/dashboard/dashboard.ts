@@ -50,7 +50,7 @@ export const syncDashboardStyleSheet = () => {
     --dashboard-nav-footer-padding: 20px;
     --dashboard-nav-header-column: 1/4;
     --dashboard-nav-header-row: 1/2;
-    --dashboard-nav-header-padding: 20px;
+    --dashboard-nav-header-padding: 0;
 }`;
 
   const tablet = `@media (min-width: 768px) {

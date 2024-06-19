@@ -15,6 +15,7 @@ import { syncTogglesStyleSheet, togglesStyleSheet } from "./components/toggles/t
 import { syncTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
 import { syncTooltipStyleSheet, tooltipStyleSheet } from "./components/tooltip/tooltip";
 import { fsm } from "./fsm";
+import { ButtonPage } from "./pages/ButtonPage";
 import { ThemeColorPicker } from "./pages/Themes/ThemeColorPicker";
 import { ThemePage } from "./pages/Themes/ThemePage";
 import { ThemePicker } from "./pages/Themes/ThemePicker";
@@ -66,7 +67,7 @@ const Nav = html.nav(["class", "dashboard__nav"])(
     html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "ACCORDION" })])("Accordion"),
     html.button(...navButtonStyle)("Alerts"),
     html.button(...navButtonStyle)("Badge"),
-    html.button(...navButtonStyle)("Button"),
+    html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "BUTTON" })])("Button"),
     html.button(...navButtonStyle)("Card"),
     html.button(...navButtonStyle)("Dashboard"),
     html.button(...navButtonStyle)("Dialog"),
@@ -82,6 +83,7 @@ const MainHeader = html.div(
   ["class", "dashboard__main-header"],
   ["innerHTML:pages", () => "Home", () => pageState.get() === "HOME"],
   ["innerHTML:pages", () => "Accordion", () => pageState.get() === "ACCORDION"],
+  ["innerHTML:pages", ThemePicker, () => pageState.get() === "BUTTON"],
   ["innerHTML:pages", ThemePicker, () => pageState.get() === "THEME"],
   ["innerHTML:pages", () => "Utility", () => pageState.get() === "UTILITY"]
 )();
@@ -90,6 +92,7 @@ const Main = html.div(
   ["class", "dashboard__main"],
   ["innerHTML:pages", () => "Home", () => pageState.get() === "HOME"],
   ["innerHTML:pages", () => "Accordion", () => pageState.get() === "ACCORDION"],
+  ["innerHTML:pages", ButtonPage, () => pageState.get() === "BUTTON"],
   ["innerHTML:pages", ThemePage, () => pageState.get() === "THEME"],
   ["innerHTML:pages", () => "Utility", () => pageState.get() === "UTILITY"]
 )();

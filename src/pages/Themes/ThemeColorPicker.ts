@@ -38,6 +38,8 @@ export const ThemeColorPicker = () => {
             [
               "input",
               (e: any) => {
+                console.log(e.target.value);
+
                 fsm({
                   action: "SET_COLOR_TOKEN",
                   key: colorPickerState.get(),
