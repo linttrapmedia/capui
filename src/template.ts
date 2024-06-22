@@ -1,5 +1,7 @@
-import { HTML, useAttribute, useClassName, useEvent, useInnerHTML, useStyle, useTextContent } from "@linttrap/oem";
-import { colorPickerState, pageState, propertiesState, themeState, themesState, tokensEnabledState } from "./state";
+import { HTML, useAttribute, useClassName, useEvent, useInnerHTML, useStyle } from "@linttrap/oem";
+import { theme } from "./state";
+import { useColumn, useRow } from "./traits";
+// import { colorPickerState, pageState, propertiesState, themeState, themesState, tokensEnabledState } from "./state";
 
 export function useSVGImage() {
   return (el: HTMLElement, path: string) =>
@@ -9,17 +11,19 @@ export function useSVGImage() {
 }
 
 export const html = HTML({
-  "attr:tokensEnabled": useAttribute({ state: tokensEnabledState }),
-  "click:tokensEnabled": useEvent({ event: "click", state: tokensEnabledState }),
-  "innerHTML:colorPicker": useInnerHTML({ state: colorPickerState }),
-  "innerHTML:pages": useInnerHTML({ state: pageState }),
-  "innerHTML:properties": useInnerHTML({ state: propertiesState }),
-  "innerHTML:themes": useInnerHTML({ state: themesState }),
-  "innerHTML:theme": useInnerHTML({ state: themeState }),
-  "innerText:pages": useTextContent({ state: pageState }),
-  "style:themes": useStyle({ state: themesState }),
-  "svg:load": useSVGImage(),
-  "text:tokensEnabled": useTextContent({ state: tokensEnabledState }),
+  // "attr:tokensEnabled": useAttribute({ state: tokensEnabledState }),
+  // "click:tokensEnabled": useEvent({ event: "click", state: tokensEnabledState }),
+  // "innerHTML:colorPicker": useInnerHTML({ state: colorPickerState }),
+  // "innerHTML:pages": useInnerHTML({ state: pageState }),
+  // "innerHTML:properties": useInnerHTML({ state: propertiesState }),
+  // "innerHTML:themes": useInnerHTML({ state: themesState }),
+  // "innerHTML:theme": useInnerHTML({ state: themeState }),
+  // "innerText:pages": useTextContent({ state: pageState }),
+  // "style:themes": useStyle({ state: themesState }),
+  // "svg:load": useSVGImage(),
+  // "text:tokensEnabled": useTextContent({ state: tokensEnabledState }),
+  "style:theme": useStyle({ state: theme }),
+  "attr:theme": useAttribute({ state: theme }),
   attr: useAttribute(),
   change: useEvent({ event: "change" }),
   class: useClassName(),
@@ -27,30 +31,6 @@ export const html = HTML({
   innerHTML: useInnerHTML(),
   input: useEvent({ event: "input" }),
   style: useStyle(),
-  column: (
-    el: HTMLElement,
-    gap: string = "0px",
-    alignItems: CSSStyleDeclaration["alignItems"] = "center",
-    justifyContent: CSSStyleDeclaration["justifyContent"] = "center"
-  ) => (
-    (el.style.display = "flex"),
-    (el.style.gap = gap),
-    (el.style.flexDirection = "column"),
-    (el.style.alignItems = alignItems),
-    (el.style.justifyContent = justifyContent),
-    (el.style.width = "100%")
-  ),
-  row: (
-    el: HTMLElement,
-    gap: string = "0px",
-    alignItems: CSSStyleDeclaration["alignItems"] = "center",
-    justifyContent: CSSStyleDeclaration["justifyContent"] = "center"
-  ) => (
-    (el.style.display = "flex"),
-    (el.style.gap = gap),
-    (el.style.flexDirection = "row"),
-    (el.style.alignItems = alignItems),
-    (el.style.justifyContent = justifyContent),
-    (el.style.width = "100%")
-  ),
+  column: useColumn,
+  row: useRow,
 });

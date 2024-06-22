@@ -1,6 +1,6 @@
 export const dashboardStyleSheet = new CSSStyleSheet();
 
-export const syncDashboardStyleSheet = () => {
+export const renderDashboardStyleSheet = () => {
   const bg = `var(--token-color-background, black)`;
   const bgHueVar = `var(--token-color-background-hue)`;
   const bgSaturationVar = `var(--token-color-background-saturation)`;

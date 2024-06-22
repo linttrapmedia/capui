@@ -1,6 +1,6 @@
 export const alertsStyleSheet = new CSSStyleSheet();
 
-export const syncAlertsStyleSheet = () =>
+export const renderAlertsStyleSheet = () =>
   alertsStyleSheet.replaceSync(`/* 
 <label class="alert alert--[MODIFIERS]">
   <input type="checkbox" class="alert__toggle" />

@@ -1,6 +1,6 @@
 export const cardStyleSheet = new CSSStyleSheet();
 
-export const syncCardStyleSheet = () =>
+export const renderCardStyleSheet = () =>
   cardStyleSheet.replaceSync(`.card {
   /* Settings */
   --card-bg-color: inherit;

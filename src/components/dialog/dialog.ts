@@ -1,6 +1,6 @@
 export const dialogStyleSheet = new CSSStyleSheet();
 
-export const syncDialogStyleSheet = () =>
+export const renderDialogStyleSheet = () =>
   dialogStyleSheet.replaceSync(`:root {
   --dialog-bg-color: var(--token-black, black);
   --dialog-border-radius: 8px;

@@ -1,6 +1,6 @@
 export const accordionStyleSheet = new CSSStyleSheet();
 
-export const syncAccordionStyleSheet = () =>
+export const renderAccordionStyleSheet = () =>
   accordionStyleSheet.replaceSync(`/* 
 <div class="accordion accordion--dark">
     <div class="accordion__item">

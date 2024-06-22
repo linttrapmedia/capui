@@ -1,53 +1,57 @@
-import { themeState, themesState, tokensEnabledState } from "../../state";
-import { hexToHSL } from "../../util/generators";
+import { themes } from "../../state";
+import { generateColorVariation } from "../../util/generators";
 
 export const tokensStyleSheet = new CSSStyleSheet();
+const variation = [10, 20, 30, 40, 50, 60, 70, 80, 90];
 
-export const syncTokensStyleSheet = () => {
-  if (tokensEnabledState.get() === false) return tokensStyleSheet.replaceSync("");
-  const theme = themesState.get()[themeState.get()];
-  const { colors, fonts } = theme;
+export const renderTokensStyleSheet = () => {
+  let tokens = "";
+  for (const theme in themes.get()) {
+    tokens += ':root[data-theme="' + theme + '"] {\n';
 
-  const colorTokens = Object.entries(colors)
-    .map(([colorKey, [color, contrast]]) => {
-      const hslValues = hexToHSL(color);
-      const hslContrastValues = hexToHSL(contrast);
-      const hueToken = `--token-color-${colorKey}-hue`;
-      const saturationToken = `--token-color-${colorKey}-saturation`;
-      const lightnessToken = `--token-color-${colorKey}-lightness`;
-      const contrastHueToken = `--token-color-${colorKey}-contrast-hue`;
-      const contrastSaturationToken = `--token-color-${colorKey}-contrast-saturation`;
-      const contrastLightnessToken = `--token-color-${colorKey}-contrast-lightness`;
-      const colorToken = `--token-color-${colorKey}`;
-      const contrastToken = `--token-color-${colorKey}-contrast`;
-      return [
-        `${hueToken}: ${hslValues.hue};`,
-        `${saturationToken}: ${hslValues.saturation}%;`,
-        `${lightnessToken}: ${hslValues.lightness}%;`,
-        `${colorToken}: hsl(var(${hueToken}), var(${saturationToken}), var(${lightnessToken}));`,
-        `${contrastHueToken}: ${hslContrastValues.hue};`,
-        `${contrastSaturationToken}: ${hslContrastValues.saturation}%;`,
-        `${contrastLightnessToken}: ${hslContrastValues.lightness}%;`,
-        `${contrastToken}: hsl(var(${contrastHueToken}), var(${contrastSaturationToken}), var(${contrastLightnessToken}));`,
-      ].join("\n");
-    })
-    .join("\n");
+    // palette
+    for (const key in themes.get()[theme].colors.palette) {
+      const value = (themes.get()[theme].colors.palette as any)[key];
+      for (const num of variation) {
+        const hsl = generateColorVariation(
+          value,
+          num,
+          themes.get()[theme].colors.lightnessRange,
+          themes.get()[theme].colors.saturationRange
+        );
+        const color = `hsl(${hsl.hue}, ${hsl.saturation}%, ${hsl.lightness}%)`;
+        tokens += `--${key}-${num}0: ${color};\n`;
+      }
+    }
 
-  const fontFamilyTokens = Object.entries(theme.fonts)
-    .map(([fontKey, font]) => {
-      const fontToken = `--token-font-${fontKey}`;
-      return `${fontToken}: ${font};`;
-    })
-    .join("\n");
+    // semantic
+    for (const key in themes.get()[theme].colors.semantic) {
+      const colorKey = (themes.get()[theme].colors.semantic as any)[key];
+      const value = (themes.get()[theme].colors.palette as any)[colorKey];
+      for (const num of variation) {
+        const hsl = generateColorVariation(
+          value,
+          num,
+          themes.get()[theme].colors.lightnessRange,
+          themes.get()[theme].colors.saturationRange
+        );
+        const color = `hsl(${hsl.hue}, ${hsl.saturation}%, ${hsl.lightness}%)`;
+        tokens += `--${key}-${num}0: ${color};\n`;
+      }
+    }
 
-  const fontSettingsTokens = ``;
+    // inputs
+    tokens += `--icon-scaling: ${themes.get()[theme].scaling.icon}ch;\n`;
+    tokens += `--text-scaling: ${themes.get()[theme].scaling.text}ch;\n`;
+    tokens += `--col-gap-scaling: ${themes.get()[theme].scaling.colGap}ch;\n`;
+    tokens += `--row-gap-scaling: ${themes.get()[theme].scaling.rowGap}ch;\n`;
+    tokens += `--padding-scaling: ${themes.get()[theme].scaling.padding}ch;\n`;
+    tokens += `--borders-scaling: ${themes.get()[theme].scaling.borders}ch;\n`;
+    tokens += `--weight-scaling: ${themes.get()[theme].scaling.weight}ch;\n`;
 
-  const tokens = `
-:root {
-${colorTokens}
-${fontFamilyTokens}
-${fontSettingsTokens}
-}`;
+    tokens += `}\n`;
+  }
 
+  // console.log(tokens);
   tokensStyleSheet.replaceSync(tokens);
 };

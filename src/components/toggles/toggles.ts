@@ -1,6 +1,6 @@
 export const togglesStyleSheet = new CSSStyleSheet();
 
-export const syncTogglesStyleSheet = () =>
+export const renderTogglesStyleSheet = () =>
   togglesStyleSheet.replaceSync(`.toggle {
   position: relative;
   width: 50px;

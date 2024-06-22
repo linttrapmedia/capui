@@ -1,6 +1,6 @@
 export const tooltipStyleSheet = new CSSStyleSheet();
 
-export const syncTooltipStyleSheet = () =>
+export const renderTooltipStyleSheet = () =>
   tooltipStyleSheet.replaceSync(`.tooltip {
   cursor: pointer;
   position: relative;

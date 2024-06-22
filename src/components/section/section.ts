@@ -1,6 +1,6 @@
 export const sectionStyleSheet = new CSSStyleSheet();
 
-export const syncSectionStyleSheet = () =>
+export const renderSectionStyleSheet = () =>
   sectionStyleSheet.replaceSync(`.section {
 }
 

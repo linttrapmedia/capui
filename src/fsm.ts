@@ -1,31 +1,20 @@
-import { accordionStyleSheet } from "./components/accordion/accordion";
-import { alertsStyleSheet } from "./components/alerts/alerts";
-import { badgeStyleSheet } from "./components/badge/badge";
-import { bgStyleSheet } from "./components/bg/bg";
-import { buttonStyleSheet } from "./components/button/button";
-import { cardStyleSheet } from "./components/card/card";
-import { dashboardStyleSheet } from "./components/dashboard/dashboard";
-import { dialogStyleSheet } from "./components/dialog/dialog";
-import { dropdownStyleSheet } from "./components/dropdown/dropdown";
-import { flexgridStyleSheet } from "./components/flexgrid/flexgrid";
-import { flexpaneStyleSheet } from "./components/flexpane/flexpane";
-import { gridStyleSheet } from "./components/grid/grid";
-import { sectionStyleSheet } from "./components/section/section";
-import { togglesStyleSheet } from "./components/toggles/toggles";
-import { syncTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
-import { tooltipStyleSheet } from "./components/tooltip/tooltip";
-import {
-  Pages,
-  Properties,
-  Themes,
-  Tokens,
-  colorPickerState,
-  pageState,
-  propertiesState,
-  themeState,
-  themesState,
-  tokensEnabledState,
-} from "./state";
+import { accordionStyleSheet, renderAccordionStyleSheet } from "./components/accordion/accordion";
+import { alertsStyleSheet, renderAlertsStyleSheet } from "./components/alerts/alerts";
+import { badgeStyleSheet, renderBadgeStyleSheet } from "./components/badge/badge";
+import { bgStyleSheet, renderBGStyleSheet } from "./components/bg/bg";
+import { buttonStyleSheet, renderButtonStyleSheet } from "./components/button/button";
+import { cardStyleSheet, renderCardStyleSheet } from "./components/card/card";
+import { dashboardStyleSheet, renderDashboardStyleSheet } from "./components/dashboard/dashboard";
+import { dialogStyleSheet, renderDialogStyleSheet } from "./components/dialog/dialog";
+import { dropdownStyleSheet, renderDropdownStyleSheet } from "./components/dropdown/dropdown";
+import { flexgridStyleSheet, renderFlexGridStyleSheet } from "./components/flexgrid/flexgrid";
+import { flexpaneStyleSheet, renderFlexpaneStyleSheet } from "./components/flexpane/flexpane";
+import { gridStyleSheet, renderGridStyleSheet } from "./components/grid/grid";
+import { renderSectionStyleSheet, sectionStyleSheet } from "./components/section/section";
+import { renderTogglesStyleSheet, togglesStyleSheet } from "./components/toggles/toggles";
+import { renderTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
+import { renderTooltipStyleSheet, tooltipStyleSheet } from "./components/tooltip/tooltip";
+import { theme } from "./state";
 import { getStylesheetContents } from "./util/css";
 
 declare var JSZip: any;
@@ -44,36 +33,40 @@ type FSM =
       action: "ENABLE_TOKENS";
     }
   | {
-      action: "SET_PAGE";
-      page: Pages;
-    }
-  | {
-      action: "SET_PROPERTIES";
-      properties: Properties;
-    }
-  | {
-      action: "SET_COLOR_PICKER";
-      colorKey: keyof Tokens["colors"];
-    }
-  | {
-      action: "SET_COLOR_TOKEN";
-      key: keyof Tokens["colors"];
-      theme: Themes;
-      color: string;
-      contrast: string;
-    }
-  | {
       action: "SET_THEME";
-      theme: Themes;
+      theme: string;
+    }
+  | {
+      action: "RENDER_ALL_STYLESHEETS";
     };
 
 const zip = new JSZip();
 
+const renderAllStyleSheets = () => {
+  // load style sheets
+  renderTokensStyleSheet();
+  renderDashboardStyleSheet();
+  renderAccordionStyleSheet();
+  renderAlertsStyleSheet();
+  renderBadgeStyleSheet();
+  renderBGStyleSheet();
+  renderButtonStyleSheet();
+  renderCardStyleSheet();
+  renderDashboardStyleSheet();
+  renderDialogStyleSheet();
+  renderDropdownStyleSheet();
+  renderFlexGridStyleSheet();
+  renderFlexpaneStyleSheet();
+  renderGridStyleSheet();
+  renderSectionStyleSheet();
+  renderTogglesStyleSheet();
+  renderTooltipStyleSheet();
+};
+
 export const fsm = (msg: FSM) => {
   switch (msg.action) {
     case "DISABLE_TOKENS":
-      tokensEnabledState.set(false);
-      syncTokensStyleSheet();
+      renderTokensStyleSheet();
       break;
     case "DOWNLOAD_ALL":
       zip.file("tokens.css", getStylesheetContents(tokensStyleSheet));
@@ -106,27 +99,31 @@ export const fsm = (msg: FSM) => {
       link.click();
       break;
     case "ENABLE_TOKENS":
-      tokensEnabledState.set(true);
-      syncTokensStyleSheet();
-      break;
-    case "SET_PAGE":
-      pageState.set(msg.page);
-      window.history.pushState(null, "", `?page=${msg.page}`);
-      break;
-    case "SET_PROPERTIES":
-      propertiesState.set(msg.properties);
-      break;
-    case "SET_COLOR_PICKER":
-      propertiesState.set("COLOR_PICKER");
-      colorPickerState.set(msg.colorKey);
-      break;
-    case "SET_COLOR_TOKEN":
-      themesState.deepSet(`${msg.theme}.colors.${msg.key}`, [msg.color, msg.contrast]);
-      syncTokensStyleSheet();
+      // tokensEnabledState.set(true);
+      renderTokensStyleSheet();
       break;
     case "SET_THEME":
-      themeState.set(msg.theme);
-      syncTokensStyleSheet();
+      theme.set(msg.theme);
+      fsm({ action: "RENDER_ALL_STYLESHEETS" });
+      break;
+    case "RENDER_ALL_STYLESHEETS":
+      renderTokensStyleSheet();
+      renderDashboardStyleSheet();
+      renderAccordionStyleSheet();
+      renderAlertsStyleSheet();
+      renderBadgeStyleSheet();
+      renderBGStyleSheet();
+      renderButtonStyleSheet();
+      renderCardStyleSheet();
+      renderDashboardStyleSheet();
+      renderDialogStyleSheet();
+      renderDropdownStyleSheet();
+      renderFlexGridStyleSheet();
+      renderFlexpaneStyleSheet();
+      renderGridStyleSheet();
+      renderSectionStyleSheet();
+      renderTogglesStyleSheet();
+      renderTooltipStyleSheet();
       break;
   }
 };

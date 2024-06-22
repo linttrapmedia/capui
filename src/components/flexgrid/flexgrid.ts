@@ -1,6 +1,6 @@
 export const flexgridStyleSheet = new CSSStyleSheet();
 
-export const syncFlexGridStyleSheet = () =>
+export const renderFlexGridStyleSheet = () =>
   flexgridStyleSheet.replaceSync(`.flexgrid {
   --mobile-gap: 10px;
   --tablet-gap: 20px;

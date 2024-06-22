@@ -1,156 +1,93 @@
-import { accordionStyleSheet, syncAccordionStyleSheet } from "./components/accordion/accordion";
-import { alertsStyleSheet, syncAlertsStyleSheet } from "./components/alerts/alerts";
-import { badgeStyleSheet, syncBadgeStyleSheet } from "./components/badge/badge";
-import { bgStyleSheet, syncBGStyleSheet } from "./components/bg/bg";
-import { buttonStyleSheet, syncButtonStyleSheet } from "./components/button/button";
-import { cardStyleSheet, syncCardStyleSheet } from "./components/card/card";
-import { dashboardStyleSheet, syncDashboardStyleSheet } from "./components/dashboard/dashboard";
-import { dialogStyleSheet, syncDialogStyleSheet } from "./components/dialog/dialog";
-import { dropdownStyleSheet, syncDropdownStyleSheet } from "./components/dropdown/dropdown";
-import { flexgridStyleSheet, syncFlexGridStyleSheet } from "./components/flexgrid/flexgrid";
-import { flexpaneStyleSheet, syncFlexpaneStyleSheet } from "./components/flexpane/flexpane";
-import { gridStyleSheet, syncGridStyleSheet } from "./components/grid/grid";
-import { sectionStyleSheet, syncSectionStyleSheet } from "./components/section/section";
-import { syncTogglesStyleSheet, togglesStyleSheet } from "./components/toggles/toggles";
-import { syncTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
-import { syncTooltipStyleSheet, tooltipStyleSheet } from "./components/tooltip/tooltip";
+import { accordionStyleSheet } from "./components/accordion/accordion";
+import { alertsStyleSheet } from "./components/alerts/alerts";
+import { badgeStyleSheet } from "./components/badge/badge";
+import { bgStyleSheet } from "./components/bg/bg";
+import { buttonStyleSheet } from "./components/button/button";
+import { cardStyleSheet } from "./components/card/card";
+import { dashboardStyleSheet } from "./components/dashboard/dashboard";
+import { dialogStyleSheet } from "./components/dialog/dialog";
+import { dropdownStyleSheet } from "./components/dropdown/dropdown";
+import { flexgridStyleSheet } from "./components/flexgrid/flexgrid";
+import { flexpaneStyleSheet } from "./components/flexpane/flexpane";
+import { gridStyleSheet } from "./components/grid/grid";
+import { sectionStyleSheet } from "./components/section/section";
+import { togglesStyleSheet } from "./components/toggles/toggles";
+import { tokensStyleSheet } from "./components/tokens/tokens";
+import { tooltipStyleSheet } from "./components/tooltip/tooltip";
 import { fsm } from "./fsm";
-import { ButtonPage } from "./pages/ButtonPage";
-import { ThemeColorPicker } from "./pages/Themes/ThemeColorPicker";
-import { ThemePage } from "./pages/Themes/ThemePage";
-import { ThemePicker } from "./pages/Themes/ThemePicker";
-import { pageState, propertiesState } from "./state";
+import { theme, themes } from "./state";
 import { html } from "./template";
 
-const NavHeader = html.div(["class", "dashboard__nav-header"])(
-  html.img(["attr", "src", "/images/capui-transparent.png"], ["attr", "height", "80"])()
-);
-
-const navButtonStyle: any = [
-  ["class", "button"],
-  ["class", "button--light"],
-  ["class", "button--ghost"],
-  ["class", "button--block"],
-  ["class", "button--justify-start"],
-];
-
-const Nav = html.nav(["class", "dashboard__nav"])(
-  html.div(
-    ["style", "display", "flex"],
-    ["style", "flexDirection", "column"],
-    ["style", "gap", "3px"],
-    ["style", "alignItems", "flex-start"],
-    ["style", "width", "100%"]
-  )(
-    html.button(
-      ["class", "button"],
-      ["class", "button--light"],
-      ["class", "button--block"],
-      ["style", "marginBottom", "10px"],
-      ["style", "gap", "10px"],
-      ["class", "button--justify-start"],
-      ["class", "tooltip"],
-      ["attr", "aria-label", "Download all components"],
-      ["click", () => fsm({ action: "DOWNLOAD_ALL" })]
-    )(html.span()("capui.zip"), html.span()("[↓]")),
-    html.button(
-      ["class", "button"],
-      ["class", "button--light"],
-      ["class", "button--outline"],
-      ["class", "button--block"],
-      ["style", "marginBottom", "10px"],
-      ["class", "button--justify-start"],
-      ["click", () => fsm({ action: "SET_PAGE", page: "HOME" })]
-    )("Home"),
-    html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "THEME" })])("Theme"),
-    html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "UTILITY" })])("Utility"),
-    html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "ACCORDION" })])("Accordion"),
-    html.button(...navButtonStyle)("Alerts"),
-    html.button(...navButtonStyle)("Badge"),
-    html.button(...navButtonStyle, ["click", () => fsm({ action: "SET_PAGE", page: "BUTTON" })])("Button"),
-    html.button(...navButtonStyle)("Card"),
-    html.button(...navButtonStyle)("Dashboard"),
-    html.button(...navButtonStyle)("Dialog"),
-    html.button(...navButtonStyle)("Flexpane"),
-    html.button(...navButtonStyle)("Grid"),
-    html.button(...navButtonStyle)("Tag")
-  )
-);
-
-const NavFooter = html.div(["class", "dashboard__nav-footer"])("©Copyright 2024");
-
-const MainHeader = html.div(
-  ["class", "dashboard__main-header"],
-  ["innerHTML:pages", () => "Home", () => pageState.get() === "HOME"],
-  ["innerHTML:pages", () => "Accordion", () => pageState.get() === "ACCORDION"],
-  ["innerHTML:pages", ThemePicker, () => pageState.get() === "BUTTON"],
-  ["innerHTML:pages", ThemePicker, () => pageState.get() === "THEME"],
-  ["innerHTML:pages", () => "Utility", () => pageState.get() === "UTILITY"]
-)();
-
-const Main = html.div(
-  ["class", "dashboard__main"],
-  ["innerHTML:pages", () => "Home", () => pageState.get() === "HOME"],
-  ["innerHTML:pages", () => "Accordion", () => pageState.get() === "ACCORDION"],
-  ["innerHTML:pages", ButtonPage, () => pageState.get() === "BUTTON"],
-  ["innerHTML:pages", ThemePage, () => pageState.get() === "THEME"],
-  ["innerHTML:pages", () => "Utility", () => pageState.get() === "UTILITY"]
-)();
-
-const MainFooter = html.div(
-  ["class", "dashboard__main-footer"],
-  ["class", "dashboard__nav-footer"]
+const Header = html.div(
+  ["row", "10px", "center", "space-between"],
+  ["style", "backgroundColor", "var(--background-500, white)"],
+  ["style", "color", "var(--text-500, black)"]
 )(
-  html.span()(
-    "All rights reserved. Made in the USA 🇺🇸 by ",
-    html.a(
-      ["attr", "href", "https://kevinlint.com"],
-      ["attr", "target", "_blank"],
-      ["style", "color", "white"]
-    )("Kevin Lint"),
-    " as a product of ",
-    html.a(
-      ["attr", "href", "https://github.com/linttrapmedia"],
-      ["attr", "target", "_blank"],
-      ["style", "color", "white"]
-    )("Lint Trap Media.")
+  html.div(["row", "2ch"], ["style", "padding", "0 2ch"])(
+    html.div(
+      ["style", "color", "var(--brand-500)"],
+      ["style", "height", "100%"],
+      ["style", "fontFamily", "Splash"],
+      ["style", "fontWeight", "bold"],
+      ["style", "fontSize", "5ch"],
+      ["style", "textAlign", "center"]
+    )("cap"),
+    html.div(
+      ["style", "color", "var(--brand-500)"],
+      ["style", "height", "100%"],
+      ["style", "fontWeight", "bold"],
+      ["style", "fontSize", "0.5ch"],
+      ["style", "textAlign", "center"]
+    )("v1.0.0")
+  ),
+  html.div(["row", "20px"], ["style", "padding", "0 20px"])(
+    html.select(
+      ["class", "dropdown"],
+      ["change", (e) => fsm({ action: "SET_THEME", theme: (e!.target as any).value as string })]
+    )(
+      html.optgroup(["attr", "label", "Pick a theme"])(
+        html.option(["attr", "value", "none"])("none"),
+        ...Object.keys(themes.get()).map((t: string) =>
+          html.option(["attr", "value", t], ["attr", "selected", t === theme.get()])(t)
+        )
+      )
+    ),
+    html.select(
+      ["class", "dropdown"],
+      ["class", "dropdown--small"],
+      ["change", (e) => (window.location.hash = (e!.target as any).value)]
+    )(
+      html.optgroup(["attr", "label", "Section"])(
+        html.option()("tokens"),
+        html.option()("buttons"),
+        html.option()("dropdown"),
+        html.option()("accordion"),
+        html.option()("alerts"),
+        html.option()("badge"),
+        html.option()("bg"),
+        html.option()("card"),
+        html.option()("dashboard"),
+        html.option()("dialog"),
+        html.option()("flexgrid"),
+        html.option()("flexpane"),
+        html.option()("grid"),
+        html.option()("section"),
+        html.option()("toggles"),
+        html.option()("tooltip")
+      )
+    ),
+
+    html.button(["class", "button"], ["class", "button--medium"])("Download [↓]")
   )
 );
-
-const AsideHeader = html.div(["class", "dashboard__aside-header"])("Aside Header");
-
-const Aside = html.aside(
-  ["class", "dashboard__aside"],
-  ["innerHTML:properties", ThemeColorPicker, () => propertiesState.get() === "COLOR_PICKER"]
-)();
-
-const AsideFooter = html.aside(["class", "dashboard__aside-footer"])("Aside footer");
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
-  root(
-    ["class", "dashboard"],
-    ["innerHTML", () => [NavHeader, Nav, NavFooter, MainHeader, Main, MainFooter, AsideHeader, Aside, AsideFooter]]
-  );
+  const doc = html.$el("html");
+  doc(["attr:theme", "data-theme", theme.get]);
+  root(["innerHTML", () => [Header]]);
+  fsm({ action: "RENDER_ALL_STYLESHEETS" });
 
-  // load style sheets
-  syncTokensStyleSheet();
-  syncDashboardStyleSheet();
-  syncAccordionStyleSheet();
-  syncAlertsStyleSheet();
-  syncBadgeStyleSheet();
-  syncBGStyleSheet();
-  syncButtonStyleSheet();
-  syncCardStyleSheet();
-  syncDashboardStyleSheet();
-  syncDialogStyleSheet();
-  syncDropdownStyleSheet();
-  syncFlexGridStyleSheet();
-  syncFlexpaneStyleSheet();
-  syncGridStyleSheet();
-  syncSectionStyleSheet();
-  syncTogglesStyleSheet();
-  syncTooltipStyleSheet();
   document.adoptedStyleSheets = [
     tokensStyleSheet,
     accordionStyleSheet,

@@ -1,6 +1,6 @@
 export const flexpaneStyleSheet = new CSSStyleSheet();
 
-export const syncFlexpaneStyleSheet = () =>
+export const renderFlexpaneStyleSheet = () =>
   flexpaneStyleSheet.replaceSync(`:root {
 
 }

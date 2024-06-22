@@ -1,6 +1,6 @@
 export const gridStyleSheet = new CSSStyleSheet();
 
-export const syncGridStyleSheet = () =>
+export const renderGridStyleSheet = () =>
   gridStyleSheet.replaceSync(`.grid {
   --bg-color: var(--token-black, black);
   --desktop-columns: 12;

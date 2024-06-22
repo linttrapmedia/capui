@@ -1,6 +1,6 @@
 export const badgeStyleSheet = new CSSStyleSheet();
 
-export const syncBadgeStyleSheet = () =>
+export const renderBadgeStyleSheet = () =>
   badgeStyleSheet.replaceSync(`/* 
 Usage:
 <span class="badge badge-[MODIFIER]">Basic</badge>
