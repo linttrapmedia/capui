@@ -20,8 +20,11 @@ import { html } from "./template";
 
 const Header = html.div(
   ["row", "10px", "center", "space-between"],
-  ["style", "backgroundColor", "var(--background-500, white)"],
-  ["style", "color", "var(--text-500, black)"]
+  ["style", "backgroundColor", "var(--background-600, white)"],
+  ["style", "color", "var(--text-500, black)"],
+  ["style", "position", "fixed"],
+  ["style", "top", "0"],
+  ["style", "width", "100%"]
 )(
   html.div(["row", "2ch"], ["style", "padding", "0 2ch"])(
     html.div(
@@ -40,18 +43,10 @@ const Header = html.div(
       ["style", "textAlign", "center"]
     )("v1.0.0")
   ),
-  html.div(["row", "20px"], ["style", "padding", "0 20px"])(
-    html.select(
-      ["class", "dropdown"],
-      ["change", (e) => fsm({ action: "SET_THEME", theme: (e!.target as any).value as string })]
-    )(
-      html.optgroup(["attr", "label", "Pick a theme"])(
-        html.option(["attr", "value", "none"])("none"),
-        ...Object.keys(themes.get()).map((t: string) =>
-          html.option(["attr", "value", t], ["attr", "selected", t === theme.get()])(t)
-        )
-      )
-    ),
+  html.div(
+    ["row", "20px"],
+    ["style", "padding", "0 20px"]
+  )(
     html.select(
       ["class", "dropdown"],
       ["class", "dropdown--small"],
@@ -75,17 +70,40 @@ const Header = html.div(
         html.option()("toggles"),
         html.option()("tooltip")
       )
-    ),
-
-    html.button(["class", "button"], ["class", "button--medium"])("Download [↓]")
+    )
   )
+);
+
+const Body = html.div()("Body");
+
+const Footer = html.div(
+  ["row", "2ch"],
+  ["style", "backgroundColor", "var(--background-600)"],
+  ["style", "position", "fixed"],
+  ["style", "bottom", "0"],
+  ["style", "width", "100%"],
+  ["style", "color", "var(--text-500, black)"],
+  ["style", "padding", "2ch"]
+)(
+  html.select(
+    ["class", "dropdown"],
+    ["change", (e) => fsm({ action: "SET_THEME", theme: (e!.target as any).value as string })]
+  )(
+    html.optgroup(["attr", "label", "Pick a theme"])(
+      html.option(["attr", "value", "none"])("none"),
+      ...Object.keys(themes.get()).map((t: string) =>
+        html.option(["attr", "value", t], ["attr", "selected", t === theme.get()])(t)
+      )
+    )
+  ),
+  html.button(["class", "button"])("capui.zip")
 );
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
   const doc = html.$el("html");
-  doc(["attr:theme", "data-theme", theme.get]);
-  root(["innerHTML", () => [Header]]);
+  doc(["attr:theme", "data-theme", theme.get], ["style", "backgroundColor", "var(--background-500)"]);
+  root(["innerHTML", () => [Header, Body, Footer]]);
   fsm({ action: "RENDER_ALL_STYLESHEETS" });
 
   document.adoptedStyleSheets = [

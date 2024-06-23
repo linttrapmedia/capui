@@ -1,4 +1,4 @@
-export type DropdownSettings = {
+export type ButtonSettings = {
   bgColorHoverToken: `--${string}`;
   bgColorToken: `--${string}`;
   borderColorToken: `--${string}`;
@@ -11,7 +11,7 @@ export type DropdownSettings = {
   lineHeight: number;
 };
 
-export const DEFAULT_DROPDOWN_SETTINGS: DropdownSettings = {
+export const DEFAULT_BUTTON_SETTINGS: ButtonSettings = {
   bgColorHoverToken: "--background-700",
   bgColorToken: "--background-500",
   borderColorToken: "--foreground-100",

@@ -1,4 +1,5 @@
 import { State } from "@linttrap/oem";
+import { ButtonSettings, DEFAULT_BUTTON_SETTINGS } from "./components/button/button-vars";
 import { DEFAULT_DROPDOWN_SETTINGS, DropdownSettings } from "./components/dropdown/dropdown-vars";
 
 type Palette = {
@@ -32,6 +33,7 @@ type Theme = {
     saturationRange: number;
     lightnessRange: number;
   };
+  button: ButtonSettings;
   dropdown: DropdownSettings;
   scaling: {
     borders: number;
@@ -49,35 +51,48 @@ const DEFAULT_THEMES: Record<string, Theme> = {
     colors: {
       palette: {
         black: "#333333",
-        red: "#ff6f61",
-        orange: "#ffb347",
+        red: "#d38459",
+        orange: "#f1be78",
         yellow: "#fffacd",
         green: "#77dd77",
         blue: "#aec6cf",
         purple: "#c3b1e1",
         pink: "#ffb6c1",
-        white: "#ffffff",
+        white: "#e2e2e2",
       },
       semantic: {
         action: "blue",
-        background: "black",
+        background: "blue",
         brand: "red",
         error: "red",
-        foreground: "black",
+        foreground: "white",
         info: "blue",
         success: "green",
-        text: "white",
+        text: "black",
         warning: "yellow",
       },
-      saturationRange: 0.5,
-      lightnessRange: 0.25,
+      saturationRange: 1,
+      lightnessRange: 1,
+    },
+    button: {
+      ...DEFAULT_BUTTON_SETTINGS,
+      colorToken: "--black-600",
+      fontSize: 1.25,
+      lineHeight: 4,
+      borderWidth: 0.25,
+      bgColorToken: "--background-700",
+      bgColorHoverToken: "--background-800",
+      borderColorToken: "--background-400",
     },
     dropdown: {
       ...DEFAULT_DROPDOWN_SETTINGS,
+      colorToken: "--black-600",
       fontSize: 1.25,
       lineHeight: 4,
-      borderWidth: 0,
-      bgColorToken: "--background-800",
+      borderWidth: 0.25,
+      bgColorToken: "--background-700",
+      bgColorHoverToken: "--background-800",
+      borderColorToken: "--background-400",
     },
     scaling: {
       borders: 1,
@@ -116,6 +131,7 @@ const DEFAULT_THEMES: Record<string, Theme> = {
       saturationRange: 0.1,
       lightnessRange: 0.25,
     },
+    button: DEFAULT_BUTTON_SETTINGS,
     dropdown: DEFAULT_DROPDOWN_SETTINGS,
     scaling: {
       borders: 1,

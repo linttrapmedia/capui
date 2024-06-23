@@ -19,11 +19,11 @@ export const renderDropdownStyleSheet = () => {
     --dropdown-font-size: ${settings.fontSize}ch;
     --dropdown-font-weight: ${settings.fontWeight};
     --dropdown-line-height: ${settings.lineHeight}ch;
-    --dropdown-arrow-size: ${settings.fontSize * 0.5}ch;
+    --dropdown-arrow-size: ${settings.lineHeight * 0.21}ch;
 
     appearance: none;
     border-radius: var(--dropdown-border-radius);
-    border: var(--dropdown-border-width) solid var(--dropdown-color);
+    border: var(--dropdown-border-width) solid var(--dropdown-border-color);
     color: var(--dropdown-color);
     cursor: pointer;
     display: block;
@@ -41,11 +41,11 @@ export const renderDropdownStyleSheet = () => {
     background-size: 
       var(--dropdown-arrow-size) var(--dropdown-arrow-size), 
       var(--dropdown-arrow-size) var(--dropdown-arrow-size),
-      2px var(--dropdown-line-height);
+      var(--dropdown-border-width) var(--dropdown-line-height);
     background-position: 
       calc(100% - calc(var(--dropdown-line-height) / 2) - calc(var(--dropdown-arrow-size) / 2)) center, 
       calc(100% - calc(var(--dropdown-line-height) / 2) - calc(var(--dropdown-arrow-size) / 2) + var(--dropdown-arrow-size)) center,
-      calc(100% - calc(var(--dropdown-line-height) * 1.25 - calc(var(--dropdown-arrow-size) / 2))) center;
+      calc(100% - calc(var(--dropdown-line-height) * 1.25 + var(--dropdown-border-width) - calc(var(--dropdown-arrow-size) / 2))) center;
     background-repeat: no-repeat;
 }
 
