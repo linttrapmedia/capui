@@ -17,7 +17,7 @@ export const html = HTML({
   // "innerHTML:pages": useInnerHTML({ state: pageState }),
   // "innerHTML:properties": useInnerHTML({ state: propertiesState }),
   // "innerHTML:themes": useInnerHTML({ state: themesState }),
-  // "innerHTML:theme": useInnerHTML({ state: themeState }),
+  "innerHTML:theme": useInnerHTML({ state: theme }),
   // "innerText:pages": useTextContent({ state: pageState }),
   // "style:themes": useStyle({ state: themesState }),
   // "svg:load": useSVGImage(),

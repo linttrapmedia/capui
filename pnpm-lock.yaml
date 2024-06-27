@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@linttrap/oem':
-    specifier: ^0.1.11
-    version: 0.1.11
+    specifier: ^0.1.12
+    version: 0.1.12
   css.gg:
     specifier: ^2.1.1
     version: 2.1.1
@@ -49,8 +49,8 @@ devDependencies:
 
 packages:
 
-  /@linttrap/oem@0.1.11:
-    resolution: {integrity: sha512-+aiaB7MyMKaJiqILXTgY30NVvFgkGw5g0ez+7RkwyxZ35LUBpfBpX19UJQSk0rUSBnKnr0c9RC748pI4+sx4fA==}
+  /@linttrap/oem@0.1.12:
+    resolution: {integrity: sha512-UP6M4qP5DQitqPA0IkGzm5hbFBnIQLjyni03fiLpCJYaqQYcoqQEqs8EMdIGaUnlGsnX9mc9wvM9tJ1qvIOBFw==}
     dev: false
 
   /@playwright/test@1.41.2:

@@ -1,7 +1,7 @@
+import { PaletteList } from "../../features/PaletteList";
 import { fsm } from "../../fsm";
 import { Tokens, themeState, themesState } from "../../state";
 import { html } from "../../template";
-import { PaletteList } from "./PaletteList";
 
 const ColorCard = (colorKey: keyof Tokens["colors"]) => {
   const colorHue = `--token-color-${colorKey}-contrast-hue`;

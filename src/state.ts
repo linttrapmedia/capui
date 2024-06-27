@@ -1,6 +1,8 @@
 import { State } from "@linttrap/oem";
-import { ButtonSettings, DEFAULT_BUTTON_SETTINGS } from "./components/button/button-vars";
-import { DEFAULT_DROPDOWN_SETTINGS, DropdownSettings } from "./components/dropdown/dropdown-vars";
+import { ButtonSettings, DEFAULT_BUTTON_SETTINGS } from "./components/button/button";
+import { DEFAULT_DROPDOWN_SETTINGS, DropdownSettings } from "./components/dropdown/dropdown";
+import { DEFAULT_SLIDER_SETTINGS, SliderSettings } from "./components/slider/slider";
+import { DEFAULT_TYPOGRAPHY_SETTINGS, TypographySettings } from "./components/typography/typography";
 
 type Palette = {
   black: string;
@@ -30,19 +32,21 @@ type Theme = {
   colors: {
     palette: Palette;
     semantic: Semantic;
-    saturationRange: number;
-    lightnessRange: number;
   };
   button: ButtonSettings;
   dropdown: DropdownSettings;
+  slider: SliderSettings;
+  typography: TypographySettings;
   scaling: {
-    borders: number;
-    colGap: number;
-    icon: number;
+    borderWidth: number;
+    borderRadius: number;
+    columnWidth: number;
+    fontSize: number;
+    iconSize: number;
+    rowWidth: number;
     padding: number;
-    rowGap: number;
-    text: number;
-    weight: number;
+    saturation: number;
+    lightness: number;
   };
 };
 
@@ -62,24 +66,19 @@ const DEFAULT_THEMES: Record<string, Theme> = {
       },
       semantic: {
         action: "blue",
-        background: "blue",
+        background: "purple",
         brand: "red",
         error: "red",
         foreground: "white",
         info: "blue",
         success: "green",
-        text: "black",
+        text: "red",
         warning: "yellow",
       },
-      saturationRange: 1,
-      lightnessRange: 1,
     },
     button: {
       ...DEFAULT_BUTTON_SETTINGS,
       colorToken: "--black-600",
-      fontSize: 1.25,
-      lineHeight: 4,
-      borderWidth: 0.25,
       bgColorToken: "--background-700",
       bgColorHoverToken: "--background-800",
       borderColorToken: "--background-400",
@@ -87,21 +86,23 @@ const DEFAULT_THEMES: Record<string, Theme> = {
     dropdown: {
       ...DEFAULT_DROPDOWN_SETTINGS,
       colorToken: "--black-600",
-      fontSize: 1.25,
-      lineHeight: 4,
-      borderWidth: 0.25,
       bgColorToken: "--background-700",
       bgColorHoverToken: "--background-800",
       borderColorToken: "--background-400",
+      borderColorHoverToken: "--background-500",
     },
+    slider: { ...DEFAULT_SLIDER_SETTINGS },
+    typography: { ...DEFAULT_TYPOGRAPHY_SETTINGS, colorToken: "--white-500" },
     scaling: {
-      borders: 1,
-      colGap: 1,
-      icon: 1,
+      borderRadius: 1,
+      borderWidth: 0.5,
+      columnWidth: 1,
+      fontSize: 2,
+      iconSize: 2,
+      rowWidth: 1,
       padding: 1,
-      rowGap: 1,
-      text: 1,
-      weight: 1,
+      saturation: 0.25,
+      lightness: 0.5,
     },
   },
   rich: {
@@ -128,19 +129,21 @@ const DEFAULT_THEMES: Record<string, Theme> = {
         text: "white",
         warning: "yellow",
       },
-      saturationRange: 0.1,
-      lightnessRange: 0.25,
     },
     button: DEFAULT_BUTTON_SETTINGS,
     dropdown: DEFAULT_DROPDOWN_SETTINGS,
+    slider: { ...DEFAULT_SLIDER_SETTINGS },
+    typography: { ...DEFAULT_TYPOGRAPHY_SETTINGS },
     scaling: {
-      borders: 1,
-      colGap: 1,
-      icon: 1,
+      borderRadius: 1,
+      borderWidth: 0,
+      columnWidth: 1,
+      fontSize: 1,
+      iconSize: 1,
+      rowWidth: 1,
       padding: 1,
-      rowGap: 1,
-      text: 1,
-      weight: 1,
+      saturation: 0.1,
+      lightness: 0.25,
     },
   },
 };

@@ -1,5 +1,26 @@
 import { theme, themes } from "../../state";
-import { DEFAULT_DROPDOWN_SETTINGS } from "./dropdown-vars";
+
+export type DropdownSettings = {
+  bgColorHoverToken: `--${string}`;
+  bgColorToken: `--${string}`;
+  borderColorToken: `--${string}`;
+  borderColorHoverToken: `--${string}`;
+  borderRadiusToken: `--${string}`;
+  borderWidthToken: `--${string}`;
+  colorHoverToken: `--${string}`;
+  colorToken: `--${string}`;
+};
+
+export const DEFAULT_DROPDOWN_SETTINGS: DropdownSettings = {
+  bgColorHoverToken: "--background-700",
+  bgColorToken: "--background-500",
+  borderColorToken: "--foreground-100",
+  borderColorHoverToken: "--foreground-200",
+  borderRadiusToken: "--radius-scaling",
+  borderWidthToken: "--borders-scaling",
+  colorHoverToken: "--text-500",
+  colorToken: "--text-500",
+};
 
 export const dropdownStyleSheet = new CSSStyleSheet();
 
@@ -12,14 +33,14 @@ export const renderDropdownStyleSheet = () => {
     --dropdown-bg-color: var(${settings.bgColorToken}, white);
     --dropdown-bg-color-hover: var(${settings.bgColorHoverToken}, rgba(0, 0, 0, 0.1));
     --dropdown-border-color: var(${settings.borderColorToken}, black);
-    --dropdown-border-radius: ${settings.borderRadius}ch;
-    --dropdown-border-width: ${settings.borderWidth}ch;
     --dropdown-color: var(${settings.colorToken}, black);
     --dropdown-color-hover: var(${settings.colorHoverToken}, black);
-    --dropdown-font-size: ${settings.fontSize}ch;
-    --dropdown-font-weight: ${settings.fontWeight};
-    --dropdown-line-height: ${settings.lineHeight}ch;
-    --dropdown-arrow-size: ${settings.lineHeight * 0.21}ch;
+    --dropdown-border-radius: calc(0.5 * var(${settings.borderRadiusToken}, 1));
+    --dropdown-border-width: calc(0.25 * var(${settings.borderWidthToken}, 1));
+    --dropdown-font-size: calc(1.5 * var(--font-scaling));
+    --dropdown-font-weight: 500;
+    --dropdown-line-height: calc(4 * var(--font-scaling));
+    --dropdown-arrow-size: calc(0.8 * var(--font-scaling));
 
     appearance: none;
     border-radius: var(--dropdown-border-radius);
@@ -47,7 +68,10 @@ export const renderDropdownStyleSheet = () => {
       calc(100% - calc(var(--dropdown-line-height) / 2) - calc(var(--dropdown-arrow-size) / 2) + var(--dropdown-arrow-size)) center,
       calc(100% - calc(var(--dropdown-line-height) * 1.25 + var(--dropdown-border-width) - calc(var(--dropdown-arrow-size) / 2))) center;
     background-repeat: no-repeat;
+    position: relative;
 }
+
+
 
 .dropdown[disabled] {
     cursor: not-allowed;

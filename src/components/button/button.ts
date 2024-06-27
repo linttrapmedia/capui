@@ -1,5 +1,22 @@
 import { theme, themes } from "../../state";
-import { DEFAULT_BUTTON_SETTINGS } from "./button-vars";
+
+export type ButtonSettings = {
+  bgColorHoverToken: `--${string}`;
+  bgColorToken: `--${string}`;
+  borderColorToken: `--${string}`;
+  borerColorHoverToken: `--${string}`;
+  colorHoverToken: `--${string}`;
+  colorToken: `--${string}`;
+};
+
+export const DEFAULT_BUTTON_SETTINGS: ButtonSettings = {
+  bgColorHoverToken: "--background-700",
+  bgColorToken: "--background-500",
+  borderColorToken: "--foreground-100",
+  borerColorHoverToken: "--foreground-200",
+  colorHoverToken: "--text-500",
+  colorToken: "--text-500",
+};
 
 export const buttonStyleSheet = new CSSStyleSheet();
 

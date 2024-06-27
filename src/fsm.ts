@@ -11,9 +11,11 @@ import { flexgridStyleSheet, renderFlexGridStyleSheet } from "./components/flexg
 import { flexpaneStyleSheet, renderFlexpaneStyleSheet } from "./components/flexpane/flexpane";
 import { gridStyleSheet, renderGridStyleSheet } from "./components/grid/grid";
 import { renderSectionStyleSheet, sectionStyleSheet } from "./components/section/section";
+import { renderSliderStyleSheet } from "./components/slider/slider";
 import { renderTogglesStyleSheet, togglesStyleSheet } from "./components/toggles/toggles";
 import { renderTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
 import { renderTooltipStyleSheet, tooltipStyleSheet } from "./components/tooltip/tooltip";
+import { renderTypographyStylesheet } from "./components/typography/typography";
 import { theme } from "./state";
 import { getStylesheetContents } from "./util/css";
 
@@ -41,27 +43,6 @@ type FSM =
     };
 
 const zip = new JSZip();
-
-const renderAllStyleSheets = () => {
-  // load style sheets
-  renderTokensStyleSheet();
-  renderDashboardStyleSheet();
-  renderAccordionStyleSheet();
-  renderAlertsStyleSheet();
-  renderBadgeStyleSheet();
-  renderBGStyleSheet();
-  renderButtonStyleSheet();
-  renderCardStyleSheet();
-  renderDashboardStyleSheet();
-  renderDialogStyleSheet();
-  renderDropdownStyleSheet();
-  renderFlexGridStyleSheet();
-  renderFlexpaneStyleSheet();
-  renderGridStyleSheet();
-  renderSectionStyleSheet();
-  renderTogglesStyleSheet();
-  renderTooltipStyleSheet();
-};
 
 export const fsm = (msg: FSM) => {
   switch (msg.action) {
@@ -122,8 +103,10 @@ export const fsm = (msg: FSM) => {
       renderFlexpaneStyleSheet();
       renderGridStyleSheet();
       renderSectionStyleSheet();
+      renderSliderStyleSheet();
       renderTogglesStyleSheet();
       renderTooltipStyleSheet();
+      renderTypographyStylesheet();
       break;
   }
 };

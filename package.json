@@ -36,7 +36,7 @@
   },
   "scripts": {},
   "dependencies": {
-    "@linttrap/oem": "^0.1.11",
+    "@linttrap/oem": "^0.1.12",
     "css.gg": "^2.1.1"
   }
 }

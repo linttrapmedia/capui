@@ -11,9 +11,13 @@ import { flexgridStyleSheet } from "./components/flexgrid/flexgrid";
 import { flexpaneStyleSheet } from "./components/flexpane/flexpane";
 import { gridStyleSheet } from "./components/grid/grid";
 import { sectionStyleSheet } from "./components/section/section";
+import { sliderStyleSheet } from "./components/slider/slider";
 import { togglesStyleSheet } from "./components/toggles/toggles";
 import { tokensStyleSheet } from "./components/tokens/tokens";
 import { tooltipStyleSheet } from "./components/tooltip/tooltip";
+import { typographyStylesheet } from "./components/typography/typography";
+import { PaletteList } from "./features/PaletteList";
+import { BezierPlotter } from "./features/ScalePicker";
 import { fsm } from "./fsm";
 import { theme, themes } from "./state";
 import { html } from "./template";
@@ -22,7 +26,7 @@ const Header = html.div(
   ["row", "10px", "center", "space-between"],
   ["style", "backgroundColor", "var(--background-600, white)"],
   ["style", "color", "var(--text-500, black)"],
-  ["style", "position", "fixed"],
+  ["style", "position", "sticky"],
   ["style", "top", "0"],
   ["style", "width", "100%"]
 )(
@@ -49,7 +53,6 @@ const Header = html.div(
   )(
     html.select(
       ["class", "dropdown"],
-      ["class", "dropdown--small"],
       ["change", (e) => (window.location.hash = (e!.target as any).value)]
     )(
       html.optgroup(["attr", "label", "Section"])(
@@ -74,7 +77,30 @@ const Header = html.div(
   )
 );
 
-const Body = html.div()("Body");
+const Body = html.div(
+  ["column", "20px", "flex-start", "space-between"],
+  ["style", "width", "100%"],
+  ["style", "padding", "20px"],
+  [
+    "innerHTML:theme",
+    () => [
+      html.div(["row", "5px"])(
+        BezierPlotter(100, -1, 5),
+        BezierPlotter(100, -0.5, 5),
+        BezierPlotter(100, -0.25, 5),
+        BezierPlotter(100, 0, 5),
+        BezierPlotter(100, 0.25, 5),
+        BezierPlotter(100, 0.5, 5),
+        BezierPlotter(100, 1, 5)
+      ),
+      html.div(["column", "0", "flex-start"])(
+        html.div(["class", "h2"])("Palette"),
+        html.p(["class", "p"])("Select a color row to edit")
+      ),
+      PaletteList(),
+    ],
+  ]
+)();
 
 const Footer = html.div(
   ["row", "2ch"],
@@ -102,7 +128,7 @@ const Footer = html.div(
 document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
   const doc = html.$el("html");
-  doc(["attr:theme", "data-theme", theme.get], ["style", "backgroundColor", "var(--background-500)"]);
+  doc(["attr:theme", "data-theme", theme.get], ["style", "backgroundColor", "var(--background-600)"]);
   root(["innerHTML", () => [Header, Body, Footer]]);
   fsm({ action: "RENDER_ALL_STYLESHEETS" });
 
@@ -121,7 +147,9 @@ document.addEventListener("DOMContentLoaded", () => {
     flexpaneStyleSheet,
     gridStyleSheet,
     sectionStyleSheet,
+    sliderStyleSheet,
     togglesStyleSheet,
     tooltipStyleSheet,
+    typographyStylesheet,
   ];
 });
