@@ -2,16 +2,16 @@ import { HTML, SVG, State, useAttribute, useClassName, useEvent, useInnerHTML, u
 import { useColumn } from "../traits";
 import { generateBezierCurve } from "../util/helpers";
 
-type BezierPlotterProps = {
+type ScalePickerProps = {
   size: number;
   curvature: number;
   steps: number;
-  d: string;
+  coordinates: { xs: number[]; ys: number[]; d: string };
   name: string;
 };
 
-export const BezierPlotter = (props: BezierPlotterProps) => {
-  const state = State<BezierPlotterProps>(props, {
+export const ScalePicker = (props: ScalePickerProps) => {
+  const state = State<ScalePickerProps>(props, {
     key: props.name,
     storage: sessionStorage,
   });
@@ -32,9 +32,11 @@ export const BezierPlotter = (props: BezierPlotterProps) => {
   });
   const padFactor = 0.4;
 
-  const calcD = () => {
+  const getCoordinates = () => {
     const { size, curvature, steps } = state.get();
     const coordinates = generateBezierCurve(size, curvature, steps);
+    const xs = coordinates.map((p) => p.x);
+    const ys = coordinates.map((p) => p.y);
     const points = coordinates.map((p) => ({ x: p.x + (size * padFactor) / 2, y: p.y + (size * padFactor) / 2 }));
     let d = `M ${points[0].x} ${points[0].y}`;
     for (let i = 1; i < points.length - 1; i++) {
@@ -45,7 +47,7 @@ export const BezierPlotter = (props: BezierPlotterProps) => {
       d += ` Q ${points[i].x} ${points[i].y} ${cp.x} ${cp.y}`;
     }
     d += ` T ${points[points.length - 1].x} ${points[points.length - 1].y}`;
-    return d;
+    return { d, xs, ys };
   };
 
   return html.div(
@@ -64,7 +66,7 @@ export const BezierPlotter = (props: BezierPlotterProps) => {
           ["attr", "width", "100px"],
           ["style", "borderRadius", "5px"],
           ["style", "fill", "transparent"],
-          ["style", "stroke", "var(--black-500)"]
+          ["style", "stroke", "var(--black-500, black)"]
         )(
           svg.rect(
             ["attr", "width", 100 + state.get().size * padFactor],
@@ -72,7 +74,7 @@ export const BezierPlotter = (props: BezierPlotterProps) => {
           )(),
           // curved path for coordinates
           svg.path(
-            ["attr", "d", () => state.get().d || calcD()],
+            ["attr", "d", () => state.get().coordinates.d || getCoordinates().d],
             ["attr", "fill", "none"],
             ["attr", "stroke-linecap", "round"],
             ["attr", "stroke-width", (state.get().size * padFactor) / 8],
@@ -90,8 +92,8 @@ export const BezierPlotter = (props: BezierPlotterProps) => {
             "change",
             (e) => {
               const curvature = parseFloat((e!.target as any).value);
-              const d = calcD();
-              state.set({ ...state.get(), curvature, d });
+              const coordinates = getCoordinates();
+              state.set({ ...state.get(), curvature, coordinates });
             },
           ]
         )(),

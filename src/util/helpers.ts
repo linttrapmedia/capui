@@ -126,6 +126,13 @@ export const generateColorVariation = (
   return { hue, saturation: rangedSaturation, lightness: rangedLightness };
 };
 
+export const rescaleNumbers = ({ numbers, scale }: { numbers: number[]; scale: number }) => {
+  const firstNumber = numbers[0];
+  const lastNumber = numbers[numbers.length - 1];
+  const scaledNumbers = numbers.map((number) => firstNumber + (number / lastNumber) * scale);
+  return scaledNumbers;
+};
+
 export function scaleNumbers(
   range: number,
   startValue: number,

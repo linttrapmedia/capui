@@ -31,6 +31,8 @@ export const html = HTML({
   innerHTML: useInnerHTML(),
   input: useEvent({ event: "input" }),
   style: useStyle(),
+  "mobile:style": useStyle({ mediaMinWidth: 0 }),
+  "tablet:style": useStyle({ mediaMinWidth: 768 }),
   column: useColumn,
   row: useRow,
 });
