@@ -29,13 +29,13 @@ export const renderSliderStyleSheet = () => {
 
   return sliderStyleSheet.replaceSync(`
 .slider { 
-  --slider-bg-color: var(${settings.bgColorToken}, black);
-  --slider-bg-color-hover: var(${settings.bgColorHoverToken}, rgba(0, 0, 0, 0.1));
+  --slider-bg-color: var(${settings.bgColorToken}, rgba(0, 0, 0, 0.2));
+  --slider-bg-color-hover: var(${settings.bgColorHoverToken}, rgba(0, 0, 0, 0.2));
   --slider-border-color: var(${settings.borderColorToken}, black);
-  --slider-border-radius: ${settings.borderRadius}ch;
+  --slider-border-radius: var(${settings.borderRadius}ch, 1ch);
   --slider-border-width: ${settings.borderWidth}ch;
-  --slider-color: var(${settings.colorToken}, white);
-  --slider-color-hover: var(${settings.colorHoverToken}, black);
+  --slider-color: var(${settings.colorToken}, black);
+  --slider-color-hover: var(${settings.colorHoverToken}, grey);
 }
 
 .slider {

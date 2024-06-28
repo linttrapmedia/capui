@@ -85,13 +85,13 @@ const Body = html.div(
     "innerHTML:theme",
     () => [
       html.div(["row", "5px"])(
-        BezierPlotter(100, -1, 5),
-        BezierPlotter(100, -0.5, 5),
-        BezierPlotter(100, -0.25, 5),
-        BezierPlotter(100, 0, 5),
-        BezierPlotter(100, 0.25, 5),
-        BezierPlotter(100, 0.5, 5),
-        BezierPlotter(100, 1, 5)
+        BezierPlotter({
+          size: 100,
+          curvature: 0,
+          steps: 100,
+          d: "",
+          name: "border-radius",
+        })
       ),
       html.div(["column", "0", "flex-start"])(
         html.div(["class", "h2"])("Palette"),

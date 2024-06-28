@@ -61,6 +61,6 @@ export const renderTokensStyleSheet = () => {
     tokens += `}\n`;
   }
 
-  console.log(tokens);
+  // console.log(tokens);
   tokensStyleSheet.replaceSync(tokens);
 };
