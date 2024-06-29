@@ -17,7 +17,7 @@ import { tokensStyleSheet } from "./components/tokens/tokens";
 import { tooltipStyleSheet } from "./components/tooltip/tooltip";
 import { typographyStylesheet } from "./components/typography/typography";
 import { PaletteList } from "./features/PaletteList";
-import { ScalePicker } from "./features/ScalePicker";
+import { SemanticList } from "./features/SemanticList";
 import { fsm } from "./fsm";
 import { theme, themes } from "./state";
 import { html } from "./template";
@@ -85,10 +85,10 @@ const Body = html.div(
   [
     "innerHTML:theme",
     () => [
-      html.div(["column", "0", "flex-start", "center", "100%"])(
-        html.div(["class", "h3"])("Palette"),
-        html.p(["class", "p"])("Select a color row to edit"),
-        PaletteList()
+      html.div(["column", "20px", "flex-start", "center", "100%"])(html.div(["class", "h3"])("Palette"), PaletteList()),
+      html.div(["column", "20px", "flex-start", "center", "100%"])(
+        html.div(["class", "h3"])("Semantic"),
+        SemanticList()
       ),
       html.div(
         ["style", "display", "flex"],
@@ -96,87 +96,9 @@ const Body = html.div(
         ["style", "width", "100%"],
         ["style", "alignItems", "center"],
         ["style", "justifyContent", "center"],
-        ["mobile:style", "flexDirection", "column"],
-        ["tablet:style", "flexDirection", "row"]
-      )(
-        html.div(["column", "0", "center", "center"])(
-          html.div(["class", "h3"])("Border Width"),
-          html.p(["class", "p"])("Set the border width scale"),
-          ScalePicker({
-            size: 100,
-            curvature: 0,
-            steps: 100,
-            coordinates: { d: "", xs: [], ys: [] },
-            name: "border-width",
-          })
-        ),
-        html.div(["column", "0", "center", "center"])(
-          html.div(["class", "h3"])("Border Radii"),
-          html.p(["class", "p"])("Set the border radius scale"),
-          ScalePicker({
-            size: 100,
-            curvature: 0,
-            steps: 100,
-            coordinates: { d: "", xs: [], ys: [] },
-            name: "border-radius",
-          })
-        ),
-        html.div(["column", "0", "center", "center"])(
-          html.div(["class", "h3"])("Font Sizing"),
-          html.p(["class", "p"])("Set the font sizing scale"),
-          ScalePicker({
-            size: 100,
-            curvature: 0,
-            steps: 100,
-            coordinates: { d: "", xs: [], ys: [] },
-            name: "font-sizing",
-          })
-        ),
-        html.div(["column", "0", "center", "center"])(
-          html.div(["class", "h3"])("Icon Sizing"),
-          html.p(["class", "p"])("Set the icon sizing scale"),
-          ScalePicker({
-            size: 100,
-            curvature: 0,
-            steps: 100,
-            coordinates: { d: "", xs: [], ys: [] },
-            name: "icon-sizing",
-          })
-        ),
-        html.div(["column", "0", "center", "center"])(
-          html.div(["class", "h3"])("Column Width"),
-          html.p(["class", "p"])("Set the column width scale"),
-          ScalePicker({
-            size: 100,
-            curvature: 0,
-            steps: 100,
-            coordinates: { d: "", xs: [], ys: [] },
-            name: "column-width",
-          })
-        ),
-        html.div(["column", "0", "center", "center"])(
-          html.div(["class", "h3"])("Row Width"),
-          html.p(["class", "p"])("Set the row width scale"),
-          ScalePicker({
-            size: 100,
-            curvature: 0,
-            steps: 100,
-            coordinates: { d: "", xs: [], ys: [] },
-            name: "row-width",
-          })
-        ),
-        html.div(["column", "0", "center", "center"])(
-          html.div(["class", "h3"])("Padding"),
-          html.p(["class", "p"])("Set the padding scale"),
-          ScalePicker({
-            size: 100,
-            curvature: 0,
-            steps: 100,
-            coordinates: { d: "", xs: [], ys: [] },
-            name: "padding",
-          })
-        )
-      ),
+        ["style:mobile", "flexDirection", "column"],
+        ["style:tablet", "flexDirection", "row"]
+      )(),
     ],
   ]
 )();

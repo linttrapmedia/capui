@@ -2,7 +2,7 @@ import { theme, themes } from "../state";
 import { html } from "../template";
 import { generateColorVariation } from "../util/helpers";
 
-export const PaletteList = () => {
+export const SemanticList = () => {
   if (theme.get() === "none") return html.div()("none");
   const currentTheme = themes.get()[theme.get()];
   const colors = themes.get()[theme.get()].colors;
@@ -19,20 +19,8 @@ export const PaletteList = () => {
     return hslValue;
   };
 
-  const getTextColor = (hex: string, variation: number) => {
-    const { hue, saturation, lightness } = generateColorVariation(
-      hex,
-      variation,
-      currentTheme.scaling.lightness,
-      currentTheme.scaling.saturation
-    );
-    const relativeLightness = lightness > 40 ? 0 : 100;
-    const hslValue = `hsl(${hue}, ${saturation}%, ${relativeLightness}%, 0.65)`;
-    return hslValue;
-  };
-
   return html.div(["column", "0px", "stretch", "space-between", "100%"])(
-    ...Object.entries(colors.palette).map(([name, value]) => {
+    ...Object.entries(colors.semantic).map(([name, value]) => {
       return html.div(
         ["row"],
         ["style", "cursor", "pointer"],
@@ -58,10 +46,9 @@ export const PaletteList = () => {
             ["column"],
             ["style:mobile", "fontSize", "10px"],
             ["style:tablet", "fontSize", "12px"],
-            ["style", "backgroundColor", getValue(value, num)],
+            ["style", "backgroundColor", `var(--${value}-${num}0)`],
             ["style", "height", "100%"],
-            ["style", "width", "100%"],
-            ["style", "color", getTextColor(value, num)]
+            ["style", "width", "100%"]
           )()
         )
       );

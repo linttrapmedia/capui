@@ -31,8 +31,10 @@ export const html = HTML({
   innerHTML: useInnerHTML(),
   input: useEvent({ event: "input" }),
   style: useStyle(),
-  "mobile:style": useStyle({ mediaMinWidth: 0 }),
-  "tablet:style": useStyle({ mediaMinWidth: 768 }),
+  "style:mobile": useStyle({ mediaMinWidth: 0 }),
+  "style:tablet": useStyle({ mediaMinWidth: 768 }),
+  "style:mouseover": useStyle({ event: "mouseover" }),
+  "style:mouseout": useStyle({ event: "mouseout" }),
   column: useColumn,
   row: useRow,
 });
