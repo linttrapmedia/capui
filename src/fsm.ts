@@ -16,7 +16,7 @@ import { renderTogglesStyleSheet, togglesStyleSheet } from "./components/toggles
 import { renderTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
 import { renderTooltipStyleSheet, tooltipStyleSheet } from "./components/tooltip/tooltip";
 import { renderTypographyStylesheet } from "./components/typography/typography";
-import { theme } from "./state";
+import { theme, themeList } from "./data/themes/Theme";
 import { getStylesheetContents } from "./util/css";
 
 declare var JSZip: any;
@@ -84,7 +84,8 @@ export const fsm = (msg: FSM) => {
       renderTokensStyleSheet();
       break;
     case "SET_THEME":
-      theme.set(msg.theme);
+      const themeFromThemeList = themeList.get()[msg.theme];
+      theme.set(themeFromThemeList);
       fsm({ action: "RENDER_ALL_STYLESHEETS" });
       break;
     case "RENDER_ALL_STYLESHEETS":

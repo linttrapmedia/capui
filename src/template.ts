@@ -1,5 +1,5 @@
 import { HTML, useAttribute, useClassName, useEvent, useInnerHTML, useStyle } from "@linttrap/oem";
-import { theme } from "./state";
+import { theme } from "./data/themes/Theme";
 import { useColumn, useRow } from "./traits";
 // import { colorPickerState, pageState, propertiesState, themeState, themesState, tokensEnabledState } from "./state";
 

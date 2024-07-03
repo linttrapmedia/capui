@@ -1,17 +1,7 @@
-import { theme, themes } from "../../state";
+import { theme } from "../../data/themes/Theme";
+import { Theme } from "../../data/themes/typings";
 
-export type SliderSettings = {
-  bgColorHoverToken: `--${string}`;
-  bgColorToken: `--${string}`;
-  borderColorToken: `--${string}`;
-  borderColorHoverToken: `--${string}`;
-  borderRadius: `--${string}`;
-  borderWidth: `--${string}`;
-  colorHoverToken: `--${string}`;
-  colorToken: `--${string}`;
-};
-
-export const DEFAULT_SLIDER_SETTINGS: SliderSettings = {
+export const DEFAULT_SLIDER_SETTINGS: Theme["components"]["slider"] = {
   bgColorHoverToken: "--background-100",
   bgColorToken: "--background-100",
   borderColorToken: "--foreground-100",
@@ -25,7 +15,7 @@ export const DEFAULT_SLIDER_SETTINGS: SliderSettings = {
 export const sliderStyleSheet = new CSSStyleSheet();
 
 export const renderSliderStyleSheet = () => {
-  const settings = theme.get() !== "none" ? themes.get()[theme.get()].slider : DEFAULT_SLIDER_SETTINGS;
+  const settings = theme.get().components.slider ?? DEFAULT_SLIDER_SETTINGS;
 
   return sliderStyleSheet.replaceSync(`
 .slider { 

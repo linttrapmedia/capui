@@ -1,66 +1,89 @@
-import { themes } from "../../state";
-import { generateColorVariation, scaleNumbers } from "../../util/helpers";
+import { themeList } from "../../data/themes/Theme";
 
 export const tokensStyleSheet = new CSSStyleSheet();
 
-const colorScaling = [10, 20, 30, 40, 50, 60, 70, 80, 90];
-
 export const renderTokensStyleSheet = () => {
   let tokens = "";
-  for (const theme in themes.get()) {
-    tokens += ':root[data-theme="' + theme + '"] {\n';
+  for (const t in themeList.get()) {
+    tokens += ':root[data-theme="' + t + '"] {\n';
 
     // palette
-    for (const key in themes.get()[theme].colors.palette) {
-      const value = (themes.get()[theme].colors.palette as any)[key];
-      for (const num of colorScaling) {
-        const hsl = generateColorVariation(
-          value,
-          num,
-          themes.get()[theme].scaling.lightness,
-          themes.get()[theme].scaling.saturation
-        );
-        const color = `hsl(${hsl.hue}, ${hsl.saturation}%, ${hsl.lightness}%)`;
-        tokens += `--${key}-${num}0: ${color};\n`;
+    for (const paletteKey in themeList.get()[t].globals.palette) {
+      const paletteItems = (themeList.get()[t].globals.palette as any)[paletteKey];
+      for (const num in paletteItems) {
+        tokens += `--${paletteKey}-${num}: ${paletteItems[num]};\n`;
       }
     }
 
     // semantic
-    for (const key in themes.get()[theme].colors.semantic) {
-      const colorKey = (themes.get()[theme].colors.semantic as any)[key];
-      const value = (themes.get()[theme].colors.palette as any)[colorKey];
-      for (const num of colorScaling) {
-        const hsl = generateColorVariation(
-          value,
-          num,
-          themes.get()[theme].scaling.lightness,
-          themes.get()[theme].scaling.saturation
-        );
-        const color = `hsl(${hsl.hue}, ${hsl.saturation}%, ${hsl.lightness}%)`;
-        tokens += `--${key}-${num}0: ${color};\n`;
+    for (const semanticItem in themeList.get()[t].globals.semantic) {
+      const paletteKey = (themeList.get()[t].globals.semantic as any)[semanticItem];
+      const paletteItems = (themeList.get()[t].globals.palette as any)[paletteKey];
+      for (const num in paletteItems) {
+        const token = `--${semanticItem}-${num}: var(--${paletteKey}-${num}, ${paletteItems[num]});\n`;
+        tokens += token;
       }
     }
 
-    // inputs
-    const scaling = themes.get()[theme].scaling;
-    const borders = scaleNumbers(10, 1, 9, scaling.borderWidth, 1);
-    for (let n = 1; n <= borders.length; n++) tokens += `--border-width-${n}00: ${borders[n - 1]}px;\n`;
-    const radii = scaleNumbers(10, 1, 9, scaling.borderRadius, 1);
-    for (let n = 1; n <= radii.length; n++) tokens += `--border-radius-${n}00: ${radii[n - 1]}px;\n`;
-    const columns = scaleNumbers(10, 1, 9, scaling.columnWidth, 1);
-    for (let n = 1; n <= columns.length; n++) tokens += `--column-width-${n}00: ${columns[n - 1]}ch;\n`;
-    const fontSizes = scaleNumbers(10, 1, 9, scaling.fontSize, 1);
-    for (let n = 1; n <= fontSizes.length; n++) tokens += `--font-size-${n}00: ${fontSizes[n - 1]}ch;\n`;
-    const iconSizes = scaleNumbers(10, 1, 9, scaling.iconSize, 1);
-    for (let n = 1; n <= iconSizes.length; n++) tokens += `--icon-size-${n}00: ${iconSizes[n - 1]}ch;\n`;
-    const rowWidths = scaleNumbers(10, 1, 9, scaling.rowWidth, 1);
-    for (let n = 1; n <= rowWidths.length; n++) tokens += `--row-width-${n}00: ${rowWidths[n - 1]}ch;\n`;
-    const paddings = scaleNumbers(10, 1, 9, scaling.padding, 1);
-    for (let n = 1; n <= paddings.length; n++) tokens += `--padding-${n}00: ${paddings[n - 1]}ch;\n`;
+    // fonts
+    // tokens += `--font-serif: ${themeList.get()[t].globals.font.serif};\n`;
+    // tokens += `--font-sans: ${themeList.get()[t].globals.font.sans};\n`;
+    // tokens += `--font-mono: ${themeList.get()[t].globals.font.mono};\n`;
+
+    // // columns
+    // for (const col in themeList.get()[t].globals.scales.column) {
+    //   tokens += `--column-${col}: ${(themeList.get()[t].globals.scales.column as any)[col]};\n`;
+    // }
+
+    // // rows
+    // for (const row in themeList.get()[t].globals.scales.row) {
+    //   tokens += `--row-${row}: ${(themeList.get()[t].globals.scales.row as any)[row]};\n`;
+    // }
+
+    // // paddings
+    // for (const padding in themeList.get()[t].globals.scales.padding) {
+    //   tokens += `--padding-${padding}: ${(themeList.get()[t].globals.scales.padding as any)[padding]};\n`;
+    // }
+
+    // // margins
+    // for (const margin in themeList.get()[t].globals.scales.margin) {
+    //   tokens += `--margin-${margin}: ${(themeList.get()[t].globals.scales.margin as any)[margin]};\n`;
+    // }
+
+    // // borders
+    // for (const border in themeList.get()[t].globals.scales.border.width) {
+    //   tokens += `--border-width-${border}: ${(themeList.get()[t].globals.scales.border.width as any)[border]};\n`;
+    // }
+
+    // // border radii
+    // for (const radius in themeList.get()[t].globals.scales.border.radius) {
+    //   tokens += `--border-radius-${radius}: ${(themeList.get()[t].globals.scales.border.radius as any)[radius]};\n`;
+    // }
+
+    // // font sizes
+    // for (const fontSize in themeList.get()[t].globals.scales.font.size) {
+    //   tokens += `--font-size-${fontSize}: ${(themeList.get()[t].globals.scales.font.size as any)[fontSize]};\n`;
+    // }
+
+    // // font weights
+    // for (const fontWeight in themeList.get()[t].globals.scales.font.weight) {
+    //   tokens += `--font-weight-${fontWeight}: ${(themeList.get()[t].globals.scales.font.weight as any)[fontWeight]};\n`;
+    // }
+
+    // // font line heights
+    // for (const lineHeight in themeList.get()[t].globals.scales.font.lineHeight) {
+    //   tokens += `--line-height-${lineHeight}: ${
+    //     (themeList.get()[t].globals.scales.font.lineHeight as any)[lineHeight]
+    //   };\n`;
+    // }
+
+    // // icon sizes
+    // for (const iconSize in themeList.get()[t].globals.scales.icon.size) {
+    //   tokens += `--icon-size-${iconSize}: ${(themeList.get()[t].globals.scales.icon.size as any)[iconSize]};\n`;
+    // }
 
     tokens += `}\n`;
   }
 
-  // console.log(tokens);
   tokensStyleSheet.replaceSync(tokens);
 };

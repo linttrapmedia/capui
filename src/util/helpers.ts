@@ -168,6 +168,13 @@ export function scaleNumbers(
   return scaledNumbers;
 }
 
+export const getContrastTextColor = (hex: string) => {
+  const { hue, saturation, lightness } = hexToHSL(hex);
+  const relativeLightness = lightness < 50 ? 100 : 0;
+  const hslValue = `hsl(${hue}, ${saturation}%, ${relativeLightness}%, 1)`;
+  return hslValue;
+};
+
 // // Function to generate HSL variations
 // export function generateHSLVariations(hexColor: string): { [key: number]: string } {
 //   const [baseHue, baseSaturation, baseLightness] = hexToHSL(hexColor);

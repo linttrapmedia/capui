@@ -1,17 +1,7 @@
-import { theme, themes } from "../../state";
+import { theme } from "../../data/themes/Theme";
+import { Theme } from "../../data/themes/typings";
 
-export type DropdownSettings = {
-  bgColorHoverToken: `--${string}`;
-  bgColorToken: `--${string}`;
-  borderColorToken: `--${string}`;
-  borderColorHoverToken: `--${string}`;
-  borderRadiusToken: `--${string}`;
-  borderWidthToken: `--${string}`;
-  colorHoverToken: `--${string}`;
-  colorToken: `--${string}`;
-};
-
-export const DEFAULT_DROPDOWN_SETTINGS: DropdownSettings = {
+export const DEFAULT_DROPDOWN_SETTINGS: Theme["components"]["dropdown"] = {
   bgColorHoverToken: "--background-700",
   bgColorToken: "--background-500",
   borderColorToken: "--foreground-100",
@@ -25,7 +15,7 @@ export const DEFAULT_DROPDOWN_SETTINGS: DropdownSettings = {
 export const dropdownStyleSheet = new CSSStyleSheet();
 
 export const renderDropdownStyleSheet = () => {
-  const settings = theme.get() !== "none" ? themes.get()[theme.get()].dropdown : DEFAULT_DROPDOWN_SETTINGS;
+  const settings = theme.get().components.dropdown ?? DEFAULT_DROPDOWN_SETTINGS;
 
   const styles = `
 .dropdown {

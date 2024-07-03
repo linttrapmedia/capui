@@ -16,15 +16,14 @@ import { togglesStyleSheet } from "./components/toggles/toggles";
 import { tokensStyleSheet } from "./components/tokens/tokens";
 import { tooltipStyleSheet } from "./components/tooltip/tooltip";
 import { typographyStylesheet } from "./components/typography/typography";
-import { PaletteList } from "./features/PaletteList";
-import { SemanticList } from "./features/SemanticList";
+import { theme, themeList } from "./data/themes/Theme";
+import { PalettePickers } from "./features/PalettePicker";
+import { SemanticPickers } from "./features/SemanticPicker";
 import { fsm } from "./fsm";
-import { theme, themes } from "./state";
 import { html } from "./template";
 
 const Header = html.div(
   ["row", "10px", "center", "space-between"],
-  ["style", "backgroundColor", "var(--background-600, white)"],
   ["style", "color", "var(--text-500, black)"],
   ["style", "position", "sticky"],
   ["style", "top", "0"],
@@ -80,26 +79,48 @@ const Header = html.div(
 
 const Body = html.div(
   ["column", "20px", "flex-start", "space-between"],
-  ["style", "width", "100%"],
   ["style", "padding", "20px"],
   [
     "innerHTML:theme",
-    () => [
-      html.div(["column", "20px", "flex-start", "center", "100%"])(html.div(["class", "h3"])("Palette"), PaletteList()),
-      html.div(["column", "20px", "flex-start", "center", "100%"])(
-        html.div(["class", "h3"])("Semantic"),
-        SemanticList()
-      ),
-      html.div(
-        ["style", "display", "flex"],
-        ["style", "gap", "20px"],
-        ["style", "width", "100%"],
-        ["style", "alignItems", "center"],
-        ["style", "justifyContent", "center"],
-        ["style:mobile", "flexDirection", "column"],
-        ["style:tablet", "flexDirection", "row"]
-      )(),
-    ],
+    () => {
+      return [
+        html.div(["class", "h2"])("Tokens"),
+        html.div(["column", "10px", "flex-start", "center", "100%"])(
+          html.div(["class", "h3"])("Palette"),
+          html.p(["class", "p"])("Define the fundamental colors of your design system."),
+          PalettePickers()
+        ),
+        html.div(["column", "10px", "flex-start", "center", "100%"])(
+          html.div(["class", "h3"])("Semantic"),
+          html.p(["class", "p"])("Assign meaning to your colors."),
+          SemanticPickers()
+        ),
+        html.div(["class", "h3"])("Fonts"),
+        html.div(["class", "h3"])("Text"),
+        html.div(["class", "h3"])("Grids"),
+        html.div(["class", "h3"])("Boxes"),
+        html.div(["class", "h3"])("Icons"),
+        html.div(["class", "h2"])("Components"),
+        html.div(["class", "h3"])("Accordion"),
+        html.div(["class", "h3"])("Alerts"),
+        html.div(["class", "h3"])("Background"),
+        html.div(["class", "h3"])("Badge"),
+        html.div(["class", "h3"])("Button"),
+        html.div(["class", "h3"])("Card"),
+        html.div(["class", "h3"])("Dashboard"),
+        html.div(["class", "h3"])("Dialog"),
+        html.div(["class", "h3"])("Dropdown"),
+        html.div(["class", "h3"])("Flexgrid"),
+        html.div(["class", "h3"])("Flexpane"),
+        html.div(["class", "h3"])("Grid"),
+        html.div(["class", "h3"])("Section"),
+        html.div(["class", "h3"])("Sizing"),
+        html.div(["class", "h3"])("Slider"),
+        html.div(["class", "h3"])("Toggles"),
+        html.div(["class", "h3"])("Tooltip"),
+        html.div(["class", "h3"])("Typography"),
+      ];
+    },
   ]
 )();
 
@@ -118,8 +139,8 @@ const Footer = html.div(
   )(
     html.optgroup(["attr", "label", "Pick a theme"])(
       html.option(["attr", "value", "none"])("none"),
-      ...Object.keys(themes.get()).map((t: string) =>
-        html.option(["attr", "value", t], ["attr", "selected", t === theme.get()])(t)
+      ...Object.entries(themeList.get()).map(([k]) =>
+        html.option(["attr", "value", k], ["attr", "selected", k === theme.get().name])(k)
       )
     )
   ),
@@ -129,7 +150,10 @@ const Footer = html.div(
 document.addEventListener("DOMContentLoaded", () => {
   const root = html.$el("#root");
   const doc = html.$el("html");
-  doc(["attr:theme", "data-theme", theme.get], ["style", "backgroundColor", "var(--background-600)"]);
+  doc(
+    ["attr:theme", "data-theme", () => theme.get().name],
+    ["style", "backgroundColor", "var(--background-200, white)"]
+  );
   root(["innerHTML", () => [Header, Body, Footer]]);
   fsm({ action: "RENDER_ALL_STYLESHEETS" });
 

@@ -1,40 +1,37 @@
-import { theme, themes } from "../../state";
+import { theme } from "../../data/themes/Theme";
+import { Theme } from "../../data/themes/typings";
 
-export type ButtonSettings = {
-  bgColorHoverToken: `--${string}`;
-  bgColorToken: `--${string}`;
-  borderColorToken: `--${string}`;
-  borerColorHoverToken: `--${string}`;
-  colorHoverToken: `--${string}`;
-  colorToken: `--${string}`;
-};
-
-export const DEFAULT_BUTTON_SETTINGS: ButtonSettings = {
+export const DEFAULT_BUTTON_SETTINGS: Theme["components"]["button"] = {
   bgColorHoverToken: "--background-700",
   bgColorToken: "--background-500",
-  borderColorToken: "--foreground-100",
-  borerColorHoverToken: "--foreground-200",
+  borderColorToken: "--foreground-500",
+  borderColorHoverToken: "--foreground-500",
+  borderRadiusToken: "--border-radius-300",
+  borderWidthToken: "--border-width-300",
   colorHoverToken: "--text-500",
   colorToken: "--text-500",
+  fontSize: 1,
+  fontWeight: 400,
+  fontLineHeight: 1.5,
 };
 
 export const buttonStyleSheet = new CSSStyleSheet();
 
 export const renderButtonStyleSheet = () => {
-  const settings = theme.get() !== "none" ? themes.get()[theme.get()].button : DEFAULT_BUTTON_SETTINGS;
+  const settings = theme.get().components.button ?? DEFAULT_BUTTON_SETTINGS;
 
   return buttonStyleSheet.replaceSync(`
 .button { 
   --button-bg-color: var(${settings.bgColorToken}, black);
   --button-bg-color-hover: var(${settings.bgColorHoverToken}, rgba(0, 0, 0, 0.1));
   --button-border-color: var(${settings.borderColorToken}, black);
-  --button-border-radius: ${settings.borderRadius}ch;
-  --button-border-width: ${settings.borderWidth}ch;
+  --button-border-radius: var(${settings.borderRadiusToken}, 0);
+  --button-border-width: var(${settings.borderWidthToken}, 0);
   --button-color: var(${settings.colorToken}, white);
   --button-color-hover: var(${settings.colorHoverToken}, black);
   --button-font-size: ${settings.fontSize}ch;
   --button-font-weight: ${settings.fontWeight};
-  --button-line-height: ${settings.lineHeight}ch;
+  --button-line-height: ${settings.fontLineHeight}ch;
   --button-arrow-size: ${settings.fontSize * 0.5}ch;
 
   appearance: none;
