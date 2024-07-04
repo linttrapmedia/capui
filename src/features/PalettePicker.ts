@@ -10,6 +10,7 @@ const currentPickerScaleKey = State<PaletteScaleKey>("500");
 
 const tmpl = HTML({
   attr: useAttribute({ state: state }),
+  "attr:scalekey": useAttribute({ state: currentPickerScaleKey }),
   class: useClassName({ state: state }),
   style: useStyle({ state: state }),
   column: useColumn,
@@ -81,7 +82,7 @@ export const PalettePicker = (paletteKey: PaletteKeys) => {
           ["style", "alignItems", "center"],
           ["style", "fontSize", "0.75ch"],
           ["style", "color", getContrastTextColor(color)],
-          ["attr", "for", `${paletteKey}-${num}`],
+          ["attr", "for", paletteKey],
           ["style", "position", "relative"],
           ["click", () => currentPickerScaleKey.set(num as any)]
         )(num)
@@ -92,6 +93,7 @@ export const PalettePicker = (paletteKey: PaletteKeys) => {
       ["attr", "id", paletteKey],
       ["style", "visibility", "hidden"],
       ["attr", "value", () => state.get()[paletteKey][currentPickerScaleKey.get()]],
+      ["attr:scalekey", "value", () => state.get()[paletteKey][currentPickerScaleKey.get()]],
       ["input", handleInput],
       ["change", handleChange],
       ["style", "position", "absolute"],

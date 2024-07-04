@@ -92,7 +92,7 @@ const Body = html.div(
         ),
         html.div(["column", "10px", "flex-start", "center", "100%"])(
           html.div(["class", "h3"])("Semantic"),
-          html.p(["class", "p"])("Assign meaning to your colors."),
+          html.p(["class", "p"])("Assign the semantic use of your colors."),
           SemanticPickers()
         ),
         html.div(["class", "h3"])("Fonts"),
