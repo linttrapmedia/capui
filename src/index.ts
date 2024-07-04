@@ -56,7 +56,14 @@ const Header = html.div(
       ["change", (e) => (window.location.hash = (e!.target as any).value)]
     )(
       html.optgroup(["attr", "label", "Section"])(
-        html.option()("tokens"),
+        html.option()("palette"),
+        html.option()("colors"),
+        html.option()("fonts"),
+        html.option()("text"),
+        html.option()("grids"),
+        html.option()("boxes"),
+        html.option()("icons"),
+        html.option()("colors"),
         html.option()("buttons"),
         html.option()("dropdown"),
         html.option()("accordion"),
@@ -78,14 +85,14 @@ const Header = html.div(
 );
 
 const Body = html.div(
-  ["column", "20px", "flex-start", "space-between"],
+  ["column", "60px", "flex-start", "space-between"],
   ["style", "padding", "20px"],
   [
     "innerHTML:theme",
     () => {
       return [
-        html.div(["class", "h2"])("Tokens"),
         html.div(["column", "10px", "flex-start", "center", "100%"])(
+          html.div(["class", "h2"])("Tokens"),
           html.div(["class", "h3"])("Palette"),
           html.p(["class", "p"])("Define the fundamental colors of your design system."),
           PalettePickers()
