@@ -16,7 +16,7 @@ import { renderTogglesStyleSheet, togglesStyleSheet } from "./components/toggles
 import { renderTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
 import { renderTooltipStyleSheet, tooltipStyleSheet } from "./components/tooltip/tooltip";
 import { renderTypographyStylesheet } from "./components/typography/typography";
-import { theme, themeList } from "./data/themes/Theme";
+import { theme, themeList } from "./state/Theme";
 import { getStylesheetContents } from "./util/css";
 
 declare var JSZip: any;

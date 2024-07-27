@@ -1,6 +1,6 @@
 import { fsm } from "../../fsm";
-import { Themes, themeState, themesState, tokensEnabledState } from "../../state";
 import { html } from "../../template";
+import { Themes, themeState, themesState, tokensEnabledState } from "../../x.state";
 
 const Option = (theme: string) => html.option(["attr", "selected", true, () => themeState.get() === theme])(theme);
 

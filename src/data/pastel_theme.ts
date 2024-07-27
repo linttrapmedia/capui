@@ -1,4 +1,4 @@
-import { Theme } from "./typings";
+import { Theme } from "../state/typings";
 
 export const pastelTheme: Theme = {
   name: "pastel",
@@ -51,10 +51,6 @@ export const pastelTheme: Theme = {
     tooltip: {},
     typography: {
       colorToken: "--text-500",
-      fontSizeBase: 16,
-      fontSizeSpread: 1.25,
-      fontWeight: 400,
-      lineHeight: 1.6,
     },
   },
   globals: {
@@ -169,6 +165,47 @@ export const pastelTheme: Theme = {
       success: "green",
       text: "black",
       warning: "yellow",
+    },
+    fonts: {
+      display: "Poppins, sans-serif",
+      mono: "monospace",
+      sans: "Arial, sans-serif",
+      serif: "Georgia, serif",
+    },
+    text: {
+      lineHeight: {
+        "100": 1.2,
+        "200": 1.4,
+        "300": 1.6,
+        "400": 1.8,
+        "500": 2.0,
+        "600": 2.2,
+        "700": 2.4,
+        "800": 2.6,
+        "900": 2.8,
+      },
+      size: {
+        "100": "1ch",
+        "200": "2ch",
+        "300": "3ch",
+        "400": "4ch",
+        "500": "5ch",
+        "600": "6ch",
+        "700": "7ch",
+        "800": "8ch",
+        "900": "9ch",
+      },
+      weight: {
+        "100": 100,
+        "200": 200,
+        "300": 300,
+        "400": 400,
+        "500": 500,
+        "600": 600,
+        "700": 700,
+        "800": 800,
+        "900": 900,
+      },
     },
   },
 };

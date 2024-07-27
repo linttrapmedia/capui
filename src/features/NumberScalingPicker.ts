@@ -1,5 +1,5 @@
 import { HTML, SVG, State, useAttribute, useEvent, useInnerHTML, useStyle, useTextContent } from "@linttrap/oem";
-import { useColumn, useRow } from "../traits";
+import { useColumn, useRow } from "../traits/traits";
 import { scaleNumbers } from "../util/helpers";
 
 type NumberScalingPickerProps = {

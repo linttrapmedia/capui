@@ -1,34 +1,65 @@
-import { themeList } from "../../data/themes/Theme";
+import { themeList } from "../../state/Theme";
 
 export const tokensStyleSheet = new CSSStyleSheet();
 
 export const renderTokensStyleSheet = () => {
   let tokens = "";
   for (const t in themeList.get()) {
+    const currTheme = themeList.get()[t];
     tokens += ':root[data-theme="' + t + '"] {\n';
 
     // palette
-    for (const paletteKey in themeList.get()[t].globals.palette) {
-      const paletteItems = (themeList.get()[t].globals.palette as any)[paletteKey];
+    let palette = "";
+    for (const paletteKey in currTheme.globals.palette) {
+      const paletteItems = (currTheme.globals.palette as any)[paletteKey];
       for (const num in paletteItems) {
-        tokens += `--${paletteKey}-${num}: ${paletteItems[num]};\n`;
+        palette += `--${paletteKey}-${num}: ${paletteItems[num]};\n`;
       }
     }
+    tokens += palette;
 
     // semantic
-    for (const semanticItem in themeList.get()[t].globals.semantic) {
-      const paletteKey = (themeList.get()[t].globals.semantic as any)[semanticItem];
-      const paletteItems = (themeList.get()[t].globals.palette as any)[paletteKey];
+    let semantic = "";
+    for (const semanticItem in currTheme.globals.semantic) {
+      const paletteKey = (currTheme.globals.semantic as any)[semanticItem];
+      const paletteItems = (currTheme.globals.palette as any)[paletteKey];
       for (const num in paletteItems) {
         const token = `--${semanticItem}-${num}: var(--${paletteKey}-${num}, ${paletteItems[num]});\n`;
-        tokens += token;
+        semantic += token;
       }
     }
+    tokens += semantic;
 
     // fonts
-    // tokens += `--font-serif: ${themeList.get()[t].globals.font.serif};\n`;
-    // tokens += `--font-sans: ${themeList.get()[t].globals.font.sans};\n`;
-    // tokens += `--font-mono: ${themeList.get()[t].globals.font.mono};\n`;
+    let fonts = "";
+    for (const font in currTheme.globals.fonts) {
+      fonts += `--font-${font}: ${(currTheme.globals.fonts as any)[font]};\n`;
+    }
+    tokens += fonts;
+
+    // text sizes
+    let textSizes = "";
+    for (const size in currTheme.globals.text?.size) {
+      textSizes += `--text-size-${size}: ${(currTheme.globals.text.size as any)[size]};\n`;
+    }
+    tokens += textSizes;
+    console.log(textSizes);
+
+    // text weights
+    let textWeights = "";
+    for (const weight in currTheme.globals.text?.weight) {
+      textWeights += `--text-weight-${weight}: ${(currTheme.globals.text.weight as any)[weight]};\n`;
+    }
+    tokens += textWeights;
+
+    // text line heights
+    let textLineHeights = "";
+    for (const lineHeight in currTheme.globals.text?.lineHeight) {
+      textLineHeights += `--text-line-height-${lineHeight}: ${
+        (currTheme.globals.text.lineHeight as any)[lineHeight]
+      };\n`;
+    }
+    tokens += textLineHeights;
 
     // // columns
     // for (const col in themeList.get()[t].globals.scales.column) {

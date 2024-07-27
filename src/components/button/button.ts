@@ -1,5 +1,5 @@
-import { theme } from "../../data/themes/Theme";
-import { Theme } from "../../data/themes/typings";
+import { theme } from "../../state/Theme";
+import { Theme } from "../../state/typings";
 
 export const DEFAULT_BUTTON_SETTINGS: Theme["components"]["button"] = {
   bgColorHoverToken: "--background-700",

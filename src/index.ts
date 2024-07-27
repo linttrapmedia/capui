@@ -16,10 +16,10 @@ import { togglesStyleSheet } from "./components/toggles/toggles";
 import { tokensStyleSheet } from "./components/tokens/tokens";
 import { tooltipStyleSheet } from "./components/tooltip/tooltip";
 import { typographyStylesheet } from "./components/typography/typography";
-import { theme, themeList } from "./data/themes/Theme";
 import { PalettePickers } from "./features/PalettePicker";
 import { SemanticPickers } from "./features/SemanticPicker";
 import { fsm } from "./fsm";
+import { theme, themeList } from "./state/Theme";
 import { html } from "./template";
 
 const Header = html.div(
@@ -92,40 +92,40 @@ const Body = html.div(
     () => {
       return [
         html.div(["column", "10px", "flex-start", "center", "100%"])(
-          html.div(["class", "h2"])("Tokens"),
-          html.div(["class", "h3"])("Palette"),
+          html.h2(["class", "h2"])("Tokens"),
+          html.h3(["class", "h3"])("Palette"),
           html.p(["class", "p"])("Define the fundamental colors of your design system."),
           PalettePickers()
         ),
         html.div(["column", "10px", "flex-start", "center", "100%"])(
-          html.div(["class", "h3"])("Semantic"),
+          html.h3(["class", "h3"])("Semantic"),
           html.p(["class", "p"])("Assign the semantic use of your colors."),
           SemanticPickers()
         ),
-        html.div(["class", "h3"])("Fonts"),
-        html.div(["class", "h3"])("Text"),
-        html.div(["class", "h3"])("Grids"),
-        html.div(["class", "h3"])("Boxes"),
-        html.div(["class", "h3"])("Icons"),
-        html.div(["class", "h2"])("Components"),
-        html.div(["class", "h3"])("Accordion"),
-        html.div(["class", "h3"])("Alerts"),
-        html.div(["class", "h3"])("Background"),
-        html.div(["class", "h3"])("Badge"),
-        html.div(["class", "h3"])("Button"),
-        html.div(["class", "h3"])("Card"),
-        html.div(["class", "h3"])("Dashboard"),
-        html.div(["class", "h3"])("Dialog"),
-        html.div(["class", "h3"])("Dropdown"),
-        html.div(["class", "h3"])("Flexgrid"),
-        html.div(["class", "h3"])("Flexpane"),
-        html.div(["class", "h3"])("Grid"),
-        html.div(["class", "h3"])("Section"),
-        html.div(["class", "h3"])("Sizing"),
-        html.div(["class", "h3"])("Slider"),
-        html.div(["class", "h3"])("Toggles"),
-        html.div(["class", "h3"])("Tooltip"),
-        html.div(["class", "h3"])("Typography"),
+        html.h3(["class", "h3"])("Fonts"),
+        html.h3(["class", "h3"])("Text"),
+        html.h3(["class", "h3"])("Grids"),
+        html.h3(["class", "h3"])("Boxes"),
+        html.h3(["class", "h3"])("Icons"),
+        html.h2(["class", "h2"])("Components"),
+        html.h3(["class", "h3"])("Accordion"),
+        html.h3(["class", "h3"])("Alerts"),
+        html.h3(["class", "h3"])("Background"),
+        html.h3(["class", "h3"])("Badge"),
+        html.h3(["class", "h3"])("Button"),
+        html.h3(["class", "h3"])("Card"),
+        html.h3(["class", "h3"])("Dashboard"),
+        html.h3(["class", "h3"])("Dialog"),
+        html.h3(["class", "h3"])("Dropdown"),
+        html.h3(["class", "h3"])("Flexgrid"),
+        html.h3(["class", "h3"])("Flexpane"),
+        html.h3(["class", "h3"])("Grid"),
+        html.h3(["class", "h3"])("Section"),
+        html.h3(["class", "h3"])("Sizing"),
+        html.h3(["class", "h3"])("Slider"),
+        html.h3(["class", "h3"])("Toggles"),
+        html.h3(["class", "h3"])("Tooltip"),
+        html.h3(["class", "h3"])("Typography"),
       ];
     },
   ]

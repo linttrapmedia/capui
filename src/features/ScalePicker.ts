@@ -1,5 +1,5 @@
 import { HTML, SVG, State, useAttribute, useClassName, useEvent, useInnerHTML, useStyle } from "@linttrap/oem";
-import { useColumn } from "../traits";
+import { useColumn } from "../traits/traits";
 import { generateBezierCurve } from "../util/helpers";
 
 type ScalePickerProps = {

@@ -14,6 +14,7 @@ import { sectionStyleSheet } from "./components/section/section";
 import { togglesStyleSheet } from "./components/toggles/toggles";
 import { renderTokensStyleSheet, tokensStyleSheet } from "./components/tokens/tokens";
 import { tooltipStyleSheet } from "./components/tooltip/tooltip";
+import { getStylesheetContents } from "./util/css";
 import {
   Pages,
   Properties,
@@ -25,8 +26,7 @@ import {
   themeState,
   themesState,
   tokensEnabledState,
-} from "./state";
-import { getStylesheetContents } from "./util/css";
+} from "./x.state";
 
 declare var JSZip: any;
 

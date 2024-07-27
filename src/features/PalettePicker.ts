@@ -1,8 +1,8 @@
 import { HTML, State, useAttribute, useClassName, useEvent, useStyle, useTextContent } from "@linttrap/oem";
-import { theme, themeList } from "../data/themes/Theme";
-import { PaletteKeys, PaletteScaleKey, Theme } from "../data/themes/typings";
 import { fsm } from "../fsm";
-import { useColumn, useRow } from "../traits";
+import { theme, themeList } from "../state/Theme";
+import { PaletteKeys, PaletteScaleKey, Theme } from "../state/typings";
+import { useColumn, useRow } from "../traits/traits";
 import { getContrastTextColor } from "../util/helpers";
 
 const state = State<Theme["globals"]["palette"]>(theme.get().globals.palette);

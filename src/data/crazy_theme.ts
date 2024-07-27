@@ -1,4 +1,4 @@
-import { Theme } from "./typings";
+import { Theme } from "../state/typings";
 
 export const crazyTheme: Theme = {
   name: "crazy",

@@ -1,5 +1,5 @@
-import { theme } from "../../data/themes/Theme";
-import { Theme } from "../../data/themes/typings";
+import { theme } from "../../state/Theme";
+import { Theme } from "../../state/typings";
 
 export const DEFAULT_SLIDER_SETTINGS: Theme["components"]["slider"] = {
   bgColorHoverToken: "--background-100",

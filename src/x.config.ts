@@ -1,4 +1,4 @@
-import { dialog } from "./state";
+import { dialog } from "./x.state";
 import { Component } from "./x.typings";
 
 const isGithub = window.location.host === "linttrapmedia.github.io";
